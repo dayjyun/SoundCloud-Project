@@ -1,4 +1,4 @@
-# `<name of application here>`
+# `SoundCloud Project`
 
 ## Database Schema Design
 
@@ -1260,7 +1260,7 @@ Add a song to a playlist specified by the playlist's id.
 * Require proper authorization: Playlist must belong to the current user
 * Request
   * Method: POST
-  * URL: /playlists/:playlistId/songs
+  * URL: /playlists/:playlistId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -1372,7 +1372,7 @@ Updates and returns an existing playlist.
 * Require proper authorization: Playlist must belong to the current user
 * Request
   * Method: PUT/PATCH
-  * URL: ?
+  * URL: /playlists/:playlistId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -1474,7 +1474,7 @@ Returns all the playlists created by the current user.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: ?
+  * URL: /users/:userId/playlists
   * Body: none
 
 * Successful Response
