@@ -49,8 +49,8 @@ Returns the information about the current user that is logged in.
 
 * Require Authentication: true
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /users/:userId
   * Body: none
 
 * Successful Response
@@ -76,8 +76,8 @@ information.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /users/:userId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -143,8 +143,8 @@ user's information.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: POST
+  * URL: /users
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -233,8 +233,8 @@ Returns all the songs.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /songs
   * Body: none
 
 * Successful Response
@@ -267,8 +267,8 @@ Returns all the songs created by the current user.
 
 * Require Authentication: true
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /users/:userId/songs
   * Body: none
 
 * Successful Response
@@ -301,8 +301,8 @@ Returns the details of a song specified by its id.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /songs/:songId
   * Body: none
 
 * Successful Response
@@ -355,8 +355,8 @@ Creates and returns a new song.
 * Require Authentication: true
 * Require proper authorization: Album must belong to the current user
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: POST
+  * URL: /albums/:albumId/songs
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -385,7 +385,7 @@ Creates and returns a new song.
       "description": "A song about the past.",
       "url": "audio url",
       "createdAt": "2021-11-19 20:39:36",
-      "updatedAt": "2021-11-19 20:39:36", 
+      "updatedAt": "2021-11-19 20:39:36",
       "previewImage": "image url"
     }
     ```
@@ -427,8 +427,8 @@ Updates and returns an existing song.
 * Require Authentication: true
 * Require proper authorization: Song must belong to the current user
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: PUT/PATCH
+  * URL: songs/:songId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -457,7 +457,7 @@ Updates and returns an existing song.
       "description": "A song about the past.",
       "url": "audio url",
       "createdAt": "2021-11-19 20:39:36",
-      "updatedAt": "2021-11-20 20:00:00", 
+      "updatedAt": "2021-11-20 20:00:00",
       "previewImage": "image url"
     }
     ```
@@ -499,8 +499,8 @@ Deletes an existing song.
 * Require Authentication: true
 * Require proper authorization: Song must belong to the current user
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: DELETE
+  * URL: /songs/:songId
   * Body: none
 
 * Successful Response
@@ -512,7 +512,7 @@ Deletes an existing song.
     ```json
     {
       "message": "Successfully deleted",
-      "statusCode": 200 
+      "statusCode": 200
     }
     ```
 
@@ -535,8 +535,8 @@ Returns all the Albums.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /albums
   * Body: none
 
 * Successful Response
@@ -567,8 +567,8 @@ Returns all the Albums created by the current user.
 
 * Require Authentication: true
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /users/:userId/albums
   * Body: none
 
 * Successful Response
@@ -599,8 +599,8 @@ Returns the details of an album specified by its id.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: GET
+  * URL: /albums/:albumId
   * Body: none
 
 * Successful Response
@@ -658,8 +658,8 @@ Creates and returns a new album.
 
 * Require Authentication: true
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: POST
+  * URL: /albums
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -794,7 +794,7 @@ Deletes an existing album.
     ```json
     {
       "message": "Successfully deleted",
-      "statusCode": 200 
+      "statusCode": 200
     }
     ```
 
@@ -1008,7 +1008,7 @@ Delete an existing comment.
     ```json
     {
       "message": "Successfully deleted",
-      "statusCode": 200 
+      "statusCode": 200
     }
     ```
 
@@ -1450,7 +1450,7 @@ Deletes an existing playlist.
     ```json
     {
       "message": "Successfully deleted",
-      "statusCode": 200 
+      "statusCode": 200
     }
     ```
 
@@ -1556,7 +1556,7 @@ Return songs filtered by query parameters.
       }
     }
     ```
-    
+
 © 2022 GitHub, Inc.
 Terms
 Privacy
