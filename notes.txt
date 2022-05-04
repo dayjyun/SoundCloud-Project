@@ -31,3 +31,9 @@ previewImage 558, 590
 
 
 709
+
+1255, 1367, 1470
+
+/playlists/:playlistId/songs
+OR
+/artists/:artistId/playlists/:playlistId
