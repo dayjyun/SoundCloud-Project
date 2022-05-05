@@ -2,7 +2,7 @@
 
 ## Database Schema Design
 
-![SoundCloud Database Schema](./images/SoundCloudDBSchema1.png)
+![SoundCloud Database Schema](./images/SoundCloudDBSchema2.png)
 
 ## API Documentation
 
