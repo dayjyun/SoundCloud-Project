@@ -2,7 +2,7 @@
 
 ## Database Schema Design
 
-`<insert database schema design here>`
+![SoundCloud Database Schema](./images/SoundCloudDBSchema1.png)
 
 ## API Documentation
 
@@ -81,8 +81,8 @@ information.
 - Require Authentication: false
 - Request
 
-  - Method: GET
-  - URL: /users/:userId
+  - Method: POST
+  - URL: /login
   - Headers:
     - Content-Type: application/json
   - Body:
@@ -153,7 +153,7 @@ user's information.
 - Request
 
   - Method: POST
-  - URL: /users
+  - URL: /signup
   - Headers:
     - Content-Type: application/json
   - Body:
@@ -377,7 +377,7 @@ Creates and returns a new song.
 - Request
 
   - Method: POST
-  - URL: /albums/:albumId/songs
+  - URL: /albums/:albumId
   - Headers:
     - Content-Type: application/json
   - Body:
