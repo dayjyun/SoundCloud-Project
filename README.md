@@ -453,7 +453,7 @@ Updates and returns an existing song.
 - Request
 
   - Method: PUT/PATCH
-  - URL: songs/:songId
+  - URL: /songs/:songId
   - Headers:
     - Content-Type: application/json
   - Body:
@@ -698,7 +698,7 @@ Creates and returns a new album.
 - Request
 
   - Method: POST
-  - URL: /albums
+  - URL: /artists/:artistId/albums
   - Headers:
     - Content-Type: application/json
   - Body:
@@ -1527,7 +1527,7 @@ Deletes an existing playlist.
 - Request
 
   - Method: DELETE
-  - URL: ?
+  - URL: /playlists/:playlistId
   - Body: none
 
 - Successful Response
