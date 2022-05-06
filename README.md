@@ -698,7 +698,7 @@ Creates and returns a new album.
 - Request
 
   - Method: POST
-  - URL: /artists/:artistId/albums
+  - URL: /users/:userId/albums
   - Headers:
     - Content-Type: application/json
   - Body:
@@ -1095,7 +1095,7 @@ Returns the details of an artist specified by their id.
 - Request
 
   - Method: GET
-  - URL: /artists/:artistId
+  - URL: /users/:userId
   - Body: none
 
 - Successful Response
@@ -1137,7 +1137,7 @@ Returns all the songs created by the specified artist.
 - Request
 
   - Method: GET
-  - URL: /artists/:artistId/songs
+  - URL: /users/:userId/songs
   - Body: none
 
 - Successful Response
@@ -1187,7 +1187,7 @@ Returns all the albums created by the specified artist.
 - Request
 
   - Method: GET
-  - URL: /artists/:artistId/albums
+  - URL: /users/:userId/albums
   - Body: none
 
 - Successful Response
@@ -1235,7 +1235,7 @@ Returns all the playlists created by the specified artist.
 - Request
 
   - Method: GET
-  - URL: /artists/:artistId/playlists
+  - URL: /users/:userId/playlists
   - Body: none
 
 - Successful Response

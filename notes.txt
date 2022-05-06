@@ -1,47 +1,44 @@
-----------------------------------------------------------
+*Note how RES contains previewImage. How does this relate to imageUrl? ImageUrl is found in the body of the REQ.
+*The term 'artist' will be aliased?
+
+*********************************************************
+
+Possible associations:
+
 Albums
 
 1) One-to-many (Albums can be owned by one user/artist)
-2) Many-to-many (Albums can be listened by many users (JOIN: --name userAlbums --attributes userId, albumId))
-
-----------------------------------------------------------
-Artists
-
-1) One-to-many (Artists can own many albums)
-3) One-to-many (Artists can own many songs)
-4) Many-To-Many (Many artists/users can have follow artists/users (JOIN: --name userArtists --attributes userId, artistId))
+2) Many-to-many (Albums can be listened by many users/artists (JOIN: --name userAlbums --attributes userId, albumId))
 
 ----------------------------------------------------------
 Comments
 
-5) One-to-many (User can have many Comments)
-6) Many-to-many (Many users can read/reply in many comments (JOIN: --name userComments --attributes userId, commentId))
+5) One-to-many (Users/Artists can own many Comments)
+6) Many-to-many (Many users/artists can read/reply in many other users/artists comments (JOIN: --name userComments --attributes userId, commentId))
 
 ----------------------------------------------------------
-Playlists
+Playlists (1)
 
 7) Many-to-many (Many playlists can have many songs (JOIN: --name playlistSongs --attributes playlistId, songId))
 8) Many-to-many (Many playlists can be heard by many users (JOIN: --name userPlaylist --attributes userId, playlistId))
 
 ----------------------------------------------------------
-Songs
+Songs (1)
 
-3) One-to-many (Song is owned by one artist (Create 'artistId' in Songs table or create songId in Artists table))
+3) One-to-many (Many songs are owned by one user/artist (userId) (Could also be only one song))
 7) Many-to-many (Songs can go in many playlists (JOIN: --name playlistSongs --attributes playlistId, songId))
-9) Many-to-many (Songs can be listened by many users (userId))
+9) Many-to-many (Songs can be listened by many users/artists (userId))
 
 ----------------------------------------------------------
 Users
 
-Users can be artists. Artists can be users. Boolean or JOIN table?
-If artist is a Boolean, artist can be used within a "where" clause (EX: verified artist)
-Users table would then contain totalSongs, and totalAlbums in the table.
-
-If Users and Artists are separated, then artists should also contain email, password, firstName, and maybe lastName.
-
-2) Many-to-many (Many artists/users can listen to many albums (JOIN: --name userAlbums --attributes userId, artistId))
-4) Many-to-many (Many artists/users can have follow artists/users (JOIN: --name userArtists --attributes userId, artistId))
-5) Many-to-one (Many comments will belong to one user/artist)
+1) One-to-many (Users/Artists can own many albums)
+2) Many-to-many (Many users/artists can listen to many albums (JOIN: --name userAlbums --attributes userId, artistId))
+3) One-to-many (Users/Artists can own many songs)
+4) Many-to-many (Many users/artists can have follow users/artists (JOIN?))
+5) One-to-many (Many comments will belong to one user/artist)
 6) Many-to-many (Many users/artists can read/reply to comments)
-8) Many-to-many (Users can have many playlists (JOIN: --name userPlaylist --attributes userId, playlistId))
+8) Many-to-many (Users/artists can have many playlists (JOIN: --name userPlaylist --attributes userId, playlistId))
 9) Many-to-many (Many users can listen to many songs. There are many songs (JOIN: --name userSongs --attributes userId, songId))
+
+----------------------------------------------------------
