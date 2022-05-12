@@ -42,5 +42,3 @@ Users
 9) Many-to-many (Many users can listen to many songs. There are many songs (JOIN: --name userSongs --attributes userId, songId))
 
 ----------------------------------------------------------
-TESTING
-TESTING2
