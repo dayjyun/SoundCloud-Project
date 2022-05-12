@@ -18,7 +18,7 @@ router.get('/', restoreUser, (req, res) => {
   }
 );
 
-// Log out <-- Did this work? I still see the Token
+// Log out 
 router.delete('/', (_req, res) => {
     res.clearCookie('token');
     return res.json({ message: 'success' });
