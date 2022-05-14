@@ -71,5 +71,4 @@ app.use((err, _req, res, _next) => {
   });
 });
 
-// comment
 module.exports = app;
