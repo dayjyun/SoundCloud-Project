@@ -92,12 +92,6 @@ module.exports = (sequelize, DataTypes) => {
       imageUrl: {
         type: DataTypes.VARCHAR,
       },
-      totalSongs: {
-        type: DataTypes.INTEGER,
-      },
-      totalAlbums: {
-        type: DataTypes.INTEGER,
-      },
     },
     {
       sequelize,

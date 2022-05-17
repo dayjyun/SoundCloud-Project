@@ -33,12 +33,6 @@ module.exports = {
       imageUrl: {
         type: Sequelize.STRING,
       },
-      totalSongs: {
-        type: Sequelize.STRING,
-      },
-      totalAlbums: {
-        type: Sequelize.STRING,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
