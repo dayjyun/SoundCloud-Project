@@ -1,6 +1,6 @@
 'use strict';
 
-const { Model, Validator } = require('sequelize');
+const { Model, Validator, Sequelize } = require('sequelize');
 const bcrypt = require('bcryptjs')
 
 module.exports = (sequelize, DataTypes) => {
@@ -43,6 +43,22 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: true,
+        len: [1, 50]
+      }
+    },
+    lastName: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: true,
+        len: [1, 50]
+      }
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -68,6 +84,15 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [60, 60]
       }
+    },
+    imageUrl: {
+      type: DataTypes.VARCHAR
+    },
+    totalSongs: {
+      type: DataTypes.INTEGER
+    },
+    totalAlbums: {
+      type: DataTypes.INTEGER
     }
   }, {
     sequelize,

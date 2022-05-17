@@ -13,23 +13,33 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   return queryInterface.bulkInsert('Users', [
-     {
-       email: 'demo@user.io',
-       username: 'Demo-lition',
-       hashedPassword: bcrypt.hashSync('password')
-     },
-     {
-       email: "user1@user.io",
-       username: 'FakeUser1',
-       hashedPassword: bcrypt.hashSync('password2')
-     },
-     {
-       email: 'user2@user.io',
-       username: 'FakeUser2',
-       hashedPassword: bcrypt.hashSync('password3')
-     }
-   ], {})
+   return queryInterface.bulkInsert(
+     "Users",
+     [
+       {
+         firstName: "First",
+         lastName: "FirstLastName",
+         email: "demo@user.io",
+         username: "Demo-lition",
+         hashedPassword: bcrypt.hashSync("password"),
+       },
+       {
+         firstName: "Two",
+         lastName: "TwoLastName",
+         email: "user1@user.io",
+         username: "FakeUser1",
+         hashedPassword: bcrypt.hashSync("password2"),
+       },
+       {
+         firstName: "Tres",
+         lastName: "TresLastName",
+         email: "user2@user.io",
+         username: "FakeUser2",
+         hashedPassword: bcrypt.hashSync("password3"),
+       },
+     ],
+     {}
+   );
   },
 
   async down (queryInterface, Sequelize) {
