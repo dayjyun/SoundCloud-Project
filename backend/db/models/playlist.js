@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Playlist.belongsToMany(models.Song, { through: models.PlaylistSong }),
+      Playlist.belongsTo(models.User, { foreignKey: 'userId' })
     }
   }
   Playlist.init({
@@ -22,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     imageUrl: {
       type: DataTypes.STRING,
     },
-    
+
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false
