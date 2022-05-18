@@ -2,6 +2,8 @@
 
 */
 
+// const router = require(".");
+
 
 /* Get All Albums 532
 
@@ -27,3 +29,8 @@
 
 */
 
+// router.get('/test', (req, res) => {
+//     return res.json('this works!')
+// })
+
+// module.exports = router;

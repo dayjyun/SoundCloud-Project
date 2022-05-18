@@ -7,8 +7,10 @@ const router = express.Router();
 // });
 
 const apiRouter = require("./api");
+const albumRouter = require('./album')
 
-router.use("/api", apiRouter);
+router.use(apiRouter);
+// router.use(albumRouter);
 
 router.post("/test", function (req, res) {
   res.json({ requestBody: req.body });
