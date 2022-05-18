@@ -4,15 +4,6 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
    await queryInterface.bulkInsert("Users",[
        { // 1
          firstName: "First",
@@ -47,7 +38,7 @@ module.exports = {
        lastName: "Ashcroft",
        email: 'theverve@verve.com',
        username: "LuckyMan",
-       hashedPassword: bcrypt.hashSync("RollingStonesStoleMyMoney$")
+       hashedPassword: bcrypt.hashSync("RollingStones$toleMyMoney")
        },
        { // 6
          firstName: "Kevin",
@@ -62,11 +53,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     */
     // const Op = Sequelize.Op;
     // return queryInterface.bulkDelete('Users', {
     //   username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
