@@ -15,10 +15,14 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: "Users" },
+        onDelete: "CASCADE",
       },
       songId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: "Songs" },
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,

@@ -24,10 +24,14 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: "Users" },
+        onDelete: "CASCADE",
       },
       albumId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        references: { model: "Albums" },
+        // allowNull: false,
+        // onDelete: "CASCADE"
       },
       createdAt: {
         allowNull: false,
