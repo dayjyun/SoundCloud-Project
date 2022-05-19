@@ -3,7 +3,7 @@ const router = express.Router();
 
 // test
 router.get('/commentsTest', (req, res) => {
-    res.json('comments works!')
+    res.json('Comments works!')
 })
 
 // Edit a comment 926 TRUE (CURRENT USER)

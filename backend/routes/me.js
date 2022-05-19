@@ -5,12 +5,13 @@ const { restoreUser } = require("../utils/auth");
 
 // test
 router.get('/meTest', (req, res) => {
-    res.json('me works!')
+    res.json('Me works!')
 })
 
 // Get current user 48 TRUE
-router.get('/', restoreUser, (req, res) => {
-    const { user } = req;
+router.get('/me', restoreUser, (req, res) => {
+    const { user, token } = req;
+
     if (user) {
       return res.json({
         user: user.toSafeObject()

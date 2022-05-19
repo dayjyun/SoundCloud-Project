@@ -3,7 +3,7 @@ const router = express.Router();
 
 // test
 router.get('/albumsTest', (req, res) => {
-    return res.json('albums works!')
+    return res.json('Albums works!')
 })
 
 // Create a Song for an Album with Album Id 351 TRUE (CURRENT USER)
