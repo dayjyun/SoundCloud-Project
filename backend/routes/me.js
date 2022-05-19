@@ -1,3 +1,11 @@
+const express = require('express');
+const router = express.Router();
+
+// test
+router.get('/meTest', (req, res) => {
+    res.json('me works!')
+})
+
 /* Get current user 48
 
 */
@@ -15,3 +23,5 @@
 /* Get all playlists created by Current User 1561
 
 */
+
+module.exports = router;

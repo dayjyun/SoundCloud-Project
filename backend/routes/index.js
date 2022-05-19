@@ -7,10 +7,14 @@ const router = express.Router();
 // });
 
 const apiRouter = require("./api");
-const albumRouter = require('./album')
+const albumRouter = require('./albums');
+const artistRouter = require('./artists');
+const commentsRouter = require('./comments');
+const meRouter = require('./me');
+const playlistsRouter = require('./playlists')
+const songsRouter = require('./songs')
 
-router.use(apiRouter);
-// router.use(albumRouter);
+router.use(apiRouter, albumRouter, artistRouter, commentsRouter, meRouter, playlistsRouter, songsRouter);
 
 router.post("/test", function (req, res) {
   res.json({ requestBody: req.body });

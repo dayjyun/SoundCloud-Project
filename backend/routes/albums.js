@@ -1,3 +1,11 @@
+const express = require("express");
+const router = express.Router();
+
+// test
+router.get('/albumsTest', (req, res) => {
+    return res.json('albums works!')
+})
+
 /* Create a Song for an Album with Album Id 351
 
 */
@@ -29,8 +37,5 @@
 
 */
 
-// router.get('/test', (req, res) => {
-//     return res.json('this works!')
-// })
 
-// module.exports = router;
+module.exports = router;

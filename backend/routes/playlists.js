@@ -1,3 +1,11 @@
+const express = require('express');
+const router = express.Router();
+
+// test
+router.get('/playlistsTest', (req, res) => {
+    res.json('Playlists works')
+})
+
 /* Create a playlist 1203
 
 */
@@ -21,3 +29,5 @@
 /* Delete a playlist 1433
 
 */
+
+module.exports = router;
