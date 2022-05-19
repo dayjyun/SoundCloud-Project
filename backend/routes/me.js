@@ -8,7 +8,7 @@ router.get('/meTest', (req, res) => {
     res.json('me works!')
 })
 
-// Get current user 48
+// Get current user 48 TRUE
 router.get('/', restoreUser, (req, res) => {
     const { user } = req;
     if (user) {
@@ -19,13 +19,13 @@ router.get('/', restoreUser, (req, res) => {
   }
 );
 
-// Get all songs by current user 279
+// Get all songs by current user 279 TRUE
 
 
-// Get all albums by current user 597
+// Get all albums by current user 597 TRUE
 
 
-// Get all playlists created by Current User 1561
+// Get all playlists created by Current User 1561 TRUE
 
 
 module.exports = router;
