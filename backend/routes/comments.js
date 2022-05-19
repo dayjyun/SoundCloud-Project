@@ -6,13 +6,10 @@ router.get('/commentsTest', (req, res) => {
     res.json('comments works!')
 })
 
-/* Edit a comment 926
-
-*/
+// Edit a comment 926
 
 
-/* Delete a comment 991
+// Delete a comment 991
 
-*/
 
 module.exports = router;

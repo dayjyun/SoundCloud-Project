@@ -25,19 +25,13 @@ router.get("/set-token-cookie", async (_req, res) => {
 });
 
 // GET /api/restore-user
-router.get(
-  '/restore-user',
-  restoreUser,
-  (req, res) => {
+router.get('/restore-user', restoreUser, (req, res) => {
     return res.json(req.user);
   }
 );
 
 // GET /api/require-auth
-router.get(
-  '/require-auth',
-  requireAuth,
-  (req, res) => {
+router.get('/require-auth', requireAuth, (req, res) => {
     return res.json(req.user);
   }
 );
