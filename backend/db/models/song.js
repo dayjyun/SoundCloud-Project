@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
         });
     }
   }
-  Song.init({
+  Song.init(
+    {
       title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -32,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
 
       url: {
         type: DataTypes.STRING,
+        // allowNull: false,
       },
 
       imageUrl: {
