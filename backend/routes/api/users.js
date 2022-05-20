@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { setTokenCookie, requireAuth } = require("../../utils/auth");
+const { setTokenCookie, requireAuth, restoreUser } = require("../../utils/auth");
 const { User } = require("../../db/models");
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
@@ -25,13 +25,22 @@ const validateSignup = [
 ];
 
 // Sign up
-router.post('/', validateSignup, async (req, res) => {
-    const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
+router.post('/signup', validateSignup, async (req, res) => {
+    const { firstName, lastName, email, password, username } = req.body;
+    // const token = await setTokenCookie(res, user)
+    const checkEmail = await User.findOne({ where: { email } })
 
-    await setTokenCookie(res, user);
+    if(checkEmail) {
+      let error = new Error('E-mail already exists');
+      error.status = 403
+      throw error;
+    }
 
-    return res.json({ user });
+    const user = await User.signup({ firstName, lastName, email, username, password });
+
+    const token = await setTokenCookie(res, user);
+
+    return res.json({ user, token });
   }
 );
 

@@ -1,28 +1,30 @@
-/* Get details by song Id 298
+const express = require('express');
+const router = express.Router();
 
-*/
+// test
+router.get('/songsTest', (req, res) => {
+    res.json('Songs works!')
+})
 
-
-/* Edit a song 423
-
-*/
-
-
-/* Delete a Song 495
-
-*/
+// Get all Songs
 
 
-/* Get all Comments by Song ID 814
-
-*/
+// Get details by song Id 298
 
 
-/* Create a Comment for a song by Song ID 862
-
-*/
+// Edit a song 423 TRUE (CURRENT USER)
 
 
-/* Add Query Filters to get All Songs 1501
+// Delete a Song 495 TRUE (CURRENT USER)
 
-*/
+
+// Get all Comments by Song ID 814
+
+
+// Create a Comment for a song by Song ID 862 TRUE
+
+
+// Add Query Filters to get All Songs 1501
+
+
+module.exports = router;

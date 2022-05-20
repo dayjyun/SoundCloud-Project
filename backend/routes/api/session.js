@@ -7,18 +7,18 @@ const { handleValidationErrors } = require("../../utils/validation");
 
 const router = express.Router();
 
-// Restore session user
-router.get('/', restoreUser, (req, res) => {
-    const { user } = req;
-    if (user) {
-      return res.json({
-        user: user.toSafeObject()
-      });
-    } else return res.json({});
-  }
-);
+// // Get session user
+// router.get('/', restoreUser, (req, res) => {
+//     const { user } = req;
+//     if (user) {
+//       return res.json({
+//         user: user.toSafeObject()
+//       });
+//     } else return res.json({});
+//   }
+// );
 
-// Log out 
+// Log out
 router.delete('/', (_req, res) => {
     res.clearCookie('token');
     return res.json({ message: 'success' });
