@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const { restoreUser } = require("../utils/auth");
+const { restoreUser, requireAuth } = require("../utils/auth");
+const { Song } = require('../db/models')
 
-// test
-router.get('/meTest', (req, res) => {
-    res.json('Me works!')
+// Get all songs by current user 279 TRUE
+router.get('/me/songs', requireAuth, async(req, res) => {
+  const { user } = req;
+  const songs = await Song.findAll({ where: { userId: user.id }});
+  res.json(songs);
 })
+
 
 // Get current user 48 TRUE
 router.get('/me', restoreUser, (req, res) => {
@@ -21,9 +25,6 @@ router.get('/me', restoreUser, (req, res) => {
     });
   }
 );
-
-// Get all songs by current user 279 TRUE
-
 
 // Get all albums by current user 597 TRUE
 
