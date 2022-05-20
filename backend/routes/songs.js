@@ -1,13 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
+const { Song } = require('../db/models')
+
 // test
 router.get('/songsTest', (req, res) => {
     res.json('Songs works!')
 })
 
 // Get all Songs
-
+router.get('/songs', async (req, res) => {
+    const songs = await Song.findAll();
+    res.json(songs)
+})
 
 // Get details by song Id 298
 
