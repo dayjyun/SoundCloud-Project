@@ -6,7 +6,7 @@ const { restoreUser, requireAuth } = require("../../utils/auth.js");
 const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
 
-router.use("/session", sessionRouter);
+router.use(sessionRouter);
 
 router.use(usersRouter);
 

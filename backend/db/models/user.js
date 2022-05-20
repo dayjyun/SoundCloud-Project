@@ -118,7 +118,9 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
         loginUser: {
-          attributes: {},
+          attributes: {
+            include: ['firstName', 'lastName', 'userName', 'email']
+          },
         },
       },
     }
