@@ -1,15 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-// test
-router.get('/albumsTest', (req, res) => {
-    return res.json('Albums works!')
-})
+const { Album } = require('../db/models')
 
 // Create a Song for an Album with Album Id 351 TRUE (CURRENT USER)
 
 
 // Get All Albums 532
+router.get('/albums', async (req, res) => {
+    const Albums = await Album.findAll()
+    res.json({ Albums })
+})
 
 
 // Get album details using album ID 596
