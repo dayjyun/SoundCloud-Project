@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const { restoreUser } = require("../utils/auth");
+const { restoreUser, requireAuth } = require("../utils/auth");
+const { Album } = require('../db/models')
 
 // test
 router.get('/meTest', (req, res) => {
@@ -24,8 +25,14 @@ router.get('/me', restoreUser, (req, res) => {
 
 // Get all songs by current user 279 TRUE
 
-
 // Get all albums by current user 597 TRUE
+router.get('/my/albums', requireAuth, async(req, res) => {
+  const { user } = req;
+  const Albums = await Album.findAll({
+    where: { userId: user.id}
+  })
+  res.json({ Albums });
+})
 
 
 // Get all playlists created by Current User 1561 TRUE
