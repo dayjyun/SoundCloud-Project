@@ -3,11 +3,6 @@ const router = express.Router();
 
 const { restoreUser } = require("../utils/auth");
 
-// test
-router.get('/meTest', (req, res) => {
-    res.json('Me works!')
-})
-
 // Get current user 48 TRUE
 router.get('/me', restoreUser, (req, res) => {
     const { user, cookies } = req;
