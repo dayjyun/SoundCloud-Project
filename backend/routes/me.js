@@ -10,13 +10,15 @@ router.get('/meTest', (req, res) => {
 
 // Get current user 48 TRUE
 router.get('/me', restoreUser, (req, res) => {
-    const { user, token } = req;
+    const { user, cookies } = req;
 
     if (user) {
       return res.json({
-        user: user.toSafeObject()
+        ...user.toSafeObject(), token: cookies.token
       });
-    } else return res.json({});
+    } else return res.json({
+      msg: "Invalid request"
+    });
   }
 );
 
