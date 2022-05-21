@@ -61,7 +61,7 @@ router.put("/songs/:songId", requireAuth, async (req, res) => {
 });
 
 // Delete a Song 495 TRUE (CURRENT USER)
-router.delete("/songs/:songId", requireAuth, async (req, res) => {
+router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
   const { user } = req;
   const { songId } = req.params;
 
@@ -76,12 +76,12 @@ router.delete("/songs/:songId", requireAuth, async (req, res) => {
       });
     } else {
       const error = new Error("Validation error: Unauthorized");
-      error.status(401);
+      error.status = 401;
       throw error;
     }
   } else {
     const error = new Error("Song not found");
-    error.status(404);
+    error.status = 404;
     throw error;
   }
 });
