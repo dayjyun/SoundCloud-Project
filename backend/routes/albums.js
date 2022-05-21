@@ -2,7 +2,17 @@ const express = require("express");
 const router = express.Router();
 
 const { requireAuth, restoreUser } = require("../utils/auth");
-const { Album, User, Song } = require('../db/models')
+const { Album, User, Song } = require('../db/models');
+const { check } = require("express-validator");
+const { handleValidationErrors } = require("../utils/validation");
+
+// Validators
+const validateAlbumEdit = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Album title is required"),
+  handleValidationErrors,
+];
 
 // Create a Song for an Album with Album Id 351 TRUE (CURRENT USER)
 router.post("/albums/:albumId", requireAuth, async (req, res) => {
@@ -65,6 +75,33 @@ router.get('/albums/:albumId', async(req, res) => {
 // Create an album 655 TRUE
 
 // Edit an Album 709 TRUE (CURRENT USER)
+router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) => {
+  const { user } = req;
+  const { albumId } = req.params;
+  const { title, description, imageUrl } = req.body;
+
+  const album = await Album.findByPk(albumId)
+
+  if(album) {
+    if(album.userId = user.id) {
+      await album.update({
+        title,
+        description,
+        imageUrl
+      })
+      res.json(album)
+    } else {
+    const error = new Error('Validation Error: Unauthorized')
+    error.status = 401;
+    throw error;
+    }
+  } else {
+    res.json({
+      message: "Album couldn't be found",
+      statusCode: 404,
+    });
+  }
+})
 
 // Delete an album 777 TRUE (CURRENT USER)
 
