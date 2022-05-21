@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         Song.belongsTo(models.User, {
           foreignKey: "userId",
           onDelete: "CASCADE",
+          as: "Artist"
         }),
         Song.belongsTo(models.Album, { foreignKey: "albumId" }),
         Song.hasMany(models.Comment, {
@@ -33,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
 
       url: {
         type: DataTypes.STRING,
-        // allowNull: false,
+        allowNull: false,
       },
 
       imageUrl: {
