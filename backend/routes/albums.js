@@ -5,11 +5,6 @@ const { Album, Song } = require("../db/models");
 const song = require("../db/models/song");
 const { requireAuth } = require("../utils/auth");
 
-// test
-router.get("/albumsTest", (req, res) => {
-  return res.json("Albums works!");
-});
-
 // Create a Song for an Album with Album Id 351 TRUE (CURRENT USER)
 router.post("/albums/:albumId", requireAuth, async (req, res) => {
   const { user } = req;
@@ -43,6 +38,10 @@ router.post("/albums/:albumId", requireAuth, async (req, res) => {
 });
 
 // Get All Albums 532
+router.get('/albums', async (req, res) => {
+    const Albums = await Album.findAll()
+    res.json({ Albums })
+})
 
 // Get album details using album ID 596
 
