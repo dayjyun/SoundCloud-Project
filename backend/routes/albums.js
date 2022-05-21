@@ -63,6 +63,20 @@ router.get('/albums/:albumId', async(req, res) => {
 })
 
 // Create an album 655 TRUE
+router.post("/albums", restoreUser, async (req, res) => {
+  const { user } = req;
+  const { title, description, imageUrl } = req.body;
+
+  const Albums = await Album.create({
+    userId: user.id,
+    title,
+    description,
+    imageUrl,
+  });
+  
+  res.status(201);
+  res.json({ Albums });
+});
 
 // Edit an Album 709 TRUE (CURRENT USER)
 
