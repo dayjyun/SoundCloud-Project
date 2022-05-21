@@ -11,7 +11,6 @@ router.get('/me/songs', requireAuth, async(req, res) => {
   res.json(songs);
 })
 
-
 // Get current user 48 TRUE
 router.get('/me', restoreUser, (req, res) => {
     const { user, cookies } = req;
