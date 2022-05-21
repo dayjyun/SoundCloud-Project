@@ -61,6 +61,30 @@ router.put("/songs/:songId", requireAuth, async (req, res) => {
 });
 
 // Delete a Song 495 TRUE (CURRENT USER)
+router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
+  const { user } = req;
+  const { songId } = req.params;
+
+  const song = await Song.findByPk(songId);
+
+  if (song) {
+    if (song.userId === user.id) {
+      await song.destroy();
+      res.json({
+        message: "Successfully deleted",
+        statusCode: 200,
+      });
+    } else {
+      const error = new Error("Validation error: Unauthorized");
+      error.status = 401;
+      throw error;
+    }
+  } else {
+    const error = new Error("Song not found");
+    error.status = 404;
+    throw error;
+  }
+});
 
 // Get all Comments by Song ID 814
 

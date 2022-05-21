@@ -31,8 +31,7 @@ module.exports = {
       albumId: {
         type: Sequelize.INTEGER,
         references: { model: "Albums" },
-        // allowNull: false,
-        // onDelete: "CASCADE"
+        onDelete: "SET NULL"
       },
       createdAt: {
         allowNull: false,

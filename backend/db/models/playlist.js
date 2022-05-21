@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       Playlist.belongsToMany(models.Song, { through: models.PlaylistSong }),
         Playlist.belongsTo(models.User, {
           foreignKey: "userId",
-          onDelete: "CASCADE",
         });
     }
   }

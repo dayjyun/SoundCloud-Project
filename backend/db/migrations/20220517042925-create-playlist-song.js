@@ -12,11 +12,13 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: "Playlists" },
+        onDelete: "CASCADE",
       },
       songId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: "Songs" },
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,
