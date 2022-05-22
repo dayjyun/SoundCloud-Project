@@ -11,6 +11,15 @@ router.get('/me/songs', requireAuth, async(req, res) => {
   res.json(songs);
 })
 
+// Get all albums by current user 597 TRUE
+router.get('/me/albums', requireAuth, async(req, res) => {
+  const { user } = req;
+  const Albums = await Album.findAll({
+    where: { userId: user.id}
+  })
+  res.json({ Albums });
+})
+
 // Get current user 48 TRUE
 router.get('/me', restoreUser, (req, res) => {
     const { user, cookies } = req;
@@ -26,15 +35,6 @@ router.get('/me', restoreUser, (req, res) => {
 );
 
 // Get all songs by current user 279 TRUE
-
-// Get all albums by current user 597 TRUE
-router.get('/me/albums', requireAuth, async(req, res) => {
-  const { user } = req;
-  const Albums = await Album.findAll({
-    where: { userId: user.id}
-  })
-  res.json({ Albums });
-})
 
 
 // Get all playlists created by Current User 1561 TRUE
