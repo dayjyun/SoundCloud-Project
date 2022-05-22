@@ -28,7 +28,7 @@ router.get('/me', restoreUser, (req, res) => {
 // Get all songs by current user 279 TRUE
 
 // Get all albums by current user 597 TRUE
-router.get('/my/albums', requireAuth, async(req, res) => {
+router.get('/me/albums', requireAuth, async(req, res) => {
   const { user } = req;
   const Albums = await Album.findAll({
     where: { userId: user.id}
