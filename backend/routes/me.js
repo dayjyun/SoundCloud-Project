@@ -22,17 +22,16 @@ router.get('/me/albums', requireAuth, async(req, res) => {
 
 // Get current user 48 TRUE
 router.get('/me', restoreUser, (req, res) => {
-    const { user, cookies } = req;
+  const { user, cookies } = req;
 
-    if (user) {
-      return res.json({
-        ...user.toSafeObject(), token: cookies.token
-      });
-    } else return res.json({
-      msg: "Invalid request"
+  if (user) {
+    return res.json({
+      ...user.toSafeObject(), token: cookies.token
     });
-  }
-);
+  } else return res.json({
+    msg: "Invalid request"
+  });
+});
 
 // Get all songs by current user 279 TRUE
 
