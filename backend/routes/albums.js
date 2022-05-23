@@ -6,6 +6,7 @@ const { requireAuth, restoreUser } = require("../utils/auth");
 const { handleValidationErrors } = require("../utils/validation");
 const { Album, User, Song } = require("../db/models");
 
+// Validators
 const validateSong = [
   check("title")
     .exists({ checkFalsy: true })
@@ -21,6 +22,13 @@ const validateAlbum = [
     .exists({ checkFalsy: true })
     .withMessage("Album title is required"),
   handleValidationErrors
+];
+
+const validateAlbumEdit = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Album title is required"),
+  handleValidationErrors,
 ];
 
 // GET
@@ -41,7 +49,6 @@ router.get("/albums/:albumId", async (req, res) => {
       statusCode: 404,
     });
   }
-
   res.json(album);
 });
 
@@ -51,7 +58,7 @@ router.get("/albums", async (req, res) => {
   res.json({ Albums });
 });
 
-// POST
+// POST;
 
 // Create a Song for an Album with Album Id 351 TRUE (CURRENT USER)
 router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
@@ -99,6 +106,33 @@ router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
 });
 
 // Edit an Album 709 TRUE (CURRENT USER)
+router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) => {
+  const { user } = req;
+  const { albumId } = req.params;
+  const { title, description, imageUrl } = req.body;
+
+  const album = await Album.findByPk(albumId)
+
+  if(album) {
+    if(album.userId = user.id) {
+      await album.update({
+        title,
+        description,
+        imageUrl
+      })
+      res.json(album)
+    } else {
+    const error = new Error('Validation Error: Unauthorized')
+    error.status = 401;
+    throw error;
+    }
+  } else {
+    res.json({
+      message: "Album couldn't be found",
+      statusCode: 404,
+    });
+  }
+})
 
 // Delete an album 777 TRUE (CURRENT USER)
 
