@@ -56,9 +56,10 @@ router.post("/albums/:albumId", requireAuth, async (req, res) => {
       res.json(newSong);
     }
   } else {
-    const error = new Error("Album not available");
-    error.status = 404;
-    throw error;
+    res.json({
+      message: "Album couldn't be found",
+      statusCode: 404,
+    });
   }
 });
 
