@@ -109,7 +109,20 @@ router.post("/song/:songId/comments", requireAuth, validateCommentBody, async(re
   const { songId } = req.params;
   const { body } = req.body;
 
+  const song = await Song.findByPk(songId)
 
+  if(song) {
+    const comment = await Comment.create({
+      body,
+      songId,
+      userId: user.id,
+    })
+    res.json(comment)
+  } else {
+    const error = new Error("Song not found");
+    error.status = 404;
+    throw error;
+  }
 })
 
 // Add Query Filters to get All Songs 1501
