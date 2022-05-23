@@ -1,8 +1,20 @@
 const express = require("express");
 const router = express.Router();
+const { check } = require("express-validator");
 
 const { requireAuth, restoreUser } = require("../utils/auth");
+const { handleValidationErrors } = require("../utils/validation");
 const { Album, User, Song } = require("../db/models");
+
+const validateAlbum = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Song title is required"),
+  check("url")
+    .exists({ checkFalsy: true })
+    .withMessage("Audio is required"),
+  handleValidationErrors,
+]
 
 // GET
 
@@ -35,7 +47,7 @@ router.get("/albums", async (req, res) => {
 // POST
 
 // Create a Song for an Album with Album Id 351 TRUE (CURRENT USER)
-router.post("/albums/:albumId", requireAuth, async (req, res) => {
+router.post("/albums/:albumId", requireAuth, validateAlbum, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
   const { title, description, url, imageUrl } = req.body;
