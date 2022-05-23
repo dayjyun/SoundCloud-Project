@@ -104,7 +104,7 @@ router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
 // Get all Comments by Song ID 814
 
 // Create a Comment for a song by Song ID 862 TRUE
-router.post("/song/:songId/comments", requireAuth, validateCommentBody, async(req, res) => {
+router.post("/songs/:songId/comments", requireAuth, validateCommentBody, async(req, res) => {
   const { user } = req;
   const { songId } = req.params;
   const { body } = req.body;
