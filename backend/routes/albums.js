@@ -160,7 +160,6 @@ router.delete("/albums/:albumId", requireAuth, async(req, res) => {
       statusCode: 404,
     });
   }
-
-})
+});
 
 module.exports = router;
