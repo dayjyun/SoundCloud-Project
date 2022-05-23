@@ -5,11 +5,7 @@ const { Song, Album, User } = require("../db/models");
 
 const { requireAuth } = require("../utils/auth.js");
 
-// Get all Songs
-router.get("/songs", async (req, res) => {
-  const songs = await Song.findAll();
-  res.json(songs);
-});
+// GET
 
 // Get details by song Id 298
 router.get("/songs/:songId", async (req, res) => {
@@ -22,12 +18,19 @@ router.get("/songs/:songId", async (req, res) => {
   });
 
   if (!song) {
-    const error = new Error("Song not found");
-    error.status = 404;
-    throw error;
+    res.json({
+      message: "Song not found",
+      statusCode: 404,
+    });
   }
 
-  res.json({ song });
+  res.json(song);
+});
+
+// Get all Songs
+router.get("/songs", async (req, res) => {
+  const Songs = await Song.findAll();
+  res.json({ Songs });
 });
 
 // Edit a song 423 TRUE (CURRENT USER)
