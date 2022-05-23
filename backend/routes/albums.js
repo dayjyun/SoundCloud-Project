@@ -30,7 +30,7 @@ router.get("/albums/:albumId", async (req, res) => {
 
   if (!album) {
     res.json({
-      message: "Album couldn't be found",
+      message: "Album not found",
       statusCode: 404,
     });
   }
@@ -69,7 +69,7 @@ router.post("/albums/:albumId", requireAuth, validateAlbum, async (req, res) => 
     }
   } else {
     res.json({
-      message: "Album couldn't be found",
+      message: "Album not found",
       statusCode: 404,
     });
   }
