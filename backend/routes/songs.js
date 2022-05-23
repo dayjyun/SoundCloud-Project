@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-const { Song, Album, User } = require("../db/models");
+const { Song, Album, User, Comment } = require("../db/models");
 
 const { requireAuth } = require("../utils/auth.js");
-
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../utils/validation");
 
+// Validators
 const validateSong = [
   check("title")
     .exists({ checkFalsy: true })
@@ -15,6 +15,13 @@ const validateSong = [
   check("url").exists({ checkFalsy: true }).withMessage("Audio is required"),
   handleValidationErrors,
 ];
+
+const validateCommentBody = [
+  check("body")
+    .exists({ checkFalsy: true })
+    .withMessage("Comment required"),
+  handleValidationErrors
+]
 
 // GET
 
@@ -97,6 +104,13 @@ router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
 // Get all Comments by Song ID 814
 
 // Create a Comment for a song by Song ID 862 TRUE
+router.post("/song/:songId/comments", requireAuth, validateCommentBody, async(req, res) => {
+  const { user } = req;
+  const { songId } = req.params;
+  const { body } = req.body;
+
+
+})
 
 // Add Query Filters to get All Songs 1501
 
