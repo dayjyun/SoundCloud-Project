@@ -91,9 +91,10 @@ router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
       throw error;
     }
   } else {
-    const error = new Error("Song not found");
-    error.status = 404;
-    throw error;
+    res.json({
+      message: "Song not found",
+      statusCode: 404,
+    });
   }
 });
 
