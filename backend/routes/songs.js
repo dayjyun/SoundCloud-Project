@@ -5,6 +5,19 @@ const { Song, Album, User } = require("../db/models");
 
 const { requireAuth } = require("../utils/auth.js");
 
+const { check } = require("express-validator");
+const { handleValidationErrors } = require("../utils/validation");
+
+const validateSong = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Song title is required"),
+  check("url")
+    .exists({ checkFalsy: true })
+    .withMessage("Audio is required"),
+  handleValidationErrors
+]
+
 // GET
 
 // Get details by song Id 298
@@ -34,7 +47,7 @@ router.get("/songs", async (req, res) => {
 });
 
 // Edit a song 423 TRUE (CURRENT USER)
-router.put("/songs/:songId", requireAuth, async (req, res) => {
+router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { songId } = req.params;
   const { title, description, url, imageUrl } = req.body;
@@ -42,9 +55,10 @@ router.put("/songs/:songId", requireAuth, async (req, res) => {
   const song = await Song.findByPk(songId);
 
   if (!song) {
-    const error = new Error("Song not found");
-    error.status(404);
-    throw error;
+    res.json({
+      message: "Song not found",
+      statusCode: 404,
+    });
   } else {
     if (song.userId === user.id) {
       await song.update({
