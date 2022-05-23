@@ -12,11 +12,9 @@ const validateSong = [
   check("title")
     .exists({ checkFalsy: true })
     .withMessage("Song title is required"),
-  check("url")
-    .exists({ checkFalsy: true })
-    .withMessage("Audio is required"),
-  handleValidationErrors
-]
+  check("url").exists({ checkFalsy: true }).withMessage("Audio is required"),
+  handleValidationErrors,
+];
 
 // GET
 
@@ -69,10 +67,6 @@ router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
       });
 
       res.json(song);
-    } else {
-      const error = new Error("Validation error: Not Authorized");
-      error.status(401);
-      throw error;
     }
   }
 });
