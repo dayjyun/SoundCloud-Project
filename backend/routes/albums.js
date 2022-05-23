@@ -1,8 +1,27 @@
 const express = require("express");
 const router = express.Router();
+const { check } = require("express-validator");
 
 const { requireAuth, restoreUser } = require("../utils/auth");
+const { handleValidationErrors } = require("../utils/validation");
 const { Album, User, Song } = require("../db/models");
+
+const validateSong = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Song title is required"),
+  check("url")
+    .exists({ checkFalsy: true })
+    .withMessage("Audio is required"),
+  handleValidationErrors,
+];
+
+const validateAlbum = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Album title is required"),
+  handleValidationErrors
+];
 
 // GET
 
@@ -18,7 +37,7 @@ router.get("/albums/:albumId", async (req, res) => {
 
   if (!album) {
     res.json({
-      message: "Album couldn't be found",
+      message: "Album not found",
       statusCode: 404,
     });
   }
@@ -35,7 +54,7 @@ router.get("/albums", async (req, res) => {
 // POST
 
 // Create a Song for an Album with Album Id 351 TRUE (CURRENT USER)
-router.post("/albums/:albumId", requireAuth, async (req, res) => {
+router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
   const { title, description, url, imageUrl } = req.body;
@@ -54,20 +73,17 @@ router.post("/albums/:albumId", requireAuth, async (req, res) => {
       });
       res.status(201);
       res.json(newSong);
-    } else {
-      const error = new Error("Validation error: Unauthorized");
-      error.status = 400;
-      throw error;
     }
   } else {
-    const error = new Error("Album not available");
-    error.status = 404;
-    throw error;
+    res.json({
+      message: "Album not found",
+      statusCode: 404,
+    });
   }
 });
 
 // Create an album 655 TRUE
-router.post("/albums", restoreUser, async (req, res) => {
+router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
   const { user } = req;
   const { title, description, imageUrl } = req.body;
 

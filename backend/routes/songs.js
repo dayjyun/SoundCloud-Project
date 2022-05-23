@@ -5,11 +5,18 @@ const { Song, Album, User } = require("../db/models");
 
 const { requireAuth } = require("../utils/auth.js");
 
-// Get all Songs
-router.get("/songs", async (req, res) => {
-  const songs = await Song.findAll();
-  res.json(songs);
-});
+const { check } = require("express-validator");
+const { handleValidationErrors } = require("../utils/validation");
+
+const validateSong = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Song title is required"),
+  check("url").exists({ checkFalsy: true }).withMessage("Audio is required"),
+  handleValidationErrors,
+];
+
+// GET
 
 // Get details by song Id 298
 router.get("/songs/:songId", async (req, res) => {
@@ -22,16 +29,23 @@ router.get("/songs/:songId", async (req, res) => {
   });
 
   if (!song) {
-    const error = new Error("Song not found");
-    error.status = 404;
-    throw error;
+    res.json({
+      message: "Song not found",
+      statusCode: 404,
+    });
   }
 
-  res.json({ song });
+  res.json(song);
+});
+
+// Get all Songs
+router.get("/songs", async (req, res) => {
+  const Songs = await Song.findAll();
+  res.json({ Songs });
 });
 
 // Edit a song 423 TRUE (CURRENT USER)
-router.put("/songs/:songId", requireAuth, async (req, res) => {
+router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { songId } = req.params;
   const { title, description, url, imageUrl } = req.body;
@@ -39,9 +53,10 @@ router.put("/songs/:songId", requireAuth, async (req, res) => {
   const song = await Song.findByPk(songId);
 
   if (!song) {
-    const error = new Error("Song not found");
-    error.status(404);
-    throw error;
+    res.json({
+      message: "Song not found",
+      statusCode: 404,
+    });
   } else {
     if (song.userId === user.id) {
       await song.update({
@@ -52,10 +67,6 @@ router.put("/songs/:songId", requireAuth, async (req, res) => {
       });
 
       res.json(song);
-    } else {
-      const error = new Error("Validation error: Not Authorized");
-      error.status(401);
-      throw error;
     }
   }
 });
@@ -74,15 +85,12 @@ router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
         message: "Successfully deleted",
         statusCode: 200,
       });
-    } else {
-      const error = new Error("Validation error: Unauthorized");
-      error.status = 401;
-      throw error;
     }
   } else {
-    const error = new Error("Song not found");
-    error.status = 404;
-    throw error;
+    res.json({
+      message: "Song not found",
+      statusCode: 404,
+    });
   }
 });
 
