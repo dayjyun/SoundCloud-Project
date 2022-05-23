@@ -28,8 +28,9 @@ const validateSignup = [
     .withMessage("Username cannot be an email."),
   check("password")
     .exists({ checkFalsy: true })
+    .withMessage("Please provide a password")
     .isLength({ min: 6 })
-    .withMessage("Password must be 6 characters or more."),
+    .withMessage("Password must contain 6 characters or more."),
   handleValidationErrors,
 ];
 
