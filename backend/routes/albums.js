@@ -6,7 +6,7 @@ const { requireAuth, restoreUser } = require("../utils/auth");
 const { handleValidationErrors } = require("../utils/validation");
 const { Album, User, Song } = require("../db/models");
 
-const validateAlbum = [
+const validateSong = [
   check("title")
     .exists({ checkFalsy: true })
     .withMessage("Song title is required"),
@@ -14,6 +14,13 @@ const validateAlbum = [
     .exists({ checkFalsy: true })
     .withMessage("Audio is required"),
   handleValidationErrors,
+]
+
+const validateAlbum = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Album title is required"),
+  handleValidationErrors
 ]
 
 // GET
@@ -47,7 +54,7 @@ router.get("/albums", async (req, res) => {
 // POST
 
 // Create a Song for an Album with Album Id 351 TRUE (CURRENT USER)
-router.post("/albums/:albumId", requireAuth, validateAlbum, async (req, res) => {
+router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
   const { title, description, url, imageUrl } = req.body;
@@ -76,7 +83,7 @@ router.post("/albums/:albumId", requireAuth, validateAlbum, async (req, res) => 
 });
 
 // Create an album 655 TRUE
-router.post("/albums", restoreUser, async (req, res) => {
+router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
   const { user } = req;
   const { title, description, imageUrl } = req.body;
 
