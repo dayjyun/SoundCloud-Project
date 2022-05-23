@@ -101,5 +101,27 @@ router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
 // Edit an Album 709 TRUE (CURRENT USER)
 
 // Delete an album 777 TRUE (CURRENT USER)
+router.delete("/albums/:albumId", requireAuth, async(req, res) => {
+  const { user } = req;
+  const { albumId } = req.params;
+
+  const album = await Album.findByPk(albumId)
+
+  if(album) {
+    if(album.userId = user.id) {
+      album.destroy()
+      res.json({
+        message: "Successfully deleted",
+        statusCode: 200,
+      });
+    }
+  } else {
+    res.json({
+      message: "Album not found",
+      statusCode: 404,
+    });
+  }
+
+})
 
 module.exports = router;
