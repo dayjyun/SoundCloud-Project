@@ -14,14 +14,14 @@ const validateSong = [
     .exists({ checkFalsy: true })
     .withMessage("Audio is required"),
   handleValidationErrors,
-]
+];
 
 const validateAlbum = [
   check("title")
     .exists({ checkFalsy: true })
     .withMessage("Album title is required"),
   handleValidationErrors
-]
+];
 
 // GET
 

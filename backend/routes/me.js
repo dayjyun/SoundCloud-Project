@@ -9,7 +9,7 @@ router.get('/me/songs', requireAuth, async(req, res) => {
   const { user } = req;
   const songs = await Song.findAll({ where: { userId: user.id }});
   res.json(songs);
-})
+});
 
 // Get all albums by current user 597 TRUE
 router.get('/me/albums', requireAuth, async(req, res) => {
@@ -18,7 +18,7 @@ router.get('/me/albums', requireAuth, async(req, res) => {
     where: { userId: user.id}
   })
   res.json({ Albums });
-})
+});
 
 // Get current user 48 TRUE
 router.get('/me', restoreUser, (req, res) => {
