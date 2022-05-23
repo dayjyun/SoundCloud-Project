@@ -76,7 +76,7 @@ router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
         url,
         imageUrl,
         userId: user.id,
-        albumId,
+        albumId: parseInt(albumId),
       });
       res.status(201);
       res.json(newSong);
@@ -135,5 +135,32 @@ router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) =
 })
 
 // Delete an album 777 TRUE (CURRENT USER)
+router.delete("/albums/:albumId", requireAuth, async(req, res) => {
+  const { user } = req;
+  const { albumId } = req.params;
+
+  const album = await Album.findByPk(albumId)
+
+  if(album) {
+    if(album.userId === user.id) {
+      await album.destroy()
+      res.json({
+        message: "Successfully deleted",
+        statusCode: 200,
+      });
+    } else {
+      res.json({
+        message: "Unauthorized",
+        statusCode: 403
+      })
+    }
+  } else {
+    res.json({
+      message: "Album not found",
+      statusCode: 404,
+    });
+  }
+
+})
 
 module.exports = router;
