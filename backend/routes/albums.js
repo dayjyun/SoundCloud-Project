@@ -54,10 +54,6 @@ router.post("/albums/:albumId", requireAuth, async (req, res) => {
       });
       res.status(201);
       res.json(newSong);
-    } else {
-      const error = new Error("Validation error: Unauthorized");
-      error.status = 400;
-      throw error;
     }
   } else {
     const error = new Error("Album not available");
