@@ -85,10 +85,6 @@ router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
         message: "Successfully deleted",
         statusCode: 200,
       });
-    } else {
-      const error = new Error("Validation error: Unauthorized");
-      error.status = 401;
-      throw error;
     }
   } else {
     res.json({
