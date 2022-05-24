@@ -25,6 +25,28 @@ const validateCommentBody = [
 
 // GET
 
+// Get all Comments by Song ID 814
+router.get('/songs/:songId/comments', async(req, res) => {
+  const { songId } = req.params;
+  const song = await Song.findByPk(songId, {
+    include: [
+      { model: Comment,
+        include: [
+          {model: User, attributes: ["id", "username"]}
+        ]
+      }
+    ]
+  });
+
+  if(song) {
+    res.json({ Comments: song.Comments })
+  } else {
+    const error = new Error("Song not found");
+    error.status = 404;
+    throw error;
+  }
+})
+
 // Get details by song Id 298
 router.get("/songs/:songId", async (req, res) => {
   const { songId } = req.params;
@@ -50,6 +72,32 @@ router.get("/songs", async (req, res) => {
   const Songs = await Song.findAll();
   res.json({ Songs });
 });
+
+// POST
+
+// Create a Comment for a song by Song ID 862 TRUE
+router.post("/songs/:songId/comments", requireAuth, validateCommentBody, async(req, res) => {
+  const { user } = req;
+  const { songId } = req.params;
+  const { body } = req.body;
+
+  const song = await Song.findByPk(songId)
+
+  if(song) {
+    const comment = await Comment.create({
+      body,
+      songId,
+      userId: user.id,
+    })
+    res.json(comment)
+  } else {
+    const error = new Error("Song not found");
+    error.status = 404;
+    throw error;
+  }
+})
+
+// PUT
 
 // Edit a song 423 TRUE (CURRENT USER)
 router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
@@ -78,6 +126,8 @@ router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
   }
 });
 
+// DELETE
+
 // Delete a Song 495 TRUE (CURRENT USER)
 router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
   const { user } = req;
@@ -100,50 +150,6 @@ router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
     });
   }
 });
-
-// Get all Comments by Song ID 814
-router.get('/songs/:songId/comments', async(req, res) => {
-  const { songId } = req.params;
-  const song = await Song.findByPk(songId, {
-    include: [
-      { model: Comment,
-        include: [
-          {model: User, attributes: ["id", "username"]}
-        ]
-      }
-    ]
-  });
-
-  if(song) {
-    res.json({ Comments: song.Comments })
-  } else {
-    const error = new Error("Song not found");
-    error.status = 404;
-    throw error;
-  }
-})
-
-// Create a Comment for a song by Song ID 862 TRUE
-router.post("/songs/:songId/comments", requireAuth, validateCommentBody, async(req, res) => {
-  const { user } = req;
-  const { songId } = req.params;
-  const { body } = req.body;
-
-  const song = await Song.findByPk(songId)
-
-  if(song) {
-    const comment = await Comment.create({
-      body,
-      songId,
-      userId: user.id,
-    })
-    res.json(comment)
-  } else {
-    const error = new Error("Song not found");
-    error.status = 404;
-    throw error;
-  }
-})
 
 // Add Query Filters to get All Songs 1501
 
