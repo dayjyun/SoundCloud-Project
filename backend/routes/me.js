@@ -20,6 +20,8 @@ router.get('/me/albums', requireAuth, async(req, res) => {
   res.json({ Albums });
 });
 
+// Get all playlists created by Current User 1561 TRUE
+
 // Get current user 48 TRUE
 router.get('/me', restoreUser, (req, res) => {
   const { user, cookies } = req;
@@ -32,11 +34,5 @@ router.get('/me', restoreUser, (req, res) => {
     msg: "Invalid request"
   });
 });
-
-// Get all songs by current user 279 TRUE
-
-
-// Get all playlists created by Current User 1561 TRUE
-
 
 module.exports = router;

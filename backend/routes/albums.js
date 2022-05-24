@@ -105,6 +105,8 @@ router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
   res.json(album);
 });
 
+// PUT
+
 // Edit an Album 709 TRUE (CURRENT USER)
 router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) => {
   const { user } = req;
@@ -133,6 +135,8 @@ router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) =
     });
   }
 })
+
+// DELETE
 
 // Delete an album 777 TRUE (CURRENT USER)
 router.delete("/albums/:albumId", requireAuth, async(req, res) => {

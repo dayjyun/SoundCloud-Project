@@ -6,6 +6,7 @@ router.get("/artistsTest", (req, res) => {
   return res.json("Artists works!");
 });
 
+
 // Get details of an artist/user by Artist ID 1028
 
 
