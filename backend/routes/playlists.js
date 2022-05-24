@@ -10,7 +10,8 @@ const { Playlist } = require("../db/models");
 const validatePlaylist = [
     check("name")
         .exists({ checkFalsy: true })
-        .withMessage("Playlist name required")
+        .withMessage("Playlist name required"),
+    handleValidationErrors
 ]
 
 // GET
