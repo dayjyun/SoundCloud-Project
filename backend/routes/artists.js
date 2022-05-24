@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-// test
-router.get("/artistsTest", (req, res) => {
-  return res.json("Artists works!");
-});
+const { requireAuth, restoreUser } = require("../utils/auth");
+const { handleValidationErrors } = require("../utils/validation");
+const { User, Song, Album } = require("../db/models");
 
 // Get details of an artist/user by Artist ID 1028
 
