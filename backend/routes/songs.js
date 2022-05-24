@@ -4,10 +4,10 @@ const router = express.Router();
 const { Song, Album, User, Comment } = require("../db/models");
 
 const { requireAuth } = require("../utils/auth.js");
-
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../utils/validation");
 
+// Validators
 const validateSong = [
   check("title")
     .exists({ checkFalsy: true })
@@ -15,6 +15,13 @@ const validateSong = [
   check("url").exists({ checkFalsy: true }).withMessage("Audio is required"),
   handleValidationErrors,
 ];
+
+const validateCommentBody = [
+  check("body")
+    .exists({ checkFalsy: true })
+    .withMessage("Comment required"),
+  handleValidationErrors
+]
 
 // GET
 
@@ -117,6 +124,26 @@ router.get('/songs/:songId/comments', async(req, res) => {
 })
 
 // Create a Comment for a song by Song ID 862 TRUE
+router.post("/songs/:songId/comments", requireAuth, validateCommentBody, async(req, res) => {
+  const { user } = req;
+  const { songId } = req.params;
+  const { body } = req.body;
+
+  const song = await Song.findByPk(songId)
+
+  if(song) {
+    const comment = await Comment.create({
+      body,
+      songId,
+      userId: user.id,
+    })
+    res.json(comment)
+  } else {
+    const error = new Error("Song not found");
+    error.status = 404;
+    throw error;
+  }
+})
 
 // Add Query Filters to get All Songs 1501
 
