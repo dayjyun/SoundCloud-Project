@@ -16,7 +16,19 @@ router.get("/artistsTest", (req, res) => {
 
 
 // Get all albums of an artist by Id 1182
+router.get("/artists/:artistId/albums", async (req, res) => {
+  const { artistId } = req.params;
+  const artist = await User.findByPk(artistId);
 
+  if (artist) {
+    const Albums = await Album.findAll({ where: { userId: artistId } });
+    res.json({ Albums });
+  } else {
+    const error = new Error("Artist not found");
+    error.status = 404;
+    throw error;
+  }
+});
 
 // Get all Playlists of an artist by Id 1230
 
