@@ -30,9 +30,22 @@ router.get('/me', restoreUser, (req, res) => {
     return res.json({
       ...user.toSafeObject(), token: cookies.token
     });
-  } else return res.json({
-    msg: "Invalid request"
-  });
+  } else {
+    const error = new Error("Invalid Request");
+    error.status = 400;
+    throw error;
+  }
 });
+
+// or this?
+// router.get('/', restoreUser, (req, res) => {
+//     const { user } = req;
+//     if (user) {
+//       return res.json({
+//         user: user.toSafeObject()
+//       });
+//     } else return res.json({});
+//   }
+// );
 
 module.exports = router;
