@@ -58,10 +58,9 @@ router.get("/songs/:songId", async (req, res) => {
   });
 
   if (!song) {
-    res.json({
-      message: "Song not found",
-      statusCode: 404,
-    });
+    const error = new Error("Song not found");
+    error.status = 404;
+    throw error;
   }
 
   res.json(song);
@@ -108,10 +107,9 @@ router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
   const song = await Song.findByPk(songId);
 
   if (!song) {
-    res.json({
-      message: "Song not found",
-      statusCode: 404,
-    });
+    const error = new Error("Song not found");
+    error.status = 404;
+    throw error;
   } else {
     if (song.userId === user.id) {
       await song.update({
@@ -144,10 +142,9 @@ router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
       });
     }
   } else {
-    res.json({
-      message: "Song not found",
-      statusCode: 404,
-    });
+    const error = new Error("Song not found");
+    error.status = 404;
+    throw error;
   }
 });
 

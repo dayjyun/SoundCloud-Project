@@ -44,10 +44,9 @@ router.get("/albums/:albumId", async (req, res) => {
   });
 
   if (!album) {
-    res.json({
-      message: "Album not found",
-      statusCode: 404,
-    });
+    const error = new Error("Album not found");
+    error.status = 404;
+    throw error;
   }
   res.json(album);
 });
@@ -82,10 +81,9 @@ router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
       res.json(newSong);
     }
   } else {
-    res.json({
-      message: "Album not found",
-      statusCode: 404,
-    });
+    const error = new Error("Album not found");
+    error.status = 404;
+    throw error;
   }
 });
 
@@ -124,15 +122,14 @@ router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) =
       })
       res.json(album)
     } else {
-    const error = new Error('Validation Error: Unauthorized')
-    error.status = 401;
+    const error = new Error('Unauthorized')
+    error.status = 40;
     throw error;
     }
   } else {
-    res.json({
-      message: "Album couldn't be found",
-      statusCode: 404,
-    });
+    const error = new Error("Album not found");
+    error.status = 404;
+    throw error;
   }
 })
 
@@ -153,16 +150,14 @@ router.delete("/albums/:albumId", requireAuth, async(req, res) => {
         statusCode: 200,
       });
     } else {
-      res.json({
-        message: "Unauthorized",
-        statusCode: 403
-      })
+      const error = new Error("Unauthorized");
+      error.status = 403;
+      throw error;
     }
   } else {
-    res.json({
-      message: "Album not found",
-      statusCode: 404,
-    });
+    const error = new Error("Album not found");
+    error.status = 404;
+    throw error;
   }
 });
 
