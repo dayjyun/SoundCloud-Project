@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { Song, Album, User } = require("../db/models");
+const { Song, Album, User, Comment } = require("../db/models");
 
 const { requireAuth } = require("../utils/auth.js");
 
@@ -95,6 +95,26 @@ router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
 });
 
 // Get all Comments by Song ID 814
+router.get('/songs/:songId/comments', async(req, res) => {
+  const { songId } = req.params;
+  const song = await Song.findByPk(songId, {
+    include: [
+      { model: Comment,
+        include: [
+          {model: User, attributes: ["id", "username"]}
+        ]
+      }
+    ]
+  });
+
+  if(song) {
+    res.json({ Comments: song.Comments })
+  } else {
+    const error = new Error("Song not found");
+    error.status = 404;
+    throw error;
+  }
+})
 
 // Create a Comment for a song by Song ID 862 TRUE
 
