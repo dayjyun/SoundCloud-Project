@@ -11,7 +11,7 @@ const { User, Song, Album } = require("../db/models");
 // Get all Songs of an artist by Id 1132
 router.get('artists/:artistId/songs', async(req, res) => {
   const { artistId } = req.params;
-  const Songs = await
+  const Songs = await Song.findAll()
 })
 
 // Get all albums of an artist by Id 1182
