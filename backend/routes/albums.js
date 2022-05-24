@@ -123,7 +123,7 @@ router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) =
       res.json(album)
     } else {
     const error = new Error('Unauthorized')
-    error.status = 40;
+    error.status = 403;
     throw error;
     }
   } else {
