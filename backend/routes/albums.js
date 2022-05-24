@@ -153,16 +153,18 @@ router.delete("/albums/:albumId", requireAuth, async(req, res) => {
         statusCode: 200,
       });
     } else {
-      res.json({
-        message: "Unauthorized",
-        statusCode: 403
-      })
+      const error = new Error("Unauthorized");
+      error.status = 403;
+      throw error;
     }
   } else {
     res.json({
       message: "Album not found",
       statusCode: 404,
     });
+    const error = new Error("Album not found");
+    error.status = 404;
+    throw error;
   }
 });
 

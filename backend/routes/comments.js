@@ -14,11 +14,6 @@ const editComment = [
     handleValidationErrors
 ]
 
-// test
-router.get('/commentsTest', (req, res) => {
-    res.json('Comments works!')
-});
-
 // Edit a comment 926 TRUE (CURRENT USER)
 router.put('/comments/:commentId', requireAuth, editComment, async(req, res) => {
     const { user } = req;
@@ -45,8 +40,30 @@ router.put('/comments/:commentId', requireAuth, editComment, async(req, res) => 
     }
 })
 
-
 // Delete a comment 991 TRUE (CURRENT USER)
+router.delete('/comments/:commentId', requireAuth, async(req, res) => {
+    const { user } = req;
+    const { commentId } = req.params;
 
+    const comment = await Comment.findByPk(commentId)
+
+    if(comment) {
+        if(comment.userId === user.id) {
+            comment.destroy();
+            res.json({
+              message: "Successfully deleted",
+              statusCode: 200,
+            });
+        } else {
+            const error = new Error("Unauthorized");
+            error.statusCode = 401;
+            throw error;
+        }
+    } else {
+        const error = new Error("Comment not found");
+        error.status = 404;
+        throw error;
+    }
+})
 
 module.exports = router;
