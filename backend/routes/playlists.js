@@ -23,18 +23,21 @@ router.post("/playlists/:playlistId", requireAuth, async(req, res) => {
     const playlist = await Playlist.findByPk(playlistId);
     const song = await Song.findByPk(songId);
 
-    if(playlist) {
-        if(song) {
-
+    if(playlist.userId === user.id) {
+        if(playlist) {
+            if(song) {
+                const updatePlaylist = await Playlist.create({ song })
+                res.json(updatePlaylist)
+            } else {
+                const error = new Error("Song not found");
+                error.status = 404;
+                throw error;
+            }
         } else {
-            const error = new Error("Song not found");
+            const error = new Error("Playlist not found");
             error.status = 404;
             throw error;
         }
-    } else {
-        const error = new Error("Playlist not found");
-        error.status = 404;
-        throw error;
     }
 });
 
