@@ -1,8 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const { check } = require("express-validator");
+const { requireAuth, restoreUser } = require("../utils/auth");
+const { handleValidationErrors } = require("../utils/validation");
+
+const { Comment } = require("../db/models");
 
 // Edit a comment 926 TRUE (CURRENT USER)
-
 
 // Delete a comment 991 TRUE (CURRENT USER)
 router.delete("/comments/:commentId", requireAuth, async (req, res) => {
