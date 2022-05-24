@@ -17,7 +17,7 @@ router.get('/artists/:artistId/songs', async(req, res) => {
     const Songs = await Song.findAll({ where: { userId: artistId } })
     res.json({ Songs });
   } else {
-    const error = new Error("Song not found");
+    const error = new Error("Artist not found");
     error.status = 404;
     throw error;
   }
