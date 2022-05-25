@@ -17,6 +17,21 @@ const validatePlaylist = [
 // GET
 
 // Get details of a playlist using Playlist ID
+router.get("/playlists/:playlistId", async(req, res) => {
+    const { playlistId } = req.params;
+    const playlist = await Playlist.findByPk(playlistId, {
+        include: [ { model: Song } ],
+        exclude: [ { model: PlaylistSong } ]
+    })
+
+    if(!playlist) {
+        const error = new Error("Playlist not found");
+        error.status = 404;
+        throw error;
+    }
+
+    res.json(playlist)
+})
 
 // POST
 
