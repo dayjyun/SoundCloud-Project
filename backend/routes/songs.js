@@ -49,9 +49,12 @@ router.get("/songs/:songId", async (req, res) => {
   res.json(song);
 });
 
-// Get All Songs
+// Get All Songs ***
 router.get("/songs", async (req, res) => {
-  const Songs = await Song.findAll();
+  const { imageUrl } = req.body;
+  const Songs = await Song.findAll({
+    // previewImage: imageUrl
+  });
   res.json({ Songs });
 });
 
