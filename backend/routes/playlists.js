@@ -8,29 +8,29 @@ const { Playlist, Song, PlaylistSong } = require("../db/models");
 
 // Validations
 const validatePlaylist = [
-    check("name")
-        .exists({ checkFalsy: true })
-        .withMessage("Playlist name required"),
-    handleValidationErrors
-]
+  check("name")
+    .exists({ checkFalsy: true })
+    .withMessage("Playlist name required"),
+  handleValidationErrors,
+];
 
 // GET
 
 // Get details of a playlist using Playlist ID
-router.get("/playlists/:playlistId", async(req, res) => {
-    const { playlistId } = req.params;
-    const playlist = await Playlist.findByPk(playlistId, {
-        include: [ { model: Song, through: { attributes: [] } } ],
-    })
+router.get("/playlists/:playlistId", async (req, res) => {
+  const { playlistId } = req.params;
+  const playlist = await Playlist.findByPk(playlistId, {
+    include: [{ model: Song, through: { attributes: [] } }],
+  });
 
-    if(!playlist) {
-        const error = new Error("Playlist not found");
-        error.status = 404;
-        throw error;
-    }
+  if (!playlist) {
+    const error = new Error("Playlist not found");
+    error.status = 404;
+    throw error;
+  }
 
-    res.json(playlist)
-})
+  res.json(playlist);
+});
 
 // POST
 
@@ -56,9 +56,9 @@ router.post("/playlists/:playlistId", requireAuth, async (req, res) => {
         });
         res.json(playlistSong);
       } else {
-          const error = new Error("Unauthorized");
-          error.status = 404;
-          throw error;
+        const error = new Error("Unauthorized");
+        error.status = 404;
+        throw error;
       }
     } else {
       const error = new Error("Song not found");
@@ -73,21 +73,48 @@ router.post("/playlists/:playlistId", requireAuth, async (req, res) => {
 });
 
 // Create a playlist 1203 TRUE
-router.post('/playlists', requireAuth, validatePlaylist, async(req, res) => {
-    const { user } = req;
-    const { name, imageUrl } = req.body;
+router.post("/playlists", requireAuth, validatePlaylist, async (req, res) => {
+  const { user } = req;
+  const { name, imageUrl } = req.body;
 
-    const playlist = await Playlist.create({
-        userId: user.id,
-        name,
-        imageUrl
-    })
-    res.json(playlist);
-})
+  const playlist = await Playlist.create({
+    userId: user.id,
+    name,
+    imageUrl,
+  });
+  res.json(playlist);
+});
 
 // PUT
 
 // Edit a playlist 1367 TRUE (CURRENT USER)
+router.put("/playlists/:playlistId", requireAuth, validatePlaylist, async (req, res) => {
+    const { playlistId } = req.params;
+    const { user } = req;
+    const { name, imageUrl } = req.body;
+
+    const neoPlaylist = await Playlist.findByPk(playlistId);
+
+    if (neoPlaylist) {
+      if (neoPlaylist.userId === user.id) {
+        neoPlaylist.update({
+          name,
+          imageUrl,
+        });
+
+        res.json(neoPlaylist);
+      } else {
+        const error = new Error("Unauthorized");
+        error.status = 403;
+        throw error;
+      }
+    } else {
+      const error = new Error("Playlist not found");
+      error.status = 404;
+      throw error;
+    }
+  }
+);
 
 // DELETE
 
