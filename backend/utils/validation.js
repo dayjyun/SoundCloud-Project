@@ -17,6 +17,18 @@ const handleValidationErrors = (req, _res, next) => {
   next();
 };
 
+// api/session.js
+const validateLogin = [
+  check("credential")
+    .exists({ checkFalsy: true })
+    .notEmpty()
+    .withMessage("Please provide a valid email or username."),
+  check("password")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a password."),
+  handleValidationErrors,
+];
+
 // albums.js
 const validateSong = [
   check("title")
@@ -64,6 +76,7 @@ const validateCommentBody = [
 
 module.exports = {
   handleValidationErrors,
+  validateLogin,
   validateSong,
   validateAlbum,
   validateAlbumEdit,
