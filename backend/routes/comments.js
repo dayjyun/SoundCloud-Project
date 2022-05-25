@@ -15,7 +15,7 @@ const editComment = [
     handleValidationErrors
 ]
 
-// Edit a comment 926 TRUE (CURRENT USER)
+// Edit A Comment
 router.put('/comments/:commentId', requireAuth, editComment, async(req, res) => {
     const { user } = req;
     const { commentId } = req.params;
@@ -41,7 +41,7 @@ router.put('/comments/:commentId', requireAuth, editComment, async(req, res) => 
     }
 })
 
-// Delete a comment 991 TRUE (CURRENT USER)
+// Delete A Comment
 router.delete("/comments/:commentId", requireAuth, async (req, res) => {
   const { user } = req;
   const { commentId } = req.params;
