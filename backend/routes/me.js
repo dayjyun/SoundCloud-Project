@@ -8,8 +8,8 @@ const { Album, Song } = require('../db/models')
 // Get All Songs By The Current User
 router.get('/me/songs', requireAuth, async(req, res) => {
   const { user } = req;
-  const songs = await Song.findAll({ where: { userId: user.id }});
-  res.json(songs);
+  const Songs = await Song.findAll({ where: { userId: user.id }});
+  res.json({ Songs });
 });
 
 // Get All Albums By Current User
