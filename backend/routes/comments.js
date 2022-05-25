@@ -1,19 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const { check } = require("express-validator");
-const { requireAuth, restoreUser } = require("../utils/auth");
-const { handleValidationErrors } = require("../utils/validation");
+const { requireAuth } = require("../utils/auth");
 
 const { Comment } = require("../db/models");
-
-// Validations
-const editComment = [
-    check("body")
-        .exists({ checkFalsy: true })
-        .withMessage("Comment required"),
-    handleValidationErrors
-]
 
 // Edit A Comment
 router.put('/comments/:commentId', requireAuth, editComment, async(req, res) => {

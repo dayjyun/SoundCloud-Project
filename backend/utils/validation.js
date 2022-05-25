@@ -40,8 +40,17 @@ const validateAlbumEdit = [
   handleValidationErrors,
 ];
 
-module.exports = { handleValidationErrors,
+// comments.js
+const editComment = [
+  check("body").exists({ checkFalsy: true }).withMessage("Comment required"),
+  handleValidationErrors,
+];
+
+
+module.exports = {
+  handleValidationErrors,
   validateSong,
   validateAlbum,
-  validateAlbumEdit
+  validateAlbumEdit,
+  editComment,
 };
