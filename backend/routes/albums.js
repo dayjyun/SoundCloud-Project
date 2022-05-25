@@ -89,7 +89,7 @@ router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
 });
 
 // Create An Album
-router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
+router.post("/albums", requireAuth, validateAlbum, async (req, res) => {
   const { user } = req;
   const { title, description, imageUrl } = req.body;
 
