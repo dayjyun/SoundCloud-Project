@@ -92,28 +92,5 @@ router.post('/playlists', requireAuth, validatePlaylist, async(req, res) => {
 // DELETE
 
 // Delete a playlist 1433 TRUE (CURRENT USER)
-router.delete("/playlists/:playlistId", requireAuth, async (req, res) => {
-  const { playlistId } = req.params;
-  const { user } = req;
-  const playlist = await Playlist.findByPk(playlistId);
-
-  if (playlist) {
-    if (playlist.userId === user.id) {
-      await playlist.destroy();
-      res.json({
-        message: "Successfully deleted",
-        statusCode: 200,
-      });
-    } else {
-      const error = new Error("Unauthorized");
-      error.status = 403;
-      throw error;
-    }
-  } else {
-    const error = new Error("Playlist not found");
-    error.status = 404;
-    throw error;
-  }
-});
 
 module.exports = router;
