@@ -5,7 +5,6 @@ const { check } = require("express-validator");
 const { requireAuth, restoreUser } = require("../utils/auth");
 const { handleValidationErrors } = require("../utils/validation");
 const { Playlist, Song, PlaylistSong } = require("../db/models");
-const { errorMonitor } = require("pg/lib/query");
 
 // GET
 
