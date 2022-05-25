@@ -8,7 +8,7 @@ const { Album, User, Song } = require("../db/models");
 
 // GET
 
-// Get Album Details Using Album ID
+// Get Album Details Using Album ID ***
 router.get("/albums/:albumId", async (req, res) => {
   const { albumId } = req.params;
   const album = await Album.findByPk(albumId, {
@@ -26,7 +26,7 @@ router.get("/albums/:albumId", async (req, res) => {
   res.json(album);
 });
 
-// Get All Albums
+// Get All Albums !!!
 router.get("/albums", async (req, res) => {
   const Albums = await Album.findAll();
   res.json({ Albums });

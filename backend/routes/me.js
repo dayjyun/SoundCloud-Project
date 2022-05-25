@@ -12,7 +12,7 @@ router.get('/me/songs', requireAuth, async(req, res) => {
   res.json({ Songs });
 });
 
-// Get All Albums By Current User
+// Get All Albums By Current User ***
 router.get('/me/albums', requireAuth, async(req, res) => {
   const { user } = req;
   const Albums = await Album.findAll({
