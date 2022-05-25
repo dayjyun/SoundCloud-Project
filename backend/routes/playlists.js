@@ -35,7 +35,7 @@ router.get("/playlists/:playlistId", async (req, res) => {
 
 // POST
 
-// Add a song to a playlist using Playlist ID 1255 TRUE (CURRENT USER)
+// Add A Song To A Playlist Using Playlist ID
 router.post("/playlists/:playlistId", requireAuth, async (req, res) => {
   const { playlistId } = req.params;
   const { user } = req;
@@ -73,7 +73,7 @@ router.post("/playlists/:playlistId", requireAuth, async (req, res) => {
   }
 });
 
-// Create a playlist 1203 TRUE
+// Create A Playlist
 router.post("/playlists", requireAuth, validatePlaylist, async (req, res) => {
   const { user } = req;
   const { name, imageUrl } = req.body;
@@ -88,7 +88,7 @@ router.post("/playlists", requireAuth, validatePlaylist, async (req, res) => {
 
 // PUT
 
-// Edit a playlist 1367 TRUE (CURRENT USER)
+// Edit A Playlist
 router.put("/playlists/:playlistId", requireAuth, validatePlaylist, async (req, res) => {
     const { playlistId } = req.params;
     const { user } = req;
@@ -119,7 +119,7 @@ router.put("/playlists/:playlistId", requireAuth, validatePlaylist, async (req, 
 
 // DELETE
 
-// Delete a playlist 1433 TRUE (CURRENT USER)
+// Delete A Playlist
 router.delete("/playlists/:playlistId", requireAuth, async (req, res) => {
   const { playlistId } = req.params;
   const { user } = req;
