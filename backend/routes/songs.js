@@ -9,7 +9,7 @@ const { Song, Album, User, Comment } = require("../db/models");
 // GET
 
 // Get All Comments By Song ID
-router.get('/songs/:songId/comments', async(req, res) => {
+router.get('/:songId/comments', async(req, res) => {
   const { songId } = req.params;
   const song = await Song.findByPk(songId, {
     include: [
@@ -31,7 +31,7 @@ router.get('/songs/:songId/comments', async(req, res) => {
 })
 
 // Get Details By Song ID ***
-router.get("/songs/:songId", async (req, res) => {
+router.get("/:songId", async (req, res) => {
   const { songId } = req.params;
   const song = await Song.findByPk(songId, {
     include: [
@@ -50,7 +50,7 @@ router.get("/songs/:songId", async (req, res) => {
 });
 
 // Get All Songs ***
-router.get("/songs", async (req, res) => {
+router.get("/", async (req, res) => {
   const { imageUrl } = req.body;
   const Songs = await Song.findAll({
     // previewImage: imageUrl
@@ -61,7 +61,7 @@ router.get("/songs", async (req, res) => {
 // POST
 
 // Create A Comment For A Song By Song ID
-router.post("/songs/:songId/comments", requireAuth, validateComment, async(req, res) => {
+router.post("/:songId/comments", requireAuth, validateComment, async(req, res) => {
   const { user } = req;
   const { songId } = req.params;
   const { body } = req.body;
@@ -85,7 +85,7 @@ router.post("/songs/:songId/comments", requireAuth, validateComment, async(req, 
 // PUT
 
 // Edit A Song *** !!!
-router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
+router.put("/:songId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { songId } = req.params;
   const { title, description, url, imageUrl } = req.body;
@@ -113,7 +113,7 @@ router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
 // DELETE
 
 // Delete A Song
-router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
+router.delete("/:songId", requireAuth, async (req, res, next) => {
   const { user } = req;
   const { songId } = req.params;
 

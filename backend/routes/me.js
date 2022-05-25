@@ -6,14 +6,14 @@ const { requireAuth } = require("../utils/auth");
 const { Album, Song } = require('../db/models')
 
 // Get All Songs By The Current User
-router.get('/me/songs', requireAuth, async(req, res) => {
+router.get('/songs', requireAuth, async(req, res) => {
   const { user } = req;
   const Songs = await Song.findAll({ where: { userId: user.id }});
   res.json({ Songs });
 });
 
 // Get All Albums By Current User ***
-router.get('/me/albums', requireAuth, async(req, res) => {
+router.get('/albums', requireAuth, async(req, res) => {
   const { user } = req;
   const Albums = await Album.findAll({
     where: { userId: user.id}
@@ -24,7 +24,7 @@ router.get('/me/albums', requireAuth, async(req, res) => {
 // Get All Playlists Created By Current User
 
 // Get Current User ***
-router.get("/me", requireAuth, async (req, res) => {
+router.get("/", requireAuth, async (req, res) => {
   const { user, cookies } = req;
 
   if (user) {

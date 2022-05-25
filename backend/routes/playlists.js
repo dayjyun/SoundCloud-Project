@@ -9,7 +9,7 @@ const { Playlist, Song, PlaylistSong } = require("../db/models");
 // GET
 
 // Get Details Of A Playlist Using Playlist ID
-router.get("/playlists/:playlistId", async (req, res) => {
+router.get("/:playlistId", async (req, res) => {
   const { playlistId } = req.params;
   const playlist = await Playlist.findByPk(playlistId, {
     include: [{ model: Song, through: { attributes: [] } }],
@@ -27,7 +27,7 @@ router.get("/playlists/:playlistId", async (req, res) => {
 // POST
 
 // Add A Song To A Playlist Using Playlist ID
-router.post("/playlists/:playlistId", requireAuth, async (req, res) => {
+router.post("/:playlistId", requireAuth, async (req, res) => {
   const { playlistId } = req.params;
   const { user } = req;
   const { songId } = req.body;
@@ -65,7 +65,7 @@ router.post("/playlists/:playlistId", requireAuth, async (req, res) => {
 });
 
 // Create A Playlist
-router.post("/playlists", requireAuth, validatePlaylist, async (req, res) => {
+router.post("/", requireAuth, validatePlaylist, async (req, res) => {
   const { user } = req;
   const { name, imageUrl } = req.body;
 
@@ -80,7 +80,7 @@ router.post("/playlists", requireAuth, validatePlaylist, async (req, res) => {
 // PUT
 
 // Edit A Playlist
-router.put("/playlists/:playlistId", requireAuth, validatePlaylist, async (req, res) => {
+router.put("/:playlistId", requireAuth, validatePlaylist, async (req, res) => {
     const { playlistId } = req.params;
     const { user } = req;
     const { name, imageUrl } = req.body;
@@ -111,7 +111,7 @@ router.put("/playlists/:playlistId", requireAuth, validatePlaylist, async (req, 
 // DELETE
 
 // Delete A Playlist
-router.delete("/playlists/:playlistId", requireAuth, async (req, res) => {
+router.delete("/:playlistId", requireAuth, async (req, res) => {
   const { playlistId } = req.params;
   const { user } = req;
   const playlist = await Playlist.findByPk(playlistId);

@@ -7,7 +7,7 @@ const { validateComment } = require("../utils/validation");
 const { Comment } = require("../db/models");
 
 // Edit A Comment
-router.put('/comments/:commentId', requireAuth, validateComment, async(req, res) => {
+router.put('/:commentId', requireAuth, validateComment, async(req, res) => {
     const { user } = req;
     const { commentId } = req.params;
     const { body } = req.body;
@@ -33,7 +33,7 @@ router.put('/comments/:commentId', requireAuth, validateComment, async(req, res)
 });
 
 // Delete A Comment
-router.delete("/comments/:commentId", requireAuth, async (req, res) => {
+router.delete("/:commentId", requireAuth, async (req, res) => {
   const { user } = req;
   const { commentId } = req.params;
 
