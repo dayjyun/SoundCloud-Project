@@ -54,6 +54,14 @@ const validatePlaylist = [
   handleValidationErrors,
 ];
 
+// songs.js
+// validateSong
+
+const validateCommentBody = [
+  check("body").exists({ checkFalsy: true }).withMessage("Comment required"),
+  handleValidationErrors,
+];
+
 module.exports = {
   handleValidationErrors,
   validateSong,
@@ -61,4 +69,5 @@ module.exports = {
   validateAlbumEdit,
   editComment,
   validatePlaylist,
+  validateCommentBody,
 };

@@ -2,26 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 const { requireAuth } = require("../utils/auth.js");
-const { check } = require("express-validator");
-const { handleValidationErrors } = require("../utils/validation");
+const { validateSong, validateCommentBody } = require('../utils/validation')
 
 const { Song, Album, User, Comment } = require("../db/models");
-
-// Validators
-const validateSong = [
-  check("title")
-    .exists({ checkFalsy: true })
-    .withMessage("Song title is required"),
-  check("url").exists({ checkFalsy: true }).withMessage("Audio is required"),
-  handleValidationErrors,
-];
-
-const validateCommentBody = [
-  check("body")
-    .exists({ checkFalsy: true })
-    .withMessage("Comment required"),
-  handleValidationErrors
-]
 
 // GET
 
