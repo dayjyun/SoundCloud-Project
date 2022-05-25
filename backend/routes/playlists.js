@@ -101,7 +101,7 @@ router.put("/playlists/:playlistId", requireAuth, validatePlaylist, async (req, 
           name,
           imageUrl,
         });
-        
+
         res.json(neoPlaylist);
       } else {
         const error = new Error("Unauthorized");
