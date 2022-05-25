@@ -23,7 +23,7 @@ router.get('/me/albums', requireAuth, async(req, res) => {
 
 // Get All Playlists Created By Current User
 
-// Get Current User
+// Get Current User ***
 router.get("/me", requireAuth, async (req, res) => {
   const { user, cookies } = req;
 

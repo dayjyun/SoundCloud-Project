@@ -34,7 +34,7 @@ router.get("/albums", async (req, res) => {
 
 // POST;
 
-// Create A Song For An Album With Album ID
+// Create A Song For An Album With Album ID *** !!!
 router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
@@ -54,6 +54,10 @@ router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
       });
       res.status(201);
       res.json(newSong);
+    } else {
+      const error = new Error("Unauthorized");
+      error.status = 403;
+      throw error;
     }
   } else {
     const error = new Error("Album not found");

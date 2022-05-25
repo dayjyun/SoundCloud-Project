@@ -59,7 +59,9 @@ const validateSong = [
   check("title")
     .exists({ checkFalsy: true })
     .withMessage("Song title is required"),
-  check("url").exists({ checkFalsy: true }).withMessage("Audio is required"),
+  check("url")
+    .exists({ checkFalsy: true })
+    .withMessage("Audio is required"),
   handleValidationErrors,
 ];
 
@@ -79,7 +81,9 @@ const validateAlbumEdit = [
 
 // comments.js
 const editComment = [
-  check("body").exists({ checkFalsy: true }).withMessage("Comment required"),
+  check("body")
+    .exists({ checkFalsy: true })
+    .withMessage("Comment required"),
   handleValidationErrors,
 ];
 
@@ -95,7 +99,9 @@ const validatePlaylist = [
 // validateSong
 
 const validateCommentBody = [
-  check("body").exists({ checkFalsy: true }).withMessage("Comment required"),
+  check("body")
+    .exists({ checkFalsy: true })
+    .withMessage("Comment required"),
   handleValidationErrors,
 ];
 
