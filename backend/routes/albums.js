@@ -7,7 +7,7 @@ const { handleValidationErrors } = require("../utils/validation");
 
 const { Album, User, Song } = require("../db/models");
 
-// Validators
+// Validations
 const validateSong = [
   check("title")
     .exists({ checkFalsy: true })
@@ -34,7 +34,7 @@ const validateAlbumEdit = [
 
 // GET
 
-// Get album details using album ID 596
+// Get Album Details Using Album ID
 router.get("/albums/:albumId", async (req, res) => {
   const { albumId } = req.params;
   const album = await Album.findByPk(albumId, {
@@ -52,7 +52,7 @@ router.get("/albums/:albumId", async (req, res) => {
   res.json(album);
 });
 
-// Get All Albums 532
+// Get All Albums
 router.get("/albums", async (req, res) => {
   const Albums = await Album.findAll();
   res.json({ Albums });
@@ -60,7 +60,7 @@ router.get("/albums", async (req, res) => {
 
 // POST;
 
-// Create a Song for an Album with Album Id 351 TRUE (CURRENT USER)
+// Create A Song For An Album With Album ID
 router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
@@ -88,7 +88,7 @@ router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
   }
 });
 
-// Create an album 655 TRUE
+// Create An Album
 router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
   const { user } = req;
   const { title, description, imageUrl } = req.body;
@@ -106,7 +106,7 @@ router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
 
 // PUT
 
-// Edit an Album 709 TRUE (CURRENT USER)
+// Edit An Album
 router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) => {
   const { user } = req;
   const { albumId } = req.params;
@@ -136,7 +136,7 @@ router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) =
 
 // DELETE
 
-// Delete an album 777 TRUE (CURRENT USER)
+// Delete An Album
 router.delete("/albums/:albumId", requireAuth, async(req, res) => {
   const { user } = req;
   const { albumId } = req.params;
