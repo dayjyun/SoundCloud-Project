@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { requireAuth } = require("../utils/auth.js");
-const { validateSong, validateCommentBody } = require('../utils/validation')
+const { validateSong, validateComment } = require("../utils/validation");
 
 const { Song, Album, User, Comment } = require("../db/models");
 
@@ -61,7 +61,7 @@ router.get("/songs", async (req, res) => {
 // POST
 
 // Create A Comment For A Song By Song ID
-router.post("/songs/:songId/comments", requireAuth, validateCommentBody, async(req, res) => {
+router.post("/songs/:songId/comments", requireAuth, validateComment, async(req, res) => {
   const { user } = req;
   const { songId } = req.params;
   const { body } = req.body;

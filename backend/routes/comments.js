@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 
 const { requireAuth } = require("../utils/auth");
-const { editComment } = require('../utils/validation');
+const { validateComment } = require("../utils/validation");
 
 const { Comment } = require("../db/models");
 
 // Edit A Comment
-router.put('/comments/:commentId', requireAuth, editComment, async(req, res) => {
+router.put('/comments/:commentId', requireAuth, validateComment, async(req, res) => {
     const { user } = req;
     const { commentId } = req.params;
     const { body } = req.body;

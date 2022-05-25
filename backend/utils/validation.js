@@ -55,6 +55,7 @@ const validateLogin = [
 ];
 
 // albums.js
+// song.js
 const validateSong = [
   check("title")
     .exists({ checkFalsy: true })
@@ -72,15 +73,9 @@ const validateAlbum = [
   handleValidationErrors,
 ];
 
-const validateAlbumEdit = [
-  check("title")
-    .exists({ checkFalsy: true })
-    .withMessage("Album title is required"),
-  handleValidationErrors,
-];
-
 // comments.js
-const editComment = [
+// song.js
+const validateComment = [
   check("body")
     .exists({ checkFalsy: true })
     .withMessage("Comment required"),
@@ -95,24 +90,12 @@ const validatePlaylist = [
   handleValidationErrors,
 ];
 
-// songs.js
-// validateSong
-
-const validateCommentBody = [
-  check("body")
-    .exists({ checkFalsy: true })
-    .withMessage("Comment required"),
-  handleValidationErrors,
-];
-
 module.exports = {
   handleValidationErrors,
   validateSignup,
   validateLogin,
   validateSong,
   validateAlbum,
-  validateAlbumEdit,
-  editComment,
+  validateComment,
   validatePlaylist,
-  validateCommentBody,
 };
