@@ -30,9 +30,25 @@ router.get("/me", requireAuth, async (req, res) => {
   if (user) {
     return res.json({
       ...user.toSafeObject(),
-      token: cookies.token,
+      // token: cookies.token,
     });
   } else return res.json({});
 });
+
+// or this
+// router.get("/me", requireAuth, async (req, res) => {
+//   const { user, cookies } = req;
+
+//   if (user) {
+//     return res.json({
+//       ...user.toSafeObject(),
+//       token: cookies.token,
+//     });
+//   } else {
+//     const error = new Error("Authentication Required");
+//     error.status = 401;
+//     throw error;
+//   }
+// });
 
 module.exports = router;
