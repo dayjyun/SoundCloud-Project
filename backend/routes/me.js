@@ -32,7 +32,7 @@ router.get('/me', restoreUser, async(req, res) => {
     });
   } else {
     const error = new Error("Invalid Request");
-    error.status = 400;
+    error.status = 401;
     throw error;
   }
 });
