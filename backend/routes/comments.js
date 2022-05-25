@@ -22,7 +22,7 @@ router.put('/comments/:commentId', requireAuth, validateComment, async(req, res)
             res.json(comment);
         } else {
             const error = new Error("Unauthorized");
-            error.status = 401;
+            error.status = 403;
             throw error;
         }
     } else {
@@ -48,7 +48,7 @@ router.delete("/comments/:commentId", requireAuth, async (req, res) => {
       });
     } else {
       const error = new Error("Unauthorized");
-      error.statusCode = 401;
+      error.statusCode = 403;
       throw error;
     }
   } else {

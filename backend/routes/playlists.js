@@ -49,7 +49,7 @@ router.post("/playlists/:playlistId", requireAuth, async (req, res) => {
         res.json(playlistSong);
       } else {
         const error = new Error("Unauthorized");
-        error.status = 404;
+        error.status = 403;
         throw error;
       }
     } else {
