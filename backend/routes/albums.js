@@ -77,6 +77,8 @@ router.post("/albums", requireAuth, validateAlbum, async (req, res) => {
     description,
     imageUrl,
   });
+  album.dataValues.previewImage = imageUrl;
+  delete album.dataValues.imageUrl;
 
   res.status(201);
   res.json(album);
