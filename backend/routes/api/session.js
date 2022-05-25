@@ -7,24 +7,6 @@ const { handleValidationErrors } = require("../../utils/validation");
 
 const router = express.Router();
 
-// // Get session user
-// router.get('/', restoreUser, (req, res) => {
-//     const { user } = req;
-//     if (user) {
-//       return res.json({
-//         user: user.toSafeObject()
-//       });
-//     } else return res.json({});
-//   }
-// );
-
-// Log out
-router.delete('/logout', (_req, res) => {
-    res.clearCookie('token');
-    return res.json({ message: 'success' });
-  }
-);
-
 const validateLogin = [
   check("credential").exists({ checkFalsy: true }).notEmpty()
     .withMessage("Please provide a valid email or username."),
@@ -49,6 +31,13 @@ router.post('/login', validateLogin, async (req, res, next) => {
     const token = await setTokenCookie(res, user);
 
     return res.json({ ...user.toSafeObject(), token });
+  }
+);
+
+// Log out
+router.delete('/logout', (_req, res) => {
+    res.clearCookie('token');
+    return res.json({ message: 'success' });
   }
 );
 
