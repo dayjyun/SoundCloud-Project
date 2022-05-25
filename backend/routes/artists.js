@@ -4,7 +4,7 @@ const router = express.Router();
 const { Album, User, Song, Playlist } = require("../db/models");
 
 // Get Details Of An Artist (User) By Artist ID
-router.get("/artists/:artistId", async (req, res) => {
+router.get("/:artistId", async (req, res) => {
   const { artistId } = req.params;
   const artist = await User.findByPk(artistId, {
     attributes: ["id", "username", "imageUrl"],
@@ -28,7 +28,7 @@ router.get("/artists/:artistId", async (req, res) => {
 });
 
 // Get All Songs Of An Artist By ID
-router.get('/artists/:artistId/songs', async(req, res) => {
+router.get('/:artistId/songs', async(req, res) => {
   const { artistId } = req.params;
   const artist = await User.findByPk(artistId);
 
@@ -43,7 +43,7 @@ router.get('/artists/:artistId/songs', async(req, res) => {
 })
 
 // Get All Albums Of An Artist By ID
-router.get("/artists/:artistId/albums", async (req, res) => {
+router.get("/:artistId/albums", async (req, res) => {
   const { artistId } = req.params;
   const artist = await User.findByPk(artistId);
 
@@ -58,7 +58,7 @@ router.get("/artists/:artistId/albums", async (req, res) => {
 });
 
 // Get All Playlists Of An Artist By ID
-router.get("/artists/:artistId/playlists", async (req, res) => {
+router.get("/:artistId/playlists", async (req, res) => {
   const { artistId } = req.params;
   const artist = await User.findByPk(artistId);
 

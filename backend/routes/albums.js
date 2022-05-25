@@ -9,7 +9,7 @@ const { Album, User, Song } = require("../db/models");
 // GET
 
 // Get Album Details Using Album ID ***
-router.get("/albums/:albumId", async (req, res) => {
+router.get("/:albumId", async (req, res) => {
   const { albumId } = req.params;
   const album = await Album.findByPk(albumId, {
     include: [
@@ -27,7 +27,7 @@ router.get("/albums/:albumId", async (req, res) => {
 });
 
 // Get All Albums !!!
-router.get("/albums", async (req, res) => {
+router.get("/", async (req, res) => {
   const Albums = await Album.findAll();
   res.json({ Albums });
 });
@@ -35,7 +35,7 @@ router.get("/albums", async (req, res) => {
 // POST;
 
 // Create A Song For An Album With Album ID *** !!!
-router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
+router.post("/:albumId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
   const { title, description, url, imageUrl } = req.body;
@@ -67,7 +67,7 @@ router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
 });
 
 // Create An Album ***
-router.post("/albums", requireAuth, validateAlbum, async (req, res) => {
+router.post("/", requireAuth, validateAlbum, async (req, res) => {
   const { user } = req;
   const { title, description, imageUrl } = req.body;
 
@@ -87,7 +87,7 @@ router.post("/albums", requireAuth, validateAlbum, async (req, res) => {
 // PUT
 
 // Edit An Album
-router.put("/albums/:albumId", requireAuth, validateAlbum, async (req, res) => {
+router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
   const { title, description, imageUrl } = req.body;
@@ -117,7 +117,7 @@ router.put("/albums/:albumId", requireAuth, validateAlbum, async (req, res) => {
 // DELETE
 
 // Delete An Album
-router.delete("/albums/:albumId", requireAuth, async(req, res) => {
+router.delete("/:albumId", requireAuth, async(req, res) => {
   const { user } = req;
   const { albumId } = req.params;
 
