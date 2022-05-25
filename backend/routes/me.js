@@ -42,7 +42,6 @@ router.get("/me", requireAuth, async (req, res) => {
 //   if (user) {
 //     return res.json({
 //       ...user.toSafeObject(),
-//       token: cookies.token,
 //     });
 //   } else {
 //     const error = new Error("Authentication Required");
