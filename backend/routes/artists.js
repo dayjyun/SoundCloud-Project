@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { check } = require("express-validator");
 
+const { check } = require("express-validator");
 const { requireAuth, restoreUser } = require("../utils/auth");
 const { handleValidationErrors } = require("../utils/validation");
+
 const { Album, User, Song, Playlist } = require("../db/models");
 
 // Get details of an artist/user by Artist ID 1028

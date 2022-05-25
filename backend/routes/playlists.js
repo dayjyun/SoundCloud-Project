@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { check } = require("express-validator");
 
+const { check } = require("express-validator");
 const { requireAuth, restoreUser } = require("../utils/auth");
 const { handleValidationErrors } = require("../utils/validation");
+
 const { Playlist, Song, PlaylistSong } = require("../db/models");
 
 // Validations
