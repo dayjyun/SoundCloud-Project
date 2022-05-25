@@ -7,7 +7,7 @@ const { handleValidationErrors } = require("../utils/validation");
 
 const { Album, User, Song, Playlist } = require("../db/models");
 
-// Get details of an artist/user by Artist ID 1028
+// Get Details Of An Artist (User) By Artist ID
 router.get("/artists/:artistId", async (req, res) => {
   const { artistId } = req.params;
   const artist = await User.findByPk(artistId, {
@@ -31,7 +31,7 @@ router.get("/artists/:artistId", async (req, res) => {
   }
 });
 
-// Get all Songs of an artist by Id 1132
+// Get All Songs Of An Artist By ID
 router.get('/artists/:artistId/songs', async(req, res) => {
   const { artistId } = req.params;
   const artist = await User.findByPk(artistId);
@@ -46,7 +46,7 @@ router.get('/artists/:artistId/songs', async(req, res) => {
   }
 })
 
-// Get all albums of an artist by Id 1182
+// Get All Albums Of An Artist By ID
 router.get("/artists/:artistId/albums", async (req, res) => {
   const { artistId } = req.params;
   const artist = await User.findByPk(artistId);
@@ -61,7 +61,7 @@ router.get("/artists/:artistId/albums", async (req, res) => {
   }
 });
 
-// Get all Playlists of an artist by Id 1230
+// Get All Playlists Of An Artist By ID
 router.get("/artists/:artistId/playlists", async (req, res) => {
   const { artistId } = req.params;
   const artist = await User.findByPk(artistId);
