@@ -20,8 +20,7 @@ const validatePlaylist = [
 router.get("/playlists/:playlistId", async(req, res) => {
     const { playlistId } = req.params;
     const playlist = await Playlist.findByPk(playlistId, {
-        include: [ { model: Song } ],
-        exclude: [ { model: PlaylistSong } ]
+        include: [ { model: Song, through: { attributes: [ ] } } ],
     })
 
     if(!playlist) {
