@@ -11,10 +11,6 @@ const songsRouter = require('./songs')
 
 router.use(apiRouter, albumRouter, artistRouter, commentsRouter, meRouter, playlistsRouter, songsRouter);
 
-router.post("/test", function (req, res) {
-  res.json({ requestBody: req.body });
-});
-
 router.get("/api/csrf/restore", (req, res) => {
   const csrfToken = req.csrfToken();
   res.cookie("XSRF-TOKEN", csrfToken);

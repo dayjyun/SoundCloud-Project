@@ -17,7 +17,7 @@ const validatePlaylist = [
 
 // GET
 
-// Get details of a playlist using Playlist ID
+// Get Details Of A Playlist Using Playlist ID
 router.get("/playlists/:playlistId", async (req, res) => {
   const { playlistId } = req.params;
   const playlist = await Playlist.findByPk(playlistId, {
