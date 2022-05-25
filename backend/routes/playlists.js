@@ -1,19 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const { check } = require("express-validator");
-const { requireAuth, restoreUser } = require("../utils/auth");
-const { handleValidationErrors } = require("../utils/validation");
+const { requireAuth } = require("../utils/auth");
+const { validatePlaylist } = require('../utils/validation')
 
 const { Playlist, Song, PlaylistSong } = require("../db/models");
-
-// Validations
-const validatePlaylist = [
-  check("name")
-    .exists({ checkFalsy: true })
-    .withMessage("Playlist name required"),
-  handleValidationErrors,
-];
 
 // GET
 

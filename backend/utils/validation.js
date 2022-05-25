@@ -46,6 +46,13 @@ const editComment = [
   handleValidationErrors,
 ];
 
+// playlists.js
+const validatePlaylist = [
+  check("name")
+    .exists({ checkFalsy: true })
+    .withMessage("Playlist name required"),
+  handleValidationErrors,
+];
 
 module.exports = {
   handleValidationErrors,
@@ -53,4 +60,5 @@ module.exports = {
   validateAlbum,
   validateAlbumEdit,
   editComment,
+  validatePlaylist,
 };

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { requireAuth } = require("../utils/auth");
+const { editComment } = require('../utils/validation');
 
 const { Comment } = require("../db/models");
 
@@ -29,7 +30,7 @@ router.put('/comments/:commentId', requireAuth, editComment, async(req, res) => 
         error.status = 404;
         throw error;
     }
-})
+});
 
 // Delete A Comment
 router.delete("/comments/:commentId", requireAuth, async (req, res) => {
