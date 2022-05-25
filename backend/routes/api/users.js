@@ -6,7 +6,7 @@ const { validateSignup } = require("../../utils/validation")
 
 const { User } = require("../../db/models");
 
-// Sign up
+// Sign up !!!
 router.post('/signup', validateSignup, async (req, res) => {
     const { firstName, lastName, email, password, username } = req.body;
     const checkEmail = await User.findOne({ where: { email } })
