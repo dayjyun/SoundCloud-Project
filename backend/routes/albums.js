@@ -1,36 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const { check } = require("express-validator");
-const { requireAuth, restoreUser } = require("../utils/auth");
-const { handleValidationErrors } = require("../utils/validation");
+const { requireAuth } = require("../utils/auth");
+const { validateSong, validateAlbum } = require('../utils/validation')
 
 const { Album, User, Song } = require("../db/models");
-
-// Validations
-const validateSong = [
-  check("title")
-    .exists({ checkFalsy: true })
-    .withMessage("Song title is required"),
-  check("url")
-    .exists({ checkFalsy: true })
-    .withMessage("Audio is required"),
-  handleValidationErrors,
-];
-
-const validateAlbum = [
-  check("title")
-    .exists({ checkFalsy: true })
-    .withMessage("Album title is required"),
-  handleValidationErrors
-];
-
-const validateAlbumEdit = [
-  check("title")
-    .exists({ checkFalsy: true })
-    .withMessage("Album title is required"),
-  handleValidationErrors,
-];
 
 // GET
 
@@ -107,32 +81,32 @@ router.post("/albums", requireAuth, validateAlbum, async (req, res) => {
 // PUT
 
 // Edit An Album
-router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) => {
+router.put("/albums/:albumId", requireAuth, validateAlbum, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
   const { title, description, imageUrl } = req.body;
 
-  const album = await Album.findByPk(albumId)
+  const album = await Album.findByPk(albumId);
 
-  if(album) {
-    if(album.userId = user.id) {
+  if (album) {
+    if ((album.userId = user.id)) {
       await album.update({
         title,
         description,
-        imageUrl
-      })
-      res.json(album)
+        imageUrl,
+      });
+      res.json(album);
     } else {
-    const error = new Error('Unauthorized')
-    error.status = 403;
-    throw error;
+      const error = new Error("Unauthorized");
+      error.status = 403;
+      throw error;
     }
   } else {
     const error = new Error("Album not found");
     error.status = 404;
     throw error;
   }
-})
+});
 
 // DELETE
 
