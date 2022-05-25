@@ -9,7 +9,13 @@ const meRouter = require('./me');
 const playlistsRouter = require('./playlists')
 const songsRouter = require('./songs')
 
-router.use(apiRouter, albumRouter, artistRouter, commentsRouter, meRouter, playlistsRouter, songsRouter);
+router.use(apiRouter);
+router.use("/albums", albumRouter);
+router.use("/artists", artistRouter);
+router.use("/comments", commentsRouter);
+router.use("/me", meRouter);
+router.use("/playlists", playlistsRouter);
+router.use("/songs", songsRouter);
 
 router.get("/api/csrf/restore", (req, res) => {
   const csrfToken = req.csrfToken();
