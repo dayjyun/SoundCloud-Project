@@ -30,7 +30,7 @@ router.get('/:songId/comments', async(req, res) => {
   }
 })
 
-// Get Details By Song ID ***
+// Get Details By Song ID
 router.get("/:songId", async (req, res) => {
   const { songId } = req.params;
   const song = await Song.findByPk(songId, {
@@ -68,7 +68,7 @@ router.get("/:songId", async (req, res) => {
   res.json(song);
 });
 
-// Get All Songs ***
+// Get All Songs
 router.get("/", async (req, res) => {
   const Songs = await Song.findAll({
     attributes: [

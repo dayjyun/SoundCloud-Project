@@ -81,7 +81,7 @@ const validateAlbum = [
 const validateComment = [
   check("body")
     .exists({ checkFalsy: true })
-    .withMessage("Comment required"),
+    .withMessage("Comment body is required"),
   handleValidationErrors,
 ];
 
