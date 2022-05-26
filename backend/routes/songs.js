@@ -34,9 +34,28 @@ router.get('/:songId/comments', async(req, res) => {
 router.get("/:songId", async (req, res) => {
   const { songId } = req.params;
   const song = await Song.findByPk(songId, {
+    attributes: [
+      "id",
+      "userId",
+      "albumId",
+      "title",
+      "description",
+      "url",
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("Song.imageUrl"), "previewImage"]
+    ],
     include: [
-      { model: User, as: "Artist", attributes: ["id", "username", "imageUrl"] },
-      { model: Album, attributes: ["id", "title", "imageUrl"] },
+      { model: User, as: "Artist", attributes: [
+        "id",
+        "username",
+        [sequelize.col("imageUrl"), "previewImage"]
+      ]},
+      { model: Album, attributes: [
+        "id",
+        "title",
+        [sequelize.col("imageUrl"), "previewImage"]
+      ]},
     ],
   });
 
