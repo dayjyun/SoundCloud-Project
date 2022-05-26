@@ -8,7 +8,7 @@ const { Album, User, Song, sequelize } = require("../db/models");
 
 // GET
 
-// Get Album Details Using Album ID ***
+// Get Album Details Using Album ID
 router.get("/:albumId", async (req, res) => {
   const { albumId } = req.params;
   const album = await Album.findByPk(albumId, {
@@ -72,7 +72,7 @@ router.get("/", async (req, res) => {
 
 // POST;
 
-// Create A Song For An Album With Album ID *** !!!
+// Create A Song For An Album With Album ID !!!
 router.post("/:albumId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
@@ -107,7 +107,7 @@ router.post("/:albumId", requireAuth, validateSong, async (req, res) => {
   }
 });
 
-// Create An Album ***
+// Create An Album
 router.post("/", requireAuth, validateAlbum, async (req, res) => {
   const { user } = req;
   const { title, description, imageUrl } = req.body;
@@ -142,6 +142,9 @@ router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
         description,
         imageUrl,
       });
+      album.dataValues.previewImage = imageUrl;
+      delete album.dataValues.imageUrl;
+
       res.json(album);
     } else {
       const error = new Error("Unauthorized");
