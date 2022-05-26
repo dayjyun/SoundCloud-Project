@@ -4,7 +4,7 @@ const router = express.Router();
 const { requireAuth } = require("../utils/auth.js");
 const { validateSong, validateComment } = require("../utils/validation");
 
-const { Song, Album, User, Comment } = require("../db/models");
+const { Song, Album, User, Comment, sequelize } = require("../db/models");
 
 // GET
 
@@ -51,9 +51,18 @@ router.get("/:songId", async (req, res) => {
 
 // Get All Songs ***
 router.get("/", async (req, res) => {
-  const { imageUrl } = req.body;
   const Songs = await Song.findAll({
-    // previewImage: imageUrl
+    attributes: [
+      "id",
+      "userId",
+      "albumId",
+      "title",
+      "description",
+      "url",
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("Song.imageUrl"), "previewImage"],
+    ]
   });
   res.json({ Songs });
 });
