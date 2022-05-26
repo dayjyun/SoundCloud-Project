@@ -4,7 +4,7 @@ const router = express.Router();
 const { requireAuth } = require("../utils/auth");
 const { validatePlaylist } = require('../utils/validation')
 
-const { Playlist, Song, PlaylistSong } = require("../db/models");
+const { Playlist, Song, PlaylistSong, sequelize } = require("../db/models");
 
 // GET
 
@@ -12,7 +12,31 @@ const { Playlist, Song, PlaylistSong } = require("../db/models");
 router.get("/:playlistId", async (req, res) => {
   const { playlistId } = req.params;
   const playlist = await Playlist.findByPk(playlistId, {
-    include: [{ model: Song, through: { attributes: [] } }],
+    attributes: [
+      "id",
+      "userId",
+      "name",
+      "createdAt",
+      "updatedAt",
+      // [sequelize.col("imageUrl"), "previewImage"]
+    ],
+    include: [
+      {
+        model: Song,
+        attributes: [
+          "id",
+          "userId",
+          "albumId",
+          "title",
+          "description",
+          "url",
+          "createdAt",
+          "updatedAt",
+          [sequelize.col("imageUrl"), "previewImage"],
+        ],
+        through: { attributes: [] },
+      },
+    ],
   });
 
   if (!playlist) {
