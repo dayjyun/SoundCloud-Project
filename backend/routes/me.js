@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { requireAuth } = require("../utils/auth");
+const { requireAuth, restoreUser } = require("../utils/auth");
 const { Album, Song, Playlist, sequelize } = require('../db/models')
 
 // Get All Songs By The Current User
@@ -39,30 +39,18 @@ router.get("/playlists", requireAuth, async(req, res) => {
 })
 
 // Get Current User
-router.get("/", requireAuth, async (req, res) => {
+router.get("/", restoreUser, async (req, res) => {
   const { user, cookies } = req;
 
   if (user) {
     return res.json({
       ...user.toSafeObject(),
-      // token: cookies.token,
     });
-  } else return res.json({});
+  } else {
+    const error = new Error("Authentication Required");
+    error.status = 403;
+    throw error;
+  }
 });
-
-// or this
-// router.get("/me", requireAuth, async (req, res) => {
-//   const { user, cookies } = req;
-
-//   if (user) {
-//     return res.json({
-//       ...user.toSafeObject(),
-//     });
-//   } else {
-//     const error = new Error("Authentication Required");
-//     error.status = 401;
-//     throw error;
-//   }
-// });
 
 module.exports = router;
