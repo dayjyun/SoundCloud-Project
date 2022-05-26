@@ -89,7 +89,7 @@ router.get("/:artistId", async(req, res) => {
     attributes: [
       "id",
       "username",
-      "imageUrl"
+      "imageUrl",
       [sequelize.col("imageUrl"), "previewImage"]
     ],
   });
