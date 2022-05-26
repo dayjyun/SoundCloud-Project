@@ -69,10 +69,7 @@ router.get("/", async (req, res) => {
       [sequelize.col("imageUrl"), "previewImage"],
     ]
   });
-
-  // Albums.dataValues.previewImage = imageUrl;
-  // delete Albums.dataValues.imageUrl;
-
+  
   res.json({ Albums } );
 });
 
