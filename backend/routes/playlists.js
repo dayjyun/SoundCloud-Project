@@ -120,6 +120,8 @@ router.put("/:playlistId", requireAuth, validatePlaylist, async (req, res) => {
           name,
           imageUrl,
         });
+        neoPlaylist.dataValues.previewImage = imageUrl;
+        delete neoPlaylist.dataValues.imageUrl;
 
         res.json(neoPlaylist);
       } else {
