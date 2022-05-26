@@ -74,6 +74,9 @@ router.post("/", requireAuth, validatePlaylist, async (req, res) => {
     name,
     imageUrl,
   });
+  playlist.dataValues.previewImage = imageUrl;
+  delete playlist.dataValues.imageUrl;
+
   res.json(playlist);
 });
 
