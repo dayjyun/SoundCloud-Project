@@ -74,6 +74,60 @@ module.exports = {
         url: "asdf",
         imageUrl: "image url",
       },
+      {
+        // 9
+        title: "Melatonin",
+        description: "Smooth intro",
+        userId: 4,
+        albumId: 4,
+        url: "asdf",
+        imageUrl: "image url",
+      },
+      {
+        // 10
+        title: "Waste It On",
+        description: "Nice Bass",
+        userId: 4,
+        albumId: 4,
+        url: "asdf",
+        imageUrl: "image url",
+      },
+      {
+        // 11
+        title: "Future Foe Scenarios",
+        description: "Niiice",
+        userId: 4,
+        albumId: 4,
+        url: "asdf",
+        imageUrl: "image url",
+      },
+      {
+        // 12
+        title: "Lazy Eye",
+        description: "Great Success",
+        userId: 4,
+        albumId: 4,
+        url: "asdf",
+        imageUrl: "image url",
+      },
+      {
+        // 13
+        title: "The Royal We",
+        description: "Part 2 of track 1",
+        userId: 4,
+        albumId: 5,
+        url: "asdf",
+        imageUrl: "image url",
+      },
+      {
+        // 14
+        title: "Catch and Release",
+        description: "Checkout the strings",
+        userId: 4,
+        albumId: 5,
+        url: "asdf",
+        imageUrl: "image url",
+      },
     ]);
   },
 
