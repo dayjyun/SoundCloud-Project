@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { requireAuth } = require("../utils/auth");
 
-const { Album, Song } = require('../db/models')
+const { Album, Song, sequelize } = require('../db/models')
 
 // Get All Songs By The Current User
 router.get('/songs', requireAuth, async(req, res) => {
@@ -12,11 +12,20 @@ router.get('/songs', requireAuth, async(req, res) => {
   res.json({ Songs });
 });
 
-// Get All Albums By Current User ***
+// Get All Albums By Current User
 router.get('/albums', requireAuth, async(req, res) => {
   const { user } = req;
   const Albums = await Album.findAll({
-    where: { userId: user.id}
+    where: { userId: user.id},
+    attributes: [
+      "id",
+      "userId",
+      "title",
+      "description",
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("imageUrl"), "previewImage"]
+    ]
   })
   res.json({ Albums });
 });

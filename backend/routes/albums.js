@@ -22,17 +22,14 @@ router.get("/:albumId", async (req, res) => {
       [sequelize.col("Album.imageUrl"), "previewImage"],
     ],
     include: [
-      {
-        model: User,
-        as: "Artist",
+      { model: User, as: "Artist",
         attributes: [
           "id",
           "username",
           [sequelize.col("imageUrl"), "previewImage"],
         ],
       },
-      {
-        model: Song,
+      { model: Song,
         attributes: [
           "id",
           "userId",
@@ -56,7 +53,7 @@ router.get("/:albumId", async (req, res) => {
   res.json(album);
 });
 
-// Get All Albums !!!
+// Get All Albums
 router.get("/", async (req, res) => {
   const Albums = await Album.findAll({
     attributes: [
@@ -69,7 +66,7 @@ router.get("/", async (req, res) => {
       [sequelize.col("imageUrl"), "previewImage"],
     ]
   });
-  
+
   res.json({ Albums } );
 });
 
