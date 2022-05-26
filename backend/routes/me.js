@@ -30,7 +30,7 @@ router.get('/albums', requireAuth, async(req, res) => {
 });
 
 // Get all playlists created by Current User
-router.get("/me/playlists", requireAuth, async(req, res) => {
+router.get("/playlists", requireAuth, async(req, res) => {
   const { user } = req;
   const Playlists = await Playlist.findAll({
     where: { userId: user.id }
