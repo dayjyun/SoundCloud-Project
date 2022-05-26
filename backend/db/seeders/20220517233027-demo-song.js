@@ -10,7 +10,7 @@ module.exports = {
         userId: 1,
         albumId: 1,
         url: "asdf",
-        imageUrl: "fdsa",
+        imageUrl: "image url",
       },
       {
         // 2
@@ -19,7 +19,7 @@ module.exports = {
         userId: 2,
         albumId: 2,
         url: "asdf",
-        imageUrl: "fdsa",
+        imageUrl: "image url",
       },
       {
         // 3
@@ -28,7 +28,7 @@ module.exports = {
         userId: 3,
         albumId: 3,
         url: "asdf",
-        imageUrl: "fdsa",
+        imageUrl: "image url",
       },
       {
         //4
@@ -37,7 +37,7 @@ module.exports = {
         userId: 4,
         albumId: 4,
         url: "asdf",
-        imageUrl: "fdsa",
+        imageUrl: "image url",
       },
       {
         // 5
@@ -46,7 +46,7 @@ module.exports = {
         userId: 4,
         albumId: 4,
         url: "asdf",
-        imageUrl: "fdsa",
+        imageUrl: "image url",
       },
       {
         // 6
@@ -55,7 +55,7 @@ module.exports = {
         userId: 4,
         albumId: 5,
         url: "asdf",
-        imageUrl: "fdsa",
+        imageUrl: "image url",
       },
       {
         // 7
@@ -64,7 +64,7 @@ module.exports = {
         userId: 4,
         albumId: 5,
         url: "asdf",
-        imageUrl: "fdsa",
+        imageUrl: "image url",
       },
       {
         // 8
@@ -72,7 +72,7 @@ module.exports = {
         description: "Sued by The Rolling Stones",
         userId: 5,
         url: "asdf",
-        imageUrl: "fdsa",
+        imageUrl: "image url",
       },
     ]);
   },

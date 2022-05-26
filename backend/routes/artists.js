@@ -37,7 +37,18 @@ router.get("/:artistId/albums", async(req, res) => {
   const artist = await User.findByPk(artistId);
 
   if (artist) {
-    const Albums = await Album.findAll({ where: { userId: artistId } });
+    const Albums = await Album.findAll({
+      where: { userId: artistId },
+      attributes: [
+        "id",
+        "userId",
+        "title",
+        "description",
+        "createdAt",
+        "updatedAt",
+        [sequelize.col("imageUrl"), "previewImage"]
+      ]
+    });
     res.json({ Albums });
   } else {
     const error = new Error("Artist not found");
