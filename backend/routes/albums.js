@@ -4,7 +4,7 @@ const router = express.Router();
 const { requireAuth } = require("../utils/auth");
 const { validateSong, validateAlbum } = require('../utils/validation')
 
-const { Album, User, Song } = require("../db/models");
+const { Album, User, Song, sequelize } = require("../db/models");
 
 // GET
 
@@ -12,9 +12,39 @@ const { Album, User, Song } = require("../db/models");
 router.get("/:albumId", async (req, res) => {
   const { albumId } = req.params;
   const album = await Album.findByPk(albumId, {
+    attributes: [
+      "id",
+      "userId",
+      "title",
+      "description",
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("Album.imageUrl"), "previewImage"],
+    ],
     include: [
-      { model: User, as: "Artist", attributes: ["id", "username", "imageUrl"] },
-      { model: Song },
+      {
+        model: User,
+        as: "Artist",
+        attributes: [
+          "id",
+          "username",
+          [sequelize.col("imageUrl"), "previewImage"],
+        ],
+      },
+      {
+        model: Song,
+        attributes: [
+          "id",
+          "userId",
+          "albumId",
+          "title",
+          "description",
+          "url",
+          "createdAt",
+          "updatedAt",
+          [sequelize.col("imageUrl"), "previewImage"],
+        ],
+      },
     ],
   });
 
@@ -28,8 +58,19 @@ router.get("/:albumId", async (req, res) => {
 
 // Get All Albums !!!
 router.get("/", async (req, res) => {
-  const Albums = await Album.findAll();
-  res.json({ Albums });
+  const Albums = await Album.findAll({
+    attributes: [
+      "id",
+      "title",
+      [sequelize.col("imageUrl"), "previewImage"],
+      "description",
+  ]
+  });
+
+  // Albums.dataValues.previewImage = imageUrl;
+  // delete Albums.dataValues.imageUrl;
+
+  res.json({ Albums } );
 });
 
 // POST;
