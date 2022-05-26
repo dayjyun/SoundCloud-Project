@@ -13,13 +13,15 @@ router.post('/signup', validateSignup, async (req, res) => {
     const checkUsername = await User.findOne({ where: { username } })
 
     if(checkEmail) {
-      let error = new Error('E-mail already exists');
+      let error = new Error('User already exists');
       error.status = 403
+      error.errors = [ "User with that email already exists" ]
       throw error;
     }
     if (checkUsername) {
-      let error = new Error("Username already exists");
+      let error = new Error("User already exists");
       error.status = 403;
+
       throw error;
     }
 
