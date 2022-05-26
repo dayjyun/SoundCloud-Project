@@ -158,12 +158,12 @@ router.delete("/:songId", requireAuth, async (req, res, next) => {
       const error = new Error("Unauthorized");
       error.status = 403;
       throw error;
-    }
+    };
   } else {
     const error = new Error("Song not found");
     error.status = 404;
     throw error;
-  }
+  };
 });
 
 // Add Query Filters to get All Songs 1501
