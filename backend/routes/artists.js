@@ -94,7 +94,6 @@ router.get("/:artistId", async(req, res) => {
     attributes: [
       "id",
       "username",
-      "imageUrl",
       [sequelize.col("imageUrl"), "previewImage"],
     ],
   });
@@ -104,10 +103,10 @@ router.get("/:artistId", async(req, res) => {
 
   if (artist) {
     res.json({
-      ...artist.toSafeObject(),
+      ...artist.dataValues,
       totalSongs,
       totalAlbums,
-      imageUrl: artist.imageUrl
+      // imageUrl: artist.imageUrl
     });
   } else {
     const error = new Error("Artist not found");
