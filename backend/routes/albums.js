@@ -93,6 +93,9 @@ router.post("/:albumId", requireAuth, validateSong, async (req, res) => {
         userId: user.id,
         albumId: parseInt(albumId),
       });
+      newSong.dataValues.previewImage = imageUrl;
+      delete newSong.dataValues.imageUrl;
+
       res.status(201);
       res.json(newSong);
     } else {
