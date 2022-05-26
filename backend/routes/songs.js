@@ -1,32 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-const { Song, Album, User, Comment } = require("../db/models");
-
 const { requireAuth } = require("../utils/auth.js");
-const { check } = require("express-validator");
-const { handleValidationErrors } = require("../utils/validation");
+const { validateSong, validateComment } = require("../utils/validation");
 
-// Validators
-const validateSong = [
-  check("title")
-    .exists({ checkFalsy: true })
-    .withMessage("Song title is required"),
-  check("url").exists({ checkFalsy: true }).withMessage("Audio is required"),
-  handleValidationErrors,
-];
-
-const validateCommentBody = [
-  check("body")
-    .exists({ checkFalsy: true })
-    .withMessage("Comment required"),
-  handleValidationErrors
-]
+const { Song, Album, User, Comment, sequelize } = require("../db/models");
 
 // GET
 
-// Get all Comments by Song ID 814
-router.get('/songs/:songId/comments', async(req, res) => {
+// Get All Comments By Song ID
+router.get('/:songId/comments', async(req, res) => {
   const { songId } = req.params;
   const song = await Song.findByPk(songId, {
     include: [
@@ -47,13 +30,32 @@ router.get('/songs/:songId/comments', async(req, res) => {
   }
 })
 
-// Get details by song Id 298
-router.get("/songs/:songId", async (req, res) => {
+// Get Details By Song ID
+router.get("/:songId", async (req, res) => {
   const { songId } = req.params;
   const song = await Song.findByPk(songId, {
+    attributes: [
+      "id",
+      "userId",
+      "albumId",
+      "title",
+      "description",
+      "url",
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("Song.imageUrl"), "previewImage"]
+    ],
     include: [
-      { model: User, as: "Artist", attributes: ["id", "username", "imageUrl"] },
-      { model: Album, attributes: ["id", "title", "imageUrl"] },
+      { model: User, as: "Artist", attributes: [
+        "id",
+        "username",
+        [sequelize.col("imageUrl"), "previewImage"]
+      ]},
+      { model: Album, attributes: [
+        "id",
+        "title",
+        [sequelize.col("imageUrl"), "previewImage"]
+      ]},
     ],
   });
 
@@ -66,16 +68,28 @@ router.get("/songs/:songId", async (req, res) => {
   res.json(song);
 });
 
-// Get all Songs
-router.get("/songs", async (req, res) => {
-  const Songs = await Song.findAll();
+// Get All Songs
+router.get("/", async (req, res) => {
+  const Songs = await Song.findAll({
+    attributes: [
+      "id",
+      "userId",
+      "albumId",
+      "title",
+      "description",
+      "url",
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("Song.imageUrl"), "previewImage"],
+    ]
+  });
   res.json({ Songs });
 });
 
 // POST
 
-// Create a Comment for a song by Song ID 862 TRUE
-router.post("/songs/:songId/comments", requireAuth, validateCommentBody, async(req, res) => {
+// Create A Comment For A Song By Song ID
+router.post("/:songId/comments", requireAuth, validateComment, async(req, res) => {
   const { user } = req;
   const { songId } = req.params;
   const { body } = req.body;
@@ -98,8 +112,8 @@ router.post("/songs/:songId/comments", requireAuth, validateCommentBody, async(r
 
 // PUT
 
-// Edit a song 423 TRUE (CURRENT USER)
-router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
+// Edit A Song *** !!!
+router.put("/:songId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { songId } = req.params;
   const { title, description, url, imageUrl } = req.body;
@@ -116,7 +130,7 @@ router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
         title,
         description,
         url,
-        imageUrl,
+        previewImage: imageUrl,
       });
 
       res.json(song);
@@ -126,8 +140,8 @@ router.put("/songs/:songId", requireAuth, validateSong, async (req, res) => {
 
 // DELETE
 
-// Delete a Song 495 TRUE (CURRENT USER)
-router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
+// Delete A Song
+router.delete("/:songId", requireAuth, async (req, res, next) => {
   const { user } = req;
   const { songId } = req.params;
 
@@ -140,12 +154,16 @@ router.delete("/songs/:songId", requireAuth, async (req, res, next) => {
         message: "Successfully deleted",
         statusCode: 200,
       });
-    }
+    } else {
+      const error = new Error("Unauthorized");
+      error.status = 403;
+      throw error;
+    };
   } else {
     const error = new Error("Song not found");
     error.status = 404;
     throw error;
-  }
+  };
 });
 
 // Add Query Filters to get All Songs 1501

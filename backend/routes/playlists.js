@@ -1,26 +1,42 @@
 const express = require("express");
 const router = express.Router();
-const { check } = require("express-validator");
 
-const { requireAuth, restoreUser } = require("../utils/auth");
-const { handleValidationErrors } = require("../utils/validation");
-const { Playlist, Song, PlaylistSong } = require("../db/models");
+const { requireAuth } = require("../utils/auth");
+const { validatePlaylist } = require('../utils/validation')
 
-// Validations
-const validatePlaylist = [
-  check("name")
-    .exists({ checkFalsy: true })
-    .withMessage("Playlist name required"),
-  handleValidationErrors,
-];
+const { Playlist, Song, PlaylistSong, sequelize } = require("../db/models");
 
 // GET
 
-// Get details of a playlist using Playlist ID
-router.get("/playlists/:playlistId", async (req, res) => {
+// Get Details Of A Playlist Using Playlist ID
+router.get("/:playlistId", async (req, res) => {
   const { playlistId } = req.params;
   const playlist = await Playlist.findByPk(playlistId, {
-    include: [{ model: Song, through: { attributes: [] } }],
+    attributes: [
+      "id",
+      "userId",
+      "name",
+      "createdAt",
+      "updatedAt",
+      // [sequelize.col("imageUrl"), "previewImage"]
+    ],
+    include: [
+      {
+        model: Song,
+        attributes: [
+          "id",
+          "userId",
+          "albumId",
+          "title",
+          "description",
+          "url",
+          "createdAt",
+          "updatedAt",
+          [sequelize.col("imageUrl"), "previewImage"],
+        ],
+        through: { attributes: [] },
+      },
+    ],
   });
 
   if (!playlist) {
@@ -34,8 +50,8 @@ router.get("/playlists/:playlistId", async (req, res) => {
 
 // POST
 
-// Add a song to a playlist using Playlist ID 1255 TRUE (CURRENT USER)
-router.post("/playlists/:playlistId", requireAuth, async (req, res) => {
+// Add A Song To A Playlist Using Playlist ID
+router.post("/:playlistId", requireAuth, async (req, res) => {
   const { playlistId } = req.params;
   const { user } = req;
   const { songId } = req.body;
@@ -57,7 +73,7 @@ router.post("/playlists/:playlistId", requireAuth, async (req, res) => {
         res.json(playlistSong);
       } else {
         const error = new Error("Unauthorized");
-        error.status = 404;
+        error.status = 403;
         throw error;
       }
     } else {
@@ -72,8 +88,8 @@ router.post("/playlists/:playlistId", requireAuth, async (req, res) => {
   }
 });
 
-// Create a playlist 1203 TRUE
-router.post("/playlists", requireAuth, validatePlaylist, async (req, res) => {
+// Create A Playlist
+router.post("/", requireAuth, validatePlaylist, async (req, res) => {
   const { user } = req;
   const { name, imageUrl } = req.body;
 
@@ -82,13 +98,16 @@ router.post("/playlists", requireAuth, validatePlaylist, async (req, res) => {
     name,
     imageUrl,
   });
+  playlist.dataValues.previewImage = imageUrl;
+  delete playlist.dataValues.imageUrl;
+
   res.json(playlist);
 });
 
 // PUT
 
-// Edit a playlist 1367 TRUE (CURRENT USER)
-router.put("/playlists/:playlistId", requireAuth, validatePlaylist, async (req, res) => {
+// Edit A Playlist
+router.put("/:playlistId", requireAuth, validatePlaylist, async (req, res) => {
     const { playlistId } = req.params;
     const { user } = req;
     const { name, imageUrl } = req.body;
@@ -101,6 +120,8 @@ router.put("/playlists/:playlistId", requireAuth, validatePlaylist, async (req, 
           name,
           imageUrl,
         });
+        neoPlaylist.dataValues.previewImage = imageUrl;
+        delete neoPlaylist.dataValues.imageUrl;
 
         res.json(neoPlaylist);
       } else {
@@ -118,8 +139,8 @@ router.put("/playlists/:playlistId", requireAuth, validatePlaylist, async (req, 
 
 // DELETE
 
-// Delete a playlist 1433 TRUE (CURRENT USER)
-router.delete("/playlists/:playlistId", requireAuth, async (req, res) => {
+// Delete A Playlist
+router.delete("/:playlistId", requireAuth, async (req, res) => {
   const { playlistId } = req.params;
   const { user } = req;
   const playlist = await Playlist.findByPk(playlistId);

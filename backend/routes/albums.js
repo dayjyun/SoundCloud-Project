@@ -1,45 +1,47 @@
 const express = require("express");
 const router = express.Router();
-const { check } = require("express-validator");
 
-const { requireAuth, restoreUser } = require("../utils/auth");
-const { handleValidationErrors } = require("../utils/validation");
-const { Album, User, Song } = require("../db/models");
+const { requireAuth } = require("../utils/auth");
+const { validateSong, validateAlbum } = require('../utils/validation')
 
-// Validators
-const validateSong = [
-  check("title")
-    .exists({ checkFalsy: true })
-    .withMessage("Song title is required"),
-  check("url")
-    .exists({ checkFalsy: true })
-    .withMessage("Audio is required"),
-  handleValidationErrors,
-];
-
-const validateAlbum = [
-  check("title")
-    .exists({ checkFalsy: true })
-    .withMessage("Album title is required"),
-  handleValidationErrors
-];
-
-const validateAlbumEdit = [
-  check("title")
-    .exists({ checkFalsy: true })
-    .withMessage("Album title is required"),
-  handleValidationErrors,
-];
+const { Album, User, Song, sequelize } = require("../db/models");
 
 // GET
 
-// Get album details using album ID 596
-router.get("/albums/:albumId", async (req, res) => {
+// Get Album Details Using Album ID
+router.get("/:albumId", async (req, res) => {
   const { albumId } = req.params;
   const album = await Album.findByPk(albumId, {
+    attributes: [
+      "id",
+      "userId",
+      "title",
+      "description",
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("Album.imageUrl"), "previewImage"],
+    ],
     include: [
-      { model: User, as: "Artist", attributes: ["id", "username", "imageUrl"] },
-      { model: Song },
+      { model: User, as: "Artist",
+        attributes: [
+          "id",
+          "username",
+          [sequelize.col("imageUrl"), "previewImage"],
+        ],
+      },
+      { model: Song,
+        attributes: [
+          "id",
+          "userId",
+          "albumId",
+          "title",
+          "description",
+          "url",
+          "createdAt",
+          "updatedAt",
+          [sequelize.col("imageUrl"), "previewImage"],
+        ],
+      },
     ],
   });
 
@@ -51,16 +53,27 @@ router.get("/albums/:albumId", async (req, res) => {
   res.json(album);
 });
 
-// Get All Albums 532
-router.get("/albums", async (req, res) => {
-  const Albums = await Album.findAll();
-  res.json({ Albums });
+// Get All Albums
+router.get("/", async (req, res) => {
+  const Albums = await Album.findAll({
+    attributes: [
+      "id",
+      "userId",
+      "title",
+      "description",
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("imageUrl"), "previewImage"],
+    ]
+  });
+
+  res.json({ Albums } );
 });
 
 // POST;
 
-// Create a Song for an Album with Album Id 351 TRUE (CURRENT USER)
-router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
+// Create A Song For An Album With Album ID !!!
+router.post("/:albumId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
   const { title, description, url, imageUrl } = req.body;
@@ -77,8 +90,15 @@ router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
         userId: user.id,
         albumId: parseInt(albumId),
       });
+      newSong.dataValues.previewImage = imageUrl;
+      delete newSong.dataValues.imageUrl;
+
       res.status(201);
       res.json(newSong);
+    } else {
+      const error = new Error("Unauthorized");
+      error.status = 403;
+      throw error;
     }
   } else {
     const error = new Error("Album not found");
@@ -87,8 +107,8 @@ router.post("/albums/:albumId", requireAuth, validateSong, async (req, res) => {
   }
 });
 
-// Create an album 655 TRUE
-router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
+// Create An Album
+router.post("/", requireAuth, validateAlbum, async (req, res) => {
   const { user } = req;
   const { title, description, imageUrl } = req.body;
 
@@ -98,6 +118,8 @@ router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
     description,
     imageUrl,
   });
+  album.dataValues.previewImage = imageUrl;
+  delete album.dataValues.imageUrl;
 
   res.status(201);
   res.json(album);
@@ -105,38 +127,41 @@ router.post("/albums", restoreUser, validateAlbum, async (req, res) => {
 
 // PUT
 
-// Edit an Album 709 TRUE (CURRENT USER)
-router.put('/albums/:albumId', requireAuth, validateAlbumEdit, async(req, res) => {
+// Edit An Album
+router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
   const { title, description, imageUrl } = req.body;
 
-  const album = await Album.findByPk(albumId)
+  const album = await Album.findByPk(albumId);
 
-  if(album) {
-    if(album.userId = user.id) {
+  if (album) {
+    if ((album.userId = user.id)) {
       await album.update({
         title,
         description,
-        imageUrl
-      })
-      res.json(album)
+        imageUrl,
+      });
+      album.dataValues.previewImage = imageUrl;
+      delete album.dataValues.imageUrl;
+
+      res.json(album);
     } else {
-    const error = new Error('Unauthorized')
-    error.status = 403;
-    throw error;
+      const error = new Error("Unauthorized");
+      error.status = 403;
+      throw error;
     }
   } else {
     const error = new Error("Album not found");
     error.status = 404;
     throw error;
   }
-})
+});
 
 // DELETE
 
-// Delete an album 777 TRUE (CURRENT USER)
-router.delete("/albums/:albumId", requireAuth, async(req, res) => {
+// Delete An Album
+router.delete("/:albumId", requireAuth, async(req, res) => {
   const { user } = req;
   const { albumId } = req.params;
 

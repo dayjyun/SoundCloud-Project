@@ -6,10 +6,12 @@ module.exports = {
      { // 1
       name: 'Top Songs by Me',
       userId: 6,
+      imageUrl: "image url"
      },
      { // 2
       name: 'My Playlist',
-      userId: 1
+      userId: 1,
+      imageUrl: "image url"
      }
    ])
   },
