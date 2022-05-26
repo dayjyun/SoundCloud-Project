@@ -96,7 +96,7 @@ router.get("/", validatePage, async (req, res) => {
   if (size) size = parseInt(size);
 
   if (page > 10) {
-    page = 0;
+    page = 1;
   } else {
     page = page;
   }
