@@ -48,7 +48,7 @@ router.get("/", restoreUser, async (req, res) => {
     });
   } else {
     const error = new Error("Authentication Required");
-    error.status = 403;
+    error.status = 401;
     throw error;
   }
 });
