@@ -86,7 +86,12 @@ router.get("/:artistId/playlists", async(req, res) => {
 router.get("/:artistId", async(req, res) => {
   const { artistId } = req.params;
   const artist = await User.findByPk(artistId, {
-    attributes: ["id", "username", "imageUrl"],
+    attributes: [
+      "id",
+      "username",
+      "imageUrl"
+      // [sequelize.col("imageUrl"), "previewImage"]
+    ],
   });
 
   const totalSongs = await Song.count({ where: { userId: artistId } });
@@ -97,7 +102,7 @@ router.get("/:artistId", async(req, res) => {
       ...artist.toSafeObject(),
       totalSongs,
       totalAlbums,
-      imageUrl: artist.imageUrl,
+      imageUrl: artist.imageUrl
     });
   } else {
     const error = new Error("Artist not found");
