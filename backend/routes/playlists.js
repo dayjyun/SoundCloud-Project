@@ -18,7 +18,7 @@ router.get("/:playlistId", async (req, res) => {
       "name",
       "createdAt",
       "updatedAt",
-      // [sequelize.col("imageUrl"), "previewImage"]
+      [sequelize.col("Playlist.imageUrl"), "previewImage"]
     ],
     include: [
       {

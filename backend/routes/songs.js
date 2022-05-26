@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { requireAuth } = require("../utils/auth.js");
-const { validateSong, validateComment } = require("../utils/validation");
+const { validateSong, validateComment, validatePage } = require("../utils/validation");
 
 const { Song, Album, User, Comment, sequelize } = require("../db/models");
 
@@ -69,7 +69,7 @@ router.get("/:songId", async (req, res) => {
 });
 
 // Get All Songs
-router.get("/", async (req, res) => {
+router.get("/", async(req, res) => {
   const Songs = await Song.findAll({
     attributes: [
       "id",
@@ -85,6 +85,12 @@ router.get("/", async (req, res) => {
   });
   res.json({ Songs });
 });
+
+// Add Query Filters to get All Songs
+router.get('/', validatePage, async(req, res) => {
+  const { page, size, title, createdAt } = req.query;
+  
+})
 
 // POST
 
@@ -172,7 +178,5 @@ router.delete("/:songId", requireAuth, async (req, res, next) => {
     throw error;
   };
 });
-
-// Add Query Filters to get All Songs 1501
 
 module.exports = router;

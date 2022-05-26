@@ -93,6 +93,10 @@ const validatePlaylist = [
   handleValidationErrors,
 ];
 
+const validatePage = [
+
+]
+
 module.exports = {
   handleValidationErrors,
   validateSignup,
@@ -101,4 +105,5 @@ module.exports = {
   validateAlbum,
   validateComment,
   validatePlaylist,
+  validatePage,
 };

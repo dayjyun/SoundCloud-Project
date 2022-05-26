@@ -136,7 +136,7 @@ router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
   const album = await Album.findByPk(albumId);
 
   if (album) {
-    if ((album.userId = user.id)) {
+    if ((album.userId === user.id)) {
       await album.update({
         title,
         description,
