@@ -61,10 +61,13 @@ router.get("/", async (req, res) => {
   const Albums = await Album.findAll({
     attributes: [
       "id",
+      "userId",
       "title",
-      [sequelize.col("imageUrl"), "previewImage"],
       "description",
-  ]
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("imageUrl"), "previewImage"],
+    ]
   });
 
   // Albums.dataValues.previewImage = imageUrl;
