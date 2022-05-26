@@ -16,9 +16,7 @@ router.put('/:commentId', requireAuth, validateComment, async(req, res) => {
 
     if(comment) {
         if(comment.userId === user.id) {
-            await comment.update({
-                body
-            })
+            await comment.update({ body })
             res.json(comment);
         } else {
             const error = new Error("Unauthorized");
@@ -33,7 +31,7 @@ router.put('/:commentId', requireAuth, validateComment, async(req, res) => {
 });
 
 // Delete A Comment
-router.delete("/:commentId", requireAuth, async (req, res) => {
+router.delete("/:commentId", requireAuth, async(req, res) => {
   const { user } = req;
   const { commentId } = req.params;
 
@@ -48,7 +46,7 @@ router.delete("/:commentId", requireAuth, async (req, res) => {
       });
     } else {
       const error = new Error("Unauthorized");
-      error.statusCode = 403;
+      error.status = 403;
       throw error;
     }
   } else {
