@@ -3,30 +3,6 @@ const router = express.Router();
 
 const { Album, User, Song, Playlist } = require("../db/models");
 
-// Get Details Of An Artist (User) By Artist ID
-router.get("/:artistId", async(req, res) => {
-  const { artistId } = req.params;
-  const artist = await User.findByPk(artistId, {
-    attributes: ["id", "username", "imageUrl"],
-  });
-
-  const totalSongs = await Song.count({ where: { userId: artistId } });
-  const totalAlbums = await Album.count({ where: { userId: artistId } });
-
-  if (artist) {
-    res.json({
-      ...artist.toSafeObject(),
-      totalSongs,
-      totalAlbums,
-      imageUrl: artist.imageUrl,
-    });
-  } else {
-    const error = new Error("Artist not found");
-    error.status = 404;
-    throw error;
-  }
-});
-
 // Get All Songs Of An Artist By ID
 router.get('/:artistId/songs', async(req, res) => {
   const { artistId } = req.params;
@@ -71,5 +47,30 @@ router.get("/:artistId/playlists", async(req, res) => {
     throw error;
   }
 });
+
+// Get Details Of An Artist (User) By Artist ID
+router.get("/:artistId", async(req, res) => {
+  const { artistId } = req.params;
+  const artist = await User.findByPk(artistId, {
+    attributes: ["id", "username", "imageUrl"],
+  });
+
+  const totalSongs = await Song.count({ where: { userId: artistId } });
+  const totalAlbums = await Album.count({ where: { userId: artistId } });
+
+  if (artist) {
+    res.json({
+      ...artist.toSafeObject(),
+      totalSongs,
+      totalAlbums,
+      imageUrl: artist.imageUrl,
+    });
+  } else {
+    const error = new Error("Artist not found");
+    error.status = 404;
+    throw error;
+  }
+});
+
 
 module.exports = router;
