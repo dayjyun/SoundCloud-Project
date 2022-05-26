@@ -107,7 +107,7 @@ router.get("/", validatePage, async (req, res) => {
     size = size;
   }
 
-  if (size) pagination.limit = size;
+  if (page === 0) pagination.limit = size;
   if (page && size) pagination.offset = size * (page - 1);
 
   if (title) where.title = title;
