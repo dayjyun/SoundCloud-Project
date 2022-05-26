@@ -154,6 +154,10 @@ router.delete("/:songId", requireAuth, async (req, res, next) => {
         message: "Successfully deleted",
         statusCode: 200,
       });
+    } else {
+      const error = new Error("Unauthorized");
+      error.status = 403;
+      throw error;
     }
   } else {
     const error = new Error("Song not found");
