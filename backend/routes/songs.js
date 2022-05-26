@@ -112,7 +112,7 @@ router.post("/:songId/comments", requireAuth, validateComment, async(req, res) =
 
 // PUT
 
-// Edit A Song *** !!!
+// Edit A Song
 router.put("/:songId", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   const { songId } = req.params;
@@ -130,10 +130,17 @@ router.put("/:songId", requireAuth, validateSong, async (req, res) => {
         title,
         description,
         url,
-        previewImage: imageUrl,
+        imageUrl,
       });
 
+      song.dataValues.previewImage = imageUrl;
+      delete song.dataValues.imageUrl;
+
       res.json(song);
+    }  else {
+        const error = Error("Unauthorized");
+        error.status = 403;
+        throw error;
     }
   }
 });
