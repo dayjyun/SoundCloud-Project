@@ -72,8 +72,13 @@ router.get("/:artistId/playlists", async(req, res) => {
         "createdAt",
         "updatedAt",
         [sequelize.col("imageUrl"), "previewImage"]
-      ]
+      ],
     });
+    // if(!Playlist.length) {
+    //   const error = new Error("Playlist not found");
+    //   error.status = 404;
+    //   throw error;
+    // }
     res.json({ Playlists });
   } else {
     const error = new Error("Artist not found");
