@@ -95,17 +95,12 @@ const validatePlaylist = [
 
 const validatePage = [
   check("page")
-    .isInt({ min: 0 })
-    .optional({ nullable: true })
     .withMessage("Page must be greater than or equal to 0"),
   check("size")
-    .isInt({ min: 0 })
-    .optional({ nullable: true })
     .withMessage("Page must be greater than or equal to 0"),
-  check("createdAt")
-    .isDate()
-    .optional({ nullable: true })
-    .withMessage("CreatedAt is invalid"),
+  check("createdAt"),
+  // date
+  // .message("Must be a date")
   handleValidationErrors,
 ];
 
