@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { Album, User, Song, Playlist } = require("../db/models");
+const { Album, User, Song, Playlist, sequelize } = require("../db/models");
 
 // Get All Songs Of An Artist By ID
 router.get('/:artistId/songs', async(req, res) => {
@@ -9,7 +9,20 @@ router.get('/:artistId/songs', async(req, res) => {
   const artist = await User.findByPk(artistId);
 
   if(artist) {
-    const Songs = await Song.findAll({ where: { userId: artistId } })
+    const Songs = await Song.findAll({
+      where: { userId: artistId },
+      attributes: [
+        "id",
+        "userId",
+        "albumId",
+        "title",
+        "description",
+        "url",
+        "createdAt",
+        "updatedAt",
+        [sequelize.col("imageUrl"), "previewImage"]
+      ]
+    })
     res.json({ Songs });
   } else {
     const error = new Error("Artist not found");
