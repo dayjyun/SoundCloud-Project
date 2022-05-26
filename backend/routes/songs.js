@@ -69,7 +69,50 @@ router.get("/:songId", async (req, res) => {
 });
 
 // Get All Songs
-router.get("/", async(req, res) => {
+// router.get("/", async(req, res) => {
+//   const Songs = await Song.findAll({
+//     attributes: [
+//       "id",
+//       "userId",
+//       "albumId",
+//       "title",
+//       "description",
+//       "url",
+//       "createdAt",
+//       "updatedAt",
+//       [sequelize.col("Song.imageUrl"), "previewImage"],
+//     ]
+//   });
+//   res.json({ Songs });
+// });
+
+// Add Query Filters to get All Songs
+router.get("/", validatePage, async (req, res) => {
+  let { page, size, title, createdAt } = req.query;
+  let pagination = {};
+  let where = {};
+
+  if (page) page = parseInt(page);
+  if (size) size = parseInt(size);
+
+  if (page > 10) {
+    page = 0;
+  } else {
+    page = page;
+  }
+
+  if (size > 20) {
+    size = 20;
+  } else {
+    size = size;
+  }
+
+  if (size) pagination.limit = size;
+  if (page && size) pagination.offset = size * (page - 1);
+
+  if (title) where.title = title;
+  if (createdAt) where.createdAt = createdAt;
+
   const Songs = await Song.findAll({
     attributes: [
       "id",
@@ -81,16 +124,12 @@ router.get("/", async(req, res) => {
       "createdAt",
       "updatedAt",
       [sequelize.col("Song.imageUrl"), "previewImage"],
-    ]
+    ],
+    where: { ...where },
+    ...pagination,
   });
-  res.json({ Songs });
+  res.json({ Songs, page, size });
 });
-
-// Add Query Filters to get All Songs
-router.get('/', validatePage, async(req, res) => {
-  const { page, size, title, createdAt } = req.query;
-  
-})
 
 // POST
 
