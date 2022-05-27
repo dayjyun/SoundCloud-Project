@@ -74,7 +74,7 @@ router.get("/:artistId/playlists", async(req, res) => {
         [sequelize.col("imageUrl"), "previewImage"]
       ],
     });
-    if(!Playlist.length) {
+    if(!Playlists.length) {
       const error = new Error("Playlist not found");
       error.status = 404;
       throw error;
