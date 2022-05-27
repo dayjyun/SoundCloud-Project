@@ -98,9 +98,11 @@ router.get("/", validatePage, async (req, res) => {
   if (createdAt) where.created = createdAt;
   if (title) where.title = title;
 
-  if (page > 0 && size > 0) {
+  if (page > 0) {
     pag.limit = size;
     pag.offset = size * (page - 1)
+  } else {
+    pag.limit = size;
   };
 
   const Songs = await Song.findAll({
