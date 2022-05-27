@@ -98,12 +98,10 @@ router.get("/", validatePage, async (req, res) => {
   if(createdAt) where.created = createdAt;
   if(title) where.title = title;
 
-  page = page * (size - 1)
-
   const Songs = await Song.findAll({
       where: { ...where },
       limit: size,
-      offset: page,
+      offset: page * (size - 1),
       attributes: [
       "id",
       "userId",
