@@ -106,6 +106,9 @@ const validatePage = [
     .optional({ nullable: true })
     .isDate()
     .withMessage("CreatedAt is invalid"),
+  // check("title")
+  //   .optional({ nullable: true })
+  //   .withMessage("titlegfdsgfds"),
   handleValidationErrors,
 ];
 
