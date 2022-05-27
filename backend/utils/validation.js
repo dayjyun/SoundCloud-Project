@@ -96,9 +96,11 @@ const validatePlaylist = [
 const validatePage = [
   check("page")
     .exists({ checkFalsy: true })
+    .isInt({ min: 0 })
     .withMessage("Page must be greater than or equal to 0"),
   check("size")
     .exists({ checkFalsy: true })
+    .isInt({ min: 0 })
     .withMessage("Page must be greater than or equal to 0"),
   check("createdAt")
     .optional({ checkFalsy: true })
