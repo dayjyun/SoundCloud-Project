@@ -6,6 +6,9 @@ const { validateSong, validateComment, validatePage } = require("../utils/valida
 
 const { Song, Album, User, Comment, sequelize } = require("../db/models");
 
+const { environment } = require("../config");
+const isProduction = environment === 'production';
+
 // GET
 
 // Get All Comments By Song ID
@@ -98,15 +101,23 @@ router.get("/", validatePage, async (req, res) => {
     size = size;
   }
 
-  if (createdAt) where.created = createdAt;
-  if (title) where.title = title;
-
-  if (page > 0) {
-    pag.limit = size;
-    pag.offset = size * (page - 1)
+  if (isProduction) {
+    if (title) where.title = { [Op.iLike]: `%${title}%` };
+    if (createdAt) where.createdAt = createdAt;
   } else {
-    pag.limit = size;
-  };
+    if (title) where.title = { [Op.like]: `%${title}%` };
+    if (createdAt) where.createdAt = createdAt;
+  }
+
+  // if (createdAt) where.created = createdAt;
+  // if (title) where.title = title;
+
+  // if (page > 0) {
+  //   pag.limit = size;
+  //   pag.offset = size * (page - 1)
+  // } else {
+  //   pag.limit = size;
+  // };
 
   const Songs = await Song.findAll({
     attributes: [
@@ -121,7 +132,8 @@ router.get("/", validatePage, async (req, res) => {
       [sequelize.col("Song.imageUrl"), "previewImage"],
     ],
     where: { ...where },
-    ...pag,
+    // ...pag,
+    ...pag(page, size)
   });
   res.json({ Songs, page, size });
 });
