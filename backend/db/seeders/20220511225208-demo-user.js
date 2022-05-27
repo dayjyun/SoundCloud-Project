@@ -39,7 +39,7 @@ module.exports = {
          firstName: "Bryan",
          lastName: "Aubert",
          email: "sspu@sspu.com",
-         username: "FrontMan",
+         username: "frontman",
          hashedPassword: bcrypt.hashSync("singerMan"),
          imageUrl: "image url",
        },
@@ -49,7 +49,7 @@ module.exports = {
          lastName: "Ashcroft",
          email: "theverve@verve.com",
          username: "LuckyMan",
-         hashedPassword: bcrypt.hashSync("RollingStones$toleMyMoney"),
+         hashedPassword: bcrypt.hashSync("Rolling$tones"),
          imageUrl: "image url",
        },
        {

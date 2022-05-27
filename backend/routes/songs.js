@@ -83,13 +83,13 @@ router.get("/", validatePage, async (req, res) => {
   const where = {}; // search filters (title, createdAt)
   const pag = {}; // (page, size)
 
-  if (page || page > 10) {
+  if (page > 10) {
     page = 0;
   } else {
     page = page;
   }
 
-  if (size || size > 20) {
+  if (size > 20) {
     size = 20;
   } else {
     size = size;
