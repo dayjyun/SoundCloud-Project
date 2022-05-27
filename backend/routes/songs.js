@@ -77,8 +77,8 @@ router.get("/:songId", async (req, res) => {
 // Get All Songs
 router.get("/", validatePage, async (req, res) => {
   let { page, size, title, createdAt } = req.query;
-  page = parseInt(page);
-  size = parseInt(size);
+  if (page) page = parseInt(page);
+  if (size) size = parseInt(size);
 
   const where = {}; // search filters (title, createdAt)
   const pag = {}; // (page, size)
@@ -95,14 +95,16 @@ router.get("/", validatePage, async (req, res) => {
     size = size;
   }
 
-  if(createdAt) where.created = createdAt;
-  if(title) where.title = title;
+  if (createdAt) where.created = createdAt;
+  if (title) where.title = title;
+
+  if (page > 0 && size > 0) {
+    pag.limit = size;
+    pag.offset = size * (page - 1)
+  };
 
   const Songs = await Song.findAll({
-      where: { ...where },
-      limit: size,
-      offset: page * (size - 1),
-      attributes: [
+    attributes: [
       "id",
       "userId",
       "albumId",
@@ -113,6 +115,8 @@ router.get("/", validatePage, async (req, res) => {
       "updatedAt",
       [sequelize.col("Song.imageUrl"), "previewImage"],
     ],
+    where: { ...where },
+    ...pag,
   });
   res.json({ Songs, page, size });
 });
