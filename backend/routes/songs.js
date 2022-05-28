@@ -83,8 +83,8 @@ router.get("/", validatePage, async (req, res) => {
   if (page) page = parseInt(page);
   if (size) size = parseInt(size);
 
-  const where = {}; // search filters (title, createdAt)
-  const pag = {}; // (page, size)
+  let where = {}; // search filters (title, createdAt)
+  let pag = {}
 
   if (!page) page = 0;
   if (!size) size = 20;
@@ -101,6 +101,13 @@ router.get("/", validatePage, async (req, res) => {
     size = size;
   }
 
+  if (page > 0) {
+    pag.limit = size;
+    pag.offset = size * (page - 1);
+  } else {
+    pag.limit = size;
+  }
+
   if (isProduction) {
     if (title) where.title = { [Op.iLike]: `%${title}%` };
     if (createdAt) where.createdAt = createdAt;
@@ -108,16 +115,6 @@ router.get("/", validatePage, async (req, res) => {
     if (title) where.title = { [Op.like]: `%${title}%` };
     if (createdAt) where.createdAt = createdAt;
   }
-
-  // if (createdAt) where.created = createdAt;
-  // if (title) where.title = title;
-
-  // if (page > 0) {
-  //   pag.limit = size;
-  //   pag.offset = size * (page - 1)
-  // } else {
-  //   pag.limit = size;
-  // };
 
   const Songs = await Song.findAll({
     attributes: [
@@ -132,8 +129,7 @@ router.get("/", validatePage, async (req, res) => {
       [sequelize.col("Song.imageUrl"), "previewImage"],
     ],
     where: { ...where },
-    // ...pag,
-    ...pag(page, size)
+    ...pag
   });
   res.json({ Songs, page, size });
 });
