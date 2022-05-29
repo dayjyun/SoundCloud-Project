@@ -78,8 +78,8 @@ app.use((err, _req, res, _next) => {
   const options = {};
   if (!isProduction) options.stack = err.stack;
   res.json({
-    statusCode: res.statusCode,
     message: err.message,
+    statusCode: res.statusCode,
     errors: err.errors,
     ...options,
   });
