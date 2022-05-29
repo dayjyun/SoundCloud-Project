@@ -81,7 +81,7 @@ app.use((err, _req, res, _next) => {
     message: err.message,
     statusCode: res.statusCode,
     errors: err.errors,
-    ...options,
+    // ...options,
   });
 });
 
