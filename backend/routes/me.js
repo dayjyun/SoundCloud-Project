@@ -7,7 +7,20 @@ const { Album, Song, Playlist, sequelize } = require('../db/models')
 // Get All Songs By The Current User
 router.get('/songs', requireAuth, async(req, res) => {
   const { user } = req;
-  const Songs = await Song.findAll({ where: { userId: user.id }});
+  const Songs = await Song.findAll({
+    attributes: [
+      "id",
+      "userId",
+      "albumId",
+      "title",
+      "description",
+      "url",
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("imageUrl"), "previewImage"]
+    ],
+    where: { userId: user.id }
+  });
   res.json({ Songs });
 });
 

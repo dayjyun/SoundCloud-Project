@@ -101,6 +101,7 @@ router.post("/", requireAuth, validatePlaylist, async (req, res) => {
   playlist.dataValues.previewImage = imageUrl;
   delete playlist.dataValues.imageUrl;
 
+  res.status(201)
   res.json(playlist);
 });
 

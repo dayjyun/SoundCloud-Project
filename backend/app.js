@@ -5,12 +5,12 @@ const cors = require('cors');
 const csurf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
-const routes = require('./routes')
-
 const { ValidationError } = require("sequelize");
-const { environment } = require('./config');
 
+const { environment } = require('./config');
 const isProduction = environment === 'production';
+
+const routes = require('./routes')
 
 const app = express();
 
@@ -81,7 +81,7 @@ app.use((err, _req, res, _next) => {
     message: err.message,
     statusCode: res.statusCode,
     errors: err.errors,
-    ...options,
+    // ...options,
   });
 });
 
