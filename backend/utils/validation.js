@@ -69,6 +69,7 @@ const validateSong = [
   handleValidationErrors,
 ];
 
+// album.js
 const validateAlbum = [
   check("title")
     .exists({ checkFalsy: true })
