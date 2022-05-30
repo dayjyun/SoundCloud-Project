@@ -46,6 +46,14 @@ router.get('/albums', requireAuth, async(req, res) => {
 router.get("/playlists", requireAuth, async(req, res) => {
   const { user } = req;
   const Playlists = await Playlist.findAll({
+    attributes: [
+      "id",
+      "userId",
+      "name",
+      "createdAt",
+      "updatedAt",
+      [sequelize.col("imageUrl"), "previewImage"]
+    ],
     where: { userId: user.id }
   })
   res.json({ Playlists })
