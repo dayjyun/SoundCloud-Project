@@ -9,12 +9,6 @@ const usersRouter = require("./users.js");
 router.use(sessionRouter);
 router.use(usersRouter);
 
-router.post('/test', async(req, res) => {
-  res.json({
-    Hello: "World"
-  })
-})
-
 router.get("/set-token-cookie", async (_req, res) => {
   const user = await User.findOne({
     where: {
