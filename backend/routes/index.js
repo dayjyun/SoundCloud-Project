@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
 const apiRouter = require("./api");
+
 const albumRouter = require('./albums');
 const artistRouter = require('./artists');
 const commentsRouter = require('./comments');
