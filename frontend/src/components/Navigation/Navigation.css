@@ -1,64 +1,30 @@
 .session {
-    display: flex;
-    justify-content: flex-end;
-    /* background-color: rgb(63, 63, 63); */
-    background-color: #333;
-    padding: 8px 0;
-    margin: 0 50px
+  background-color: #333;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.active {
-    background-color: rgb(31, 31, 31);
+.button {
+  color: white;
+  margin: 0 5px
 }
 
-li > a {
-    padding: 0 3px;
-    color: white;
-}
-
-.homeBtn {
-    border-color: greenyellow;
-    height: 30px;
-    margin: 0;
-    padding: 4px 15px;
-    border: 1px solid #fff;
-    border-radius: 3px;
-    font-size: 14px;
-    font-family: sans-serif;
-    text-align: center;
-    vertical-align: middle;
-    box-sizing: border-box;
-}
-
-.loginBtn {
-    border-color: greenyellow;
-    height: 30px;
-    margin: 0;
-    padding: 4px 15px;
-    border: 1px solid #fff;
-    border-radius: 3px;
-    font-size: 14px;
-    font-family: sans-serif;
-    text-align: center;
-    vertical-align: middle;
-    box-sizing: border-box;
+.button {
+  color: white;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 4px 15px;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  text-align: center;
 }
 
 .signupBtn {
-    background-color: #ff5501;
-    border-color: #ff5501;
-    color: #fff;
-    height: 30px;
-    margin: 0;
-    padding: 4px 15px;
-    border: 1px solid #ff5501;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 20px;
-    white-space: nowrap;
-    font-family: sans-serif;
-    text-align: center;
-    vertical-align: middle;
-    box-sizing: border-box;
+  background-color: #ff5501;
+  border-color: #ff5501;
+  border: 1px solid #ff5501;
 }
