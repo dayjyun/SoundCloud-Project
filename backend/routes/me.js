@@ -68,9 +68,7 @@ router.get("/", restoreUser, async (req, res) => {
       ...user.toSafeObject(),
     });
   } else {
-    const error = new Error("Authentication Required");
-    error.status = 401;
-    throw error;
+    return res.json({})
   }
 });
 
