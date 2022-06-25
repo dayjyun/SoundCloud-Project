@@ -2,8 +2,8 @@
     display: flex;
     justify-content: flex-end;
     background-color: orange;
-    padding: 2px 30px ;
-    margin: 0 100px
+    /* padding: 2px 3px ; */
+    margin: 0 50px
 }
 
 a {
