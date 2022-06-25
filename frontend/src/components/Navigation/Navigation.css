@@ -1,0 +1,11 @@
+.session {
+    display: flex;
+    justify-content: flex-end;
+    background-color: orange;
+    padding: 2px 30px ;
+    margin: 0 100px
+}
+
+a {
+    padding: 0 3px
+}
