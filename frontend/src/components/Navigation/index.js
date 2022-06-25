@@ -13,10 +13,10 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login" activeStyle={{ fontWeight: "bold" }}>
+        <NavLink className='loginBtn' to="/login" >
           Log In
         </NavLink>
-        <NavLink to="/signup" activeStyle={{ fontWeight: "bold" }}>
+        <NavLink className='signupBtn' to="/signup" >
           Sign Up
         </NavLink>
       </>
@@ -28,7 +28,7 @@ function Navigation({ isLoaded }) {
       <div>
         <ul>
           <li className="session">
-            <NavLink exact to="/" activeStyle={{ fontWeight: "bold" }}>
+            <NavLink className='homeBtn' exact to="/" >
               Home
             </NavLink>
             {isLoaded && sessionLinks}

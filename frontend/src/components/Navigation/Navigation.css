@@ -1,11 +1,64 @@
 .session {
     display: flex;
     justify-content: flex-end;
-    background-color: orange;
-    /* padding: 2px 3px ; */
+    /* background-color: rgb(63, 63, 63); */
+    background-color: #333;
+    padding: 8px 0;
     margin: 0 50px
 }
 
-a {
-    padding: 0 3px
+.active {
+    background-color: rgb(31, 31, 31);
+}
+
+li > a {
+    padding: 0 3px;
+    color: white;
+}
+
+.homeBtn {
+    border-color: greenyellow;
+    height: 30px;
+    margin: 0;
+    padding: 4px 15px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.loginBtn {
+    border-color: greenyellow;
+    height: 30px;
+    margin: 0;
+    padding: 4px 15px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.signupBtn {
+    background-color: #ff5501;
+    border-color: #ff5501;
+    color: #fff;
+    height: 30px;
+    margin: 0;
+    padding: 4px 15px;
+    border: 1px solid #ff5501;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
 }
