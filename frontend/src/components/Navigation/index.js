@@ -13,10 +13,10 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <NavLink className="loginBtn button" to="/login">
-          Log In
+        <NavLink className="signInBtn button" to="/login">
+          Sign In
         </NavLink>
-        <NavLink className="signupBtn button" to="/signup">
+        <NavLink className="signUpBtn button" to="/signup">
           Sign Up
         </NavLink>
       </>
@@ -30,6 +30,9 @@ function Navigation({ isLoaded }) {
           <NavLink className="homeBtn button" exact to="/">
             Home
           </NavLink>
+        </div>
+        <div className="searchBar">
+          <input className="search-input" type="text" placeholder="Search for artists, albums, and songs" />
         </div>
         <ul>
           <li>
