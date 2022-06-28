@@ -17,7 +17,6 @@ function Navigation({ isLoaded }) {
       <>
         <LoginFormModal />
         <SignUpFormModal />
-        {/* <NavLink to="/signup">Sign Up</NavLink> */}
       </>
     );
   }
@@ -25,7 +24,7 @@ function Navigation({ isLoaded }) {
   return (
     <ul>
       <li>
-        <NavLink exact to="/">
+        <NavLink className='homeBtn' exact to="/">
           Home
         </NavLink>
         {isLoaded && sessionLinks}

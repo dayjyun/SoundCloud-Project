@@ -1,4 +1,16 @@
-/* button {
-    background-color: orange;
-    border: white solid .5px;
-} */
+.loginBtn {
+  color: white;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 4px 15px;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+input {
+    display: flex;
+    justify-content: center;
+}

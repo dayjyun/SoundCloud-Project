@@ -41,24 +41,28 @@ function LoginForm() {
         ))}
       </ul>
       <label>
-        Username or Email
+        {/* Username or Email */}
         <input
           type="text"
           value={credential}
+          placeholder="Your email address or username"
           onChange={(e) => setCredential(e.target.value)}
           required
         />
       </label>
       <label>
-        Password
+        {/* Password */}
         <input
           type="password"
           value={password}
+          placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <div>
+        <button className="logInBtn" type="submit">Log In</button>
+      </div>
     </form>
   );
 }

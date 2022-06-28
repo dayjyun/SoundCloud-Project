@@ -1,4 +1,4 @@
-/* .session {
+.session {
   background-color: #333;
   padding: 15px 0;
   display: flex;
@@ -21,13 +21,14 @@
   white-space: nowrap;
   font-family: sans-serif;
   text-align: center;
+  cursor: pointer;
 }
 
-.signUpBtn {
+/* .signUpBtn {
   background-color: #ff5501;
   border-color: #ff5501;
   border: 1px solid #ff5501;
-}
+} */
 
 .searchBar {
   font-size: 16px;
@@ -41,8 +42,8 @@
   border-style: none;
   width: 100%;
   padding: 2px;
-} */
-
-a {
-  background-color: greenyellow;
 }
+
+ /* .homeBtn {
+  background-color: cyan;
+ } */

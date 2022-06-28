@@ -1,3 +1,24 @@
-/* button {
-  background-color: orange;
-} */
+.signUpBtn {
+  background-color: #ff5501;
+  border-color: #ff5501;
+  border: 1px solid #ff5501;
+  color: white;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 4px 15px;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.userInput {
+  margin: 76px 0px 30px;
+  padding: 25px;
+}
+
+.input {
+  background-color: cyan;
+  padding: 7px 8px;
+}
