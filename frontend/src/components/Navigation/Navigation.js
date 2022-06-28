@@ -25,7 +25,7 @@ function Navigation({ isLoaded }) {
 
   return (
     <nav>
-      <div className="session">
+      <div className="session" >
         <div className="homeLink">
           <NavLink className="homeBtn button" exact to="/">
             Home
