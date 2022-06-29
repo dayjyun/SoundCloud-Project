@@ -14,26 +14,22 @@
 }
 
 .signUpBtnModal {
-  background-color: #ff5501;
-  border-color: #ff5501;
-  border: 1px solid #ff5501;
-  color: white;
-  border: 1px solid white;
-  border-radius: 3px;
-  padding: 4px 15px;
-  font-size: 14px;
-  line-height: 20px;
-  white-space: nowrap;
-  font-family: sans-serif;
-  text-align: center;
+
+}
+
+.signUp {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0;
 }
 
 .signUpInput {
-  margin: 60px 0px 20px;
+  margin: 60px 0px 0px;
   padding: 25px;
 }
 
 .input {
-  background-color: cyan;
+  /* background-color: cyan; */
   padding: 7px 8px;
 }
