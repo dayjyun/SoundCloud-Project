@@ -34,8 +34,8 @@ function LoginForm() {
   };
 
   const styleDisplay = {
-    display: "inline-block"
-  }
+    display: "inline-block",
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -72,17 +72,21 @@ function LoginForm() {
             </button>
           </div>
         </div>
-        <div className="demo">
+        <div className="divider">
           <div className="line"></div>
           <div style={styleDisplay}>or</div>
           <div class="line"></div>
+        </div>
+        <div className="demo">
           <div className="demoText">
             <p>
               Afraid of commitment? <br />
               Try our demo user!
             </p>
           </div>
-          <button>Demo User</button>
+          <div className="demoBtn">
+            <button>Demo User</button>
+          </div>
         </div>
       </div>
     </form>

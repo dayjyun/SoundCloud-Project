@@ -108,9 +108,11 @@ function SignupFormPage() {
           />
         </div>
       </div>
-      <button className="signUpBtnModal" type="submit">
-        Sign Up
-      </button>
+      <div className="">
+        <button className="signUpBtnModal" type="submit">
+          Sign Up
+        </button>
+      </div>
     </form>
   );
 }

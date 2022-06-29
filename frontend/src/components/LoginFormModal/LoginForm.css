@@ -13,32 +13,49 @@
 .logInModal {
   background-color: #ff5501;
   border-color: #ff5501;
-  display: flex;
+  /* display: flex; */
 }
 
 .userLogin {
-  margin: 60px 0px 20px;
+  margin: 60px 0px 0px;
   padding: 25px;
 }
 
 .init {
-  padding: 7px 8px;
+  padding: 2px 8px;
 
 }
 
 .logInSubmit {
   display: flex;
   justify-content: center;
+  margin: 15px 0 0 0;
 }
 
 .line {
-  width: 53px;
-  height: 0;
+  width: 40%;
   border: .5px solid black;
   margin: 3px;
-  display:inline-block;
+  /* display:inline-block; */
+
 }
 
-/* *{
-  background-color: red;
-} */
+.divider {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.demo {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0;
+}
+
+.demoBtn {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0;
+}
