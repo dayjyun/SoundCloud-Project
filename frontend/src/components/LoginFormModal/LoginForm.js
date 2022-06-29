@@ -44,49 +44,52 @@ function LoginForm() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <div className="modalFrame">
-        <div className="userLogin">
-          <div className="enterIdentity init">
-            {/* Username or Email */}
-            <input
-              type="text"
-              placeholder="Your email address or username"
-              value={credential}
-              onChange={(e) => setCredential(e.target.value)}
-              required
-            />
-          </div>
-          <div className="enterPassword init">
-            {/* Password */}
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <div className="logInSubmit">
-            <button className="logInBtn logInModal" type="submit">
-              Log In
-            </button>
-          </div>
+      <div className="signInText">
+        <p>Sign In to SoundCloud</p>
+      </div>
+      <div className="userLogin">
+        <div className="enterIdentity init">
+          {/* Username or Email */}
+          <input
+            type="text"
+            placeholder="Your email address or username"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            required
+          />
         </div>
-        <div className="divider">
-          <div className="line"></div>
-          <div style={styleDisplay}>or</div>
-          <div class="line"></div>
+        <div className="enterPassword init">
+          {/* Password */}
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </div>
-        <div className="demo">
-          <div className="demoText">
-            <p>
-              Afraid of commitment? <br />
-              Try our demo user!
-            </p>
-          </div>
-          <div className="demoBtn">
-            <button>Demo User</button>
-          </div>
+        <div className="logInSubmit">
+          <button className="logInBtn logInModal" type="submit">
+            Log In
+          </button>
+        </div>
+      </div>
+      <div className="divider">
+        <div className="line"></div>
+        <div style={styleDisplay}>or</div>
+        <div class="line"></div>
+      </div>
+      <div className="demo">
+        <div className="demoText">
+          <p>
+            Afraid of commitment? <br />
+            Try our demo user!
+          </p>
+        </div>
+        <div className="demoBtn">
+          <button className="demoUser" type="submit">
+            Demo User
+          </button>
         </div>
       </div>
     </form>

@@ -13,7 +13,13 @@
 .logInModal {
   background-color: #ff5501;
   border-color: #ff5501;
-  /* display: flex; */
+}
+
+.signInText {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0;
 }
 
 .userLogin {
@@ -23,7 +29,6 @@
 
 .init {
   padding: 2px 8px;
-
 }
 
 .logInSubmit {
@@ -34,10 +39,8 @@
 
 .line {
   width: 40%;
-  border: .5px solid black;
+  border: 0.5px solid black;
   margin: 3px;
-  /* display:inline-block; */
-
 }
 
 .divider {
@@ -46,7 +49,8 @@
   align-content: center;
 }
 
-.demo, .demoBtn {
+.demo,
+.demoBtn {
   display: grid;
   justify-content: center;
   align-content: center;
