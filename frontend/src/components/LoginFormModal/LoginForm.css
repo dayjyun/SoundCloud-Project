@@ -17,7 +17,7 @@
 }
 
 .userLogin {
-  margin: 60px 0px 0px;
+  margin: 6px 0px 0px;
   padding: 25px;
 }
 
@@ -46,14 +46,7 @@
   align-content: center;
 }
 
-.demo {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  margin: 10px 0;
-}
-
-.demoBtn {
+.demo, .demoBtn {
   display: grid;
   justify-content: center;
   align-content: center;

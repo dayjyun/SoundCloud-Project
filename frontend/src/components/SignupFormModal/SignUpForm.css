@@ -13,8 +13,16 @@
   text-align: center;
 }
 
-.signUpBtnModal {
+.signUpText {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0;
+}
 
+.signUpInput {
+  margin: 6px 0px 0px;
+  padding: 25px;
 }
 
 .signUp {
@@ -24,12 +32,6 @@
   margin: 10px 0;
 }
 
-.signUpInput {
-  margin: 60px 0px 0px;
-  padding: 25px;
-}
-
 .input {
-  /* background-color: cyan; */
   padding: 7px 8px;
 }

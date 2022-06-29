@@ -46,6 +46,9 @@ function SignupFormPage() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
+      <div className="signUpText">
+        <p>Create An Account</p>
+      </div>
       <div className="signUpInput">
         <div className="firstName input">
           {/* First Name */}
