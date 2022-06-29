@@ -1,4 +1,4 @@
-.session {
+/* .session {
   background-color: #333;
   padding: 15px 0;
   display: flex;
@@ -24,11 +24,11 @@
   cursor: pointer;
 }
 
-/* .signUpBtn {
+.signUpBtn {
   background-color: #ff5501;
   border-color: #ff5501;
   border: 1px solid #ff5501;
-} */
+}
 
 .searchBar {
   font-size: 16px;
@@ -43,7 +43,8 @@
   width: 100%;
   padding: 2px;
 }
+*/
 
- /* .homeBtn {
+.homeBtn {
   background-color: cyan;
- } */
+ }

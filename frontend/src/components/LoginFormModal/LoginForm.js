@@ -33,6 +33,10 @@ function LoginForm() {
     return res;
   };
 
+  const styleDisplay = {
+    display: "inline-block"
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <ul>
@@ -40,28 +44,46 @@ function LoginForm() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <label>
-        {/* Username or Email */}
-        <input
-          type="text"
-          value={credential}
-          placeholder="Your email address or username"
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        {/* Password */}
-        <input
-          type="password"
-          value={password}
-          placeholder="password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <div>
-        <button className="logInBtn" type="submit">Log In</button>
+      <div className="modalFrame">
+        <div className="userLogin">
+          <div className="enterIdentity init">
+            {/* Username or Email */}
+            <input
+              type="text"
+              placeholder="Your email address or username"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </div>
+          <div className="enterPassword init">
+            {/* Password */}
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className="logInSubmit">
+            <button className="logInBtn logInModal" type="submit">
+              Log In
+            </button>
+          </div>
+        </div>
+        <div className="demo">
+          <div className="line"></div>
+          <div style={styleDisplay}>or</div>
+          <div class="line"></div>
+          <div className="demoText">
+            <p>
+              Afraid of commitment? <br />
+              Try our demo user!
+            </p>
+          </div>
+          <button>Demo User</button>
+        </div>
       </div>
     </form>
   );

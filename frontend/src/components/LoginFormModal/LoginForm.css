@@ -1,4 +1,4 @@
-.loginBtn {
+.logInBtn {
   color: white;
   border: 1px solid white;
   border-radius: 3px;
@@ -10,7 +10,35 @@
   text-align: center;
 }
 
-input {
-    display: flex;
-    justify-content: center;
+.logInModal {
+  background-color: #ff5501;
+  border-color: #ff5501;
+  display: flex;
 }
+
+.userLogin {
+  margin: 60px 0px 20px;
+  padding: 25px;
+}
+
+.init {
+  padding: 7px 8px;
+
+}
+
+.logInSubmit {
+  display: flex;
+  justify-content: center;
+}
+
+.line {
+  width: 53px;
+  height: 0;
+  border: .5px solid black;
+  margin: 3px;
+  display:inline-block;
+}
+
+/* *{
+  background-color: red;
+} */

@@ -46,7 +46,7 @@ function SignupFormPage() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <div className="userInput">
+      <div className="signUpInput">
         <div className="firstName input">
           {/* First Name */}
           <input
@@ -108,7 +108,7 @@ function SignupFormPage() {
           />
         </div>
       </div>
-      <button className="signUpBtn" type="submit">
+      <button className="signUpBtnModal" type="submit">
         Sign Up
       </button>
     </form>
