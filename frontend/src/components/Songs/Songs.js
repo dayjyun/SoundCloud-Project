@@ -1,8 +1,10 @@
 function Songs() {
-    return (
-        <div>Hello from Songs Component</div>
-    )
+  return (
+    <div>
+      <div>Hello from Songs Component</div>
+      <button>Upload</button>
+    </div>
+  );
 }
-
 
 export default Songs;
