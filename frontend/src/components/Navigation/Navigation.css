@@ -45,6 +45,24 @@
 }
 */
 
-.homeBtn {
-  background-color: cyan;
+.splashNavBar{
+  background-color: #333;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: center;
  }
+
+.homeBtn {
+  /* background-color: red; */
+  border: .5px solid white;
+  color: white;
+  /* margin: 0 50px ; */
+  display: flex;
+  align-content: center;
+}
