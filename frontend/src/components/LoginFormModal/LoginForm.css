@@ -8,6 +8,8 @@
   white-space: nowrap;
   font-family: sans-serif;
   text-align: center;
+  margin: 0 10px;
+  cursor: pointer;
 }
 
 .logInModal {

@@ -11,6 +11,7 @@
   white-space: nowrap;
   font-family: sans-serif;
   text-align: center;
+  cursor: pointer;
 }
 
 .signUpText {

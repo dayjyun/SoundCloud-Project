@@ -81,10 +81,8 @@ function LoginForm() {
       </div>
       <div className="demo">
         <div className="demoText">
-          <p>
-            Afraid of commitment? <br />
-            Try our demo user!
-          </p>
+          <p>Afraid of commitment? </p>
+          <p>Try our demo user!</p>
         </div>
         <div className="demoBtn">
           <button className="demoUser" type="submit">

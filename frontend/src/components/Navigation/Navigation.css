@@ -1,19 +1,26 @@
-/* .session {
+.splashNavBar {
   background-color: #333;
   padding: 15px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
-.button {
-  color: white;
-  margin: 0 5px;
+.navLinksContent {
+  justify-content: flex-start;
+  margin: 0 10px;
 }
 
-.button {
+.sessionLinks {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 15px;
+}
+
+.homeBtn {
+  border: 0.5px solid white;
   color: white;
-  border: 1px solid white;
   border-radius: 3px;
   padding: 4px 15px;
   font-size: 14px;
@@ -21,48 +28,4 @@
   white-space: nowrap;
   font-family: sans-serif;
   text-align: center;
-  cursor: pointer;
-}
-
-.signUpBtn {
-  background-color: #ff5501;
-  border-color: #ff5501;
-  border: 1px solid #ff5501;
-}
-
-.searchBar {
-  font-size: 16px;
-  margin-left: 8px;
-  padding: 2px;
-  width: 50%;
-}
-
-.search-input {
-  border-radius: 4px;
-  border-style: none;
-  width: 100%;
-  padding: 2px;
-}
-*/
-
-.splashNavBar{
-  background-color: #333;
-  padding: 15px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navLinks {
-  display: flex;
-  justify-content: center;
- }
-
-.homeBtn {
-  /* background-color: red; */
-  border: .5px solid white;
-  color: white;
-  /* margin: 0 50px ; */
-  display: flex;
-  align-content: center;
 }
