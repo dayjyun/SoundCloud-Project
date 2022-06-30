@@ -1,9 +1,8 @@
 .signUpBtn {
   background-color: #ff5501;
-  border-color: #ff5501;
+  border-color: transparent;
   border: 1px solid #ff5501;
   color: white;
-  border: 1px solid white;
   border-radius: 3px;
   padding: 4px 15px;
   font-size: 14px;
