@@ -1,24 +1,36 @@
-.fas {
-    /* background-color: green; */
-    height: 40px;
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+.fa-user-circle {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .iconBtn {
-    background-color: red;
-    height: 40px;
+  background-color: rgb(196, 196, 196);
+  height: 40px;
+  border-radius: 50%;
+  border-style: none;
+}
+
+.iconBtn:hover {
+  background-color: rgb(224, 224, 224);
+}
+
+.asdf {
+  background-color: cyan;
+  display: flex;
+  margin: 0 100px;
 }
 
 .profile-dropdown {
-    background-color: white;
+  background-color: white;
+  padding: 0 10px;
+  position: relative;
 }
 
 .logoutBtn {
-    border-style: none;
-    background-color: white;
-    cursor: pointer;
+  border-style: none;
+  background-color: white;
+  cursor: pointer;
 }

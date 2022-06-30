@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
+import thunk from 'redux-thunk'
 import "./LoginForm.css";
 
 function LoginForm() {
@@ -32,6 +33,17 @@ function LoginForm() {
 
     return res;
   };
+
+  const handleDemoUser = (e) => {
+    e.preventDefault();
+    return dispatch(
+      sessionActions.login({ credential: "Demo-lition", password: "password" })
+    ).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });
+  };
+
 
   const styleDisplay = {
     display: "inline-block",
@@ -85,7 +97,7 @@ function LoginForm() {
           <p>Try our demo user!</p>
         </div>
         <div className="demoBtn">
-          <button className="demoUser" type="submit">
+          <button className="demoUser" type="submit" onClick={handleDemoUser}>
             Demo User
           </button>
         </div>
