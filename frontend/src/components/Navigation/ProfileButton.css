@@ -19,14 +19,14 @@
 
 .asdf {
   background-color: cyan;
-  display: flex;
+  /* display: flex; */
   margin: 0 100px;
 }
 
 .profile-dropdown {
   background-color: white;
   padding: 0 10px;
-  position: relative;
+    position: absolute;
 }
 
 .logoutBtn {

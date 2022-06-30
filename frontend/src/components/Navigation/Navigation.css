@@ -4,11 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  /* position: relative; */
 }
 
 .navLinksContent {
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   margin: 0 10px;
 }
 
