@@ -1,12 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ProfileButton from "./ProfileButton";
+import ProfileButton from "../ProfileButton/ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from "../SignupFormModal";
+import HomeButton from "../HomeButton/HomeButton";
 import "./Navigation.css";
-import HomeButton from "./HomeButton";
-import SoundCloudText from "./SoundCloudText";
+import SoundCloudText from '../SoundCloudText/SoundCloudText'
+import Upload from "../UploadSongs/UploadSongs";
+import SearchBar from "../SearchBar/SearchBar";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -15,14 +17,19 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-      <SoundCloudText />
+        <SoundCloudText />
         <HomeButton />
+        <SearchBar />
+        <Upload />
         <ProfileButton user={sessionUser} />
       </>
     );
   } else {
     sessionLinks = (
       <>
+        <li>
+          <SoundCloudText />
+        </li>
         <li className="loginFormModal">
           <LoginFormModal />
         </li>
@@ -36,13 +43,6 @@ function Navigation({ isLoaded }) {
   return (
     <div className="navBar">
       <div className="topLeft">
-        <ul className="navLinksContent">
-          {/* <li className="navLinks">
-            <NavLink className={"homeBtn"} exact to="/">
-              Home
-            </NavLink>
-          </li> */}
-        </ul>
       </div>
       <div className="sessionLinks">{isLoaded && sessionLinks}</div>
     </div>

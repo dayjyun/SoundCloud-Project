@@ -1,6 +1,8 @@
 .soundCloudText {
-  display: inline-block;
-  /* position: absolute; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
   color: white;
   background: transparent;
   background-size: 115px 22px;
