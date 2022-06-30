@@ -111,7 +111,7 @@ function SignupFormPage() {
           />
         </div>
       </div>
-      <div className="signUp">
+      <div className="signUpModal">
         <button className="signUpBtn signUpBtnModal" type="submit">
           Sign Up
         </button>

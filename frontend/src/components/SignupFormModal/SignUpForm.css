@@ -1,6 +1,5 @@
 .signUpBtn {
   background-color: #ff5501;
-  border-color: transparent;
   border: 1px solid #ff5501;
   color: white;
   border-radius: 3px;
@@ -25,8 +24,8 @@
   padding: 25px;
 }
 
-.signUp {
-  display: grid;
+.signUpModal {
+  display: flex;
   justify-content: center;
   align-content: center;
   margin: 10px 0;

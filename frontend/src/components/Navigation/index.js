@@ -24,6 +24,7 @@ function Navigation({ isLoaded }) {
           <Upload />
           <ProfileButton user={sessionUser} />
         </div>
+        <h1>text</h1>
       </>
     );
   } else {
@@ -37,12 +38,12 @@ function Navigation({ isLoaded }) {
           </div>
         </div>
         <h2>Search Bar</h2>
-        <h2>Text</h2>
+        <h2>Songs</h2>
       </>
     );
   }
 
-  return <div className="sessionLinks">{isLoaded && sessionLinks}</div>;
+  return <div>{isLoaded && sessionLinks}</div>;
 }
 
 export default Navigation;
