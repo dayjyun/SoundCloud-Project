@@ -1,4 +1,5 @@
 .logInBtn {
+  background: transparent;
   color: white;
   border: 1px solid white;
   border-radius: 3px;
@@ -8,9 +9,8 @@
   white-space: nowrap;
   font-family: sans-serif;
   text-align: center;
-  margin: 0 10px;
+  /* margin: 0 10px; */
   cursor: pointer;
-  background-color: rgba(51, 51, 511, 0%);
 }
 
 .logInModal {

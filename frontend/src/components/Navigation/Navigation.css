@@ -1,4 +1,4 @@
-.navBar {
+.loggedInNav {
   background-color: #333;
   display: flex;
   justify-content: space-around;
@@ -8,19 +8,16 @@
   height: 60px;
 }
 
+.splash-nav {
+  background-color: #333;
+}
+
+.nav-session {
+  display: flex;
+  justify-content: space-around;
+}
+
 .navLinksContent {
   /* justify-content: flex-start; */
   margin: 0 100px;
-}
-
-.sessionLinks {
-  display: flex;
-  justify-content: space-between;
-  /* margin: 0 15px; */
-  background-color: red;
-}
-
-.fdsa {
-  /* background-color: cyan; */
-  display: flex;
 }

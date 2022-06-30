@@ -1,14 +1,14 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "../ProfileButton/ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from "../SignupFormModal";
 import HomeButton from "../HomeButton/HomeButton";
-import "./Navigation.css";
 import SoundCloudText from "../SoundCloudText/SoundCloudText";
 import Upload from "../UploadSongs/UploadSongs";
 import SearchBar from "../SearchBar/SearchBar";
+
+import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -16,29 +16,33 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <div className="navBar">
-        <SoundCloudText />
-        <HomeButton />
-        <SearchBar />
-        <Upload />
-        <ProfileButton user={sessionUser} />
-      </div>
+      <>
+        <div className="loggedInNav">
+          <SoundCloudText />
+          <HomeButton />
+          <SearchBar />
+          <Upload />
+          <ProfileButton user={sessionUser} />
+        </div>
+      </>
     );
   } else {
     sessionLinks = (
-      <div className="navBar">
-        <SoundCloudText />
-        <LoginFormModal />
-        <SignUpFormModal />
-      </div>
+      <>
+        <div className="splash-nav">
+          <div className="nav-session">
+            <SoundCloudText />
+            <LoginFormModal />
+            <SignUpFormModal />
+          </div>
+        </div>
+        <h2>Search Bar</h2>
+        <h2>Text</h2>
+      </>
     );
   }
 
-  return (
-
-      <div className="sessionLinks">{isLoaded && sessionLinks}</div>
-
-  );
+  return <div className="sessionLinks">{isLoaded && sessionLinks}</div>;
 }
 
 export default Navigation;
