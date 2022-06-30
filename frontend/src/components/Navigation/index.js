@@ -27,7 +27,7 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="navBar">
-      <div><h2 className="soundCloudText">SoundCloud</h2></div>
+      <div><h2 className="soundCloudText">SOUNDCLOUD</h2></div>
       <ul className="navLinksContent">
         <li className="navLinks">
           <NavLink className={"homeBtn"} exact to="/">
