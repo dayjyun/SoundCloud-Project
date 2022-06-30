@@ -5,13 +5,21 @@ import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from "../SignupFormModal";
 import "./Navigation.css";
+import HomeButton from "./HomeButton";
+import SoundCloudText from "./SoundCloudText";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (
+      <>
+      <SoundCloudText />
+        <HomeButton />
+        <ProfileButton user={sessionUser} />
+      </>
+    );
   } else {
     sessionLinks = (
       <>
@@ -27,14 +35,15 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="navBar">
-      <div><h2 className="soundCloudText">SOUNDCLOUD</h2></div>
-      <ul className="navLinksContent">
-        <li className="navLinks">
-          <NavLink className={"homeBtn"} exact to="/">
-            Home
-          </NavLink>
-        </li>
-      </ul>
+      <div className="topLeft">
+        <ul className="navLinksContent">
+          {/* <li className="navLinks">
+            <NavLink className={"homeBtn"} exact to="/">
+              Home
+            </NavLink>
+          </li> */}
+        </ul>
+      </div>
       <div className="sessionLinks">{isLoaded && sessionLinks}</div>
     </div>
   );

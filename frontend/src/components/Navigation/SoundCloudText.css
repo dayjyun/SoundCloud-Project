@@ -1,0 +1,8 @@
+.soundCloudText {
+  display: inline-block;
+  /* position: absolute; */
+  color: white;
+  background: transparent;
+  background-size: 115px 22px;
+  margin: 0 80px;
+}

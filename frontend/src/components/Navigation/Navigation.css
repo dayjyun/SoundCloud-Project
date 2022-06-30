@@ -8,14 +8,20 @@
   height: 60px;
 }
 
-.soundCloudText {
+.topLeft {
+  display: flex;
+  justify-content: s;
+}
+
+/* .soundCloudText {
   display: inline-block;
-  /* position: absolute; */
+  position: absolute; 
   color: white;
   background: transparent;
   background-size: 115px 22px;
   margin: 0 80px;
 }
+*/
 
 .navLinksContent {
   /* justify-content: flex-start; */
@@ -27,7 +33,7 @@
   justify-content: flex-end;
   margin: 0 15px;
 }
-
+/*
 .homeBtn {
   border: 0.5px solid white;
   color: white;
@@ -39,4 +45,4 @@
   white-space: nowrap;
   font-family: sans-serif;
   text-align: center;
-}
+} */
