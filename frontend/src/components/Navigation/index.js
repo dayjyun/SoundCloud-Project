@@ -6,7 +6,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from "../SignupFormModal";
 import HomeButton from "../HomeButton/HomeButton";
 import "./Navigation.css";
-import SoundCloudText from '../SoundCloudText/SoundCloudText'
+import SoundCloudText from "../SoundCloudText/SoundCloudText";
 import Upload from "../UploadSongs/UploadSongs";
 import SearchBar from "../SearchBar/SearchBar";
 
@@ -16,36 +16,28 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <>
+      <div className="navBar">
         <SoundCloudText />
         <HomeButton />
         <SearchBar />
         <Upload />
         <ProfileButton user={sessionUser} />
-      </>
+      </div>
     );
   } else {
     sessionLinks = (
-      <>
-        <li>
-          <SoundCloudText />
-        </li>
-        <li className="loginFormModal">
-          <LoginFormModal />
-        </li>
-        <li className="signUpFormModal">
-          <SignUpFormModal />
-        </li>
-      </>
+      <div className="navBar">
+        <SoundCloudText />
+        <LoginFormModal />
+        <SignUpFormModal />
+      </div>
     );
   }
 
   return (
-    <div className="navBar">
-      <div className="topLeft">
-      </div>
+
       <div className="sessionLinks">{isLoaded && sessionLinks}</div>
-    </div>
+
   );
 }
 

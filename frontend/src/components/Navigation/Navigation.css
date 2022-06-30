@@ -1,16 +1,11 @@
 .navBar {
   background-color: #333;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   height: 60px;
-}
-
-.topLeft {
-  display: flex;
-  justify-content: space-around;
 }
 
 .navLinksContent {
@@ -20,6 +15,12 @@
 
 .sessionLinks {
   display: flex;
-  justify-content: flex-end;
-  margin: 0 15px;
+  justify-content: space-between;
+  /* margin: 0 15px; */
+  background-color: red;
+}
+
+.fdsa {
+  /* background-color: cyan; */
+  display: flex;
 }
