@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
-import './HomeButton.css'
+import "./HomeButton.css";
 
 export default function HomeButton() {
-    return (
+  return (
+    <>
       <NavLink className={"homeBtn"} exact to="/">
         Home
       </NavLink>
-    );
+    </>
+  );
 }

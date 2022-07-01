@@ -7,4 +7,12 @@
   width: 50%;
   display: flex;
   align-items: center;
+  color: red
+}
+
+.inside-search-bar {
+  border: 0;
+  padding: 5px 7px;
+  color: #666;
+  background-color: #e5e5e5;
 }

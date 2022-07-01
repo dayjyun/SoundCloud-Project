@@ -1,13 +1,11 @@
 .uploadBtn {
-  border: 0.5px solid white;
+  background: transparent;
+  border: 0.5px solid #111;
+  border-top: none;
+  border-bottom: none;
   color: white;
-  background-color: #333;
-  border-radius: 3px;
   padding: 4px 15px;
   font-size: 14px;
-  line-height: 20px;
-  white-space: nowrap;
   font-family: sans-serif;
-  text-align: center;
   cursor: pointer;
 }
