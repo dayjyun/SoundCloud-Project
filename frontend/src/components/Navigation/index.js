@@ -17,7 +17,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div className="loggedInNav">
+        <div className="logged-in-nav">
           <SoundCloudText />
           <HomeButton />
           <SearchBar />
@@ -30,12 +30,10 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <div className="splash-nav">
-          <div className="nav-session">
-            <SoundCloudText />
-            <LoginFormModal />
-            <SignUpFormModal />
-          </div>
+        <div className="nav-session">
+          <div><SoundCloudText /></div>
+          <div><LoginFormModal /></div>
+          <div><SignUpFormModal /></div>
         </div>
         <h2>Search Bar</h2>
         <h2>Songs</h2>

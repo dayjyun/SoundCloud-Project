@@ -4,7 +4,7 @@ import { getSongs } from "../../store/song"
 
 export default function AllSongs() {
     const dispatch = useDispatch()
-    const songs = useSelector((state) => Object.values(state.songs));
+    const songs = Object.values(useSelector((state) => (state.songs)));
 
     useEffect(() => {
         dispatch(getSongs())
