@@ -31,9 +31,13 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <div className="nav-session">
-          <div><SoundCloudText /></div>
-          <div><LoginFormModal /></div>
-          <div><SignUpFormModal /></div>
+          <div className="nav-right">
+            <SoundCloudText />
+          </div>
+          <div className="nav-left">
+            <LoginFormModal />
+            <SignUpFormModal />
+          </div>
         </div>
         <h2>Search Bar</h2>
         <h2>Songs</h2>

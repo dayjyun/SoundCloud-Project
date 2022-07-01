@@ -37,7 +37,7 @@ module.exports = {
         userId: 4,
         albumId: 4,
         url: "asdf",
-        imageUrl: "image url",
+        imageUrl: "https://sspu.s3.us-east-2.amazonaws.com/SSPU_Carnavas.jfif",
       },
       {
         // 5
@@ -46,7 +46,7 @@ module.exports = {
         userId: 4,
         albumId: 4,
         url: "asdf",
-        imageUrl: "image url",
+        imageUrl: "https://sspu.s3.us-east-2.amazonaws.com/SSPU_Carnavas.jfif",
       },
       {
         // 6
@@ -55,7 +55,7 @@ module.exports = {
         userId: 4,
         albumId: 5,
         url: "asdf",
-        imageUrl: "image url",
+        imageUrl: "https://sspu.s3.us-east-2.amazonaws.com/SSPU_Swoon.jfif",
       },
       {
         // 7
@@ -64,7 +64,7 @@ module.exports = {
         userId: 4,
         albumId: 5,
         url: "asdf",
-        imageUrl: "image url",
+        imageUrl: "https://sspu.s3.us-east-2.amazonaws.com/SSPU_Swoon.jfif",
       },
       {
         // 8

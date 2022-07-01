@@ -1,13 +1,13 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getSongs } from "../../store/song"
+import { getAllSongs } from "../../store/song"
 
 export default function AllSongs() {
     const dispatch = useDispatch()
     const songs = Object.values(useSelector((state) => (state.songs)));
 
     useEffect(() => {
-        dispatch(getSongs())
+        dispatch(getAllSongs())
     }, [dispatch])
 
     if(!songs) {
