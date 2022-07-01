@@ -24,7 +24,7 @@ function Navigation({ isLoaded }) {
           <Upload />
           <ProfileButton user={sessionUser} />
         </div>
-        <h1>text</h1>
+        <h1>Inside Profile</h1>
       </>
     );
   } else {

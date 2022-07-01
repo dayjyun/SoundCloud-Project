@@ -1,14 +1,15 @@
-.fa-user-circle {
-  height: 40px;
-  width: 40px;
+.icon-box {
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: .5px solid #111;
 }
 
 .iconBtn {
   background-color: rgb(196, 196, 196);
-  height: 40px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   border-style: none;
 }
@@ -17,20 +18,21 @@
   background-color: rgb(224, 224, 224);
 }
 
-.asdf {
-  /* background-color: cyan; */
-  /* display: flex; */
-  margin: 0 100px;
+.icon-box.active {
+  background-color: #111;
 }
 
 .profile-dropdown {
   background-color: white;
   padding: 0 10px;
-    position: absolute;
+  font-weight: bold;
+  /* position: absolute; */
+  /* display: flex; */
 }
 
 .logoutBtn {
   border-style: none;
   background-color: white;
   cursor: pointer;
+  font-weight: bold;
 }

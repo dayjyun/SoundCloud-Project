@@ -31,7 +31,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <div className="asdf">
+      <div className="icon-box">
         <button className="iconBtn" onClick={openMenu}>
           <i className="fas fa-user-circle" />
         </button>
