@@ -6,12 +6,15 @@
   padding: 3px;
   width: 50%;
   display: flex;
+  justify-content: center;
   align-items: center;
   color: red
 }
 
 .inside-search-bar {
   border: 0;
+  border-radius: 5px;
+  width: 300px;
   padding: 5px 7px;
   color: #666;
   background-color: #e5e5e5;

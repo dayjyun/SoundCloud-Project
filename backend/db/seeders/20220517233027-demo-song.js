@@ -9,7 +9,7 @@ module.exports = {
         description: "My First Song",
         userId: 1,
         albumId: 1,
-        url: "asdf",
+        url: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Clair+De+Lune.mp3",
         imageUrl: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/1.jfif",
       },
       {
@@ -18,7 +18,7 @@ module.exports = {
         description: "Double the pride, double the fall",
         userId: 2,
         albumId: 2,
-        url: "asdf",
+        url: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/The+Force+Suite.mp3",
         imageUrl: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/2.png",
       },
       {
@@ -27,7 +27,7 @@ module.exports = {
         description: "Est-ce que vous parle francais?",
         userId: 3,
         albumId: 3,
-        url: "asdf",
+        url: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Gymnopedie.mp3",
         imageUrl: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/3.jfif",
       },
       {

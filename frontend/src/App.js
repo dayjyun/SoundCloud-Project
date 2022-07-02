@@ -18,9 +18,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/songs">
-            {/* <AllSongs /> */}
-          </Route>
+          {/* <Route path="/songs">
+            <AllSongs />
+          </Route> */}
         </Switch>
       )}
     </>
