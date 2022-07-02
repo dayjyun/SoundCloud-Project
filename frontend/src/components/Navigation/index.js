@@ -1,14 +1,18 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ProfileButton from "../ProfileButton/ProfileButton";
+import "./Navigation.css";
+
+// logged in
+import SoundCloudText from "./SoundCloudText/SoundCloudText";
+import HomeButton from "./HomeButton/HomeButton";
+import AllSongs from './AllSongs/index.js'
+import SearchBar from "./SearchBar/SearchBar";
+import Upload from "./UploadSongs/UploadSongs";
+import ProfileButton from "./ProfileButton/ProfileButton";
+
+// splash page
 import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from "../SignupFormModal";
-import HomeButton from "../HomeButton/HomeButton";
-import SoundCloudText from "../SoundCloudText/SoundCloudText";
-import Upload from "../UploadSongs/UploadSongs";
-import SearchBar from "../SearchBar/SearchBar";
-
-import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
   const dispatch = useDispatch()
@@ -21,6 +25,7 @@ function Navigation({ isLoaded }) {
         <div className="logged-in-nav">
           <SoundCloudText />
           <HomeButton />
+          <AllSongs />
           <SearchBar />
           <Upload />
           <ProfileButton user={sessionUser} />

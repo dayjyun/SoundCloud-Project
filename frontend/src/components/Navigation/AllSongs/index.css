@@ -65,6 +65,8 @@
   opacity: 1;
 }
 
+/* Why does the play button go away when opacity is removed? */
+
 .play-action-overlay .list-style-play-btn {
   margin-bottom: 0;
 }

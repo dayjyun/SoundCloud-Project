@@ -89,7 +89,7 @@ function LoginForm() {
       <div className="divider">
         <div className="line"></div>
         <div style={styleDisplay}>or</div>
-        <div class="line"></div>
+        <div className="line"></div>
       </div>
       <div className="demo">
         <div className="demoText">

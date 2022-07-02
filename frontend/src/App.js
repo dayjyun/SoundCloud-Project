@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import AllSongs from "./components/AllSongs";
+import AllSongs from "./components/Navigation/AllSongs";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/songs">
-            <AllSongs />
+            {/* <AllSongs /> */}
           </Route>
         </Switch>
       )}

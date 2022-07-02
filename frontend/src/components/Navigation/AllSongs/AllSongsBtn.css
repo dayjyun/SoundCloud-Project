@@ -1,11 +1,20 @@
-.uploadBtn {
+.libraryBtn {
   background: transparent;
   border: 0.5px solid #111;
   border-top: none;
   border-bottom: none;
+  border-left: none;
   color: white;
   padding: 4px 15px;
   font-size: 14px;
+  white-space: nowrap;
   font-family: sans-serif;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.libraryBtn.active {
+  background-color: #111;
 }

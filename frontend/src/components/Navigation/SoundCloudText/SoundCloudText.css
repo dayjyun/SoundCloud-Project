@@ -1,8 +1,6 @@
-.homeBtn {
+.soundCloudText {
   background: transparent;
-  border: 0.5px solid #111;
-  border-top: none;
-  border-bottom: none;
+  border-style: none;
   color: white;
   padding: 4px 15px;
   font-size: 14px;
@@ -13,7 +11,3 @@
   justify-content: center;
   align-items: center;
 }
-
-/* .homeBtn.active {
-  background-color: #111;
-} */
