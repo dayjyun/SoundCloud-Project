@@ -2,11 +2,19 @@ import { csrfFetch } from "./csrf";
 
 // type
 const GET_ALL_SONGS = "songs/getAllSongs";
+const GET_SONG = "songs/getSong";
 
-const get = (allSongs) => {
+const get = (list) => {
   return {
     type: GET_ALL_SONGS,
-    allSongs,
+    list,
+  };
+};
+
+const returnSong = (song) => {
+  return {
+    type: GET_SONG,
+    song,
   };
 };
 
@@ -19,15 +27,31 @@ export const getAllSongs = () => async (dispatch) => {
   }
 };
 
+export const getSong = (songId) => async (dispatch) => {
+  const song = await csrfFetch(`/songs/${songId}`);
+
+  if (song.ok) {
+    const res = await song.json();
+    dispatch(returnSong(res));
+  }
+};
+
+let initialState = {};
+
 // reducer
-export default function songReducer(state = {}, action) {
+export default function songReducer(state = initialState, action) {
   switch (action.type) {
     case GET_ALL_SONGS:
-      const allSongsState = { ...state };
-      action.allSongs.forEach((song) => {
-        allSongsState[song.id] = song;
+      initialState = { ...state };
+      action.list.forEach((song) => {
+        initialState[song.id] = song;
       });
-      return allSongsState;
+      return initialState;
+    case GET_SONG:
+      return {
+        ...state,
+        [action.song.id]: action.song
+      }
     default:
       return state;
   }

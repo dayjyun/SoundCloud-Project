@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProfileButton from "../ProfileButton/ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from "../SignupFormModal";
@@ -11,6 +11,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
+  const dispatch = useDispatch()
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
