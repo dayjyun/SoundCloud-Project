@@ -1,12 +1,12 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./Navigation.css";
 
 // logged in
 import SoundCloudText from "./SoundCloudText/SoundCloudText";
 import HomeButton from "./HomeButton/HomeButton";
-import AllSongs from './AllSongs/index.js'
 import SearchBar from "./SearchBar/SearchBar";
+import AllSongsLibraryBtn from "./LibraryButton/LibraryBtn";
 import Upload from "./UploadSongs/UploadSongs";
 import ProfileButton from "./ProfileButton/ProfileButton";
 
@@ -15,17 +15,16 @@ import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from "../SignupFormModal";
 
 function Navigation({ isLoaded }) {
-  const dispatch = useDispatch()
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
-  if (sessionUser) {
+  if (sessionUser) { // logged in
     sessionLinks = (
       <>
         <div className="logged-in-nav">
           <SoundCloudText />
           <HomeButton />
-          <AllSongs />
+          <AllSongsLibraryBtn />
           <SearchBar />
           <Upload />
           <ProfileButton user={sessionUser} />
@@ -33,10 +32,10 @@ function Navigation({ isLoaded }) {
         <h1>Inside Profile</h1>
       </>
     );
-  } else {
+  } else { // splash page
     sessionLinks = (
       <>
-        <div className="nav-session">
+        <div className="splash-nav">
           <div className="nav-right">
             <SoundCloudText />
           </div>

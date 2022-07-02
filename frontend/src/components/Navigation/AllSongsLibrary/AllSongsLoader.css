@@ -12,7 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 5px auto;
   max-width: 1280px;
 }
 
@@ -85,11 +85,6 @@
   padding: 1rem;
 }
 
-.player-box {
-  padding: 1rem;
-  margin-top: 20px;
-}
-
 .play-button-allsongs {
   color: white;
   align-items: center;
@@ -111,4 +106,10 @@
   -moz-transition: background-color 2s ease-out;
   -o-transition: background-color 2s ease-out;
   transition: background-color 2s ease-out;
+}
+
+.player-box {
+  padding: 1rem;
+  margin-top: 20px;
+  position: sticky;
 }
