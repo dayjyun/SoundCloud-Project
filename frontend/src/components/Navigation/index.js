@@ -4,11 +4,11 @@ import "./Navigation.css";
 
 // logged in
 import SoundCloudText from "./SoundCloudText/SoundCloudText";
-import HomeButton from "./HomeButton/HomeButton";
-import SearchBar from "./SearchBar/SearchBar";
-import AllSongsLibraryBtn from "./LibraryButton/LibraryBtn";
-import Upload from "./UploadSongs/UploadSongs";
-import ProfileButton from "./ProfileButton/ProfileButton";
+import HomeButton from "./LoggedIn/HomeButton/HomeButton";
+import SearchBar from "./LoggedIn/SearchBar/SearchBar";
+import AllSongsLibraryBtn from "./LoggedIn/LibraryButton/LibraryBtn";
+import Upload from "./LoggedIn/UploadSongs/UploadSongs";
+import ProfileButton from "./LoggedIn/ProfileButton/ProfileButton";
 
 // splash page
 import LoginFormModal from "../LoginFormModal";

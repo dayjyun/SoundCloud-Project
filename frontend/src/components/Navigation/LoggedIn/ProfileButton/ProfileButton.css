@@ -1,0 +1,46 @@
+.icon-box {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: .5px solid #111; */
+}
+
+.iconBtn {
+  background: linear-gradient(135deg,#e6846e,#8e8485);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-style: none;
+  cursor: pointer;
+}
+
+.profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #CCC;
+  cursor: pointer;
+}
+
+.profile-section:hover {
+  color: white;
+}
+
+.username-text {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.profile-dropdown {
+  background-color: white;
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.logoutBtn {
+  border-style: none;
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
