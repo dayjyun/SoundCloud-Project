@@ -110,6 +110,8 @@
 
 .player-box {
   padding: 1rem;
-  margin-top: 20px;
-  background-color: cadetblue;
+  bottom: 0;
+  position: fixed;
+  width: 80%;
+  flex-direction: row;
 }

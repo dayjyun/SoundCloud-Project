@@ -5,7 +5,7 @@ import "react-h5-audio-player/lib/styles.css";
 
 import { playSong } from "../../../../store/player";
 import { getAllSongs } from "../../../../store/song";
-import Player from "./Player/Player";
+// import Player from "../../Player/Player";
 
 import "./AllSongsLoader.css";
 
@@ -53,11 +53,9 @@ export default function AllSongsLoader() {
           </li>
         ))}
       </div>
-      <footer className="player-box">
-        <div>
-          <Player currentSong={currentSong} />
-        </div>
-      </footer>
+      {/* <footer className="player-box">
+        <Player currentSong={currentSong} />
+      </footer> */}
     </div>
   );
 }

@@ -9,6 +9,7 @@ import SearchBar from "./LoggedIn/SearchBar/SearchBar";
 import AllSongsLibraryBtn from "./LoggedIn/LibraryButton/LibraryBtn";
 import Upload from "./LoggedIn/UploadSongs/UploadSongs";
 import ProfileButton from "./LoggedIn/ProfileButton/ProfileButton";
+import Player from "./Player/Player";
 
 // splash page
 import LoginFormModal from "../LoginFormModal";
@@ -18,7 +19,8 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
-  if (sessionUser) { // logged in
+  if (sessionUser) {
+    // logged in
     sessionLinks = (
       <>
         <div className="logged-in-nav">
@@ -30,9 +32,13 @@ function Navigation({ isLoaded }) {
           <ProfileButton user={sessionUser} />
         </div>
         <h1>Inside Profile</h1>
+        <footer className="player-box">
+          <Player />
+        </footer>
       </>
     );
-  } else { // splash page
+  } else {
+    // splash page
     sessionLinks = (
       <>
         <div className="splash-nav">

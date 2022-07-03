@@ -40,6 +40,10 @@
   top: 60px;
   border: .5px solid black;
   border-top: none;
+  width: 120px;
+}
+.profile-section.active {
+  background-color: #111;
 }
 
 .logoutBtn {
