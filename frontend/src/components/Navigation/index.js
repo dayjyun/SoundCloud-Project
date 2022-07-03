@@ -44,8 +44,9 @@ function Navigation({ isLoaded }) {
             <SignUpFormModal />
           </div>
         </div>
+        <h1>Splash Page</h1>
+        <h2>Banner</h2>
         <h2>Search Bar</h2>
-        <h2>Songs</h2>
       </>
     );
   }

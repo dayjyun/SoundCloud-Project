@@ -7,7 +7,7 @@ import { playSong } from "../../../../store/player";
 import { getAllSongs } from "../../../../store/song";
 import Player from "./Player/Player";
 
-import './AllSongsLoader.css'
+import "./AllSongsLoader.css";
 
 export default function AllSongsLoader() {
   const dispatch = useDispatch();
@@ -18,12 +18,9 @@ export default function AllSongsLoader() {
     dispatch(getAllSongs());
   }, [dispatch]);
 
-  const songBtn = useCallback(
-    (song) => {
+  const songBtn = useCallback(song => {
       dispatch(playSong(song));
-    },
-    [dispatch]
-  );
+    }, [dispatch]);
 
   if (!songs) {
     return <h2>It's a little quiet over here</h2>;
@@ -56,9 +53,11 @@ export default function AllSongsLoader() {
           </li>
         ))}
       </div>
-      <div className="player-box">
-        <Player currentSong={currentSong} />
-      </div>
+      <footer className="player-box">
+        <div>
+          <Player currentSong={currentSong} />
+        </div>
+      </footer>
     </div>
   );
 }

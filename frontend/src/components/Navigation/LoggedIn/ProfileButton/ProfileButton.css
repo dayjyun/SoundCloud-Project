@@ -36,6 +36,10 @@
   background-color: white;
   padding: 0 10px;
   font-weight: bold;
+  position: absolute;
+  top: 60px;
+  border: .5px solid black;
+  border-top: none;
 }
 
 .logoutBtn {

@@ -111,5 +111,5 @@
 .player-box {
   padding: 1rem;
   margin-top: 20px;
-  position: sticky;
+  background-color: cadetblue;
 }
