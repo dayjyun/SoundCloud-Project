@@ -45,6 +45,10 @@
   width: 100%;
 }
 
+.card-img-wrapper:hover {
+  transform: scale(1.2);
+}
+
 .play-action-overlay {
   align-items: center;
   background: linear-gradient(
@@ -99,7 +103,7 @@
 }
 
 .play-button-allsongs:hover {
-  background-color: #ff5501;
+  /* background-color: #ff5501; */
   transform: scale(1.5);
   cursor: pointer;
   -webkit-transition: background-color 2s ease-out;

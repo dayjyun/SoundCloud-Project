@@ -13,18 +13,26 @@ export default function AllSongsLoader() {
   const dispatch = useDispatch();
   const songs = Object.values(useSelector((state) => state.songs));
   const [currentSong, setCurrentSong] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     dispatch(getAllSongs());
   }, [dispatch]);
 
-  const songBtn = useCallback(song => {
+  const songBtn = useCallback(
+    (song) => {
       dispatch(playSong(song));
-    }, [dispatch]);
+    },
+    [dispatch]
+  );
 
   if (!songs) {
     return <h2>It's a little quiet over here</h2>;
   }
+
+  // const togglePlayButton = () => {
+  //   setIsPlaying(!isPlaying);
+  // };
 
   return (
     <div className="all-songs-wrapper">
@@ -35,13 +43,13 @@ export default function AllSongsLoader() {
               className="card-img-wrapper"
               style={{ backgroundImage: "url(" + song.previewImage + ")" }}
             >
-              <div className="play-action-overlay">
-                <button
-                  className="play-button-allsongs"
-                  onClick={() => songBtn(song)}
-                >
-                  <i className="fas fa-play"></i>
-                </button>
+            <div className="play-action-overlay">
+              <button
+                className="play-button-allsongs"
+                onClick={() => songBtn(song)}
+              >
+                <i className="fas fa-play"></i>
+              </button>
               </div>
             </div>
             <Link
@@ -53,9 +61,6 @@ export default function AllSongsLoader() {
           </li>
         ))}
       </div>
-      {/* <footer className="player-box">
-        <Player currentSong={currentSong} />
-      </footer> */}
     </div>
   );
 }

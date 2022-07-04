@@ -7,11 +7,13 @@ export default function Player() {
     const song = useSelector((state) => state.player.song)
 
     return (
-      <div>
+      <div className="media-player">
         <AudioPlayer
           src={song?.url}
           header={song?.title}
           showSkipControls={true}
+          showJumpControls={false}
+          showFilledVolume={true}
         />
       </div>
     );
