@@ -32,9 +32,7 @@ function Navigation({ isLoaded }) {
           <ProfileButton user={sessionUser} />
         </div>
         <h1>Navigation/index.js Inside Profile</h1>
-        <h2>Navigation/index.js place holder for user songs to load
-          <p>Make sure to create a route for '/' in App.js</p>
-        </h2>
+        <h2>Navigation/index.js place holder for user songs to load</h2>
         <footer className="player-box">
           <Player />
         </footer>

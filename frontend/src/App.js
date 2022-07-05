@@ -24,6 +24,12 @@ function App() {
           <Route path="/songs">
             <AllSongsLoader />
           </Route>
+          <Route path='/me'>
+            <h1>Me component holder</h1>
+          </Route>
+          <Route>
+            <h1>404: No Media Is Found Here</h1>
+          </Route>
         </Switch>
       )}
     </>
