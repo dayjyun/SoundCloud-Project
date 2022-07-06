@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "react-h5-audio-player/lib/styles.css";
 
-import { playSong } from "../../../../store/player";
-import { getAllSongs } from "../../../../store/song";
+import { playSong } from "../../../../store/playerReducer";
+import { getAllSongs } from "../../../../store/songReducer";
 // import Player from "../../Player/Player";
 
 import "./AllSongsLoader.css";

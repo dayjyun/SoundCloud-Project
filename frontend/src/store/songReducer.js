@@ -7,10 +7,10 @@ const DELETE_SONG = 'songs/deleteSong';
 const EDIT_SONG = 'songs/editSong'
 
 // get all songs
-const get = (list) => {
+const getAll = (list) => {
   return {
     type: GET_ALL_SONGS,
-    list,
+    list, 
   };
 };
 
@@ -19,7 +19,7 @@ export const getAllSongs = () => async (dispatch) => {
 
   if (allSongs.ok) {
     const res = await allSongs.json();
-    dispatch(get(res.Songs));
+    dispatch(getAll(res.Songs));
   }
 };
 

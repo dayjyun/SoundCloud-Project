@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { playSong } from "../../../store/player";
-import { getAllSongs } from "../../../store/song";
-import { getSong } from "../../../store/song";
+import { playSong } from "../../../store/playerReducer";
+import { getAllSongs } from "../../../store/songReducer";
+import { getSong } from "../../../store/songReducer";
 
 export default function UserSongs() {
   const { songId } = useParams();
