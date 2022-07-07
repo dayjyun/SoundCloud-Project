@@ -3,14 +3,14 @@ import { csrfFetch } from "./csrf";
 // type
 const GET_ALL_SONGS = "songs/getAllSongs";
 const GET_SONG = "songs/getSong";
-const DELETE_SONG = 'songs/deleteSong';
 const EDIT_SONG = 'songs/editSong'
+const DELETE_SONG = 'songs/deleteSong';
 
 // get all songs
 const getAll = (list) => {
   return {
     type: GET_ALL_SONGS,
-    list, 
+    list,
   };
 };
 
@@ -40,26 +40,6 @@ export const getSong = (songId) => async (dispatch) => {
   }
 };
 
-
-
-// delete song
-const removeSong = (id) => {
-  return {
-    type: DELETE_SONG,
-    id
-  }
-}
-
-export const deleteSong = (id) => async (dispatch) => {
-  const deleteSong = await csrfFetch(`/songs/${id}`, {
-    method: "DELETE",
-  });
-
-  if (deleteSong.ok) {
-    dispatch(removeSong(id));
-  }
-};
-
 // update song
 const updateSong = (song) => {
   return {
@@ -83,6 +63,25 @@ export const editSong = (data) => async(dispatch) => {
   }
 }
 
+
+// delete song
+const removeSong = (id) => {
+  return {
+    type: DELETE_SONG,
+    id
+  }
+}
+
+export const deleteSong = (id) => async (dispatch) => {
+  const deleteSong = await csrfFetch(`/songs/${id}`, {
+    method: "DELETE",
+  });
+
+  if (deleteSong.ok) {
+    dispatch(removeSong(id));
+  }
+};
+
 let initialState = {};
 
 // reducer
@@ -98,19 +97,19 @@ export default function songReducer(state = initialState, action) {
     case GET_SONG:
       return {
         ...state,
-        [action.song.id]: action.song
-      }
-
-    case DELETE_SONG:
-      const removeSongState = { ...state }
-      delete removeSongState[action.id]
-      return removeSongState
+        [action.song.id]: action.song,
+      };
 
     case EDIT_SONG:
       return {
         ...state,
-        [action.song.id]: action.song
-      }
+        [action.song.id]: action.song,
+      };
+
+    case DELETE_SONG:
+      const removeSongState = { ...state };
+      delete removeSongState[action.id];
+      return removeSongState;
 
     default:
       return state;

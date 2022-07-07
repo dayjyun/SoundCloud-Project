@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import playerReducer from "./playerReducer";
-import sessionReducer from "./session";
+import sessionReducer from "./sessionReducer";
 import songReducer from "./songReducer";
 
 const rootReducer = combineReducers({

@@ -19,18 +19,15 @@ export default function AllSongsLoader() {
     dispatch(getAllSongs());
   }, [dispatch]);
 
-  const songBtn = useCallback(
-    (song) => {
+  const songBtn = useCallback((song) => {
       dispatch(playSong(song));
-    },
-    [dispatch]
-  );
+    }, [dispatch]);
 
   if (!songs) {
     return <h2>It's a little quiet over here</h2>;
   }
 
-  // const togglePlayButton = () => {
+  // const = () => {
   //   setIsPlaying(!isPlaying);
   // };
 

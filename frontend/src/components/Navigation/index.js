@@ -34,7 +34,7 @@ function Navigation({ isLoaded }) {
         <h1>Navigation/index.js Inside Profile</h1>
         <h2>Navigation/index.js place holder for user songs to load</h2>
         <footer className="player-box">
-          <Player />
+          <Player className='player-box'/>
         </footer>
       </>
     );
