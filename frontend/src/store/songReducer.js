@@ -72,13 +72,13 @@ const removeSong = (id) => {
   }
 }
 
-export const deleteSong = (id) => async (dispatch) => {
-  const deleteSong = await csrfFetch(`/songs/${id}`, {
+export const deleteSong = (songId) => async (dispatch) => {
+  const deleteSong = await csrfFetch(`/songs/${songId}`, {
     method: "DELETE",
   });
 
   if (deleteSong.ok) {
-    dispatch(removeSong(id));
+    dispatch(removeSong(deleteSong));
   }
 };
 

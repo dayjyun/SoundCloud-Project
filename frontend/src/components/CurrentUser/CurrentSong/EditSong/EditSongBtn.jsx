@@ -3,7 +3,7 @@ import React from 'react'
 function EditSongBtn() {
   return (
     <div>
-        <button>Edit</button>
+        <button>Edit Song</button>
     </div>
   )
 }

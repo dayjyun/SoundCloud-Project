@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
+import deleteSong from '../../../../store/songReducer'
 
-export default function DeleteSong() {
+export default function DeleteThisSong() {
     const dispatch = useDispatch()
 
     const handleDelete = (songId) => {
