@@ -1,15 +1,70 @@
 .logged-in-nav {
   background-color: #333;
   display: flex;
+  justify-content: center;
   width: 100%;
-  height: 60px;
-  padding-left: 60px;
-  padding-right: 60px;
+  height: 50px;
 }
 
-.splash-nav {
-  background-color: #333;
+.logged-in-right {
   display: flex;
+  justify-content: center;
+}
+
+/* Splash Page */
+.splash-nav {
+  background-color: #CCC;
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
   width: 100%;
-  height: 60px;
+}
+
+.splash-nav-left {
+  /* border: 2px solid cyan; */
+  display: flex;
+  justify-content: center;
+}
+
+.splash-nav-right {
+  /* border: 2px solid greenyellow; */
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.media-navLinks {
+  /* border: 3px solid black; */
+  display: flex;
+  padding: 15px;
+  margin: 0 80px;
+  font-size: 25px;
+}
+
+.media {
+  color: #333;
+  padding: 0 25px;
+}
+
+.media:hover {
+  text-decoration: underline;
+  color: #ff5501;
+}
+
+.media.active {
+  text-decoration: underline;
+  color: #ff5501
+}
+
+.player-box {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.banner-component {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }

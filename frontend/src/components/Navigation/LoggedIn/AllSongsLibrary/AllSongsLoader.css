@@ -1,6 +1,21 @@
+.songs-text {
+  background-color: red;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+
+}
+
 .all-songs-wrapper {
   background: white;
-  padding: 60px 10px 120px;
+  padding: 0px 0px 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.songs-wrap {
+  display: flex;
+  justify-content: center;
 }
 
 .songs-list-full-wrapper h2 {
@@ -10,15 +25,20 @@
 
 .all-songs-wrapper > div {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  margin: 0 5px auto;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px 5px auto;
   max-width: 1280px;
 }
 
 .song-card {
   width: 300px;
-  margin: 5px 10px 15px 10px;
+  margin: 7px 12px 17px 12px;
+  /* border: 5px solid blue; */
+  border-radius: 8%;
+  box-shadow: 10px 5px 5px rgba(51, 51, 51, 0.507);
+  background-color: rgb(238, 238, 238);
 }
 
 .song-card p {
@@ -31,45 +51,39 @@
   font-weight: 700;
 }
 
+.song-card:hover {
+  transform: scale(1.1);
+}
+
 .card-img-wrapper {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 294px;
+  width: 100%;
   margin-bottom: 10px;
   position: relative;
-  width: 100%;
+  border-radius: 19px;
 }
 
 .card-img-wrapper img {
   width: 100%;
 }
 
-.card-img-wrapper:hover {
-  transform: scale(1.2);
-}
-
 .play-action-overlay {
   align-items: center;
-  background: linear-gradient(
-    180deg,
-    rgba(26, 26, 26, 0.2) 40%,
-    rgba(255, 255, 255, 0.5) 100%
-  );
   display: flex;
   height: 100%;
   justify-content: center;
   opacity: 0;
   position: absolute;
-  transition: all 250ms;
+  /* transition: all 250ms; */
   width: 100%;
 }
 
 .play-action-overlay:hover {
   opacity: 1;
 }
-
-/* Why does the play button go away when opacity is removed? */
 
 .play-action-overlay .list-style-play-btn {
   margin-bottom: 0;
@@ -89,7 +103,11 @@
   padding: 1rem;
 }
 
-.play-button-allsongs {
+.fa-pause {
+  padding: 1rem;
+}
+
+.play-button-allSongs {
   color: white;
   align-items: center;
   background: black;
@@ -102,20 +120,11 @@
   width: 40px;
 }
 
-.play-button-allsongs:hover {
-  /* background-color: #ff5501; */
+.play-button-allSongs:hover {
   transform: scale(1.5);
   cursor: pointer;
   -webkit-transition: background-color 2s ease-out;
   -moz-transition: background-color 2s ease-out;
   -o-transition: background-color 2s ease-out;
   transition: background-color 2s ease-out;
-}
-
-.player-box {
-  padding: 1rem;
-  bottom: 0;
-  position: fixed;
-  width: 100%;
-  flex-direction: row;
 }

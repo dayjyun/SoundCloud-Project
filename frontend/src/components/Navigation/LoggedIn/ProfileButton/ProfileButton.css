@@ -1,16 +1,13 @@
 .icon-box {
   background: transparent;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  /* border: .5px solid #111; */
 }
 
 .iconBtn {
   background: linear-gradient(135deg,#e6846e,#8e8485);
   height: 50px;
   width: 50px;
-  border-radius: 50%;
+  border-radius: 50px;
   border-style: none;
   cursor: pointer;
 }
@@ -37,7 +34,7 @@
   padding: 0 10px;
   font-weight: bold;
   position: absolute;
-  top: 60px;
+  top: 50px;
   border: .5px solid black;
   border-top: none;
   width: 120px;

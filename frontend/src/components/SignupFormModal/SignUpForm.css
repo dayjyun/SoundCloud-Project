@@ -13,7 +13,7 @@
 }
 
 .signUpText {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-content: center;
   margin: 10px 0;
@@ -21,7 +21,7 @@
 
 .signUpInput {
   margin: 6px 0px 0px;
-  padding: 25px;
+  padding: 10px;
 }
 
 .signUpModal {
@@ -33,4 +33,10 @@
 
 .input {
   padding: 7px 8px;
+}
+
+.sp1, .sp2 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }

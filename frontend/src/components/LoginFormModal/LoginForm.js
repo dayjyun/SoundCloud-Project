@@ -70,7 +70,7 @@ function LoginForm() {
             required
           />
         </div>
-        <div className="enterPassword init">
+        <div className="init">
           {/* Password */}
           <input
             type="password"
@@ -93,8 +93,8 @@ function LoginForm() {
       </div>
       <div className="demo">
         <div className="demoText">
-          <p>Afraid of commitment? </p>
-          <p>Try our demo user!</p>
+          <p className="lp1">Afraid of commitment? </p>
+          <p className="lp2">Try our Demo User!</p>
         </div>
         <div className="demoBtn">
           <button className="demoUser" type="submit" onClick={handleDemoUser}>

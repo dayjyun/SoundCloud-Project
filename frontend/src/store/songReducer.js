@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 // type
 const GET_ALL_SONGS = "songs/getAllSongs";
+const GET_USER_SONGS = 'songs/getUserSongs'
 const GET_SONG = "songs/getSong";
 const EDIT_SONG = 'songs/editSong'
 const DELETE_SONG = 'songs/deleteSong';
@@ -22,6 +23,7 @@ export const getAllSongs = () => async (dispatch) => {
     dispatch(getAll(res.Songs));
   }
 };
+
 
 // get current song
 const returnSong = (song) => {
@@ -73,12 +75,12 @@ const removeSong = (id) => {
 }
 
 export const deleteSong = (songId) => async (dispatch) => {
-  const deleteSong = await csrfFetch(`/songs/${songId}`, {
+  const song = await csrfFetch(`/songs/${songId}`, {
     method: "DELETE",
   });
 
-  if (deleteSong.ok) {
-    dispatch(removeSong(deleteSong));
+  if (song.ok) {
+    dispatch(removeSong(songId));
   }
 };
 
