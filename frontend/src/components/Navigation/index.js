@@ -81,5 +81,3 @@ function Navigation({ isLoaded }) {
 }
 
 export default Navigation;
-
-// extra text
