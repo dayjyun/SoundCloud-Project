@@ -35,18 +35,6 @@ function Navigation({ isLoaded }) {
             <ProfileButton user={sessionUser} />
           </div>
         </div>
-        <div className="media-navLinks">
-          <div>
-            <NavLink className="media song-navLink" to="/songs">
-              Songs
-            </NavLink>
-          </div>
-          <div>
-            <NavLink className="media album-navLink" to="/albums">
-              Albums
-            </NavLink>
-          </div>
-        </div>
         <div className="player-box">
           <Player />
         </div>
@@ -81,4 +69,3 @@ function Navigation({ isLoaded }) {
 }
 
 export default Navigation;
-// text

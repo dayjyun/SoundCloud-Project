@@ -33,8 +33,8 @@
   justify-content: flex-end;
 }
 
-.media-navLinks {
-  /* border: 3px solid black; */
+/* .media-navLinks {
+  border: 3px solid black;
   display: flex;
   padding: 15px;
   margin: 0 80px;
@@ -54,7 +54,7 @@
 .media.active {
   text-decoration: underline;
   color: #ff5501
-}
+} */
 
 .player-box {
   bottom: 0;
