@@ -1,47 +1,71 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ProfileButton from "./ProfileButton";
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
+
+// logged in
+import SoundCloudText from "./SoundCloudText/SoundCloudText";
+import HomeButton from "./LoggedIn/HomeButton/HomeButton";
+import SearchBar from "./LoggedIn/SearchBar/SearchBar";
+import AllSongsLibraryBtn from "./LoggedIn/LibraryButton/LibraryBtn";
+import Upload from "./LoggedIn/UploadSongs/UploadSongs";
+import ProfileButton from "./LoggedIn/ProfileButton/ProfileButton";
+import Player from "./Player/Player";
+
+// splash page
+import LoginFormModal from "../LoginFormModal";
+import SignUpFormModal from "../SignupFormModal";
+import Banner from "./Banner/Banner";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
-  } else {
+    // logged in
     sessionLinks = (
       <>
-        <NavLink className="signInBtn button" to="/login">
-          Sign In
-        </NavLink>
-        <NavLink className="signUpBtn button" to="/signup">
-          Sign Up
-        </NavLink>
+        <div className="logged-in-nav">
+          <SoundCloudText />
+          <HomeButton />
+          <AllSongsLibraryBtn />
+          <SearchBar />
+          <div className="logged-in-right">
+            <Upload />
+            <ProfileButton user={sessionUser} />
+          </div>
+        </div>
+        <div className="player-box">
+          <Player />
+        </div>
+      </>
+    );
+  } else {
+    // splash page
+    sessionLinks = (
+      <>
+        <div>
+          <div className="banner-component">
+            {/* <Banner /> */}
+            <div className="splash-nav">
+              <div className="splash-nav-left">
+                <SoundCloudText />
+              </div>
+              <div className="splash-nav-right">
+                <LoginFormModal />
+                <SignUpFormModal />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="splash-search">
+          <SearchBar />
+        </div>
       </>
     );
   }
 
-  return (
-    <nav>
-      <div className="session">
-        <div className="homeLink">
-          <NavLink className="homeBtn button" exact to="/">
-            Home
-          </NavLink>
-        </div>
-        <div className="searchBar">
-          <input className="search-input" type="text" placeholder="Search for artists, albums, and songs" />
-        </div>
-        <ul>
-          <li>
-            <div>{isLoaded && sessionLinks}</div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
+  return <div>{isLoaded && sessionLinks}</div>;
 }
 
 export default Navigation;

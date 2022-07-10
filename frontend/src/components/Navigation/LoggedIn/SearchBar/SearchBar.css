@@ -1,0 +1,20 @@
+.searchBar {
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  padding: 3px;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inside-search-bar {
+  border: 0;
+  border-radius: 5px;
+  width: 400px;
+  padding: 5px 7px;
+  color: #666;
+  background-color: #e5e5e5;
+}

@@ -1,0 +1,71 @@
+.login-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logInBtn {
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 4px 15px;
+  font-size: 14px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+
+.logInModal {
+  background-color: #ff5501;
+  border-color: #ff5501;
+}
+
+.signInText {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0;
+  white-space: nowrap;
+}
+
+.userLogin {
+  margin: 6px 0px 0px;
+  padding: 10px;
+}
+
+.init {
+  padding: 3px 10px;
+}
+
+.logInSubmit {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.line {
+  width: 40%;
+  border: 1px solid #333;
+  margin: 10px;
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.demo,
+.demoBtn {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0;
+}
+
+.lp1, .lp2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

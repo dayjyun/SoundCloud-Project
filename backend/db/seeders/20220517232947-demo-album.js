@@ -29,7 +29,7 @@ module.exports = {
        title: "Carnavas",
        description: "Contains songs like Rusted Wheel and Dream At Tempo 119 ",
        userId: 4,
-       imageUrl: "image url",
+       imageUrl: "https://sspu.s3.us-east-2.amazonaws.com/SSPU_Carnavas.jfif",
      },
      {
        // 5
@@ -37,7 +37,7 @@ module.exports = {
        description:
          "Contains songs like Panic Switch and Growing Old Is Getting Old",
        userId: 4,
-       imageUrl: "image url",
+       imageUrl: "https://sspu.s3.us-east-2.amazonaws.com/SSPU_Swoon.jfif",
      },
    ]);
   },
