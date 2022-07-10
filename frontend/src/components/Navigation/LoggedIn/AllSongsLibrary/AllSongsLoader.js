@@ -13,51 +13,61 @@ export default function AllSongsLoader() {
   const dispatch = useDispatch();
   const songs = Object.values(useSelector((state) => state.songs));
   const [currentSong, setCurrentSong] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [playIcon, setPlayIcon] = useState("fas fa-play");
 
   useEffect(() => {
     dispatch(getAllSongs());
   }, [dispatch]);
 
-  const songBtn = useCallback((song) => {
+  const songBtn = useCallback(
+    (song) => {
       dispatch(playSong(song));
-    }, [dispatch]);
+    },
+    [dispatch]
+  );
+
+  const handlePlayIcon = () => {
+    playIcon === "fas fa-play"
+      ? setPlayIcon("fas fa-pause")
+      : setPlayIcon("fas fa-play");
+  };
 
   if (!songs) {
     return <h2>It's a little quiet over here</h2>;
   }
 
-  // const = () => {
-  //   setIsPlaying(!isPlaying);
-  // };
-
   return (
-    <div className="all-songs-wrapper">
-      <div>
-        {songs.map((song) => (
-          <li key={song.id} className="song-card">
-            <div
-              className="card-img-wrapper"
-              style={{ backgroundImage: "url(" + song.previewImage + ")" }}
-            >
-            <div className="play-action-overlay">
-              <button
-                className="play-button-allsongs"
-                onClick={() => songBtn(song)}
+    <>
+      <div className="all-songs-wrapper">
+        <div className="songs-wrap">
+          {songs.map((song) => (
+            <li key={song.id} className="song-card">
+              <div
+                className="card-img-wrapper"
+                style={{ backgroundImage: "url(" + song.previewImage + ")" }}
               >
-                <i className="fas fa-play"></i>
-              </button>
+                <div
+                  className="play-action-overlay"
+                  onClick={() => songBtn(song)}
+                >
+                  <button
+                    className="play-button-allSongs"
+                    onClick={() => songBtn(song)}
+                  >
+                    <i className={playIcon} onClick={handlePlayIcon}></i>
+                  </button>
+                </div>
               </div>
-            </div>
-            <Link
-              className="song-link-text"
-              to={{ pathname: `/songs/${song.id}` }}
-            >
-              <p>{song.title}</p>
-            </Link>
-          </li>
-        ))}
+              <Link
+                className="song-link-text"
+                exact to={{ pathname: `/songs/${song.id}` }}
+              >
+                <p className="song-text">{song.title}</p>
+              </Link>
+            </li>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

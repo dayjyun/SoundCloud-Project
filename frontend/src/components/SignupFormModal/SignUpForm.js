@@ -47,7 +47,8 @@ function SignupFormPage() {
         ))}
       </ul>
       <div className="signUpText">
-        <p>Create An Account</p>
+        <p className="sp1">Create An Account</p>
+        <p className="sp2">Enter your details below</p>
       </div>
       <div className="signUpInput">
         <div className="firstName input">

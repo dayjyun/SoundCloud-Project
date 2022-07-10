@@ -1,15 +1,18 @@
+.login-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logInBtn {
   background: transparent;
   color: white;
-  border: 1px solid white;
-  border-radius: 3px;
+  border: none;
   padding: 4px 15px;
   font-size: 14px;
-  line-height: 20px;
   white-space: nowrap;
   font-family: sans-serif;
   text-align: center;
-  /* margin: 0 10px; */
   cursor: pointer;
 }
 
@@ -23,27 +26,28 @@
   justify-content: center;
   align-content: center;
   margin: 10px 0;
+  white-space: nowrap;
 }
 
 .userLogin {
   margin: 6px 0px 0px;
-  padding: 25px;
+  padding: 10px;
 }
 
 .init {
-  padding: 2px 8px;
+  padding: 3px 10px;
 }
 
 .logInSubmit {
   display: flex;
   justify-content: center;
-  margin: 15px 0 0 0;
+  margin: 10px 0;
 }
 
 .line {
   width: 40%;
-  border: 0.5px solid black;
-  margin: 3px;
+  border: 1px solid #333;
+  margin: 10px;
 }
 
 .divider {
@@ -58,4 +62,10 @@
   justify-content: center;
   align-content: center;
   margin: 10px 0;
+}
+
+.lp1, .lp2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

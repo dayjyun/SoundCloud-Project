@@ -6,9 +6,9 @@ export default function DeleteThisSong() {
 
     const handleDelete = (songId) => {
         dispatch(deleteSong(songId))
+        alert("Song Successfully Deleted")
         history.pushState("/songs")
-        // alert("Song Successfully Deleted")
-        // history.pushState('/me')
+
     }
 
     return (

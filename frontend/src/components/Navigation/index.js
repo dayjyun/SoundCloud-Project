@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
 // logged in
@@ -14,6 +15,7 @@ import Player from "./Player/Player";
 // splash page
 import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from "../SignupFormModal";
+import Banner from "./Banner/Banner";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -28,32 +30,49 @@ function Navigation({ isLoaded }) {
           <HomeButton />
           <AllSongsLibraryBtn />
           <SearchBar />
-          <Upload />
-          <ProfileButton user={sessionUser} />
+          <div className="logged-in-right">
+            <Upload />
+            <ProfileButton user={sessionUser} />
+          </div>
         </div>
-        <h1>Navigation/index.js Inside Profile</h1>
-        <h2>Navigation/index.js place holder for user songs to load</h2>
-        <footer className="player-box">
-          <Player className='player-box'/>
-        </footer>
+        <div className="media-navLinks">
+          <div>
+            <NavLink className="media song-navLink" to="/songs">
+              Songs
+            </NavLink>
+          </div>
+          <div>
+            <NavLink className="media album-navLink" to="/albums">
+              Albums
+            </NavLink>
+          </div>
+        </div>
+        <div className="player-box">
+          <Player />
+        </div>
       </>
     );
   } else {
     // splash page
     sessionLinks = (
       <>
-        <div className="splash-nav">
-          <div className="nav-right">
-            <SoundCloudText />
-          </div>
-          <div className="nav-left">
-            <LoginFormModal />
-            <SignUpFormModal />
+        <div>
+          <div className="banner-component">
+            {/* <Banner /> */}
+            <div className="splash-nav">
+              <div className="splash-nav-left">
+                <SoundCloudText />
+              </div>
+              <div className="splash-nav-right">
+                <LoginFormModal />
+                <SignUpFormModal />
+              </div>
+            </div>
           </div>
         </div>
-        <h1>Splash Page</h1>
-        <h2>Banner</h2>
-        <h2>Search Bar</h2>
+        <div className="splash-search">
+          <SearchBar />
+        </div>
       </>
     );
   }
