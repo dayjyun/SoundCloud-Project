@@ -8,21 +8,21 @@ module.exports = {
        title: "Demo Album",
        description: "My First Demo Album",
        userId: 1,
-       imageUrl: "image url",
+       imageUrl: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/1.jfif",
      },
      {
        // 2
        title: "Ready Player 2",
        description: "Dedicated to Luigi Players in Mario Games",
        userId: 2,
-       imageUrl: "image url",
+       imageUrl: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/2.png",
      },
      {
        // 3
        title: "Third Time Is The Charm",
        description: "For my 3 fans",
        userId: 3,
-       imageUrl: "image url",
+       imageUrl: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/3.jfif",
      },
      {
        // 4
