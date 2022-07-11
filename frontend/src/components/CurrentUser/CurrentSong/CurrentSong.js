@@ -14,8 +14,6 @@ export default function CurrentSong() {
   const user = useSelector((state) => state.session.user);
   const [playIcon, setPlayIcon] = useState("fas fa-play");
 
-  console.log(user)
-
   useEffect(() => {
     dispatch(getAllSongs());
   }, [dispatch]);

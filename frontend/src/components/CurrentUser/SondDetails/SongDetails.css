@@ -1,0 +1,45 @@
+.song-info-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100vw;
+}
+
+/* .song-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.song-desc {
+    display: grid;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    width: 60vw;
+    height: 5vh;
+} */
+
+.song-album-img-box > img {
+    border: solid 5px greenyellow;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 50vh;
+}
+
+.song-description {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: repeat(3, 1fr);
+    height: 50px;
+    width: 80px;
+}
+
+.delete-button {
+    background-color: red;
+}

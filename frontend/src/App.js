@@ -8,6 +8,7 @@ import AllSongsLoader from "./components/Navigation/LoggedIn/AllSongsLibrary/All
 import AllAlbumsLoader from "./components/Navigation/LoggedIn/AllAlbumsLibrary/AllAlbumsLoader";
 import CurrentSong from "./components/CurrentUser/CurrentSong/CurrentSong";
 import EditCurrentSong from "./components/CurrentUser/CurrentSong/EditSong/EditSong";
+import SongDetails from "./components/CurrentUser/SondDetails/SongDetails";
 // import Library from "./components/Navigation/LoggedIn/AllSongsLibrary";
 function App() {
   const dispatch = useDispatch();
@@ -23,9 +24,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/songs/:songId">
-            <h1>Placeholder for SongDetails component: App.js</h1>
-            <h1>Edit</h1>
-            <h1>Delete</h1>
+            <SongDetails />
             <EditCurrentSong />
           </Route>
           <Route exact path="/songs">
