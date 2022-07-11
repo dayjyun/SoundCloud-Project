@@ -7,9 +7,11 @@ import MediaLinks from "./components/Navigation/LoggedIn/Media/MediaLinks";
 import AllSongsLoader from "./components/Navigation/LoggedIn/AllSongsLibrary/AllSongsLoader";
 import AllAlbumsLoader from "./components/Navigation/LoggedIn/AllAlbumsLibrary/AllAlbumsLoader";
 import CurrentSong from "./components/CurrentUser/CurrentSong/CurrentSong";
-import EditCurrentSong from "./components/CurrentUser/CurrentSong/EditSong/EditSong";
 import SongDetails from "./components/CurrentUser/SondDetails/SongDetails";
+import EditSongForm from "./components/CurrentUser/CurrentSong/EditSong/EditSongForm";
+import CurrentAlbum from "./components/CurrentUser/CurrentAlbum/CurrentAlbum";
 // import Library from "./components/Navigation/LoggedIn/AllSongsLibrary";
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -25,7 +27,7 @@ function App() {
         <Switch>
           <Route path="/songs/:songId">
             <SongDetails />
-            <EditCurrentSong />
+            {/* <EditSongForm /> */}
           </Route>
           <Route exact path="/songs">
             <MediaLinks />
@@ -42,6 +44,7 @@ function App() {
           </Route>
           <Route path="/me">
             <CurrentSong />
+            <CurrentAlbum />
           </Route>
           {/* <Route>
             <h1>404: No Media Is Found Here</h1>

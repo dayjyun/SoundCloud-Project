@@ -26,7 +26,6 @@ function SongDetails() {
     dispatch(getSong(+songId));
   }, [dispatch]);
 
-
   const handleDelete = (e) => {
     e.preventDefault();
     dispatch(deleteSong(+songId));
@@ -35,27 +34,29 @@ function SongDetails() {
   };
 
   return (
-    <div className="song-info-container">
-      <div className="song-album-img-box">
-        <img src={`${singleSong?.previewImage}`} />
-      </div>
-      <div className="song-description">
-        <h1 className="song-desc-title">{singleSong?.title}</h1>
-        <h3 className="song-desc-desc">{singleSong?.description}</h3>
-        <div>
-          {showButtons && (
-            <>
-              <div className="edit-buttons">
-                <EditSongBtn />
-                <button className="delete-button" onClick={handleDelete}>
-                  Delete
-                </button>
-              </div>
-            </>
-          )}
+    <>
+      <div className="song-info-container">
+        <div className="song-album-img-box">
+          <img src={`${singleSong?.previewImage}`} />
+        </div>
+        <div className="song-description">
+          <h1 className="song-desc-title">{singleSong?.title}</h1>
+          <h3 className="song-desc-desc">{singleSong?.description}</h3>
+          <div>
+            {showButtons && (
+              <>
+                <div className="edit-buttons">
+                  <EditSongBtn />
+                  <button className="delete-button" onClick={handleDelete}>
+                    Delete
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,5 +1,5 @@
-.your-songs-text {
-  margin: 20px 0 0 0;
+.your-albums-text {
+  /* margin: 10px 0 0 0; */
   display: flex;
   justify-content: center;
   color: #333;
@@ -7,19 +7,19 @@
   font-family: sans-serif;
 }
 
-.current-songs-wrapper {
+.current-albums-wrapper {
   background: white;
-  padding: 0px 0px 60px;
+  padding: 0px 0px 120px;
   display: flex;
   justify-content: center;
 }
 
-.current-songs-wrap {
+.current-albums-wrap {
   display: flex;
   justify-content: center;
 }
 
-.current-songs-wrapper > div {
+.current-albums-wrapper > div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +28,7 @@
   max-width: 1280px;
 }
 
-.current-song-card {
+.current-album-card {
   width: 300px;
   margin: 7px 12px 17px 12px;
   border-radius: 8%;
@@ -36,7 +36,7 @@
   background-color: rgb(238, 238, 238);
 }
 
-.current-song-card p {
+.current-album-card p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -46,11 +46,11 @@
   font-weight: 700;
 }
 
-.cs-current-song-card:hover {
+.ca-current-album-card:hover {
   transform: scale(1.1);
 }
 
-.cs-card-img-wrapper {
+.ca-card-img-wrapper {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -61,11 +61,12 @@
   border-radius: 19px;
 }
 
-.cs-card-img-wrapper img {
+.ca-card-img-wrapper img {
   width: 100%;
 }
 
-.cs-play-action-overlay {
+/* delete 1 */
+.ca-play-action-overlay {
   align-items: center;
   display: flex;
   height: 100%;
@@ -76,20 +77,21 @@
   width: 100%;
 }
 
-.cs-play-action-overlay:hover {
+.ca-play-action-overlay:hover {
   opacity: 1;
 }
 
-.cs-play-action-overlay .list-style-play-btn {
+.ca-play-action-overlay .list-style-play-btn {
   margin-bottom: 0;
 }
+/* delete 1 */
 
-.current-song-link-text {
+.current-album-link-text {
   color: #0f1010;
   transition: all 250ms;
 }
 
-.current-song-link-text:hover {
+.current-album-link-text:hover {
   color: #ff5501;
   font-weight: 700;
 }
@@ -124,7 +126,7 @@
   transition: background-color 2s ease-out;
 }
 
-.current-song-title {
+.current-album-title {
   padding: 10px;
   display: flex;
   justify-content: center;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import * as actions from '../../../../store/songReducer'
 
@@ -7,10 +7,14 @@ export default function EditSongForm({ setShowEdit }) {
   const { songId } = useParams()
   const dispatch = useDispatch()
   const history = useHistory()
+
+  const user = useSelector(state => state.session.user);
+  const userId = user.id
   const song = useSelector((state) => state.songs[`${songId}`])
-  
+
   const [validationErrors, setValidationErrors] = useState([])
   const [title, setTitle] = useState(song.title)
+  const [description, setDescription] = useState(song.description)
   const [previewImage, setPreviewImage] = useState(song.previewImage)
   const [url, setUrl] = useState(song.url)
 
@@ -22,28 +26,27 @@ export default function EditSongForm({ setShowEdit }) {
     await dispatch(actions.editSong({
       id: songId,
       title,
+      description,
       previewImage,
       url,
       userId
     }))
     .then(() => {
     setShowEdit(false)
-    history.push('/songs')
+    history.push(`/songs/${songId}`)
   })
   .catch(async res => {
     const err = await res.json()
     if(err) {
-      setValidationErrors(err.errors)
-    }
-  })
-  }
+      setValidationErrors(err.validationErrors)
+    }})};
 
   return (
     <div className="edit-form">
-      <h1>Make Some Changes Here:</h1>
+      <h1>Edit Your Song</h1>
       <form onSubmit={handleFormSubmit}>
         <ul>
-          {Object.values(errors).map((error) => (
+          {Object.values(validationErrors).map((error) => (
             <li key={error}>{error}</li>
           ))}
         </ul>
@@ -57,6 +60,17 @@ export default function EditSongForm({ setShowEdit }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
+          <div className="input-wrapper">
+            <label htmlFor='description'>Description</label>
+            <input
+              className="edit-input"
+              type='text'
+              id='description'
+              name='description'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
           <div className="input-wrapper">
             <label htmlFor="previewImage">Preview Image</label>
             <input
