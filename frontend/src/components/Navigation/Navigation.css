@@ -21,40 +21,15 @@
 }
 
 .splash-nav-left {
-  /* border: 2px solid cyan; */
   display: flex;
   justify-content: center;
 }
 
 .splash-nav-right {
-  /* border: 2px solid greenyellow; */
   background-color: transparent;
   display: flex;
   justify-content: flex-end;
 }
-
-/* .media-navLinks {
-  border: 3px solid black;
-  display: flex;
-  padding: 15px;
-  margin: 0 80px;
-  font-size: 25px;
-}
-
-.media {
-  color: #333;
-  padding: 0 25px;
-}
-
-.media:hover {
-  text-decoration: underline;
-  color: #ff5501;
-}
-
-.media.active {
-  text-decoration: underline;
-  color: #ff5501
-} */
 
 .player-box {
   bottom: 0;

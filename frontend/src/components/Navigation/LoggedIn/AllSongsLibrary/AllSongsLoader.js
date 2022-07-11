@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "react-h5-audio-player/lib/styles.css";
 
 import { playSong } from "../../../../store/playerReducer";
 import { getAllSongs } from "../../../../store/songReducer";
-// import Player from "../../Player/Player";
 
+import "react-h5-audio-player/lib/styles.css";
 import "./AllSongsLoader.css";
 
 export default function AllSongsLoader() {
@@ -41,10 +40,10 @@ export default function AllSongsLoader() {
       <div className="all-songs-wrapper">
         <div className="songs-wrap">
           {songs.map((song) => (
-            <li key={song.id} className="song-card">
+            <li key={song?.id} className="song-card">
               <div
                 className="card-img-wrapper"
-                style={{ backgroundImage: "url(" + song.previewImage + ")" }}
+                style={{ backgroundImage: "url(" + song?.previewImage + ")" }}
               >
                 <div
                   className="play-action-overlay"
@@ -60,9 +59,9 @@ export default function AllSongsLoader() {
               </div>
               <Link
                 className="song-link-text"
-                exact to={{ pathname: `/songs/${song.id}` }}
+                exact to={{ pathname: `/songs/${song?.id}` }}
               >
-                <p className="song-text">{song.title}</p>
+                <p className="song-title">{song?.title}</p>
               </Link>
             </li>
           ))}
