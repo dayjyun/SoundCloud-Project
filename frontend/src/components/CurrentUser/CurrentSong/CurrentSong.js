@@ -14,8 +14,6 @@ export default function CurrentSong() {
   const user = useSelector((state) => state.session.user);
   const [playIcon, setPlayIcon] = useState("fas fa-play");
 
-  console.log(user)
-
   useEffect(() => {
     dispatch(getAllSongs());
   }, [dispatch]);
@@ -35,37 +33,42 @@ export default function CurrentSong() {
 
   return (
     <>
-      <div className="current-songs-wrapper">
-        <div className="current-songs-wrap">
-          {songs
-            .filter((song) => song?.userId === user?.id)
-            .map((song) => (
-              <li key={song.id} className="current-song-card">
-                <div
-                  className="cs-card-img-wrapper"
-                  style={{ backgroundImage: "url(" + song.previewImage + ")" }}
-                >
+      <div>
+        <h1 className="your-songs-text">Your Songs</h1>
+        <div className="current-songs-wrapper">
+          <div className="current-songs-wrap">
+            {songs
+              .filter((song) => song?.userId === user?.id)
+              .map((song) => (
+                <li key={song.id} className="current-song-card">
                   <div
-                    className="cs-play-action-overlay"
-                    onClick={() => songBtn(song)}
+                    className="cs-card-img-wrapper"
+                    style={{
+                      backgroundImage: "url(" + song.previewImage + ")",
+                    }}
                   >
-                    <button
-                      className="play-button-currentSong"
+                    <div
+                      className="cs-play-action-overlay"
                       onClick={() => songBtn(song)}
                     >
-                      <i className={playIcon} onClick={handlePlayIcon}></i>
-                    </button>
+                      <button
+                        className="play-button-currentSong"
+                        onClick={() => songBtn(song)}
+                      >
+                        <i className={playIcon} onClick={handlePlayIcon}></i>
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <Link
-                  className="current-song-link-text"
-                  exact
-                  to={{ pathname: `/songs/${song?.id}` }}
-                >
-                  <p className="current-song-title">{song?.title}</p>
-                </Link>
-              </li>
-            ))}
+                  <Link
+                    className="current-song-link-text"
+                    exact
+                    to={{ pathname: `/songs/${song?.id}` }}
+                  >
+                    <p className="current-song-title">{song?.title}</p>
+                  </Link>
+                </li>
+              ))}
+          </div>
         </div>
       </div>
     </>

@@ -1,0 +1,29 @@
+.song-info-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100vw;
+}
+
+.song-album-img-box > img {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 50vh;
+}
+
+.song-description {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: repeat(3, 1fr);
+    height: 50px;
+    width: 80px;
+}
+
+.delete-song-button {
+    background-color: red;
+}
