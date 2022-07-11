@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux'
-import { NavLink, useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useSelector } from "react-redux";
+import { NavLink, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function EditCurrentSong() {
   const { songId } = useParams();
@@ -10,7 +10,7 @@ export default function EditCurrentSong() {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [validationErrors, setValidationErrors] = useState([]);
-  const [submitted, setSubmitted] = useState(false)
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const errors = [];
@@ -22,35 +22,40 @@ export default function EditCurrentSong() {
     setValidationErrors(errors);
   }, [title, description]);
 
-  const onSubmit = e => {
-      e.preventDefault()
-      setSubmitted(true)
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
 
-      if(validationErrors.length > 0) return alert('Clear requirements before saving')
+    if (validationErrors.length > 0)
+      return alert("Clear requirements before saving");
 
-      const updatedSong = {
-          title,
-          description
-      }
+    const updatedSong = {
+      title,
+      description,
+    };
 
-      setSubmitted(false)
+    setSubmitted(false);
 
-      return updatedSong
-  }
+    return updatedSong;
+  };
 
   return (
-    <div>
-      <h1>EditSong.jsx</h1>
-      {submitted && validationErrors.length > 0 && (
-        <div>Errors
+    <>
+    <h1>Edit Song</h1>
+      <div>
+        <h1>EditSong.jsx</h1>
+        {submitted && validationErrors.length > 0 && (
+          <div>
+            Errors
             <ul>
-                {validationErrors.map(error => (
-                    <li>{error}</li>
-                ))}
+              {validationErrors.map((error) => (
+                <li>{error}</li>
+              ))}
             </ul>
-        </div>
-      )}
-    </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
@@ -66,7 +71,5 @@ export default function EditCurrentSong() {
 // onChange(e => setDescription(e.target.value))
 
 // Save Button
-
-
 
 // Delete Song button?
