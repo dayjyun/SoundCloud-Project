@@ -22,6 +22,7 @@ function Navigation({ isLoaded }) {
 
   let sessionLinks;
   if (sessionUser) {
+    
     // logged in
     sessionLinks = (
       <>
@@ -41,6 +42,7 @@ function Navigation({ isLoaded }) {
       </>
     );
   } else {
+
     // splash page
     sessionLinks = (
       <>

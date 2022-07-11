@@ -5,6 +5,8 @@ import * as sessionActions from "./store/sessionReducer";
 import Navigation from "./components/Navigation";
 import MediaLinks from "./components/Navigation/LoggedIn/Media/MediaLinks";
 import AllSongsLoader from "./components/Navigation/LoggedIn/AllSongsLibrary/AllSongsLoader";
+import AllAlbumsLoader from "./components/Navigation/LoggedIn/AllAlbumsLibrary/AllAlbumsLoader";
+import CurrentSong from "./components/CurrentUser/CurrentSong/CurrentSong";
 // import Library from "./components/Navigation/LoggedIn/AllSongsLibrary";
 function App() {
   const dispatch = useDispatch();
@@ -20,25 +22,25 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/songs/:songId">
-            <h1>Placeholder for SongDetails component</h1>
+            <h1>Placeholder for SongDetails component: App.js</h1>
           </Route>
           <Route exact path="/songs">
             <MediaLinks />
             <AllSongsLoader />
           </Route>
           <Route path="/albums/:albumId">
-            <h1>Placeholder for Albums edit component</h1>
+            <h1>Placeholder for Albums edit component: App.js</h1>
           </Route>
           <Route path="/albums">
             <MediaLinks/>
-            <h1>Placeholder for Albums component</h1>
+            <AllAlbumsLoader />
           </Route>
           <Route path="/me">
-            <h1>Placeholder for Me Component</h1>
+            <CurrentSong />
           </Route>
-          <Route>
+          {/* <Route>
             <h1>404: No Media Is Found Here</h1>
-          </Route>
+          </Route> */}
         </Switch>
       )}
     </>

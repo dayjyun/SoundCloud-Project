@@ -1,0 +1,69 @@
+.all-albums-wrapper {
+  background: white;
+  padding: 0px 0px 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.all-albums-wrapper > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px 5px auto;
+  max-width: 1280px;
+}
+
+.albums-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.album-card {
+  width: 300px;
+  margin: 7px 12px 17px 12px;
+  border-radius: 8%;
+  box-shadow: 10px 5px 5px rgba(51, 51, 51, 0.507);
+  background-color: rgb(238, 238, 238);
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.album-card p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  padding: 3px;
+  font-weight: 700;
+}
+
+.album-card:hover {
+    transform: scale(1.1);
+}
+
+.album-img-wrapper {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 294px;
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+  border-radius: 19px;
+}
+
+.album-img-wrapper img {
+    width: 100%
+}
+
+.album-link-text {
+    color: #0f1010;
+    transition: all 250ms
+}
+
+.album-link-text:hover {
+    color: #ff5501;
+    font-weight: 700;
+}

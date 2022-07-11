@@ -26,7 +26,7 @@ function LoginForm() {
     });
 
     if (res) {
-      history.push("/");
+      history.push("/me");
     } else {
       setErrors(["Login failed"]);
     }
@@ -36,12 +36,13 @@ function LoginForm() {
 
   const handleDemoUser = (e) => {
     e.preventDefault();
-    return dispatch(
+    dispatch(
       sessionActions.login({ credential: "Demo-lition", password: "password" })
     ).catch(async (res) => {
       const data = await res.json();
       if (data && data.errors) setErrors(data.errors);
     });
+    history.push('/me')
   };
 
 

@@ -1,16 +1,16 @@
-.all-songs-wrapper {
+.current-songs-wrapper {
   background: white;
-  padding: 0px 0px 12px;
+  padding: 0px 0px 120px;
   display: flex;
   justify-content: center;
 }
 
-.songs-wrap {
+.current-songs-wrap {
   display: flex;
   justify-content: center;
 }
 
-.all-songs-wrapper > div {
+.current-songs-wrapper > div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@
   max-width: 1280px;
 }
 
-.song-card {
+.current-song-card {
   width: 300px;
   margin: 7px 12px 17px 12px;
   border-radius: 8%;
@@ -27,7 +27,7 @@
   background-color: rgb(238, 238, 238);
 }
 
-.song-card p {
+.current-song-card p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -37,11 +37,11 @@
   font-weight: 700;
 }
 
-.song-card:hover {
+.cs-current-song-card:hover {
   transform: scale(1.1);
 }
 
-.card-img-wrapper {
+.cs-card-img-wrapper {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -52,11 +52,11 @@
   border-radius: 19px;
 }
 
-.card-img-wrapper img {
+.cs-card-img-wrapper img {
   width: 100%;
 }
 
-.play-action-overlay {
+.cs-play-action-overlay {
   align-items: center;
   display: flex;
   height: 100%;
@@ -67,20 +67,20 @@
   width: 100%;
 }
 
-.play-action-overlay:hover {
+.cs-play-action-overlay:hover {
   opacity: 1;
 }
 
-.play-action-overlay .list-style-play-btn {
+.cs-play-action-overlay .list-style-play-btn {
   margin-bottom: 0;
 }
 
-.song-link-text {
+.current-song-link-text {
   color: #0f1010;
   transition: all 250ms;
 }
 
-.song-link-text:hover {
+.current-song-link-text:hover {
   color: #ff5501;
   font-weight: 700;
 }
@@ -93,7 +93,7 @@
   padding: 1rem;
 }
 
-.play-button-allSongs {
+.play-button-currentSong {
   color: white;
   align-items: center;
   background: black;
@@ -106,7 +106,7 @@
   width: 40px;
 }
 
-.play-button-allSongs:hover {
+.play-button-currentSong:hover {
   transform: scale(1.5);
   cursor: pointer;
   -webkit-transition: background-color 2s ease-out;
@@ -115,7 +115,7 @@
   transition: background-color 2s ease-out;
 }
 
-.song-title {
+.current-song-title {
   padding: 10px;
   display: flex;
   justify-content: center;

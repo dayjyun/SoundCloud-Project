@@ -80,7 +80,7 @@ export const signup = (user) => async (dispatch) => {
 
 
 // reducers
-const initialState = { user: null };
+const initialState = {};
 
 const sessionReducer = (state = initialState, action) => {
   let newState;
