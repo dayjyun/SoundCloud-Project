@@ -46,7 +46,7 @@
   font-weight: 700;
 }
 
-.ca-current-album-card:hover {
+.current-album-card:hover {
   transform: scale(1.1);
 }
 

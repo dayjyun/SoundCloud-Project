@@ -7,10 +7,10 @@ import MediaLinks from "./components/Navigation/LoggedIn/Media/MediaLinks";
 import AllSongsLoader from "./components/Navigation/LoggedIn/AllSongsLibrary/AllSongsLoader";
 import AllAlbumsLoader from "./components/Navigation/LoggedIn/AllAlbumsLibrary/AllAlbumsLoader";
 import CurrentSong from "./components/CurrentUser/CurrentSong/CurrentSong";
-import SongDetails from "./components/CurrentUser/SondDetails/SongDetails";
-import EditSongForm from "./components/CurrentUser/CurrentSong/EditSong/EditSongForm";
+// import SongDetails from "./components/CurrentUser/SongDetails/SongDetails";
 import CurrentAlbum from "./components/CurrentUser/CurrentAlbum/CurrentAlbum";
-// import Library from "./components/Navigation/LoggedIn/AllSongsLibrary";
+import SongDetails from "./components/CurrentUser/SongDetails/SongDetails";
+import AlbumDetails from "./components/CurrentUser/AlbumDetails/AlbumDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,17 +26,14 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/songs/:songId">
-            <SongDetails />
-            {/* <EditSongForm /> */}
+            <SongDetails/>
           </Route>
           <Route exact path="/songs">
             <MediaLinks />
             <AllSongsLoader />
           </Route>
           <Route path="/albums/:albumId">
-            <h1>Placeholder for Albums edit component: App.js</h1>
-            <h1>Edit</h1>
-            <h1>Delete</h1>
+            <AlbumDetails />
           </Route>
           <Route path="/albums">
             <MediaLinks />

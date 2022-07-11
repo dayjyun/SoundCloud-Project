@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deleteSong, getSong } from "../../../store/songReducer";
-import EditSongBtn from "../CurrentSong/EditSong/EditSongBtn";
+import EditSongBtn from "../Edit/EditSongBtn";
 import "./SongDetails.css";
 
 function SongDetails() {
@@ -11,14 +11,14 @@ function SongDetails() {
   const history = useHistory();
   const songs = Object.values(useSelector((state) => state.songs));
   const user = useSelector((state) => state.session.user);
-  const singleSong = songs?.find((song) => song.id === +songId);
-  const [showButtons, setShowButtons] = useState(false);
+  const singleSong = songs?.find((song) => song?.id === +songId);
+  const [songButton, setSongButtons] = useState(false);
 
   useEffect(() => {
     if (user?.id === singleSong?.userId) {
-      setShowButtons(true);
+      setSongButtons(true);
     } else {
-      setShowButtons(false);
+      setSongButtons(false);
     }
   }, []);
 
@@ -26,7 +26,7 @@ function SongDetails() {
     dispatch(getSong(+songId));
   }, [dispatch]);
 
-  const handleDelete = (e) => {
+  const handleSongDelete = (e) => {
     e.preventDefault();
     dispatch(deleteSong(+songId));
     alert("Song successfully deleted");
@@ -43,11 +43,11 @@ function SongDetails() {
           <h1 className="song-desc-title">{singleSong?.title}</h1>
           <h3 className="song-desc-desc">{singleSong?.description}</h3>
           <div>
-            {showButtons && (
+            {songButton && (
               <>
-                <div className="edit-buttons">
+                <div className="edit-song-button">
                   <EditSongBtn />
-                  <button className="delete-button" onClick={handleDelete}>
+                  <button className="delete-song-button" onClick={handleSongDelete}>
                     Delete
                   </button>
                 </div>

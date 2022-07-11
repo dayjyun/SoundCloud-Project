@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
-import * as actions from '../../../../store/songReducer'
+import * as actions from '../../../store/songReducer'
 
-export default function EditSongForm({ setShowEdit }) {
+export default function EditSongForm({ setShowSongEdit }) {
   const { songId } = useParams()
   const dispatch = useDispatch()
   const history = useHistory()
@@ -18,7 +18,7 @@ export default function EditSongForm({ setShowEdit }) {
   const [previewImage, setPreviewImage] = useState(song.previewImage)
   const [url, setUrl] = useState(song.url)
 
-  const handleFormSubmit = async(e) => {
+  const handleSongFormSubmit = async(e) => {
     e.preventDefault()
 
     setValidationErrors([])
@@ -32,7 +32,7 @@ export default function EditSongForm({ setShowEdit }) {
       userId
     }))
     .then(() => {
-    setShowEdit(false)
+    setShowSongEdit(false)
     history.push(`/songs/${songId}`)
   })
   .catch(async res => {
@@ -44,7 +44,7 @@ export default function EditSongForm({ setShowEdit }) {
   return (
     <div className="edit-form">
       <h1>Edit Your Song</h1>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleSongFormSubmit}>
         <ul>
           {Object.values(validationErrors).map((error) => (
             <li key={error}>{error}</li>

@@ -1,4 +1,4 @@
-.song-info-container {
+.album-info-container {
     display: grid;
     grid-template-columns: 30% 70%;
     justify-content: center;
@@ -7,23 +7,7 @@
     width: 100vw;
 }
 
-/* .song-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.song-desc {
-    display: grid;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    width: 60vw;
-    height: 5vh;
-} */
-
-.song-album-img-box > img {
-    border: solid 5px greenyellow;
+.album-img-box > img {
     display: grid;
     justify-content: center;
     align-items: center;
@@ -31,7 +15,7 @@
     width: 50vh;
 }
 
-.song-description {
+.album-description {
     display: grid;
     justify-content: center;
     align-items: center;
@@ -40,6 +24,6 @@
     width: 80px;
 }
 
-.delete-button {
+.delete-album-button {
     background-color: red;
 }
