@@ -7,6 +7,7 @@ import MediaLinks from "./components/Navigation/LoggedIn/Media/MediaLinks";
 import AllSongsLoader from "./components/Navigation/LoggedIn/AllSongsLibrary/AllSongsLoader";
 import AllAlbumsLoader from "./components/Navigation/LoggedIn/AllAlbumsLibrary/AllAlbumsLoader";
 import CurrentSong from "./components/CurrentUser/CurrentSong/CurrentSong";
+import EditCurrentSong from "./components/CurrentUser/CurrentSong/EditSong/EditSong";
 // import Library from "./components/Navigation/LoggedIn/AllSongsLibrary";
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function App() {
         <Switch>
           <Route path="/songs/:songId">
             <h1>Placeholder for SongDetails component: App.js</h1>
+            <h1>Edit</h1>
+            <h1>Delete</h1>
+            <EditCurrentSong />
           </Route>
           <Route exact path="/songs">
             <MediaLinks />
@@ -30,9 +34,11 @@ function App() {
           </Route>
           <Route path="/albums/:albumId">
             <h1>Placeholder for Albums edit component: App.js</h1>
+            <h1>Edit</h1>
+            <h1>Delete</h1>
           </Route>
           <Route path="/albums">
-            <MediaLinks/>
+            <MediaLinks />
             <AllAlbumsLoader />
           </Route>
           <Route path="/me">

@@ -4,7 +4,7 @@ import "./SoundCloudText.css";
 export default function SoundCloudText() {
   return (
     <>
-      <NavLink exact to="/" className="soundCloudText">
+      <NavLink exact to="/me" className="soundCloudText">
         {/* <div className="logo-img">
           <img className="sc-img"
             src="https://soundcloudmisc.s3.us-east-2.amazonaws.com/SoundCloudLogo_White.png"
