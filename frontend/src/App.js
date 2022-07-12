@@ -25,21 +25,24 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/songs/:songId">
-            <SongDetails/>
+          <Route exact path="/songs/:songId">
+            <SongDetails />
           </Route>
           <Route exact path="/songs">
             <MediaLinks />
             <AllSongsLoader />
           </Route>
-          <Route path="/albums/:albumId">
+          <Route exact path="/albums/:albumId">
             <AlbumDetails />
           </Route>
-          <Route path="/albums">
+          <Route exact path="/albums">
             <MediaLinks />
             <AllAlbumsLoader />
           </Route>
-          <Route path="/me">
+          <Route exact path='/me/albums'>
+            <h1>Upload New Album</h1>
+          </Route>
+          <Route exact path="/me">
             <CurrentSong />
             <CurrentAlbum />
           </Route>

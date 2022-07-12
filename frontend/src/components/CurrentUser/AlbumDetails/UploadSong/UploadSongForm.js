@@ -11,9 +11,9 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
-  const [previewImage, setPreviewImage] = useState(
-    "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png"
-  );
+//   const [previewImage, setPreviewImage] = useState(
+//     "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png"
+//   );
   const [validationErrors, setValidationErrors] = useState([]);
 
   const handleAlbumSubmit = async (e) => {
@@ -25,7 +25,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
         userId,
         title,
         description,
-        previewImage,
+        // previewImage,
         url,
       })
     )
@@ -43,7 +43,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
     setTitle("");
     setDescription("");
     setUrl("");
-    setPreviewImage("");
+    // setPreviewImage("");
   };
 
   const handleCancelBtn = (e) => {
@@ -81,16 +81,15 @@ export default function UploadSongForm({ setShowUploadBtn }) {
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <div className="input-wrapper">
+        {/* <div className="input-wrapper">
           <label htmlFor="previewImage">Image URL Address</label>
           <input
             className="upload-input"
             type="text"
             name="previewImage"
-            placeholder=""
             onChange={(e) => setPreviewImage(e.target.value)}
           />
-        </div>
+        </div> */}
         <div className="input-wrapper">
           <label htmlFor="url">Song URL Address</label>
           <input
@@ -103,7 +102,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
         </div>
         <div className="form-btn-wrapper">
           <button className="upload-song-save-button" type="submit">
-            Save
+            Submit
           </button>
           <button
             className="upload-song-cancel-button"

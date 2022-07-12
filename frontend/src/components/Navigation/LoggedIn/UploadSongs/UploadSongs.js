@@ -3,7 +3,7 @@ import './UploadSongs.css'
 
 export default function Upload() {
     return (
-        <NavLink className={"uploadBtn"} to='/place-holder/albums'>
+        <NavLink className={"uploadBtn"} exact to='/me/albums'>
             Upload
         </NavLink>
     )
