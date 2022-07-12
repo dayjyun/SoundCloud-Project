@@ -56,13 +56,10 @@ function Navigation({ isLoaded }) {
               </div>
             </div>
             <div className="text-div">
-            <h1 className="background-image-text">Welcome To SoundCloud</h1>
+              <h1 className="background-image-text">Welcome To SoundCloud</h1>
             </div>
           </div>
         </div>
-        {/* <div className="splash-search">
-          <SearchBar />
-        </div> */}
         <div className="splash-text">
           <p className="splash-text-card">
             <strong>Explore</strong>
@@ -74,11 +71,19 @@ function Navigation({ isLoaded }) {
           </p>
           <p className="splash-text-card">
             <strong>Create</strong>
-            <p>Upload your own songs and albums for the world to listen!</p>
+            <p>Upload your own songs and albums for the world to listen</p>
           </p>
         </div>
         <div className="splash-bottom">
           <div className="background-image-two"></div>
+        </div>
+        <div className="splash-text">
+          <p className="splash-text-card">
+            Sign Up and join our community of artists
+          </p>
+        </div>
+        <div className="splash-signup-button-bottom">
+          <SignUpFormModal />
         </div>
       </>
     );
