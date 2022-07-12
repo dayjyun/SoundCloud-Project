@@ -11,6 +11,14 @@
   justify-content: center;
 }
 
+.player-box {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+
 /* Splash Page */
 .background-image {
   border: 2px solid yellowgreen;
@@ -50,11 +58,4 @@
   display: flex;
   justify-content: flex-end;
   padding: 0 50px;
-}
-
-.player-box {
-  bottom: 0;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
 }
