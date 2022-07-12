@@ -54,11 +54,10 @@
 }
 
 .splash-nav {
-  /* border: 2px solid yellow; */
+  border: 2px solid yellow;
   background-color: transparent;
   display: flex;
   justify-content: space-around;
-  /* align-items: flex-start; */
   height: 50px;
   width: 100%;
 }
@@ -74,6 +73,21 @@
   display: flex;
   justify-content: flex-end;
   padding: 0 50px;
+}
+
+.splash-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  color: white;
+  /* background-color: rgba(0, 0, 0, 0.685); */
+  mix-blend-mode: multiply;
+  padding: 0 50px;
+}
+
+.splash-text-card {
+  background-color: rgba(0, 0, 0, 0.685);
 }
 
 .splash-bottom {

@@ -22,7 +22,6 @@ function Navigation({ isLoaded }) {
 
   let sessionLinks;
   if (sessionUser) {
-
     // logged in
     sessionLinks = (
       <>
@@ -42,7 +41,6 @@ function Navigation({ isLoaded }) {
       </>
     );
   } else {
-
     // splash page
     sessionLinks = (
       <>
@@ -66,9 +64,13 @@ function Navigation({ isLoaded }) {
         <div className="splash-search">
           <SearchBar />
         </div>
+        <div className="splash-text">
+          <p className="splash-text-card">Listen</p>
+          <p className="splash-text-card">Create</p>
+          <p className="splash-text-card">Explore</p>
+        </div>
         <div className="splash-bottom">
-
-        <div className="background-image-two"></div>
+          <div className="background-image-two"></div>
         </div>
       </>
     );
