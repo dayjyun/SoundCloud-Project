@@ -29,7 +29,7 @@ export default function SplashPage() {
         </div>
         <div className="splash-text">
           <p className="splash-text-card">
-            Sign Up and join our community of artists
+            Sign up and join our community of artists
           </p>
         </div>
       </div>
