@@ -46,28 +46,36 @@ function Navigation({ isLoaded }) {
       <>
         <div className="splash-top">
           <div className="background-image-one">
-            <div className="banner-component">
-              {/* <Banner /> */}
-              <div className="splash-nav">
-                <div className="splash-nav-left">
-                  <SoundCloudText />
-                </div>
-                <div className="splash-nav-right">
-                  <LoginFormModal />
-                  <SignUpFormModal />
-                </div>
+            <div className="splash-nav">
+              <div className="splash-nav-left">
+                <SoundCloudText />
               </div>
-              <h1 className="background-image-text">Welcome To SoundCloud</h1>
+              <div className="splash-nav-right">
+                <LoginFormModal />
+                <SignUpFormModal />
+              </div>
+            </div>
+            <div className="text-div">
+            <h1 className="background-image-text">Welcome To SoundCloud</h1>
             </div>
           </div>
         </div>
-        <div className="splash-search">
+        {/* <div className="splash-search">
           <SearchBar />
-        </div>
+        </div> */}
         <div className="splash-text">
-          <p className="splash-text-card">Listen</p>
-          <p className="splash-text-card">Create</p>
-          <p className="splash-text-card">Explore</p>
+          <p className="splash-text-card">
+            <strong>Explore</strong>
+            <p>Search through content created by other artists</p>
+          </p>
+          <p className="splash-text-card">
+            <strong>Listen</strong>
+            <p>To creations made by other artists</p>
+          </p>
+          <p className="splash-text-card">
+            <strong>Create</strong>
+            <p>Upload your own songs and albums for the world to listen!</p>
+          </p>
         </div>
         <div className="splash-bottom">
           <div className="background-image-two"></div>

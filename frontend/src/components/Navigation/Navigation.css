@@ -25,21 +25,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  height: 80vh;
 }
 
 .background-image-one {
   /* border: 2px solid yellowgreen; */
+  background-size: cover;
   background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_stage.jpg');
   background-repeat: no-repeat;
-  padding: 12em;
   background-position: center;
-  height: auto;
-  background-size: cover;
+  /* padding: 12em; */
+  height: 100%;
+  width: 80%;
   /* transform: scale(.8); */
 }
 
 .banner-component {
   /* border: 2px solid cyan; */
+}
+
+.text-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
 }
 
 .background-image-text {
@@ -51,6 +61,7 @@
   mix-blend-mode: multiply;
   display: flex;
   justify-content: center;
+  /* margin: 6rem 8rem; */
 }
 
 .splash-nav {
@@ -76,18 +87,25 @@
 }
 
 .splash-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: sans-serif;
   color: white;
-  /* background-color: rgba(0, 0, 0, 0.685); */
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  font-family: sans-serif;
   mix-blend-mode: multiply;
-  padding: 0 50px;
+  padding: 40px;
 }
 
 .splash-text-card {
   background-color: rgba(0, 0, 0, 0.685);
+  padding: 40px;
+  border-radius: 6px;
+  margin: 0 30px;
 }
 
 .splash-bottom {
@@ -102,6 +120,6 @@
   background-position: center;
   padding: 12em;
   height: auto;
-  width: 875px;
+  width: 80%;
   background-size: cover;
 }
