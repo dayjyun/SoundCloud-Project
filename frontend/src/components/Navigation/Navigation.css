@@ -20,22 +20,38 @@
 
 
 /* Splash Page */
-.background-image {
+.splash-top {
+  border: 4px solid blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-image-one {
   border: 2px solid yellowgreen;
   background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_stage.jpg');
   background-repeat: no-repeat;
-  padding: 20em;
+  padding: 12em;
   background-position: center;
-  /* background-size: cover; */
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  height: auto;
+  background-size: cover;
+  /* transform: scale(.8); */
 }
 
 .banner-component {
-  border: 2px solid cyan;
+  /* border: 2px solid cyan; */
 }
 
+.background-image-text {
+  font-family: sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.685);
+  border-radius: 6px;
+  padding: 16px;
+  mix-blend-mode: multiply;
+  display: flex;
+  justify-content: center;
+}
 
 .splash-nav {
   border: 2px solid yellow;
@@ -58,4 +74,22 @@
   display: flex;
   justify-content: flex-end;
   padding: 0 50px;
+}
+
+.splash-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-image-two {
+  color: red;
+  border: 5px solid pink;
+  background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_crowd.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 12em;
+  height: auto;
+  width: 200px;
+  background-size: cover;
 }

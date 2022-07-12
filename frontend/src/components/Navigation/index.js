@@ -46,24 +46,30 @@ function Navigation({ isLoaded }) {
     // splash page
     sessionLinks = (
       <>
-        <div className="background-image">
-          <div className="banner-component">
-            {/* <Banner /> */}
-            <div className="splash-nav">
-              <div className="splash-nav-left">
-                <SoundCloudText />
+        <div className="splash-top">
+          <div className="background-image-one">
+            <div className="banner-component">
+              {/* <Banner /> */}
+              <div className="splash-nav">
+                <div className="splash-nav-left">
+                  <SoundCloudText />
+                </div>
+                <div className="splash-nav-right">
+                  <LoginFormModal />
+                  <SignUpFormModal />
+                </div>
               </div>
-              <div className="splash-nav-right">
-                <LoginFormModal />
-                <SignUpFormModal />
-              </div>
+              <h1 className="background-image-text">Welcome To SoundCloud</h1>
             </div>
           </div>
         </div>
         <div className="splash-search">
           <SearchBar />
         </div>
-        <h1>Background Image</h1>
+        <div className="splash-bottom">
+
+        <div className="background-image-two">Text</div>
+        </div>
       </>
     );
   }
