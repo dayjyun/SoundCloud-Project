@@ -47,7 +47,6 @@ function App() {
             <CurrentAlbum />
           </Route>
           <Route exact path='/'>
-
           </Route>
           <Route>
             <h1>404: Page Not Found</h1>
