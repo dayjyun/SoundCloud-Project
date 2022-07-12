@@ -21,14 +21,14 @@
 
 /* Splash Page */
 .splash-top {
-  border: 4px solid blueviolet;
+  /* border: 4px solid blueviolet; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .background-image-one {
-  border: 2px solid yellowgreen;
+  /* border: 2px solid yellowgreen; */
   background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_stage.jpg');
   background-repeat: no-repeat;
   padding: 12em;
@@ -54,7 +54,7 @@
 }
 
 .splash-nav {
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
   background-color: transparent;
   display: flex;
   justify-content: space-around;
@@ -83,13 +83,11 @@
 }
 
 .background-image-two {
-  color: red;
-  border: 5px solid pink;
   background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_crowd.jpg');
   background-repeat: no-repeat;
   background-position: center;
   padding: 12em;
   height: auto;
-  width: 200px;
+  width: 875px;
   background-size: cover;
 }

@@ -68,7 +68,7 @@ function Navigation({ isLoaded }) {
         </div>
         <div className="splash-bottom">
 
-        <div className="background-image-two">Text</div>
+        <div className="background-image-two"></div>
         </div>
       </>
     );
