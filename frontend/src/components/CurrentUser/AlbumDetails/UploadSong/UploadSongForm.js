@@ -54,7 +54,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
 
   return (
     <div className="upload-song-form">
-      <h2>Add Your New Track</h2>
+      <h2>Add A New Track</h2>
       <form onSubmit={handleAlbumSubmit}>
         <ul>
           {validationErrors.map((error) => (
@@ -87,7 +87,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
             className="upload-input"
             type="text"
             name="previewImage"
-            value={previewImage}
+            placeholder=""
             onChange={(e) => setPreviewImage(e.target.value)}
           />
         </div>
