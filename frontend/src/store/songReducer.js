@@ -2,10 +2,10 @@ import { csrfFetch } from "./csrf";
 
 // type
 const GET_ALL_SONGS = "songs/getAllSongs";
-const GET_USER_SONGS = 'songs/getUserSongs'
 const GET_SONG = "songs/getSong";
 const EDIT_SONG = 'songs/editSong'
 const DELETE_SONG = 'songs/deleteSong';
+const UPLOAD_SONG = 'songs/uploadSong'
 
 // get all songs
 const getAll = (list) => {
@@ -83,6 +83,30 @@ export const deleteSong = (songId) => async (dispatch) => {
     dispatch(removeSong(songId));
   }
 };
+
+// upload song
+const createSong = song => {
+  return {
+    type: UPLOAD_SONG,
+    song
+  }
+}
+
+export const uploadSong = (SongDetails) => async (dispatch) => {
+  const res = await csrfFetch("songs", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(SongDetails),
+  });
+
+  if(res.ok) {
+    const newSong = await res.json();
+    dispatch(createSong(newSong))
+    return newSong;
+  }
+}
 
 let initialState = {};
 

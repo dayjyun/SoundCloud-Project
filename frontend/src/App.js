@@ -43,9 +43,9 @@ function App() {
             <CurrentSong />
             <CurrentAlbum />
           </Route>
-          {/* <Route>
-            <h1>404: No Media Is Found Here</h1>
-          </Route> */}
+          <Route>
+            <h1>404: Page Not Found</h1>
+          </Route>
         </Switch>
       )}
     </>

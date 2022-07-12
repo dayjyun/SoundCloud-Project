@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { deleteAlbum, getAlbum } from "../../../store/albumReducer";
 import EditAlbumBtn from "../Edit/EditAlbumBtn";
 import './AlbumDetails.css'
+import UploadSongBtn from "./UploadSong/UploadSongBtn";
 
 export default function AlbumDetails() {
   const { albumId } = useParams();
@@ -47,6 +48,7 @@ export default function AlbumDetails() {
           <>
             <div className="edit-album-button">
               <EditAlbumBtn />
+              <UploadSongBtn />
               <button
                 className="delete-album-button"
                 onClick={handleAlbumDelete}
