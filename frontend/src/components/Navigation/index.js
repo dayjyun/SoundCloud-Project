@@ -57,7 +57,7 @@ function Navigation({ isLoaded }) {
               </div>
             </div>
             <div className="text-div">
-              <h1 className="background-image-text">Welcome To SoundCloud</h1>
+              <h1 className="background-image-one-text">Welcome To SoundCloud</h1>
             </div>
           </div>
         </div>

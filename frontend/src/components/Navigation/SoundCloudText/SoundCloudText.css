@@ -1,6 +1,7 @@
 .soundCloudText {
   background: black;
   border-style: none;
+  border-radius: 4px;
   color: white;
   padding: 4px 15px;
   font-size: 14px;

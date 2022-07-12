@@ -35,10 +35,8 @@
   background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_stage.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  /* padding: 12em; */
   height: 100%;
   width: 80%;
-  /* transform: scale(.8); */
 }
 
 .text-div {
@@ -48,7 +46,7 @@
   margin-top: 8rem;
 }
 
-.background-image-text {
+.background-image-one-text {
   font-family: sans-serif;
   color: white;
   background-color: rgba(0, 0, 0, 0.685);
