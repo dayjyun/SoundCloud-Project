@@ -12,10 +12,29 @@
 }
 
 /* Splash Page */
+.background-image {
+  border: 2px solid yellowgreen;
+  background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_stage.jpg');
+  background-repeat: no-repeat;
+  padding: 20em;
+  background-position: center;
+  /* background-size: cover; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.banner-component {
+  border: 2px solid cyan;
+}
+
+
 .splash-nav {
-  background-color: #CCC;
+  border: 2px solid yellow;
+  background-color: transparent;
   display: flex;
   justify-content: space-around;
+  /* align-items: flex-start; */
   height: 50px;
   width: 100%;
 }
@@ -23,12 +42,14 @@
 .splash-nav-left {
   display: flex;
   justify-content: center;
+  padding: 0 50px;
 }
 
 .splash-nav-right {
   background-color: transparent;
   display: flex;
   justify-content: flex-end;
+  padding: 0 50px;
 }
 
 .player-box {
@@ -36,10 +57,4 @@
   width: 100%;
   position: fixed;
   z-index: 1;
-}
-
-.banner-component {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 }
