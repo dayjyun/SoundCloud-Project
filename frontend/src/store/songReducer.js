@@ -42,7 +42,7 @@ export const getSong = (songId) => async (dispatch) => {
   }
 };
 
-// update song
+// edit song
 const updateSong = (song) => {
   return {
     type: EDIT_SONG,
@@ -50,13 +50,13 @@ const updateSong = (song) => {
   }
 }
 
-export const editSong = (data) => async(dispatch) => {
-  const song = await csrfFetch(`/songs/${data.id}`, {
+export const editSong = (songData) => async(dispatch) => {
+  const song = await csrfFetch(`/songs/${songData.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(songData)
   })
 
   if(song.ok) {
@@ -92,8 +92,8 @@ const createSong = song => {
   }
 }
 
-export const uploadSong = (SongDetails) => async (dispatch) => {
-  const res = await csrfFetch("songs", {
+export const uploadSong = (SongDetails, albumId) => async (dispatch) => {
+  const res = await csrfFetch(`/albums/${albumId}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -101,12 +101,12 @@ export const uploadSong = (SongDetails) => async (dispatch) => {
     body: JSON.stringify(SongDetails),
   });
 
-  if(res.ok) {
+  if (res.ok) {
     const newSong = await res.json();
-    dispatch(createSong(newSong))
+    dispatch(createSong(newSong));
     return newSong;
   }
-}
+};
 
 let initialState = {};
 
@@ -136,6 +136,12 @@ export default function songReducer(state = initialState, action) {
       const removeSongState = { ...state };
       delete removeSongState[action.id];
       return removeSongState;
+
+    case UPLOAD_SONG:
+      return {
+        ...state,
+        [action.song.id]: action.song
+      }
 
     default:
       return state;

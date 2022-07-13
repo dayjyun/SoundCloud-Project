@@ -1,9 +1,9 @@
 import { csrfFetch } from "./csrf";
-import { editSong } from "./songReducer";
 
 // type
 const GET_ALL_ALBUMS = "albums/getAllAlbums";
 const GET_ALBUM = "albums/getAlbum";
+const CREATE_ALBUM = 'albums/createAlbum';
 const EDIT_ALBUM = "albums/editAlbum";
 const DELETE_ALBUM = "albums/deleteAlbum";
 
@@ -41,6 +41,30 @@ export const getAlbum = (albumId) => async (dispatch) => {
   }
 };
 
+// create album
+const addAlbum = (album) => {
+  return {
+    type: CREATE_ALBUM,
+    album,
+  }
+}
+
+const createAlbum = (albumData) => async(dispatch) => {
+  const newAlbum = await csrfFetch('/albums', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(albumData)
+  })
+
+  if(newAlbum.ok) {
+    const res = await newAlbum.json();
+    dispatch(addAlbum(res))
+    return res;
+  }
+}
+
 // update album
 const updateAlbum = (album) => {
   return {
@@ -53,7 +77,7 @@ export const editAlbum = (data) => async (dispatch) => {
   const album = await csrfFetch(`/albums/${data.id}`, {
     method: "PUT",
     headers: {
-      "Content-type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   });

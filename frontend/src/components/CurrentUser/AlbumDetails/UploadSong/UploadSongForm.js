@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { getAllAlbums } from "../../../../store/albumReducer";
 import * as actions from "../../../../store/songReducer";
 
 export default function UploadSongForm({ setShowUploadBtn }) {
+  const { albumId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
@@ -11,10 +13,14 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
-//   const [previewImage, setPreviewImage] = useState(
-//     "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png"
-//   );
+  const [previewImage, setPreviewImage] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
+  const albums = Object.values(useSelector(state => state.albums));
+  const defaultImg = albums?.find(album => album.id === +albumId).previewImage;
+
+  useEffect(() => {
+    dispatch(getAllAlbums())
+  }, [dispatch])
 
   const handleAlbumSubmit = async (e) => {
     e.preventDefault();
@@ -25,13 +31,13 @@ export default function UploadSongForm({ setShowUploadBtn }) {
         userId,
         title,
         description,
-        // previewImage,
+        imageUrl: previewImage || defaultImg,
         url,
-      })
+      }, albumId)
     )
       .then(() => {
         setShowUploadBtn(false);
-        history.push("/songs/");
+        history.push(`/me`);
       })
       .catch(async (res) => {
         const data = await res.json();
@@ -43,7 +49,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
     setTitle("");
     setDescription("");
     setUrl("");
-    // setPreviewImage("");
+    setPreviewImage("");
   };
 
   const handleCancelBtn = (e) => {
@@ -81,15 +87,17 @@ export default function UploadSongForm({ setShowUploadBtn }) {
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        {/* <div className="input-wrapper">
+        <div className="input-wrapper">
           <label htmlFor="previewImage">Image URL Address</label>
           <input
             className="upload-input"
             type="text"
             name="previewImage"
+            placeholder="optional"
+            value={previewImage}
             onChange={(e) => setPreviewImage(e.target.value)}
           />
-        </div> */}
+        </div>
         <div className="input-wrapper">
           <label htmlFor="url">Song URL Address</label>
           <input

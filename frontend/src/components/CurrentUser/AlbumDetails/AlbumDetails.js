@@ -39,28 +39,28 @@ export default function AlbumDetails() {
       <div className="album-info-container">
         <div className="album-img-container">
           <div className="album-img-box">
-            <img src={`${singleAlbum?.previewImage}`} />
+            <img className="album-image" src={`${singleAlbum?.previewImage}`} />
           </div>
           <div className="album-description">
             <h1 className="album-desc-title">{singleAlbum?.title}</h1>
-            <h3 className="album-desc-desc">{singleAlbum?.description}</h3>
+            <p className="album-desc-text">{singleAlbum?.description}</p>
           </div>
         </div>
         {albumButton && (
-          <>
-            <div className="">
-              <div className="edit-album-buttons">
-                <EditAlbumBtn />
-                <UploadSongBtn />
-                <button
-                  className="delete-album-button"
-                  onClick={handleAlbumDelete}
-                >
-                  Delete
-                </button>
-              </div>
+          <div className="asdf">
+            <div className="edit-album-buttons">
+              <EditAlbumBtn />
+              <UploadSongBtn />
             </div>
-          </>
+            <div>
+              <button
+                className="delete-album-button"
+                onClick={handleAlbumDelete}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </>
