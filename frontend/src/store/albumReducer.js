@@ -49,7 +49,7 @@ const addAlbum = (album) => {
   }
 }
 
-const createAlbum = (albumData) => async(dispatch) => {
+export const createAlbum = (albumData) => async(dispatch) => {
   const newAlbum = await csrfFetch('/albums', {
     method: "POST",
     headers: {

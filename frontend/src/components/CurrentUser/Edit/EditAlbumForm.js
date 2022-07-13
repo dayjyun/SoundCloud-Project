@@ -57,6 +57,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
+          </div>
           <div className="input-wrapper">
             <label htmlFor="description">Description</label>
             <input
@@ -84,7 +85,6 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
               Save
             </button>
           </div>
-        </div>
       </form>
     </div>
   );
