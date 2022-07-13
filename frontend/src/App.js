@@ -11,6 +11,7 @@ import CurrentSong from "./components/CurrentUser/CurrentSong/CurrentSong";
 import CurrentAlbum from "./components/CurrentUser/CurrentAlbum/CurrentAlbum";
 import SongDetails from "./components/CurrentUser/SongDetails/SongDetails";
 import AlbumDetails from "./components/CurrentUser/AlbumDetails/AlbumDetails";
+import CreateAlbumComponent from "./components/CurrentUser/CreateAlbum/CreateAlbumComponent";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
           </Route>
           <Route exact path='/me/albums'>
             <h1>Upload New Album</h1>
+            <CreateAlbumComponent />
           </Route>
           <Route exact path="/me">
             <CurrentSong />

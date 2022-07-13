@@ -1,13 +1,16 @@
+
+/* .App */
 .searchBar {
-  border: none;
+  /* border: none;
   border-radius: 4px;
   font-size: 16px;
-  outline: none;
+  outline: none; */
   padding: 3px;
   margin: 0 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* flex-direction: column; */
 }
 
 .inside-search-bar {
@@ -17,4 +20,17 @@
   padding: 5px 7px;
   color: #666;
   background-color: #e5e5e5;
+}
+
+.song-title-results {
+  border: 2px solid cyan;
+  /*  display: flex;
+  justify-content: center;
+  align-items: center; */
+  margin: 0;
+}
+
+/* .user */
+.search-song-title {
+  border: 2px solid magenta;
 }

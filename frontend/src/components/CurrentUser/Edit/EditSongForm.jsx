@@ -27,7 +27,7 @@ export default function EditSongForm({ setShowSongEdit }) {
       id: songId,
       title,
       description,
-      previewImage,
+      imageUrl: previewImage,
       url,
       userId
     }))
