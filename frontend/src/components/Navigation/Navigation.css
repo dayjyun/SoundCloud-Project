@@ -11,30 +11,56 @@
   justify-content: center;
 }
 
+.player-box {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+
 /* Splash Page */
-.background-image {
-  border: 2px solid yellowgreen;
-  background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_stage.jpg');
-  background-repeat: no-repeat;
-  padding: 20em;
-  background-position: center;
-  /* background-size: cover; */
+.splash-top {
+  /* border: 4px solid blueviolet; */
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
 }
 
-.banner-component {
-  border: 2px solid cyan;
+.background-image-one {
+  /* border: 2px solid yellowgreen; */
+  background-size: cover;
+  background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_stage.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 80%;
 }
 
+.text-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+}
+
+.background-image-one-text {
+  font-family: sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.685);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  /* mix-blend-mode: multiply; */
+}
 
 .splash-nav {
-  border: 2px solid yellow;
   background-color: transparent;
   display: flex;
   justify-content: space-around;
-  /* align-items: flex-start; */
   height: 50px;
   width: 100%;
 }
@@ -52,9 +78,19 @@
   padding: 0 50px;
 }
 
-.player-box {
-  bottom: 0;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
+.splash-signup-button-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.splash-login-text {
+  padding: 0 10px;
 }

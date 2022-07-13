@@ -15,14 +15,13 @@ import Player from "./Player/Player";
 // splash page
 import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from "../SignupFormModal";
-import Banner from "./Banner/Banner";
+import SplashPage from "./SplashPage/SplashPage";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
   if (sessionUser) {
-
     // logged in
     sessionLinks = (
       <>
@@ -42,28 +41,45 @@ function Navigation({ isLoaded }) {
       </>
     );
   } else {
-
     // splash page
     sessionLinks = (
       <>
-        <div className="background-image">
-          <div className="banner-component">
-            {/* <Banner /> */}
-            <div className="splash-nav">
-              <div className="splash-nav-left">
-                <SoundCloudText />
+        <div>
+          <div className="splash-top">
+            <div className="background-image-one">
+              <div className="splash-nav">
+                <div className="splash-nav-left">
+                  <SoundCloudText />
+                </div>
+                <div className="splash-nav-right">
+                  <LoginFormModal />
+                  <SignUpFormModal />
+                </div>
               </div>
-              <div className="splash-nav-right">
+              <div className="text-div">
+                <h1 className="background-image-one-text">
+                  Welcome To SoundCloud
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div>
+            <SplashPage />
+          </div>
+          <div className="closer">
+            <div className="splash-signup-button-bottom">
+              <SignUpFormModal />
+            </div>
+            <div className="splash-login">
+              <div>
+                <p className="splash-login-text">Already have an account?</p>
+              </div>
+              <div>
                 <LoginFormModal />
-                <SignUpFormModal />
               </div>
             </div>
           </div>
         </div>
-        <div className="splash-search">
-          <SearchBar />
-        </div>
-        <h1>Background Image</h1>
       </>
     );
   }
