@@ -97,7 +97,7 @@ const removeAlbum = (id) => {
 };
 
 export const deleteAlbum = (albumId) => async (dispatch) => {
-  const album = await csrfFetch(`/songs/${albumId}`, {
+  const album = await csrfFetch(`/albums/${albumId}`, {
     method: "DELETE",
   });
 
