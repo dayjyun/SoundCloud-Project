@@ -58,7 +58,7 @@
   background-color: rgba(0, 0, 0, 0.685);
   border-radius: 6px;
   padding: 16px;
-  /* mix-blend-mode: multiply; */
   display: flex;
   justify-content: center;
+  /* mix-blend-mode: multiply; */
 }

@@ -52,10 +52,9 @@
   background-color: rgba(0, 0, 0, 0.685);
   border-radius: 6px;
   padding: 16px;
-  mix-blend-mode: multiply;
   display: flex;
   justify-content: center;
-  /* margin: 6rem 8rem; */
+  /* mix-blend-mode: multiply; */
 }
 
 .splash-nav {
