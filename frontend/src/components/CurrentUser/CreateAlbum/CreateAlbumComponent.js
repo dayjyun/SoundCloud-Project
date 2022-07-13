@@ -22,7 +22,7 @@ export default function CreateAlbumComponent() {
       })
     )
       .then(() => {
-        history.push(`/albums`);
+        history.push(`/me`);
       })
       .catch(async (res) => {
         const data = await res.json();
