@@ -65,7 +65,7 @@ module.exports = {
         // 7
         title: "Growing Old Is Getting Old",
         description:
-          "The third track on Silversun Pickups' 2009 album Swoon. “Growing Old Is Getting Old” is inspired by the band's experiences performing live for a long time, which in turn has allowed them to reflect on what they've done and what they want to do. It's about realizing that we are getting older, and that death, inevitably, is coming for us.",
+          "Inspired by the band's experiences performing live for a long time, which in turn has allowed them to reflect on what they've done and want to do. It's about realizing that we are getting older, and that death, inevitably, is coming for us.",
         userId: 4,
         albumId: 5,
         url: "https://sspu.s3.us-east-2.amazonaws.com/sspu_music/Swoon/03+Growing+Old+Is+Getting+Old.mp3",
@@ -75,7 +75,7 @@ module.exports = {
         // 8
         title: "Bittersweet Symphony",
         description:
-          "The “Bitter Sweet Symphony” which The Verve's lead singer, Richard Ashcroft, is referring to is life itself.  He considers the whole experience to be “bittersweet” because he perceives it as one where you ceaselessly toil to make “ends meet” only to die in the end.",
+          "The “Bitter Sweet Symphony” which the lead singer is referring to is life itself.  He considers the whole experience to be “bittersweet” as he perceives it as one where you ceaselessly toil to make “ends meet” only to die in the end.",
         userId: 5,
         url: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/01+Bitter+Sweet+Symphony.mp3",
         imageUrl:
@@ -115,7 +115,7 @@ module.exports = {
         // 12
         title: "Lazy Eye",
         description:
-          "The third single, and track 7 off the Silversun Pickups' 2006 album Carnavas, “Lazy Eye” is about someone that loves someone else and at first was hesitant about doing so due to their imperfections, but eventually comes around to loving them anyway.",
+          "“Lazy Eye” is about someone that loves someone else and at first was hesitant about doing so due to their imperfections, but eventually comes around to loving them anyway.",
         userId: 4,
         albumId: 4,
         url: "https://sspu.s3.us-east-2.amazonaws.com/sspu_music/Carnavas/07+Lazy+Eye.mp3",
