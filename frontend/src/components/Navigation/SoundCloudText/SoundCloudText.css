@@ -7,15 +7,7 @@
   font-size: 14px;
   white-space: nowrap;
   font-family: sans-serif;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.logo-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* transform: scale(4%); */
 }
