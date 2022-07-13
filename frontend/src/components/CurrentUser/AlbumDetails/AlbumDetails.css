@@ -1,10 +1,11 @@
-.album-info-container {
+/* .album-info-container {
     display: grid;
     grid-template-columns: 30% 70%;
     justify-content: center;
     align-items: center;
     height: 50vh;
     width: 100vw;
+    background-color: cadetblue;
 }
 
 .album-img-box > img {
@@ -26,4 +27,29 @@
 
 .delete-album-button {
     background-color: red;
+} */
+
+
+/* .album-info-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100vw; */
+    /* background-color: cadetblue; */
+    /* height: 300px;
+} */
+
+.album-img-container {
+    display: flex;
+    justify-content: center;
+    height: 10%;
+}
+
+.album-img-box {
+    /* transform: scale(.3); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

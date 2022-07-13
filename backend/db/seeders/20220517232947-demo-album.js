@@ -13,7 +13,7 @@ module.exports = {
      {
        // 2
        title: "Ready Player 2",
-       description: "Dedicated to Luigi Players in Mario Games",
+       description: "Dedicated to all the Luigi Players in Mario Games",
        userId: 2,
        imageUrl: "https://soundcloudmisc.s3.us-east-2.amazonaws.com/2.png",
      },
@@ -27,7 +27,8 @@ module.exports = {
      {
        // 4
        title: "Carnavas",
-       description: "Contains songs like Rusted Wheel and Dream At Tempo 119 ",
+       description:
+         "Carnavas is the debut studio album by alternative band Silversun Pickups.",
        userId: 4,
        imageUrl: "https://sspu.s3.us-east-2.amazonaws.com/SSPU_Carnavas.jfif",
      },
@@ -35,7 +36,7 @@ module.exports = {
        // 5
        title: "Swoon",
        description:
-         "Contains songs like Panic Switch and Growing Old Is Getting Old",
+         "Swoon is the second full-length studio album by Los Angeles alternative rock band Silversun Pickups.",
        userId: 4,
        imageUrl: "https://sspu.s3.us-east-2.amazonaws.com/SSPU_Swoon.jfif",
      },
