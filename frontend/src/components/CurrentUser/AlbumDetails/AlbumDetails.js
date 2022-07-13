@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deleteAlbum, getAlbum } from "../../../store/albumReducer";
 import EditAlbumBtn from "../Edit/EditAlbumBtn";
-import './AlbumDetails.css'
 import UploadSongBtn from "./UploadSong/UploadSongBtn";
+import "./AlbumDetails.css";
 
 export default function AlbumDetails() {
   const { albumId } = useParams();
@@ -37,24 +37,28 @@ export default function AlbumDetails() {
   return (
     <>
       <div className="album-info-container">
-        <div className="album-img-box">
-          <img src={`${singleAlbum?.previewImage}`} />
-        </div>
-        <div className="album-description">
-          <h1 className="album-desc-title">{singleAlbum?.title}</h1>
-          <h3 className="album-desc-desc">{singleAlbum?.description}</h3>
+        <div className="album-img-container">
+          <div className="album-img-box">
+            <img src={`${singleAlbum?.previewImage}`} />
+          </div>
+          <div className="album-description">
+            <h1 className="album-desc-title">{singleAlbum?.title}</h1>
+            <h3 className="album-desc-desc">{singleAlbum?.description}</h3>
+          </div>
         </div>
         {albumButton && (
           <>
-            <div className="edit-album-button">
-              <EditAlbumBtn />
-              <UploadSongBtn />
-              <button
-                className="delete-album-button"
-                onClick={handleAlbumDelete}
-              >
-                Delete
-              </button>
+            <div className="">
+              <div className="edit-album-buttons">
+                <EditAlbumBtn />
+                <UploadSongBtn />
+                <button
+                  className="delete-album-button"
+                  onClick={handleAlbumDelete}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </>
         )}
