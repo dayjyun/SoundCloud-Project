@@ -19,11 +19,7 @@
   align-items: center;
 }
 
-.input-wrapper {
-  padding: 5px 10px;
-}
-
-.enter {
+.enter-song {
   width: 12rem;
   padding: 3px;
   font-weight: bold;

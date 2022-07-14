@@ -58,7 +58,7 @@ export default function EditSongForm({ setShowSongEdit }) {
           ))}
         </ul>
         <div className="song-input">
-          <div className="enter">
+          <div className="enter-song">
             <label htmlFor="title">Title</label>
             <input
               className="edit-input"
@@ -69,7 +69,7 @@ export default function EditSongForm({ setShowSongEdit }) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="enter">
+          <div className="enter-song">
             <label htmlFor="description">Description</label>
             <input
               className="edit-input"
@@ -80,7 +80,7 @@ export default function EditSongForm({ setShowSongEdit }) {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div className="enter">
+          <div className="enter-song">
             <label htmlFor="previewImage">Image</label>
             <input
               className="edit-input"
@@ -91,7 +91,7 @@ export default function EditSongForm({ setShowSongEdit }) {
               onChange={(e) => setPreviewImage(e.target.value)}
             />
           </div>
-          <div className="enter">
+          <div className="enter-song">
             <label htmlFor="url">Media</label>
             <input
               className="edit-input"

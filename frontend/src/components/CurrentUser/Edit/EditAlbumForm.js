@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import * as actions from "../../../store/albumReducer";
+import "./EditAlbumForm.css";
 
 export default function EditAlbumForm({ setShowAlbumEdit }) {
   const { albumId } = useParams();
@@ -32,7 +33,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
       .catch(async (res) => {
         const err = await res.json();
         if (err) {
-          console.log(err)
+          console.log(err);
           setValidationErrors(err.errors);
         }
       });
@@ -40,14 +41,16 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
 
   return (
     <div className="edit-album-form">
-      <h1>Edit Your Album</h1>
+      <div>
+        <h1>Edit Your Album</h1>
+      </div>
       <form onSubmit={handleAlbumFormSubmit}>
         <ul>
           {Object.values(validationErrors)?.map((error) => (
             <li key={error}>{error}</li>
           ))}
         </ul>
-        <div className="input-wrapper">
+        <div className="album-input">
           <label htmlFor="title">Title*</label>
           <input
             className="edit-input"
@@ -57,34 +60,34 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="description">Description</label>
-            <input
-              className="edit-input"
-              type="text"
-              id="description"
-              name="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="previewImage">Image</label>
-            <input
-              className="edit-input"
-              type="text"
-              id="previewImage"
-              name="previewImage"
-              value={previewImage}
-              onChange={(e) => setPreviewImage(e.target.value)}
-            />
-          </div>
-          <div>
-            <button className="edit-button" type="submit">
-              Save
-            </button>
-          </div>
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="description">Description</label>
+          <input
+            className="edit-input"
+            type="text"
+            id="description"
+            name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="previewImage">Image</label>
+          <input
+            className="edit-input"
+            type="text"
+            id="previewImage"
+            name="previewImage"
+            value={previewImage}
+            onChange={(e) => setPreviewImage(e.target.value)}
+          />
+        </div>
+        <div>
+          <button className="edit-button" type="submit">
+            Save
+          </button>
+        </div>
       </form>
     </div>
   );
