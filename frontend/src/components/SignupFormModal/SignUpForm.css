@@ -1,9 +1,27 @@
+.signup-modal-container {
+  padding: 1.2rem;
+}
+
+.sp1,
+.sp2 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-family: sans-serif;
+}
+
+.init-signup {
+  width: 12rem;
+  padding: 3px;
+}
+
 .signUpBtn {
   background-color: #ff5501;
   border: 1px solid #ff5501;
   color: white;
   border-radius: 3px;
-  padding: 4px 15px;
+  padding: 4px 26px;
   font-size: 14px;
   line-height: 20px;
   white-space: nowrap;
@@ -22,23 +40,25 @@
 .signUpInput {
   margin: 6px 0px 0px;
   padding: 10px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .signUpModal {
   display: flex;
   justify-content: center;
   align-content: center;
-  margin: 10px 0;
+  margin: 8px 0;
   padding: 3px;
-  border: 5px solid red;
 }
 
 .signUpBtnModal {
-    background-color: #ff5501;
+  background-color: #ff5501;
   border: 1px solid #ff5501;
   color: white;
   border-radius: 3px;
-  padding: 4px 15px;
+  padding: 8px 30px;
   font-size: 14px;
   font-family: sans-serif;
   white-space: nowrap;
@@ -47,10 +67,4 @@
 
 .input {
   padding: 7px 8px;
-}
-
-.sp1, .sp2 {
-  display: grid;
-  justify-content: center;
-  align-items: center;
 }

@@ -46,7 +46,7 @@ function SignupFormPage() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <div>
+      <div className="signup-modal-container">
         <div className="signUpText">
           <p className="sp1">Create An Account</p>
           <p className="sp2">Enter your details below</p>
@@ -56,6 +56,7 @@ function SignupFormPage() {
             {/* First Name */}
             <input
               type="text"
+              className="init-signup"
               placeholder="First Name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
@@ -66,6 +67,7 @@ function SignupFormPage() {
             {/* Last Name */}
             <input
               type="text"
+              className="init-signup"
               placeholder="Last Name"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
@@ -76,6 +78,7 @@ function SignupFormPage() {
             {/* Email */}
             <input
               type="text"
+              className="init-signup"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -86,6 +89,7 @@ function SignupFormPage() {
             {/* Username */}
             <input
               type="text"
+              className="init-signup"
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -96,6 +100,7 @@ function SignupFormPage() {
             {/* Password */}
             <input
               type="password"
+              className="init-signup"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -106,6 +111,7 @@ function SignupFormPage() {
             {/* Confirm Password */}
             <input
               type="password"
+              className="init-signup"
               placeholder="Confirm Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
