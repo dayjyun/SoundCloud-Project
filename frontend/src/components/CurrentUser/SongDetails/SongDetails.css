@@ -1,26 +1,41 @@
 .song-info-container {
-    margin: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* margin: 50px; */
     /* height: 50vh;
     width: 100vw; */
 }
 
-.song-album-img-box > img {
+.song-details-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.song-cover-image {
+    transform: scale(.7);
+    height: 35rem;
+    width: 35rem;
+}
+
+/* .song-album-img-box > img {
     display: grid;
     justify-content: center;
     align-items: center;
     height: 50vh;
     width: 50vh;
-}
+} */
 
-.song-description {
-    display: grid;
+.song-info {
+    width: 35rem;
+    padding: 10px;
+    /* display: grid;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .delete-song-button {
     background-color: red;
+    border: 2px solid red;
 }

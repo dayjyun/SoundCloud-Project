@@ -36,25 +36,32 @@ function SongDetails() {
   return (
     <>
       <div className="song-info-container">
-        <div className="song-album-img-box">
-          <img src={`${singleSong?.previewImage}`} />
-        </div>
-        <div className="song-description">
-          <h1 className="song-desc-title">{singleSong?.title}</h1>
-          <h3 className="song-desc-desc">{singleSong?.description}</h3>
+        <div className="song-details-box">
           <div>
-            {songButton && (
-              <>
-                <div className="edit-song-button">
-                  <EditSongBtn />
-                  <button className="delete-song-button" onClick={handleSongDelete}>
-                    Delete
-                  </button>
-                </div>
-              </>
-            )}
+            <img className="song-cover-image" src={`${singleSong?.previewImage}`} />
+          </div>
+          <div className="song-info">
+            <h1 className="song-desc-title">{singleSong?.title}</h1>
+            <p className="song-desc-desc">{singleSong?.description}</p>
           </div>
         </div>
+        {songButton && (
+          <>
+            <div className="qwer">
+              <div className="edit-song-button">
+                <EditSongBtn />
+              </div>
+              <div>
+                <button
+                  className="delete-song-button"
+                  onClick={handleSongDelete}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

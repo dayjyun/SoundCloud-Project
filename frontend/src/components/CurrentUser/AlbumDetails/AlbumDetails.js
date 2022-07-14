@@ -37,13 +37,13 @@ export default function AlbumDetails() {
   return (
     <>
       <div className="album-info-container">
-        <div className="album-img-container">
-          <div className="album-img-box">
-            <img className="album-image" src={`${singleAlbum?.previewImage}`} />
+        <div className="album-details-box">
+          <div>
+            <img className="album-cover-image" src={`${singleAlbum?.previewImage}`} />
           </div>
-          <div className="album-description">
+          <div className="album-info">
             <h1 className="album-desc-title">{singleAlbum?.title}</h1>
-            <p className="album-desc-text">{singleAlbum?.description}</p>
+            <p className="album-desc-description">{singleAlbum?.description}</p>
           </div>
         </div>
         {albumButton && (
