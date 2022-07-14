@@ -41,7 +41,7 @@ export default function EditSongForm({ setShowSongEdit }) {
       .catch(async (res) => {
         const err = await res.json();
         if (err) {
-          setValidationErrors(err.validationErrors);
+          setValidationErrors(err.errors);
         }
       });
   };
