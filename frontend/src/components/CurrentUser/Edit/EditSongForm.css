@@ -1,4 +1,4 @@
-.edit-form-container {
+.edit-song-form-container {
   padding: 1.2rem;
 }
 
@@ -29,17 +29,13 @@
   display: flex;
   justify-content: center;
   margin: 10px 0;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0 0 0;
 }
 
 .save-button-song {
   margin-top: 2px;
   padding: 8px 15px;
-}
-
-.save-button-edit-song,
-.save-button-edit-song {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  margin: 10px 0 0 0;
 }

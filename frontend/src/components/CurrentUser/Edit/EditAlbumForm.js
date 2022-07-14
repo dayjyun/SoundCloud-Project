@@ -40,9 +40,9 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
   };
 
   return (
-    <div className="edit-album-form">
-      <div>
-        <h1>Edit Your Album</h1>
+    <div className="edit-album-form-container">
+      <div className="edit-album-text">
+        <p>Edit Your Album</p>
       </div>
       <form onSubmit={handleAlbumFormSubmit}>
         <ul>
@@ -51,42 +51,41 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
           ))}
         </ul>
         <div className="album-input">
-          <label htmlFor="title">Title*</label>
-          <input
-            className="edit-input"
-            type="text"
-            id="title"
-            name="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="description">Description</label>
-          <input
-            className="edit-input"
-            type="text"
-            id="description"
-            name="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="previewImage">Image</label>
-          <input
-            className="edit-input"
-            type="text"
-            id="previewImage"
-            name="previewImage"
-            value={previewImage}
-            onChange={(e) => setPreviewImage(e.target.value)}
-          />
-        </div>
-        <div>
-          <button className="edit-button" type="submit">
-            Save
-          </button>
+          <div className="enter-album">
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div className="enter-album">
+            <label htmlFor="description">Description</label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+          <div className="enter-album">
+            <label htmlFor="previewImage">Image</label>
+            <input
+              type="text"
+              id="previewImage"
+              name="previewImage"
+              value={previewImage}
+              onChange={(e) => setPreviewImage(e.target.value)}
+            />
+          </div>
+          <div className="save-button-edit-album">
+            <button className="save-button-album" type="submit">
+              Save
+            </button>
+          </div>
         </div>
       </form>
     </div>

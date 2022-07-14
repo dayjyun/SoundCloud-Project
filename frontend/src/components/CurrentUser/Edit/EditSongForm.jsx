@@ -47,7 +47,7 @@ export default function EditSongForm({ setShowSongEdit }) {
   };
 
   return (
-    <div className="edit-form-container">
+    <div className="edit-song-form-container">
       <div className="edit-song-text">
         <p>Edit Your Song</p>
       </div>
@@ -61,7 +61,6 @@ export default function EditSongForm({ setShowSongEdit }) {
           <div className="enter-song">
             <label htmlFor="title">Title</label>
             <input
-              className="edit-input"
               type="text"
               id="title"
               name="title"
@@ -72,7 +71,6 @@ export default function EditSongForm({ setShowSongEdit }) {
           <div className="enter-song">
             <label htmlFor="description">Description</label>
             <input
-              className="edit-input"
               type="text"
               id="description"
               name="description"
@@ -83,7 +81,6 @@ export default function EditSongForm({ setShowSongEdit }) {
           <div className="enter-song">
             <label htmlFor="previewImage">Image</label>
             <input
-              className="edit-input"
               type="text"
               id="previewImage"
               name="previewImage"
@@ -94,7 +91,6 @@ export default function EditSongForm({ setShowSongEdit }) {
           <div className="enter-song">
             <label htmlFor="url">Media</label>
             <input
-              className="edit-input"
               type="text"
               id="url"
               name="url"
