@@ -5,6 +5,7 @@ const { requireAuth } = require("../utils/auth");
 const { validateSong, validateAlbum } = require('../utils/validation')
 
 const { Album, User, Song, sequelize } = require("../db/models");
+const { singlePublicFileUpload, singleMulterUpload } = require("../awsS3");
 
 // GET
 
@@ -73,10 +74,12 @@ router.get("/", async (req, res) => {
 // POST;
 
 // Create A Song For An Album With Album ID
-router.post("/:albumId", requireAuth, validateSong, async (req, res) => {
+
+router.post("/:albumId", requireAuth, singleMulterUpload("songUrl"),  async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
-  const { title, description, url, imageUrl } = req.body;
+  const { title, description, imageUrl } = req.body;
+  const songUrl = await singlePublicFileUpload(req.file);
 
   const album = await Album.findByPk(albumId);
 
@@ -85,7 +88,7 @@ router.post("/:albumId", requireAuth, validateSong, async (req, res) => {
       const newSong = await Song.create({
         title,
         description,
-        url,
+        url: songUrl,
         imageUrl,
         userId: user.id,
         albumId

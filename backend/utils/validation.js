@@ -63,7 +63,7 @@ const validateSong = [
   check("title")
     .exists({ checkFalsy: true })
     .withMessage("Song title is required"),
-  check("url")
+  check("songUrl")
     .exists({ checkFalsy: true })
     .withMessage("Audio is required"),
   handleValidationErrors,
