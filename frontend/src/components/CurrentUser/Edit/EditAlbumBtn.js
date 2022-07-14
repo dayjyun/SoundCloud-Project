@@ -7,7 +7,7 @@ export default function EditAlbumBtn() {
 
   return (
     <div>
-      <button onClick={() => setShowAlbumEdit(true)}>Edit</button>
+      <button style={{ cursor: "pointer" }} onClick={() => setShowAlbumEdit(true)}>Edit</button>
       {showAlbumEdit && (
         <Modal onClose={() => setShowAlbumEdit(false)}>
             <EditAlbumForm setShowAlbumEdit={setShowAlbumEdit}/>

@@ -35,9 +35,11 @@
 
 .edit-song-buttons {
     display: flex;
+    cursor: pointer;
 }
 
 .delete-song-button {
     background-color: red;
     border: 2px solid red;
+    cursor: pointer;
 }

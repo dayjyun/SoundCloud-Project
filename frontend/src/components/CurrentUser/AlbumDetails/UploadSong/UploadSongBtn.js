@@ -7,7 +7,7 @@ export default function UploadSongBtn() {
 
   return (
     <div>
-      <button onClick={() => setShowUploadBtn(true)}>Upload</button>
+      <button style={{ cursor: "pointer" }} onClick={() => setShowUploadBtn(true)}>Upload</button>
       {showUploadBtn && (
         <Modal onClose={() => setShowUploadBtn(false)}>
           <UploadSongForm setShowUploadBtn={setShowUploadBtn} />

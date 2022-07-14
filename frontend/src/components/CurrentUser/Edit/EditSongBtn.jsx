@@ -7,7 +7,7 @@ function EditSongBtn() {
 
   return (
     <div>
-        <button onClick={() => setShowSongEdit(true)}>Edit</button>
+        <button style={{ cursor: "pointer" }} onClick={() => setShowSongEdit(true)}>Edit</button>
         {showSongEdit && (
           <Modal onClose={() => setShowSongEdit(false)}>
             <EditSongForm setShowSongEdit={setShowSongEdit}/>
