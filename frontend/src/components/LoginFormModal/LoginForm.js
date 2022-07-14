@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/sessionReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
-import thunk from 'redux-thunk'
 import "./LoginForm.css";
 
 function LoginForm() {
@@ -57,50 +56,54 @@ function LoginForm() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <div className="signInText">
-        <p>Sign In to SoundCloud</p>
-      </div>
-      <div className="userLogin">
-        <div className="enterIdentity init">
-          {/* Username or Email */}
-          <input
-            type="text"
-            placeholder="Your email address or username"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
+      <div className="login-modal-container">
+        <div className="signInText">
+          <p>Sign In to SoundCloud</p>
         </div>
-        <div className="init">
-          {/* Password */}
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        <div className="userLogin">
+          <div className="enterIdentity init">
+            {/* Username or Email */}
+            <input
+              type="text"
+              className="init-credential"
+              placeholder="Username or email address"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </div>
+          <div className="init">
+            {/* Password */}
+            <input
+              type="password"
+              className="init-password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className="logInSubmit">
+            <button className="logInBtn logInModal" type="submit">
+              Log In
+            </button>
+          </div>
         </div>
-        <div className="logInSubmit">
-          <button className="logInBtn logInModal" type="submit">
-            Log In
-          </button>
+        <div className="divider">
+          <div className="line"></div>
+          <div style={styleDisplay}>or</div>
+          <div className="line"></div>
         </div>
-      </div>
-      <div className="divider">
-        <div className="line"></div>
-        <div style={styleDisplay}>or</div>
-        <div className="line"></div>
-      </div>
-      <div className="demo">
-        <div className="demoText">
-          <p className="lp1">Afraid of commitment? </p>
-          <p className="lp2">Try our Demo User!</p>
-        </div>
-        <div className="demoBtn">
-          <button className="demoUser" type="submit" onClick={handleDemoUser}>
-            Demo User
-          </button>
+        <div className="demo">
+          <div className="demoText">
+            <p className="lp1">Afraid of commitment? </p>
+            <p className="lp2">Try our Demo User!</p>
+          </div>
+          <div className="demoBtn">
+            <button className="demoUser" type="submit" onClick={handleDemoUser}>
+              Demo User
+            </button>
+          </div>
         </div>
       </div>
     </form>

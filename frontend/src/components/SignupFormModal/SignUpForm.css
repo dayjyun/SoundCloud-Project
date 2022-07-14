@@ -29,6 +29,20 @@
   justify-content: center;
   align-content: center;
   margin: 10px 0;
+  padding: 3px;
+  border: 5px solid red;
+}
+
+.signUpBtnModal {
+    background-color: #ff5501;
+  border: 1px solid #ff5501;
+  color: white;
+  border-radius: 3px;
+  padding: 4px 15px;
+  font-size: 14px;
+  font-family: sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .input {
