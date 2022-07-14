@@ -9,6 +9,8 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const album = useSelector((state) => state.albums[`${albumId}`]);
+  const defaultImg =
+    "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
 
   const [validationErrors, setValidationErrors] = useState([]);
   const [title, setTitle] = useState(album.title);
@@ -23,7 +25,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
         id: albumId,
         title,
         description,
-        imageUrl: previewImage,
+        imageUrl: previewImage || defaultImg,
       })
     )
       .then(() => {
@@ -67,6 +69,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
               type="text"
               id="description"
               name="description"
+              placeholder="optional"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
@@ -77,6 +80,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
               type="text"
               id="previewImage"
               name="previewImage"
+              placeholder="optional"
               value={previewImage}
               onChange={(e) => setPreviewImage(e.target.value)}
             />

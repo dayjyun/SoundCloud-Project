@@ -103,6 +103,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               type="text"
               id="description"
               name="description"
+              placeholder="optional"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />

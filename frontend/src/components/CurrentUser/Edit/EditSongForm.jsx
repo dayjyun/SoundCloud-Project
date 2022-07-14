@@ -74,6 +74,7 @@ export default function EditSongForm({ setShowSongEdit }) {
               type="text"
               id="description"
               name="description"
+              placeholder="optional"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
@@ -84,6 +85,7 @@ export default function EditSongForm({ setShowSongEdit }) {
               type="text"
               id="previewImage"
               name="previewImage"
+              placeholder="optional"
               value={previewImage}
               onChange={(e) => setPreviewImage(e.target.value)}
             />
