@@ -51,7 +51,7 @@ const updateSong = (song) => {
 }
 
 export const editSong = (songData) => async(dispatch) => {
-  const song = await csrfFetch(`/songs/${songData.id}`, {
+  const song = await csrfFetch(`/api/songs/${songData.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
@@ -75,7 +75,7 @@ const removeSong = (id) => {
 }
 
 export const deleteSong = (songId) => async (dispatch) => {
-  const song = await csrfFetch(`/songs/${songId}`, {
+  const song = await csrfFetch(`/api/songs/${songId}`, {
     method: "DELETE",
   });
 
@@ -118,7 +118,7 @@ export const uploadSong = (songDetails, albumId) => async (dispatch) => {
   if(songUrl) formData.append('songUrl', songUrl)
   if(imageUrl) formData.append('imageUrl', imageUrl)
 
-  const res = await csrfFetch(`/albums/${albumId}`, {
+  const res = await csrfFetch(`/api/albums/${albumId}`, {
     method: "POST",
     headers: {
       "Content-Type": "multipart/form-data",
