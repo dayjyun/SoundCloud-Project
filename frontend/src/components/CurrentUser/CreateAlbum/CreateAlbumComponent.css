@@ -1,0 +1,20 @@
+.create-album-component {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-album-details {
+    border: 2px solid cornflowerblue;
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+}
+
+.create-album-input {
+    border: 2px solid magenta;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}

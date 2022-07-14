@@ -9,14 +9,14 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
+  const albums = Object.values(useSelector(state => state.albums));
+  const defaultImg = albums?.find(album => album.id === +albumId).previewImage;
   const userId = user.id;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [songUrl, setSongUrl] = useState("");
   const [previewImage, setPreviewImage] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
-  const albums = Object.values(useSelector(state => state.albums));
-  const defaultImg = albums?.find(album => album.id === +albumId).previewImage;
 
   useEffect(() => {
     dispatch(getAllAlbums())
@@ -59,6 +59,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   };
 
   const uploadSongFile = (e) => {
+    e.preventDefault()
     const songFile = e.target.files[0];
     setSongUrl(songFile)
   }

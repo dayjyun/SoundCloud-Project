@@ -7,7 +7,6 @@ import MediaLinks from "./components/Navigation/LoggedIn/Media/MediaLinks";
 import AllSongsLoader from "./components/Navigation/LoggedIn/AllSongsLibrary/AllSongsLoader";
 import AllAlbumsLoader from "./components/Navigation/LoggedIn/AllAlbumsLibrary/AllAlbumsLoader";
 import CurrentSong from "./components/CurrentUser/CurrentSong/CurrentSong";
-// import SongDetails from "./components/CurrentUser/SongDetails/SongDetails";
 import CurrentAlbum from "./components/CurrentUser/CurrentAlbum/CurrentAlbum";
 import SongDetails from "./components/CurrentUser/SongDetails/SongDetails";
 import AlbumDetails from "./components/CurrentUser/AlbumDetails/AlbumDetails";
@@ -41,8 +40,10 @@ function App() {
             <AllAlbumsLoader />
           </Route>
           <Route exact path='/me/albums'>
-            <h1>Upload New Album</h1>
             <CreateAlbumComponent />
+          </Route>
+          <Route exact path='/me/songs'>
+            
           </Route>
           <Route exact path="/me">
             <CurrentSong />
