@@ -49,7 +49,7 @@ export default function CreateAlbumComponent() {
         <form onSubmit={handleNewAlbumForm}>
           <div className="create-album-details">
             <div>
-              <label htmlFor="title">Album Title</label>
+              <label htmlFor="title">Album Title*</label>
               <input
                 className="create-album-input"
                 type="text"
@@ -74,7 +74,7 @@ export default function CreateAlbumComponent() {
               <label htmlFor="image">Album Image</label>
               <input
                 className="create-album-input"
-                type="text"
+                type="file"
                 id="image"
                 name="image"
                 placeholder="optional"

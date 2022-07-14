@@ -2,12 +2,13 @@
     display: grid;
     justify-content: center;
     align-items: center;
+    margin: 5% 0;
 }
 
 .create-album-details {
     border: 2px solid cornflowerblue;
     display: grid;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     font-weight: bold;
 }

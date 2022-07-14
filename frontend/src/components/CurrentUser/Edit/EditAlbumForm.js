@@ -48,7 +48,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
           ))}
         </ul>
         <div className="input-wrapper">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Title*</label>
           <input
             className="edit-input"
             type="text"
