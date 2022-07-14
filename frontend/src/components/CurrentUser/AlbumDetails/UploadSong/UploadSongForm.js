@@ -12,7 +12,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   const userId = user.id;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [url, setUrl] = useState("");
+  const [songUrl, setSongUrl] = useState("");
   const [previewImage, setPreviewImage] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
   const albums = Object.values(useSelector(state => state.albums));
@@ -32,7 +32,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
         title,
         description,
         imageUrl: previewImage || defaultImg,
-        url,
+        songUrl,
       }, albumId)
     )
       .then(() => {
@@ -48,15 +48,25 @@ export default function UploadSongForm({ setShowUploadBtn }) {
 
     setTitle("");
     setDescription("");
-    setUrl("");
+    setSongUrl("");
     setPreviewImage("");
   };
 
   const handleCancelBtn = (e) => {
     e.preventDefault();
     setShowUploadBtn(false);
-    history.push("/songs");
+    history.push(`/albums/${albumId}`);
   };
+
+  const uploadSongFile = (e) => {
+    const songFile = e.target.files[0];
+    setSongUrl(songFile)
+  }
+
+  const uploadImageFile = e => {
+    const imageFile = e.target.files[0];
+    setPreviewImage(imageFile);
+  }
 
   return (
     <div className="upload-song-form">
@@ -91,21 +101,20 @@ export default function UploadSongForm({ setShowUploadBtn }) {
           <label htmlFor="previewImage">Image URL Address</label>
           <input
             className="upload-input"
-            type="text"
+            type="file"
             name="previewImage"
             placeholder="optional"
-            value={previewImage}
-            onChange={(e) => setPreviewImage(e.target.value)}
+            // value={previewImage}
+            onChange={(e) => uploadImageFile(e)}
           />
         </div>
         <div className="input-wrapper">
           <label htmlFor="url">Song URL Address</label>
           <input
             className="upload-input"
-            type="text"
+            type="file"
             name="url"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            onChange={(e) => uploadSongFile(e)}
           />
         </div>
         <div className="form-btn-wrapper">

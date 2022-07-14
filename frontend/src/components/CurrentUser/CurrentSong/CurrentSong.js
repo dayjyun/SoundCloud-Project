@@ -61,7 +61,6 @@ export default function CurrentSong() {
                   </div>
                   <Link
                     className="current-song-link-text"
-                    exact
                     to={{ pathname: `/songs/${song?.id}` }}
                   >
                     <p className="current-song-title">{song?.title}</p>

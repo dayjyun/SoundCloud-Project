@@ -32,7 +32,7 @@ export default function CurrentAlbum() {
                             </div>
                             <Link
                                 className="current-album-link-text"
-                                exact to={{ pathname: `/albums/${album?.id}` }}
+                                to={{ pathname: `/albums/${album?.id}` }}
                             >
                                 <p className="current-album-title">{album?.title}</p>
                             </Link>

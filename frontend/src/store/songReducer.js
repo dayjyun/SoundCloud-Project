@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { csrfFetch } from "./csrf";
 
 // type
@@ -92,20 +93,42 @@ const createSong = song => {
   }
 }
 
-export const uploadSong = (SongDetails, albumId) => async (dispatch) => {
+// export const uploadSong = (SongDetails, albumId) => async (dispatch) => {
+//   const res = await csrfFetch(`/albums/${albumId}`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(SongDetails),
+//   });
+
+//   if (res.ok) {
+//     const newSong = await res.json();
+//     dispatch(createSong(newSong));
+//     return newSong;
+//   }
+// };
+
+export const uploadSong = (songDetails, albumId) => async (dispatch) => {
+  const { title, description, songUrl, imageUrl } = songDetails;
+  const formData = new FormData();
+
+  formData.append('title', title);
+  formData.append('description', description);
+
+  if(songUrl) formData.append('songUrl', songUrl)
+  if(imageUrl) formData.append('imageUrl', imageUrl)
+
   const res = await csrfFetch(`/albums/${albumId}`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "multipart/form-data",
     },
-    body: JSON.stringify(SongDetails),
+    body: formData,
   });
 
-  if (res.ok) {
-    const newSong = await res.json();
-    dispatch(createSong(newSong));
-    return newSong;
-  }
+  const data = await res.json();
+  dispatch(createSong(data))
 };
 
 let initialState = {};
