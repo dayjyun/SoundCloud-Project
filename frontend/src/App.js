@@ -42,9 +42,6 @@ function App() {
           <Route exact path='/me/albums'>
             <CreateAlbumComponent />
           </Route>
-          <Route exact path='/me/songs'>
-            
-          </Route>
           <Route exact path="/me">
             <CurrentSong />
             <CurrentAlbum />
