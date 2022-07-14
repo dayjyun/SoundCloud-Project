@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import { csrfFetch } from "./csrf";
 
 // type
@@ -17,7 +16,7 @@ const getAll = (list) => {
 };
 
 export const getAllSongs = () => async (dispatch) => {
-  const allSongs = await csrfFetch("/songs");
+  const allSongs = await csrfFetch("/api/songs");
 
   if (allSongs.ok) {
     const res = await allSongs.json();
@@ -35,7 +34,7 @@ const returnSong = (song) => {
 };
 
 export const getSong = (songId) => async (dispatch) => {
-  const song = await csrfFetch(`/songs/${songId}`);
+  const song = await csrfFetch(`/api/songs/${songId}`);
 
   if (song.ok) {
     const res = await song.json();
@@ -52,7 +51,7 @@ const updateSong = (song) => {
 }
 
 export const editSong = (songData) => async(dispatch) => {
-  const song = await csrfFetch(`/songs/${songData.id}`, {
+  const song = await csrfFetch(`/api/songs/${songData.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
@@ -76,7 +75,7 @@ const removeSong = (id) => {
 }
 
 export const deleteSong = (songId) => async (dispatch) => {
-  const song = await csrfFetch(`/songs/${songId}`, {
+  const song = await csrfFetch(`/api/songs/${songId}`, {
     method: "DELETE",
   });
 
@@ -119,7 +118,7 @@ export const uploadSong = (songDetails, albumId) => async (dispatch) => {
   if(songUrl) formData.append('songUrl', songUrl)
   if(imageUrl) formData.append('imageUrl', imageUrl)
 
-  const res = await csrfFetch(`/albums/${albumId}`, {
+  const res = await csrfFetch(`/api/albums/${albumId}`, {
     method: "POST",
     headers: {
       "Content-Type": "multipart/form-data",
