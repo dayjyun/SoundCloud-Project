@@ -2,9 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: 50px; */
-    /* height: 50vh;
-    width: 100vw; */
 }
 
 .song-details-box {
@@ -19,20 +16,25 @@
     width: 35rem;
 }
 
-/* .song-album-img-box > img {
+.song-info {
+    width: 25rem;
+    padding: 10px;
+}
+
+.song-desc-title {
+    padding: 10px 0;
+}
+
+.qwer {
     display: grid;
     justify-content: center;
     align-items: center;
-    height: 50vh;
-    width: 50vh;
-} */
+    height: 20px;
+    width: 100px;
+}
 
-.song-info {
-    width: 35rem;
-    padding: 10px;
-    /* display: grid;
-    justify-content: center;
-    align-items: center; */
+.edit-song-buttons {
+    display: flex;
 }
 
 .delete-song-button {
