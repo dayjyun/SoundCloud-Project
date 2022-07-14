@@ -47,38 +47,41 @@
     align-items: center;
 }
 
-.album-img-container {
+.album-details-box {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.album-description {
-    /* border: 5px solid yellow; */
-    width: 25rem;
-    padding: 10px;
+.album-cover-image {
+    transform: scale(.7);
+    height: 35rem;
+    width: 35rem;
 }
 
-.album-image {
-    transform: scale(.7);
-    height: 35em;
-    width: 35em;
+.album-info {
+    width: 25rem;
+    padding: 10px;
 }
 
 .album-desc-title {
     padding: 10px 0;
 }
 
-.edit-album-buttons {
-    border: 5px solid red;
-    display: flex;
-
-}
-
 .asdf {
-    border: 5px solid green;
     display: grid;
     justify-content: center;
     align-items: center;
     height: 20px;
+    width: 100px;
+}
+
+.edit-album-buttons {
+    display: flex;
+}
+
+.delete-album-button {
+    background-color: red;
+    border: 2px solid red;
+    cursor: pointer;
 }

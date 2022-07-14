@@ -25,11 +25,11 @@ export default function CurrentSong() {
     [dispatch]
   );
 
-  const handlePlayIcon = () => {
-    playIcon === "fas fa-play"
-      ? setPlayIcon("fas fa-pause")
-      : setPlayIcon("fas fa-play");
-  };
+  // const handlePlayIcon = () => {
+  //   playIcon === "fas fa-play"
+  //     ? setPlayIcon("fas fa-pause")
+  //     : setPlayIcon("fas fa-play");
+  // };
 
   return (
     <>
@@ -55,7 +55,8 @@ export default function CurrentSong() {
                         className="play-button-currentSong"
                         onClick={() => songBtn(song)}
                       >
-                        <i className={playIcon} onClick={handlePlayIcon}></i>
+                        <i className={playIcon}></i>
+                        {/* <i className={playIcon} onClick={handlePlayIcon}></i> */}
                       </button>
                     </div>
                   </div>
