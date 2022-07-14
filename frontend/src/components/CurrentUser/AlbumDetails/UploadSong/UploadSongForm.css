@@ -1,0 +1,42 @@
+.upload-song-form-container {
+  padding: 1.2rem;
+}
+
+.upload-song-text {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0;
+  white-space: nowrap;
+  font-size: 1.5rem;
+}
+
+.upload-input {
+  margin: 6px 0px 0px 0px;
+  padding: 10px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-song {
+  width: 12rem;
+  padding: 3px;
+  font-weight: bold;
+}
+
+.save-button-upload-song {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0 0 0;
+}
+
+.save-button-upload,
+.upload-song-cancel-button {
+  margin-top: 2px;
+  padding: 8px 15px;
+}
