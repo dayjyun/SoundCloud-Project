@@ -11,11 +11,10 @@ function SongDetails() {
   const history = useHistory();
   const songs = useSelector((state) => state.songs);
   const song = songs[songId];
-
   const user = useSelector((state) => state.session.user);
-  // const singleSong = songs?.find((song) => song?.id === +songId);
-  const [songButton, setSongButtons] = useState(false);
+  // const [songButton, setSongButtons] = useState(false);
 
+  // const singleSong = songs?.find((song) => song?.id === +songId);
   // useEffect(() => {
   //   if (user?.id === singleSong?.userId) {
   //     setSongButtons(true);
@@ -35,11 +34,11 @@ function SongDetails() {
     history.push("/me");
   };
 
-  let userManipulateButton;
+  let userInputButtons;
 
   if (song?.userId === user?.id) {
-    userManipulateButton = (
-      <div className="user-buttons">
+    userInputButtons = (
+      <div className="user-song-buttons">
         <div className="edit-song-button">
           <EditSongBtn />
         </div>
@@ -55,21 +54,23 @@ function SongDetails() {
   return (
     <>
       <div className="song-detail-container">
-        <div className="song-detail-body song-detail-container-div">
-          <div className="song-detail-body-left song-detail-container-div">
+        <div className="song-info song-info-div">
+          <div className="song-info-left song-info-div">
             <img
-              className="song-preview-image song-detail-container-div"
+              className="song-image-detail song-info-div"
               src={song?.previewImage}
               alt={song?.title}
             />
           </div>
-          <div className="song-detail-body-right song-detail-container-div">
-            <h1>{song?.title}</h1>
-            {/* <h2>Artist: {song?.Artist?.username}</h2> */}
+          <div className="song-info-right song-info-div">
+            <div className="song-info-header">
+              <h1>{song?.title}</h1>
+              <h2>by {song?.Artist?.username}</h2>
+            </div>
             <p>{song?.description}</p>
 
             <div className="footer-container">
-              <div className="song-detail-footer">{userManipulateButton}</div>
+              <div className="song-detail-footer">{userInputButtons}</div>
             </div>
           </div>
         </div>

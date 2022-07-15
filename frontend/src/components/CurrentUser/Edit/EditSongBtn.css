@@ -1,0 +1,14 @@
+.editSongBtn {
+    cursor: pointer;
+    border-style: none;
+    padding: 8px 30px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    background-color: #444;
+    color: #CCC;
+}
+
+.editSongBtn:hover {
+    color: white;
+}
