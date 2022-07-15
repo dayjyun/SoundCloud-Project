@@ -1,4 +1,4 @@
-.editSongBtn {
+.editAlbumBtn {
     cursor: pointer;
     border-style: none;
     padding: 8px 40px;
@@ -9,6 +9,6 @@
     color: white
 }
 
-.editSongBtn:hover {
+.editAlbumBtn:hover {
     background-color: rgb(24, 24, 24);
 }

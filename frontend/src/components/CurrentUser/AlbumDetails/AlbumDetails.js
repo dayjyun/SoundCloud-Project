@@ -10,22 +10,13 @@ export default function AlbumDetails() {
   const { albumId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
-  const albums = Object.values(useSelector((state) => state.albums));
+  const albums = useSelector((state) => state.albums);
+  const album = albums[albumId];
   const user = useSelector((state) => state.session.user);
-  const singleAlbum = albums?.find((album) => album?.id === +albumId);
-  const [albumButton, setAlbumButton] = useState(false);
-
-  useEffect(() => {
-    if (user?.id === singleAlbum?.userId) {
-      setAlbumButton(true);
-    } else {
-      setAlbumButton(false);
-    }
-  }, []);
 
   useEffect(() => {
     dispatch(getAlbum(+albumId));
-  }, [dispatch]);
+  }, [dispatch, albumId]);
 
   const handleAlbumDelete = (e) => {
     e.preventDefault();
@@ -34,34 +25,46 @@ export default function AlbumDetails() {
     history.push("/me");
   };
 
+  let userInputButtons;
+
+  if (album?.userId === user?.id) {
+    userInputButtons = (
+      <div className="user-album-buttons">
+        <div className="edit-album-button">
+          <EditAlbumBtn />
+        </div>
+        <div className="upload-song-button">
+          <UploadSongBtn />
+        </div>
+        <div className="user-delete-button-album">
+          <button className="delete-album-button" onClick={handleAlbumDelete}>Delete</button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
-      <div className="album-info-container">
-        <div className="album-details-box">
-          <div>
-            <img className="album-cover-image" src={`${singleAlbum?.previewImage}`} />
+      <div className="album-detail-container">
+        <div className="album-info album-info-div">
+          <div className="album-info-left album-info-div">
+            <img
+              className="album-image-detail album-info-div"
+              src={album?.previewImage}
+              alt={album?.title}
+            />
           </div>
-          <div className="album-info">
-            <h1 className="album-desc-title">{singleAlbum?.title}</h1>
-            <p className="album-desc-description">{singleAlbum?.description}</p>
+          <div className="album-info-right song-info-div">
+            <div className="album-info-header">
+              <h1>{album?.title}</h1>
+              <h2>by {album?.Artist?.username}</h2>
+            </div>
+            <p>{album?.description}</p>
+            <div className="bottom-album-container">
+              <div className="album-detail-buttons">{userInputButtons}</div>
+            </div>
           </div>
         </div>
-        {albumButton && (
-          <div className="asdf">
-            <div className="edit-album-buttons">
-              <EditAlbumBtn />
-              <UploadSongBtn />
-            </div>
-            <div>
-              <button
-                className="delete-album-button"
-                onClick={handleAlbumDelete}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </>
   );

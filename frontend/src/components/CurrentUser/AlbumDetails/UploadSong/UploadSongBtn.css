@@ -1,0 +1,14 @@
+.uploadSongBtn {
+    cursor: pointer;
+    border-style: none;
+    padding: 8px 40px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    background-color: rgba(100, 100, 100, 0.562);
+    color: white;
+}
+
+.uploadSongBtn:hover {
+    background-color: rgba(36, 36, 36, 0.562);
+}

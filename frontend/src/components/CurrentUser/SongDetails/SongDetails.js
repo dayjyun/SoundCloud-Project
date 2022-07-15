@@ -25,7 +25,7 @@ function SongDetails() {
 
   useEffect(() => {
     dispatch(getSong(+songId));
-  }, [dispatch]);
+  }, [dispatch, songId]);
 
   const handleSongDelete = (e) => {
     e.preventDefault();
@@ -68,9 +68,8 @@ function SongDetails() {
               <h2>by {song?.Artist?.username}</h2>
             </div>
             <p>{song?.description}</p>
-
-            <div className="footer-container">
-              <div className="song-detail-footer">{userInputButtons}</div>
+            <div className="bottom-song-container">
+              <div className="song-detail-buttons">{userInputButtons}</div>
             </div>
           </div>
         </div>
