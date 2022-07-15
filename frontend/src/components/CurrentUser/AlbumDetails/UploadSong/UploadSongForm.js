@@ -80,6 +80,9 @@ export default function UploadSongForm({ setShowUploadBtn }) {
       <div className="upload-song-text">
         <p>Add A New Track</p>
       </div>
+      <div>
+        <h5>* fields are required</h5>
+      </div>
       <form onSubmit={handleAlbumSubmit}>
         <ul>
           {Object.values(validationErrors).map((error) => (
@@ -88,7 +91,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
         </ul>
         <div className="upload-input">
           <div className="upload-song">
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title">Title*</label>
             <input
               type="text"
               id="title"
@@ -108,22 +111,21 @@ export default function UploadSongForm({ setShowUploadBtn }) {
             />
           </div>
           <div className="upload-song">
-            <label htmlFor="previewImage">Image</label>
-            <input
-              type="file"
-              id="previewImage"
-              name="previewImage"
-              placeholder="optional"
-              onChange={(e) => uploadImageFile(e)}
-            />
-          </div>
-          <div className="upload-song">
-            <label htmlFor="url">Song URL Address</label>
+            <label htmlFor="url">Audio*</label>
             <input
               type="file"
               id="url"
               name="url"
               onChange={(e) => uploadSongFile(e)}
+            />
+          </div>
+          <div className="upload-song">
+            <label htmlFor="previewImage">Image</label>
+            <input
+              type="file"
+              id="previewImage"
+              name="previewImage"
+              onChange={(e) => uploadImageFile(e)}
             />
           </div>
           <div className="save-button-upload-song">

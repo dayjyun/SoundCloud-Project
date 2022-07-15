@@ -74,7 +74,7 @@ export default function CreateAlbumComponent() {
               <label htmlFor="image">Album Image</label>
               <input
                 className="create-album-input"
-                type="file"
+                type="text"
                 id="image"
                 name="image"
                 placeholder="optional"

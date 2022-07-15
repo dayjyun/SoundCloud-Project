@@ -1,0 +1,14 @@
+.editAlbumBtn {
+    cursor: pointer;
+    border-style: none;
+    padding: 8px 40px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    background-color: #444;
+    color: white
+}
+
+.editAlbumBtn:hover {
+    background-color: rgb(24, 24, 24);
+}

@@ -9,22 +9,23 @@ function SongDetails() {
   const { songId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
-  const songs = Object.values(useSelector((state) => state.songs));
+  const songs = useSelector((state) => state.songs);
+  const song = songs[songId];
   const user = useSelector((state) => state.session.user);
-  const singleSong = songs?.find((song) => song?.id === +songId);
-  const [songButton, setSongButtons] = useState(false);
+  // const [songButton, setSongButtons] = useState(false);
 
-  useEffect(() => {
-    if (user?.id === singleSong?.userId) {
-      setSongButtons(true);
-    } else {
-      setSongButtons(false);
-    }
-  }, []);
+  // const singleSong = songs?.find((song) => song?.id === +songId);
+  // useEffect(() => {
+  //   if (user?.id === singleSong?.userId) {
+  //     setSongButtons(true);
+  //   } else {
+  //     setSongButtons(false);
+  //   }
+  // }, []);
 
   useEffect(() => {
     dispatch(getSong(+songId));
-  }, [dispatch]);
+  }, [dispatch, songId]);
 
   const handleSongDelete = (e) => {
     e.preventDefault();
@@ -33,38 +34,79 @@ function SongDetails() {
     history.push("/me");
   };
 
+  let userInputButtons;
+
+  if (song?.userId === user?.id) {
+    userInputButtons = (
+      <div className="user-song-buttons">
+        <div className="edit-song-button">
+          <EditSongBtn />
+        </div>
+        <div className="user-delete-button">
+          <button className="delete-song-button" onClick={handleSongDelete}>
+            Delete
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
-      <div className="song-info-container">
-        <div className="song-details-box">
-          <div>
-            <img className="song-cover-image" src={`${singleSong?.previewImage}`} />
+      <div className="song-detail-container">
+        <div className="song-info song-info-div">
+          <div className="song-info-left song-info-div">
+            <img
+              className="song-image-detail song-info-div"
+              src={song?.previewImage}
+              alt={song?.title}
+            />
           </div>
-          <div className="song-info">
-            <h1 className="song-desc-title">{singleSong?.title}</h1>
-            <p className="song-desc-desc">{singleSong?.description}</p>
+          <div className="song-info-right song-info-div">
+            <div className="song-info-header">
+              <h1>{song?.title}</h1>
+              <h2>by {song?.Artist?.username}</h2>
+            </div>
+            <p>{song?.description}</p>
+            <div className="bottom-song-container">
+              <div className="song-detail-buttons">{userInputButtons}</div>
+            </div>
           </div>
         </div>
-        {songButton && (
-          <>
-            <div className="qwer">
-              <div className="edit-song-button">
-                <EditSongBtn />
-              </div>
-              <div>
-                <button
-                  className="delete-song-button"
-                  onClick={handleSongDelete}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </>
-        )}
       </div>
     </>
   );
+
+  // return (
+  //   <>
+  //     <div className="song-info-container">
+  //       <div className="song-details-box">
+  //         <div>
+  //           <img className="song-cover-image" src={`${singleSong?.previewImage}`} />
+  //         </div>
+  //         <div className="song-info">
+  //           <h1 className="song-desc-title">{singleSong?.title}</h1>
+  //           <p className="song-desc-desc">{singleSong?.description}</p>
+  //         </div>
+  //       </div>
+  //       {songButton && (
+  //         <>
+  //           <div className="qwer">
+  //             <div className="edit-song-button">
+  //               <EditSongBtn />
+  //             </div>
+  //             <div>
+  //               <button className="delete-song-button" onClick={handleSongDelete}
+  //               >
+  //                 Delete
+  //               </button>
+  //             </div>
+  //           </div>
+  //         </>
+  //       )}
+  //     </div>
+  //   </>
+  // );
 }
 
 export default SongDetails;

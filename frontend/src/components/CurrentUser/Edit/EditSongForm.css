@@ -27,10 +27,7 @@
 
 .save-button-edit-song {
   display: flex;
-  justify-content: center;
-  margin: 10px 0;
-  display: grid;
-  justify-content: center;
+  justify-content: space-between;
   align-content: center;
   margin: 10px 0 0 0;
 }

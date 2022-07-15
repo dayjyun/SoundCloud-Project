@@ -1,87 +1,70 @@
-/* .album-info-container {
-    display: grid;
-    grid-template-columns: 30% 70%;
+.album-detail-container {
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
-    width: 100vw;
-    background-color: cadetblue;
+    flex-direction: column;
+    padding: 1rem;
 }
 
-.album-img-box > img {
-    display: grid;
+.album-info-div {
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
-    width: 50vh;
+    padding: 40px;
 }
 
-.album-description {
-    display: grid;
+.album-image-detail {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 6px;
+    height: 25em;
+    width: 25em;
+}
+
+.album-info-right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.album-info-header {
+    display: flex;
     justify-content: center;
     align-items: center;
-    grid-template-rows: repeat(3, 1fr);
-    height: 50px;
-    width: 80px;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.user-album-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
 }
 
 .delete-album-button {
-    background-color: red;
-} */
-
-
-/* .album-info-container {
-    display: grid;
-    grid-template-columns: 30% 70%;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    width: 100vw; */
-    /* background-color: cadetblue; */
-    /* height: 300px;
-} */
-
-.album-info-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.album-details-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.album-cover-image {
-    transform: scale(.7);
-    height: 35rem;
-    width: 35rem;
-}
-
-.album-info {
-    width: 25rem;
-    padding: 10px;
-}
-
-.album-desc-title {
-    padding: 10px 0;
-}
-
-.asdf {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    height: 20px;
-    width: 100px;
-}
-
-.edit-album-buttons {
-    display: flex;
-}
-
-.delete-album-button {
-    background-color: red;
-    border: 2px solid red;
     cursor: pointer;
+    border-style: none;
+    padding: 8px 30px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    background-color: rgb(220, 0, 0);
+    color: white;
+}
+
+.delete-album-button:hover {
+    background-color: rgb(153, 1, 1);
+}
+
+.bottom-album-container {
+    width: 400px;
+}
+
+.album-info-right,
+.album-info-div {
+    line-height: 1.2;
 }

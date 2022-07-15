@@ -46,10 +46,19 @@ export default function EditSongForm({ setShowSongEdit }) {
       });
   };
 
+  const handleCancelBtn = (e) => {
+    e.preventDefault();
+    setShowSongEdit(false);
+    history.push(`/songs/${songId}`);
+  };
+
   return (
     <div className="edit-song-form-container">
       <div className="edit-song-text">
         <p>Edit Your Song</p>
+      </div>
+      <div>
+        <h5>* fields are required</h5>
       </div>
       <form onSubmit={handleSongFormSubmit}>
         <ul>
@@ -59,7 +68,7 @@ export default function EditSongForm({ setShowSongEdit }) {
         </ul>
         <div className="song-input">
           <div className="enter-song">
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title">Title*</label>
             <input
               type="text"
               id="title"
@@ -74,22 +83,13 @@ export default function EditSongForm({ setShowSongEdit }) {
               type="text"
               id="description"
               name="description"
+              placeholder="optional"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
           <div className="enter-song">
-            <label htmlFor="previewImage">Image</label>
-            <input
-              type="text"
-              id="previewImage"
-              name="previewImage"
-              value={previewImage}
-              onChange={(e) => setPreviewImage(e.target.value)}
-            />
-          </div>
-          <div className="enter-song">
-            <label htmlFor="url">Media</label>
+            <label htmlFor="url">Audio*</label>
             <input
               type="text"
               id="url"
@@ -97,10 +97,27 @@ export default function EditSongForm({ setShowSongEdit }) {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
             />
+            <div className="enter-song">
+              <label htmlFor="previewImage">Image</label>
+              <input
+                type="text"
+                id="previewImage"
+                name="previewImage"
+                placeholder="optional"
+                value={previewImage}
+                onChange={(e) => setPreviewImage(e.target.value)}
+              />
+            </div>
           </div>
           <div className="save-button-edit-song">
             <button className="save-button-song" type="submit">
               Save
+            </button>
+            <button
+              className="edit-song-cancel-button"
+              onClick={handleCancelBtn}
+            >
+              Cancel
             </button>
           </div>
         </div>

@@ -1,45 +1,102 @@
-.song-info-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.song-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
 }
 
-.song-details-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.song-info-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 40px;
 }
 
-.song-cover-image {
-    transform: scale(.7);
-    height: 35rem;
-    width: 35rem;
+.song-image-detail {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 6px;
+  height: 25em;
+  width: 25em;
 }
 
-.song-info {
-    width: 25rem;
-    padding: 10px;
+.song-info-right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 10px;
 }
 
-.song-desc-title {
-    padding: 10px 0;
+.song-info-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 12px;
 }
 
-.qwer {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    height: 20px;
-    width: 100px;
+.user-song-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
-.edit-song-buttons {
-    display: flex;
-    cursor: pointer;
+.song-detail-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
 }
 
 .delete-song-button {
-    background-color: red;
-    border: 2px solid red;
-    cursor: pointer;
+  cursor: pointer;
+  border-style: none;
+  padding: 8px 30px;
+  font-size: 20px;
+  font-family: sans-serif;
+  border-radius: 4px;
+  background-color: rgb(220, 0, 0);
+  color: white;
 }
+
+.delete-song-button:hover {
+  background-color: rgb(153, 1, 1);
+}
+
+.bottom-song-container {
+  width: 300px;
+}
+
+.song-info-right,
+.song-info-div {
+  line-height: 1.2;
+}
+
+/*
+.play-button {
+  color: white;
+  align-items: center;
+  background: black;
+  border: 1px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.play-button:hover {
+  background-color: #ff5501;
+  transform: scale(1.5);
+  cursor: pointer;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
+
+.play-button i {
+  font-size: 2rem;
+} */
