@@ -27,7 +27,7 @@
 
 .save-button-edit-album {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-content: center;
   margin: 10px 0 0 0;
 }
