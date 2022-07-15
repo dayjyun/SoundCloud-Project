@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deleteAlbum, getAlbum } from "../../../store/albumReducer";
-import EditAlbumBtn from "../Edit/EditAlbumBtn";
+import EditAlbumBtn from "./EditAlbumBtn/EditAlbumBtn";
 import UploadSongBtn from "./UploadSong/UploadSongBtn";
 import "./AlbumDetails.css";
 

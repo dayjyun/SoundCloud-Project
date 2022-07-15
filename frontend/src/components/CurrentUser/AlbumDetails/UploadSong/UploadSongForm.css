@@ -28,9 +28,6 @@
 .save-button-upload-song {
   display: flex;
   justify-content: center;
-  margin: 10px 0;
-  display: grid;
-  justify-content: center;
   align-content: center;
   margin: 10px 0 0 0;
 }
