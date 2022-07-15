@@ -1,4 +1,4 @@
-.song-info-container {
+/* .song-info-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,4 +42,114 @@
     background-color: red;
     border: 2px solid red;
     cursor: pointer;
+} */
+
+.song-detail-container-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.song-detail-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.song-preview-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 6px;
+  height: 25em;
+  width: 25em;
+}
+
+.play-button {
+  color: white;
+  align-items: center;
+  background: black;
+  border: 1px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.play-button:hover {
+  background-color: #ff5501;
+  transform: scale(1.5);
+  cursor: pointer;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
+
+.play-button i {
+  font-size: 2rem;
+}
+
+.song-detail-body-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.807);
+  border-radius: 10px;
+}
+
+.user-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.song-detail-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.delete-song-button {
+  display: inline-block;
+  text-align: center;
+  height: 2.3rem;
+  font-size: 20px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.user-edit-button button {
+  display: inline-block;
+  text-align: center;
+  background-color: #f50;
+  color: #fff;
+  height: 2.3rem;
+  font-size: 20px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+}
+
+
+.footer-container {
+  width: 300px;
+}
+
+.song-detail-body-right,
+.song-detail-container-div {
+  line-height: 1.5;
+}
+
+.song-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
 }
