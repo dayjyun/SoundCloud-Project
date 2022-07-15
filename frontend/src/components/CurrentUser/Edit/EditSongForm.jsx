@@ -97,6 +97,7 @@ export default function EditSongForm({ setShowSongEdit }) {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
             />
+          </div>
             <div className="enter-song">
               <label htmlFor="previewImage">Image</label>
               <input
@@ -108,7 +109,6 @@ export default function EditSongForm({ setShowSongEdit }) {
                 onChange={(e) => setPreviewImage(e.target.value)}
               />
             </div>
-          </div>
           <div className="save-button-edit-song">
             <button className="save-button-song" type="submit">
               Save
