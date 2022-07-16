@@ -45,7 +45,7 @@ export default function SearchBar() {
           />
         </div>
       </form>
-      <div className={`search-results ${searchResults}`}>{listResults}</div>
+      <div className={`search-results-box ${searchResults}`}>{listResults}</div>
     </div>
   );
 }
