@@ -1,5 +1,4 @@
 .your-albums-text {
-  /* margin: 10px 0 0 0; */
   display: flex;
   justify-content: center;
   color: #333;
@@ -65,7 +64,6 @@
   width: 100%;
 }
 
-/* delete 1 */
 .ca-play-action-overlay {
   align-items: center;
   display: flex;
@@ -73,7 +71,7 @@
   justify-content: center;
   opacity: 0;
   position: absolute;
-  /* transition: all 250ms; */
+  transition: all 250ms;
   width: 100%;
 }
 
@@ -84,7 +82,6 @@
 .ca-play-action-overlay .list-style-play-btn {
   margin-bottom: 0;
 }
-/* delete 1 */
 
 .current-album-link-text {
   color: #0f1010;

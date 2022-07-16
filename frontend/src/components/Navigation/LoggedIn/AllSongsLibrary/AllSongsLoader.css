@@ -63,7 +63,7 @@
   justify-content: center;
   opacity: 0;
   position: absolute;
-  /* transition: all 250ms; */
+  transition: all 250ms;
   width: 100%;
 }
 

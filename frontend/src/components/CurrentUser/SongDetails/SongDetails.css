@@ -74,29 +74,3 @@
 .song-info-div {
   line-height: 1.2;
 }
-
-/*
-.play-button {
-  color: white;
-  align-items: center;
-  background: black;
-  border: 1px solid white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-
-.play-button:hover {
-  background-color: #ff5501;
-  transform: scale(1.5);
-  cursor: pointer;
-  -webkit-transition: background-color 2s ease-out;
-  -moz-transition: background-color 2s ease-out;
-  -o-transition: background-color 2s ease-out;
-  transition: background-color 2s ease-out;
-}
-
-.play-button i {
-  font-size: 2rem;
-} */

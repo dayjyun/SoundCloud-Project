@@ -104,21 +104,6 @@ export const uploadSong = (songDetails, albumId) => async (dispatch) => {
   dispatch(createSong(data))
 };
 
-// export const uploadSong = (SongDetails, albumId) => async (dispatch) => {
-//   const res = await csrfFetch(`/albums/${albumId}`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(SongDetails),
-//   });
-
-//   if (res.ok) {
-//     const newSong = await res.json();
-//     dispatch(createSong(newSong));
-//     return newSong;
-//   }
-// };
 
 // delete song
 const removeSong = (id) => {
