@@ -25,12 +25,6 @@ export default function CurrentSong() {
     [dispatch]
   );
 
-  // const handlePlayIcon = () => {
-  //   playIcon === "fas fa-play"
-  //     ? setPlayIcon("fas fa-pause")
-  //     : setPlayIcon("fas fa-play");
-  // };
-
   return (
     <>
       <div>
@@ -56,7 +50,6 @@ export default function CurrentSong() {
                         onClick={() => songBtn(song)}
                       >
                         <i className={playIcon}></i>
-                        {/* <i className={playIcon} onClick={handlePlayIcon}></i> */}
                       </button>
                     </div>
                   </div>

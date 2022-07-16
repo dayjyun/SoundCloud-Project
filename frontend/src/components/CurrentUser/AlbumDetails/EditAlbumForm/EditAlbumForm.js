@@ -9,17 +9,18 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const album = useSelector((state) => state.albums[`${albumId}`]);
-  const defaultImg =
-    "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
-
+  const defaultImg = "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
   const [validationErrors, setValidationErrors] = useState([]);
   const [title, setTitle] = useState(album.title);
   const [description, setDescription] = useState(album.description);
   const [previewImage, setPreviewImage] = useState(album.previewImage);
+  const [disableButton, setDisableButton] = useState(false);
 
   const handleAlbumFormSubmit = async (e) => {
     e.preventDefault();
     setValidationErrors([]);
+    setDisableButton(true)
+
     await dispatch(
       actions.editAlbum({
         id: albumId,
@@ -39,7 +40,15 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
           setValidationErrors(err.errors);
         }
       });
+
+      setDisableButton(false)
   };
+
+  const uploadImageFile = e => {
+    e.preventDefault()
+    const imageFile = e.target.files[0]
+    setPreviewImage(imageFile)
+  }
 
   const handleCancelBtn = (e) => {
     e.preventDefault();
@@ -69,6 +78,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
               id="title"
               name="title"
               value={title}
+              required
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
@@ -84,21 +94,20 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
             />
           </div>
           <div className="enter-album">
-            <label htmlFor="previewImage">Image</label>
+            <label htmlFor="previewImage">Image*</label>
             <input
-              type="text"
+              type="file"
               id="previewImage"
               name="previewImage"
-              placeholder="optional"
-              value={previewImage}
-              onChange={(e) => setPreviewImage(e.target.value)}
+              required
+              onChange={(e) => uploadImageFile(e)}
             />
           </div>
           <div className="save-button-edit-album">
-            <button className="save-button-album" type="submit">
+            <button disabled={disableButton} className="save-button-album" type="submit">
               Save
             </button>
-            <button
+            <button disabled={disableButton}
               className="edit-song-cancel-button"
               onClick={handleCancelBtn}
             >

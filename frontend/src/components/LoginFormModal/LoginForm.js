@@ -62,7 +62,6 @@ function LoginForm() {
         </div>
         <div className="userLogin">
           <div className="enterIdentity init">
-            {/* Username or Email */}
             <input
               type="text"
               className="init-credential"
@@ -73,7 +72,6 @@ function LoginForm() {
             />
           </div>
           <div className="init">
-            {/* Password */}
             <input
               type="password"
               className="init-password"

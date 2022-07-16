@@ -56,7 +56,6 @@ function SignupFormPage() {
         </div>
         <div className="signUpInput">
           <div className="firstName input">
-            {/* First Name */}
             <input
               type="text"
               className="init-signup"
@@ -67,7 +66,6 @@ function SignupFormPage() {
             />
           </div>
           <div className="lastName input">
-            {/* Last Name */}
             <input
               type="text"
               className="init-signup"
@@ -78,7 +76,6 @@ function SignupFormPage() {
             />
           </div>
           <div className="email input">
-            {/* Email */}
             <input
               type="text"
               className="init-signup"
@@ -89,7 +86,6 @@ function SignupFormPage() {
             />
           </div>
           <div className="username input">
-            {/* Username */}
             <input
               type="text"
               className="init-signup"
@@ -100,7 +96,6 @@ function SignupFormPage() {
             />
           </div>
           <div className="password input">
-            {/* Password */}
             <input
               type="password"
               className="init-signup"
@@ -111,7 +106,6 @@ function SignupFormPage() {
             />
           </div>
           <div className="confirmPassword input">
-            {/* Confirm Password */}
             <input
               type="password"
               className="init-signup"

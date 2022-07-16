@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const { requireAuth } = require("../utils/auth");
-const { validateSong, validateAlbum } = require('../utils/validation')
+const { validateSong, validateAlbum } = require("../utils/validation");
 
 const { Album, User, Song, sequelize } = require("../db/models");
-const { singlePublicFileUpload, singleMulterUpload } = require("../awsS3");
+const { singlePublicFileUpload, singleMulterUpload, multipleFileKeysUpload } = require("../awsS3");
 
 // GET
 
@@ -23,14 +23,17 @@ router.get("/:albumId", async (req, res) => {
       [sequelize.col("Album.imageUrl"), "previewImage"],
     ],
     include: [
-      { model: User, as: "Artist",
+      {
+        model: User,
+        as: "Artist",
         attributes: [
           "id",
           "username",
           [sequelize.col("imageUrl"), "previewImage"],
         ],
       },
-      { model: Song,
+      {
+        model: Song,
         attributes: [
           "id",
           "userId",
@@ -65,50 +68,52 @@ router.get("/", async (req, res) => {
       "createdAt",
       "updatedAt",
       [sequelize.col("imageUrl"), "previewImage"],
-    ]
+    ],
   });
 
-  res.json({ Albums } );
+  res.json({ Albums });
 });
 
 // POST;
 
 // Create A Song For An Album With Album ID
 
-router.post("/:albumId", requireAuth, singleMulterUpload("songUrl"),  async (req, res) => {
-  const { user } = req;
-  const { albumId } = req.params;
-  const { title, description, imageUrl } = req.body;
-  const songUrl = await singlePublicFileUpload(req.file);
+router.post("/:albumId",requireAuth, multipleFileKeysUpload([ { name: "url", maxCount: 1 },
+    { name: "imageUrl", maxCount: 1 }]), validateSong, async (req, res) => {
+    const { user } = req;
+    const { albumId } = req.params;
+    const { title, description } = req.body;
+    const url = await singlePublicFileUpload(req.files.url[0]);
+    const imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
+    const album = await Album.findByPk(albumId);
 
-  const album = await Album.findByPk(albumId);
+    if (album) {
+      if (album.userId === user.id) {
+        const newSong = await Song.create({
+          title,
+          description,
+          url,
+          imageUrl,
+          userId: user.id,
+          albumId,
+        });
+        newSong.dataValues.previewImage = imageUrl;
+        delete newSong.dataValues.imageUrl;
 
-  if (album) {
-    if (album.userId === user.id) {
-      const newSong = await Song.create({
-        title,
-        description,
-        url: songUrl,
-        imageUrl,
-        userId: user.id,
-        albumId
-      });
-      newSong.dataValues.previewImage = imageUrl;
-      delete newSong.dataValues.imageUrl;
-
-      res.status(201);
-      res.json(newSong);
+        res.status(201);
+        res.json(newSong);
+      } else {
+        const error = new Error("Unauthorized");
+        error.status = 403;
+        throw error;
+      }
     } else {
-      const error = new Error("Unauthorized");
-      error.status = 403;
+      const error = new Error("Album not found");
+      error.status = 404;
       throw error;
     }
-  } else {
-    const error = new Error("Album not found");
-    error.status = 404;
-    throw error;
   }
-});
+);
 
 // Create An Album
 router.post("/", requireAuth, validateAlbum, async (req, res) => {
@@ -131,15 +136,15 @@ router.post("/", requireAuth, validateAlbum, async (req, res) => {
 // PUT
 
 // Edit An Album
-router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
+router.put("/:albumId", requireAuth, singleMulterUpload("imageUrl"), validateAlbum, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
-  const { title, description, imageUrl } = req.body;
-
+  const { title, description} = req.body;
+  const imageUrl = await singlePublicFileUpload(req.file);
   const album = await Album.findByPk(albumId);
 
   if (album) {
-    if ((album.userId === user.id)) {
+    if (album.userId === user.id) {
       await album.update({
         title,
         description,
@@ -164,15 +169,15 @@ router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
 // DELETE
 
 // Delete An Album
-router.delete("/:albumId", requireAuth, async(req, res) => {
+router.delete("/:albumId", requireAuth, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
 
-  const album = await Album.findByPk(albumId)
+  const album = await Album.findByPk(albumId);
 
-  if(album) {
-    if(album.userId === user.id) {
-      await album.destroy()
+  if (album) {
+    if (album.userId === user.id) {
+      await album.destroy();
       res.json({
         message: "Successfully deleted",
         statusCode: 200,

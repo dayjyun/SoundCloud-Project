@@ -11,6 +11,7 @@ import CurrentAlbum from "./components/CurrentUser/CurrentAlbum/CurrentAlbum";
 import SongDetails from "./components/CurrentUser/SongDetails/SongDetails";
 import AlbumDetails from "./components/CurrentUser/AlbumDetails/AlbumDetails";
 import CreateAlbumComponent from "./components/CurrentUser/CreateAlbum/CreateAlbumComponent";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ function App() {
           <Route exact path='/'>
           </Route>
           <Route>
-            <h1>404: Page Not Found</h1>
+            <ErrorPage/>
           </Route>
         </Switch>
       )}

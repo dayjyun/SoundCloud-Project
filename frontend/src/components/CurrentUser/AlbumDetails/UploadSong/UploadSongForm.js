@@ -20,6 +20,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   const [songUrl, setSongUrl] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
+  const [disableButton, setDisableButton] = useState(false);
 
   useEffect(() => {
     dispatch(getAllAlbums());
@@ -27,6 +28,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
 
   const handleAlbumSubmit = async (e) => {
     e.preventDefault();
+    setDisableButton(true)
     setValidationErrors([]);
 
     await dispatch(
@@ -36,7 +38,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
           title,
           description,
           imageUrl: previewImage || defaultImg,
-          songUrl,
+          url: songUrl,
         },
         albumId
       )
@@ -47,8 +49,9 @@ export default function UploadSongForm({ setShowUploadBtn }) {
       })
       .catch(async (res) => {
         const data = await res.json();
-        if (data && data.validationErrors) {
-          setValidationErrors(data.validationErrors);
+        console.log(data)
+        if (data && data.errors) {
+          setValidationErrors(data.errors);
         }
       });
 
@@ -56,6 +59,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
     setDescription("");
     setSongUrl("");
     setPreviewImage("");
+    setDisableButton(false)
   };
 
   const handleCancelBtn = (e) => {
@@ -71,6 +75,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   };
 
   const uploadImageFile = (e) => {
+    e.preventDefault()
     const imageFile = e.target.files[0];
     setPreviewImage(imageFile);
   };
@@ -96,6 +101,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               type="text"
               id="title"
               name="title"
+              required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -116,23 +122,30 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               type="file"
               id="url"
               name="url"
+              required
               onChange={(e) => uploadSongFile(e)}
             />
           </div>
           <div className="upload-song">
-            <label htmlFor="previewImage">Image</label>
+            <label htmlFor="previewImage">Image*</label>
             <input
               type="file"
               id="previewImage"
               name="previewImage"
+              required
               onChange={(e) => uploadImageFile(e)}
             />
           </div>
           <div className="save-button-upload-song">
-            <button className="save-button-upload" type="submit">
+            <button
+              disabled={disableButton}
+              className="save-button-upload"
+              type="submit"
+            >
               Submit
             </button>
             <button
+              disabled={disableButton}
               className="upload-song-cancel-button"
               onClick={handleCancelBtn}
             >

@@ -21,7 +21,6 @@
 
 /* Splash Page */
 .splash-top {
-  /* border: 4px solid blueviolet; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +29,6 @@
 }
 
 .background-image-one {
-  /* border: 2px solid yellowgreen; */
   background-size: cover;
   background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_stage.jpg');
   background-repeat: no-repeat;
@@ -54,7 +52,6 @@
   padding: 16px;
   display: flex;
   justify-content: center;
-  /* mix-blend-mode: multiply; */
 }
 
 .splash-nav {

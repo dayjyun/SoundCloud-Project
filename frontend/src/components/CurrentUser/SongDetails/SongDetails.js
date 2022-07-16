@@ -12,16 +12,6 @@ function SongDetails() {
   const songs = useSelector((state) => state.songs);
   const song = songs[songId];
   const user = useSelector((state) => state.session.user);
-  // const [songButton, setSongButtons] = useState(false);
-
-  // const singleSong = songs?.find((song) => song?.id === +songId);
-  // useEffect(() => {
-  //   if (user?.id === singleSong?.userId) {
-  //     setSongButtons(true);
-  //   } else {
-  //     setSongButtons(false);
-  //   }
-  // }, []);
 
   useEffect(() => {
     dispatch(getSong(+songId));
@@ -76,37 +66,6 @@ function SongDetails() {
       </div>
     </>
   );
-
-  // return (
-  //   <>
-  //     <div className="song-info-container">
-  //       <div className="song-details-box">
-  //         <div>
-  //           <img className="song-cover-image" src={`${singleSong?.previewImage}`} />
-  //         </div>
-  //         <div className="song-info">
-  //           <h1 className="song-desc-title">{singleSong?.title}</h1>
-  //           <p className="song-desc-desc">{singleSong?.description}</p>
-  //         </div>
-  //       </div>
-  //       {songButton && (
-  //         <>
-  //           <div className="qwer">
-  //             <div className="edit-song-button">
-  //               <EditSongBtn />
-  //             </div>
-  //             <div>
-  //               <button className="delete-song-button" onClick={handleSongDelete}
-  //               >
-  //                 Delete
-  //               </button>
-  //             </div>
-  //           </div>
-  //         </>
-  //       )}
-  //     </div>
-  //   </>
-  // );
 }
 
 export default SongDetails;
