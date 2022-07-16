@@ -78,23 +78,13 @@ router.get("/", async (req, res) => {
 
 // Create A Song For An Album With Album ID
 
-router.post(
-  "/:albumId",
-  requireAuth,
-  multipleFileKeysUpload([
-    { name: "url", maxCount: 1 },
-    { name: "imageUrl", maxCount: 1 }
-  ]),
-  validateSong,
-  async (req, res) => {
+router.post("/:albumId",requireAuth, multipleFileKeysUpload([ { name: "url", maxCount: 1 },
+    { name: "imageUrl", maxCount: 1 }]), validateSong, async (req, res) => {
     const { user } = req;
     const { albumId } = req.params;
     const { title, description } = req.body;
     const url = await singlePublicFileUpload(req.files.url[0]);
     const imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
-    console.log({url})
-    console.log({imageUrl})
-
     const album = await Album.findByPk(albumId);
 
     if (album) {
@@ -146,11 +136,12 @@ router.post("/", requireAuth, validateAlbum, async (req, res) => {
 // PUT
 
 // Edit An Album
-router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
+router.put("/:albumId", requireAuth, singleMulterUpload("imageUrl"), validateAlbum, async (req, res) => {
+  console.log("HERE ---------------------------", req.files)
   const { user } = req;
   const { albumId } = req.params;
-  const { title, description, imageUrl } = req.body;
-
+  const { title, description} = req.body;
+  const imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
   const album = await Album.findByPk(albumId);
 
   if (album) {
