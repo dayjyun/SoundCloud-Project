@@ -65,25 +65,6 @@ export const editSong = (songData) => async(dispatch) => {
   }
 }
 
-
-// delete song
-const removeSong = (id) => {
-  return {
-    type: DELETE_SONG,
-    id
-  }
-}
-
-export const deleteSong = (songId) => async (dispatch) => {
-  const song = await csrfFetch(`/api/songs/${songId}`, {
-    method: "DELETE",
-  });
-
-  if (song.ok) {
-    dispatch(removeSong(songId));
-  }
-};
-
 // upload song
 const createSong = song => {
   return {
@@ -129,6 +110,24 @@ export const uploadSong = (songDetails, albumId) => async (dispatch) => {
 //     return newSong;
 //   }
 // };
+
+// delete song
+const removeSong = (id) => {
+  return {
+    type: DELETE_SONG,
+    id
+  }
+}
+
+export const deleteSong = (songId) => async (dispatch) => {
+  const song = await csrfFetch(`/api/songs/${songId}`, {
+    method: "DELETE",
+  });
+
+  if (song.ok) {
+    dispatch(removeSong(songId));
+  }
+};
 
 let initialState = {};
 

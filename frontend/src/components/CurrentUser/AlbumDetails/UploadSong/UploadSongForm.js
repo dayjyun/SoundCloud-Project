@@ -128,7 +128,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
           </div>
           {/*  */}
           <div className="upload-song">
-            <label htmlFor="previewImage">Image</label>
+            <label htmlFor="previewImage">Image*</label>
             <input
               type="file"
               id="previewImage"
