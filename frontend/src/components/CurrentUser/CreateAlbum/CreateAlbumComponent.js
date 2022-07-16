@@ -74,11 +74,9 @@ export default function CreateAlbumComponent() {
               <label htmlFor="image">Album Image</label>
               <input
                 className="create-album-input"
-                type="text"
+                type="file"
                 id="image"
                 name="image"
-                placeholder="optional"
-                value={albumImage}
                 onChange={(e) => setAlbumImage(e.target.value)}
               />
             </div>
