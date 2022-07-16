@@ -50,12 +50,19 @@ const addAlbum = (album) => {
 };
 
 export const createAlbum = (albumData) => async (dispatch) => {
+  let { title, description, imageUrl } = albumData;
+  const formData = new FormData();
+
+  formData.append("title", title);
+  formData.append("description", description);
+
+  if (imageUrl) formData.append("imageUrl", imageUrl);
   const newAlbum = await csrfFetch("/api/albums", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "multipart/form-data",
     },
-    body: JSON.stringify(albumData),
+    body: formData,
   });
 
   if (newAlbum.ok) {

@@ -13,10 +13,12 @@ export default function CreateAlbumComponent() {
   const [description, setDescription] = useState("");
   const [albumImage, setAlbumImage] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
+  const [disableButton, setDisableButton] = useState(false);
 
   const handleNewAlbumForm = async (e) => {
     e.preventDefault();
     setValidationErrors([]);
+    setDisableButton(true)
 
     await dispatch(
       createAlbum({
@@ -38,6 +40,18 @@ export default function CreateAlbumComponent() {
     setTitle("");
     setDescription("");
     setAlbumImage("");
+    setDisableButton(false);
+  };
+
+  const uploadImageFile = (e) => {
+    e.preventDefault();
+    const imageFile = e.target.files[0];
+    setAlbumImage(imageFile);
+  };
+
+  const handleCancelBtn = (e) => {
+    e.preventDefault();
+    history.push('/albums')
   };
 
   return (
@@ -71,18 +85,32 @@ export default function CreateAlbumComponent() {
               />
             </div>
             <div>
-              <label htmlFor="image">Album Image</label>
+              <label htmlFor="image">Album Image*</label>
               <input
                 className="create-album-input"
                 type="file"
                 id="image"
                 name="image"
-                onChange={(e) => setAlbumImage(e.target.value)}
+                required
+                onChange={(e) => uploadImageFile(e)}
               />
             </div>
           </div>
           <div>
-            <button type="submit">Save</button>
+            <button
+              disabled={disableButton}
+              className="create-album-button"
+              type="submit"
+            >
+              Save
+            </button>
+            <button
+              disabled={disableButton}
+              className="create-album-cancel-button"
+              onClick={handleCancelBtn}
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>

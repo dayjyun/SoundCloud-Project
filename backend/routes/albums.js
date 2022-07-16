@@ -116,22 +116,29 @@ router.post("/:albumId",requireAuth, multipleFileKeysUpload([ { name: "url", max
 );
 
 // Create An Album
-router.post("/", requireAuth, validateAlbum, async (req, res) => {
-  const { user } = req;
-  const { title, description, imageUrl } = req.body;
+router.post(
+  "/",
+  requireAuth,
+  singleMulterUpload("imageUrl"),
+  validateAlbum,
+  async (req, res) => {
+    const { user } = req;
+    const { title, description } = req.body;
+    const imageUrl = await singlePublicFileUpload(req.file);
 
-  const album = await Album.create({
-    userId: user.id,
-    title,
-    description,
-    imageUrl,
-  });
-  album.dataValues.previewImage = imageUrl;
-  delete album.dataValues.imageUrl;
+    const album = await Album.create({
+      userId: user.id,
+      title,
+      description,
+      imageUrl,
+    });
+    album.dataValues.previewImage = imageUrl;
+    delete album.dataValues.imageUrl;
 
-  res.status(201);
-  res.json(album);
-});
+    res.status(201);
+    res.json(album);
+  }
+);
 
 // PUT
 
