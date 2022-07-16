@@ -82,7 +82,6 @@ export const editAlbum = (albumDetails) => async (dispatch) => {
 
   if (imageUrl) formData.append("imageUrl", imageUrl);
 
-
   const album = await csrfFetch(`/api/albums/${albumDetails.id}`, {
     method: "PUT",
     headers: {

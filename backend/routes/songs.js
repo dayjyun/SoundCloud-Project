@@ -7,7 +7,7 @@ const { validateSong, validateComment, validatePage } = require("../utils/valida
 const { Song, Album, User, Comment, sequelize } = require("../db/models");
 
 const { environment } = require("../config");
-const { singleMulterUpload } = require("../awsS3.js");
+const { singleMulterUpload, multipleFileKeysUpload, singlePublicFileUpload } = require("../awsS3.js");
 const isProduction = environment === 'production';
 
 // GET
@@ -167,37 +167,47 @@ router.post(
 // PUT
 
 // Edit A Song
-router.put("/:songId", requireAuth, validateSong, async (req, res) => {
-  const { user } = req;
-  const { songId } = req.params;
-  const { title, description, url, imageUrl } = req.body;
+router.put(
+  "/:songId",
+  requireAuth,
+  multipleFileKeysUpload([
+    { name: "url", maxCount: 1 },
+    { name: "imageUrl", maxCount: 1 },
+  ]),
+  validateSong,
+  async (req, res) => {
+    const { user } = req;
+    const { songId } = req.params;
+    const { title, description } = req.body;
+    const url = await singlePublicFileUpload(req.files.url[0]);
+    const imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
+    const song = await Song.findByPk(songId);
 
-  const song = await Song.findByPk(songId);
-
-  if (!song) {
-    const error = new Error("Song not found");
-    error.status = 404;
-    throw error;
-  } else {
-    if (song.userId === user.id) {
-      await song.update({
-        title,
-        description,
-        url,
-        imageUrl,
-      });
-
-      song.dataValues.previewImage = imageUrl;
-      delete song.dataValues.imageUrl;
-
-      res.json(song);
-    } else {
-      const error = Error("Unauthorized");
-      error.status = 403;
+    if (!song) {
+      const error = new Error("Song not found");
+      error.status = 404;
       throw error;
+    } else {
+      if (song.userId === user.id) {
+        await song.update({
+          title,
+          description,
+          url,
+          imageUrl,
+        });
+
+        song.dataValues.previewImage = imageUrl;
+        delete song.dataValues.imageUrl;
+
+        res.json(song);
+      } else {
+        const error = Error("Unauthorized");
+        error.status = 403;
+        throw error;
+      }
     }
   }
-});
+);
 
 // DELETE
 

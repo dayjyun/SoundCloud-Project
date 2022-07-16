@@ -18,10 +18,11 @@ export default function EditSongForm({ setShowSongEdit }) {
   const [description, setDescription] = useState(song.description);
   const [previewImage, setPreviewImage] = useState(song.previewImage);
   const [url, setUrl] = useState(song.url);
+  const [disableButton, setDisableButton] = useState(false);
 
   const handleSongFormSubmit = async (e) => {
     e.preventDefault();
-
+    setDisableButton(true)
     setValidationErrors([]);
 
     await dispatch(
@@ -44,7 +45,20 @@ export default function EditSongForm({ setShowSongEdit }) {
           setValidationErrors(err.errors);
         }
       });
+      setDisableButton(false);
   };
+
+  const uploadSongFile = e => {
+    e.preventDefault();
+    const songFile = e.target.files[0];
+    setUrl(songFile);
+  }
+
+  const uploadImageFile = e => {
+    e.preventDefault()
+    const imageFile = e.target.files[0]
+    setPreviewImage(imageFile)
+  }
 
   const handleCancelBtn = (e) => {
     e.preventDefault();
@@ -73,6 +87,7 @@ export default function EditSongForm({ setShowSongEdit }) {
               type="text"
               id="title"
               name="title"
+              required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -91,28 +106,35 @@ export default function EditSongForm({ setShowSongEdit }) {
           <div className="enter-song">
             <label htmlFor="url">Audio*</label>
             <input
-              type="text"
+              type="file"
               id="url"
               name="url"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
+              required
+              // value={url}
+              onChange={(e) => uploadSongFile(e)}
             />
-              </div>
-            <div className="enter-song">
-              <label htmlFor="previewImage">Image</label>
-              <input
-                type="text"
-                id="previewImage"
-                name="previewImage"
-                value={previewImage}
-                onChange={(e) => setPreviewImage(e.target.value)}
-              />
+          </div>
+          <div className="enter-song">
+            <label htmlFor="previewImage">Image*</label>
+            <input
+              type="file"
+              id="previewImage"
+              name="previewImage"
+              required
+              // value={previewImage}
+              onChange={(e) => uploadImageFile(e)}
+            />
           </div>
           <div className="save-button-edit-song">
-            <button className="save-button-song" type="submit">
+            <button
+              disabled={disableButton}
+              className="save-button-song"
+              type="submit"
+            >
               Save
             </button>
             <button
+              disabled={disableButton}
               className="edit-song-cancel-button"
               onClick={handleCancelBtn}
             >

@@ -51,13 +51,22 @@ const updateSong = (song) => {
 }
 
 export const editSong = (songData) => async(dispatch) => {
+  let { title, description, url, imageUrl } = songData;
+  const formData = new FormData();
+
+  formData.append("title", title)
+  formData.append("description", description)
+
+  if(url) formData.append("url", url)
+  if(imageUrl) formData.append("imageUrl", imageUrl)
+
   const song = await csrfFetch(`/api/songs/${songData.id}`, {
     method: "PUT",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "multipart/form-data",
     },
-    body: JSON.stringify(songData)
-  })
+    body: formData,
+  });
 
   if(song.ok) {
     const res = await song.json()

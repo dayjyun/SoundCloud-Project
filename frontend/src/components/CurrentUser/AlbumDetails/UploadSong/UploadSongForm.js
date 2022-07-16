@@ -27,8 +27,8 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   }, [dispatch]);
 
   const handleAlbumSubmit = async (e) => {
-    setDisableButton(true)
     e.preventDefault();
+    setDisableButton(true)
     setValidationErrors([]);
 
     await dispatch(
