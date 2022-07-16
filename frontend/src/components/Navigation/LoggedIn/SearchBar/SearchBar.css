@@ -1,16 +1,9 @@
-
-/* .App */
-.searchBar {
-  /* border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  outline: none; */
+/* .searchBar {
   padding: 3px;
   margin: 0 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-direction: column; */
 }
 
 .inside-search-bar {
@@ -24,13 +17,83 @@
 
 .song-title-results {
   border: 2px solid cyan;
-  /*  display: flex;
-  justify-content: center;
-  align-items: center; */
   margin: 0;
 }
 
-/* .user */
 .search-song-title {
   border: 2px solid magenta;
+} */
+
+/* --------------------------------------------- */
+
+.search-bar-container {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.search-bar {
+  /* border: 2px solid orange; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.search-bar-input {
+  border: 2px solid yellow;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  padding: 5px 8px;
+  width: 400px;
+  /* transition: border 200ms; */
+}
+
+.search-result-text {
+  width: 100%;
+  padding: 8px;
+  color: #333;
+}
+
+.search-result-text:hover {
+  color: #FF5501;
+  font-weight: bold;
+}
+
+.search-results {
+  color: black;
+  background-color: white;
+  top: 50px;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 30%), 0 20px 48px rgb(0 0 0 / 16%),
+    0 1px 4px rgb(0 0 0 / 12%);
+  max-height: 400px;
+  opacity: 0;
+  overflow-y: scroll;
+  padding: 16px;
+  position: absolute;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: all 200ms;
+  max-width: 400px;
+  min-width: 300px;
+  z-index: 1;
+}
+
+.results-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.search-result-li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
 }
