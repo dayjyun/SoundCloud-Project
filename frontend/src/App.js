@@ -40,17 +40,19 @@ function App() {
             <MediaLinks />
             <AllAlbumsLoader />
           </Route>
-          <Route exact path='/me/albums'>
+          <Route exact path="/me/albums">
             <CreateAlbumComponent />
+          </Route>
+          <Route exact path="/me/songs">
+            <h1>Create Song Component</h1>
           </Route>
           <Route exact path="/me">
             <CurrentSong />
             <CurrentAlbum />
           </Route>
-          <Route exact path='/'>
-          </Route>
+          <Route exact path="/"></Route>
           <Route>
-            <ErrorPage/>
+            <ErrorPage />
           </Route>
         </Switch>
       )}
