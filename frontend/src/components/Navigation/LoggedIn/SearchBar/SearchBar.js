@@ -15,7 +15,7 @@ export default function SearchBar() {
     );
   });
 
-  const listResults = activeResults.map((song) => {
+  const returnResults = activeResults.map((song) => {
     return (
       <Link
         to={`/songs/${song.id}`}
@@ -24,7 +24,7 @@ export default function SearchBar() {
         className="search-result-link"
       >
         <div className="search-result-text">
-          <div className="search-result-li-title">{song.title}</div>
+          <div>{song.title}</div>
         </div>
       </Link>
     );
@@ -45,7 +45,7 @@ export default function SearchBar() {
           />
         </div>
       </form>
-      <div className={`search-results-box ${searchResults}`}>{listResults}</div>
+      <div className={`search-results-box ${searchResults}`}>{returnResults}</div>
     </div>
   );
 }

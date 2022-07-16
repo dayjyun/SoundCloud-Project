@@ -64,7 +64,7 @@
   visibility: hidden;
   transition: all 200ms;
   padding: 12px;
-  max-height: 400px;
+  max-height: 200px;
   max-width: 400px;
   min-width: 300px;
 }
