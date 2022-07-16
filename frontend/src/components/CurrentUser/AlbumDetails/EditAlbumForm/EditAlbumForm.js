@@ -14,10 +14,12 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
   const [title, setTitle] = useState(album.title);
   const [description, setDescription] = useState(album.description);
   const [previewImage, setPreviewImage] = useState(album.previewImage);
+  const [disableButton, setDisableButton] = useState(false);
 
   const handleAlbumFormSubmit = async (e) => {
     e.preventDefault();
     setValidationErrors([]);
+    setDisableButton(true)
 
     await dispatch(
       actions.editAlbum({
@@ -38,6 +40,8 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
           setValidationErrors(err.errors);
         }
       });
+
+      setDisableButton(false)
   };
 
   const uploadImageFile = e => {
@@ -90,7 +94,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
             />
           </div>
           <div className="enter-album">
-            <label htmlFor="previewImage">Image</label>
+            <label htmlFor="previewImage">Image*</label>
             <input
               type="file"
               id="previewImage"
@@ -100,10 +104,10 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
             />
           </div>
           <div className="save-button-edit-album">
-            <button className="save-button-album" type="submit">
+            <button disabled={disableButton} className="save-button-album" type="submit">
               Save
             </button>
-            <button
+            <button disabled={disableButton}
               className="edit-song-cancel-button"
               onClick={handleCancelBtn}
             >

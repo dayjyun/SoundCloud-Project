@@ -20,7 +20,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   const [songUrl, setSongUrl] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
-  const [disableButton, setDisableButton] = useState(false)
+  const [disableButton, setDisableButton] = useState(false);
 
   useEffect(() => {
     dispatch(getAllAlbums());
@@ -50,7 +50,6 @@ export default function UploadSongForm({ setShowUploadBtn }) {
       .catch(async (res) => {
         const data = await res.json();
         console.log(data)
-        console.log(data.errors)
         if (data && data.errors) {
           setValidationErrors(data.errors);
         }
@@ -134,6 +133,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               type="file"
               id="previewImage"
               name="previewImage"
+              required
               onChange={(e) => uploadImageFile(e)}
             />
           </div>

@@ -80,6 +80,9 @@ router.get("/", async (req, res) => {
 
 router.post("/:albumId",requireAuth, multipleFileKeysUpload([ { name: "url", maxCount: 1 },
     { name: "imageUrl", maxCount: 1 }]), validateSong, async (req, res) => {
+
+      console.log(req.files)
+
     const { user } = req;
     const { albumId } = req.params;
     const { title, description } = req.body;
