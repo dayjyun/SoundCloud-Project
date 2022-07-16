@@ -109,13 +109,13 @@ const createSong = song => {
 // };
 
 export const uploadSong = (songDetails, albumId) => async (dispatch) => {
-  const { title, description, songUrl, imageUrl } = songDetails;
+  const { title, description, url, imageUrl } = songDetails;
   const formData = new FormData();
 
   formData.append('title', title);
   formData.append('description', description);
 
-  if(songUrl) formData.append('songUrl', songUrl)
+  if(url) formData.append('url', url)
   if(imageUrl) formData.append('imageUrl', imageUrl)
 
   const res = await csrfFetch(`/api/albums/${albumId}`, {

@@ -36,7 +36,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
           title,
           description,
           imageUrl: previewImage || defaultImg,
-          songUrl,
+          url: songUrl,
         },
         albumId
       )
@@ -47,8 +47,10 @@ export default function UploadSongForm({ setShowUploadBtn }) {
       })
       .catch(async (res) => {
         const data = await res.json();
-        if (data && data.validationErrors) {
-          setValidationErrors(data.validationErrors);
+        console.log(data)
+        console.log(data.errors)
+        if (data && data.errors) {
+          setValidationErrors(data.errors);
         }
       });
 
@@ -71,6 +73,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   };
 
   const uploadImageFile = (e) => {
+    e.preventDefault()
     const imageFile = e.target.files[0];
     setPreviewImage(imageFile);
   };
