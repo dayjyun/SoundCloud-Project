@@ -12,14 +12,14 @@ export default function ErrorPage() {
     <>
       <div className="error-text">
         <div className="h1-text">
-          <h1>Such Silence...</h1>
+          <h1>It's a little quiet here...</h1>
         </div>
         <div className="h3-text">
           <h3>404: The page you're looking for does not exist</h3>
         </div>
       </div>
       <div className="error-button-box">
-        <button className="error-button" onClick={handleErrorClick}>Home</button>
+        <button className="error-button" onClick={handleErrorClick}>My Profile</button>
       </div>
     </>
   );

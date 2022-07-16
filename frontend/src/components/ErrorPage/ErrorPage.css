@@ -2,7 +2,8 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  color: #333
+  color: #333;
+  padding: 10rem;
 }
 
 .h1-text,
@@ -16,4 +17,21 @@
   display: grid;
   justify-content: center;
   align-items: center;
+}
+
+.error-button {
+  background: #333;
+  color: #CCC;
+  border: none;
+  padding: 8px 30px;
+  font-size: 14px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-button:hover {
+    color: white
 }
