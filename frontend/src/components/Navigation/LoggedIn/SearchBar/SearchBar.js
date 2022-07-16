@@ -8,14 +8,14 @@ export default function SearchBar() {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState("");
 
-  const activeResults = songs.filter((song) => {
+  const songResults = songs.filter((song) => {
     return (
       song.Artist?.username?.toLowerCase().includes(search.toLowerCase()) ||
       song.title.toLowerCase().includes(search.toLowerCase())
     );
   });
 
-  const returnResults = activeResults.map((song) => {
+  const returnResults = songResults.map((song) => {
     return (
       <Link
         to={`/songs/${song.id}`}
@@ -45,41 +45,9 @@ export default function SearchBar() {
           />
         </div>
       </form>
-      <div className={`search-results-box ${searchResults}`}>{returnResults}</div>
+      <div className={`search-results-box ${searchResults}`}>
+        {returnResults}
+      </div>
     </div>
   );
 }
-
-//   return (
-//     <div className="search-bar-container">
-//       <form className="search-bar-form">
-//         <div className="search-bar">
-//           <input
-//             type="text"
-//             placeholder="Search"
-//             value={searchText}
-//             onChange={(e) => setSearchText(e.target.value)}
-//             onClick={(e) => setResults("results-active")}
-//             onBlur={(e) => setResults("")}
-//           />
-//         </div>
-//       </form>
-//       <div className={`serach-results-${results}`}>{searchResults}</div>
-//     </div>
-//   );
-// }
-
-// return (
-//   <>
-//     <div className="searchBar">
-//       <input className="inside-search-bar" type="text" placeholder="Search" />
-//       {/* <div className="song-title-results">
-//         {songs.map((song) => (
-//           <div className="search-song-title" key={song.id}>
-//             <p>{song.title}</p>
-//           </div>
-//         ))}
-//       </div> */}
-//     </div>
-//   </>
-// );
