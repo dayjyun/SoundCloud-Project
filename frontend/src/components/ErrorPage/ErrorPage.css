@@ -1,0 +1,6 @@
+.error-text {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    top: 50rem;
+}
