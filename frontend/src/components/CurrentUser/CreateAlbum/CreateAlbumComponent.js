@@ -14,8 +14,6 @@ export default function CreateAlbumComponent() {
   const [albumImage, setAlbumImage] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
 
-  console.log(useState())
-
   const handleNewAlbumForm = async (e) => {
     e.preventDefault();
     setValidationErrors([]);

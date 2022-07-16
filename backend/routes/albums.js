@@ -80,9 +80,6 @@ router.get("/", async (req, res) => {
 
 router.post("/:albumId",requireAuth, multipleFileKeysUpload([ { name: "url", maxCount: 1 },
     { name: "imageUrl", maxCount: 1 }]), validateSong, async (req, res) => {
-
-      console.log(req.files)
-
     const { user } = req;
     const { albumId } = req.params;
     const { title, description } = req.body;
@@ -140,7 +137,6 @@ router.post("/", requireAuth, validateAlbum, async (req, res) => {
 
 // Edit An Album
 router.put("/:albumId", requireAuth, singleMulterUpload("imageUrl"), validateAlbum, async (req, res) => {
-  console.log("FILE", req.file)
   const { user } = req;
   const { albumId } = req.params;
   const { title, description} = req.body;

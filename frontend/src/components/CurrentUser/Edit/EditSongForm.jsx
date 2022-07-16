@@ -110,7 +110,6 @@ export default function EditSongForm({ setShowSongEdit }) {
               id="url"
               name="url"
               required
-              // value={url}
               onChange={(e) => uploadSongFile(e)}
             />
           </div>
@@ -121,7 +120,6 @@ export default function EditSongForm({ setShowSongEdit }) {
               id="previewImage"
               name="previewImage"
               required
-              // value={previewImage}
               onChange={(e) => uploadImageFile(e)}
             />
           </div>
