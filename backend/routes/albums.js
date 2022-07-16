@@ -137,11 +137,11 @@ router.post("/", requireAuth, validateAlbum, async (req, res) => {
 
 // Edit An Album
 router.put("/:albumId", requireAuth, singleMulterUpload("imageUrl"), validateAlbum, async (req, res) => {
-  console.log("HERE ---------------------------", req.files)
+  console.log("FILE", req.file)
   const { user } = req;
   const { albumId } = req.params;
   const { title, description} = req.body;
-  const imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
+  const imageUrl = await singlePublicFileUpload(req.file);
   const album = await Album.findByPk(albumId);
 
   if (album) {

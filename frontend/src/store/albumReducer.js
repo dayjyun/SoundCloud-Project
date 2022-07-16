@@ -3,7 +3,7 @@ import { csrfFetch } from "./csrf";
 // type
 const GET_ALL_ALBUMS = "albums/getAllAlbums";
 const GET_ALBUM = "albums/getAlbum";
-const CREATE_ALBUM = 'albums/createAlbum';
+const CREATE_ALBUM = "albums/createAlbum";
 const EDIT_ALBUM = "albums/editAlbum";
 const DELETE_ALBUM = "albums/deleteAlbum";
 
@@ -46,24 +46,24 @@ const addAlbum = (album) => {
   return {
     type: CREATE_ALBUM,
     album,
-  }
-}
+  };
+};
 
-export const createAlbum = (albumData) => async(dispatch) => {
-  const newAlbum = await csrfFetch('/api/albums', {
+export const createAlbum = (albumData) => async (dispatch) => {
+  const newAlbum = await csrfFetch("/api/albums", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(albumData)
-  })
+    body: JSON.stringify(albumData),
+  });
 
-  if(newAlbum.ok) {
+  if (newAlbum.ok) {
     const res = await newAlbum.json();
-    dispatch(addAlbum(res))
+    dispatch(addAlbum(res));
     return res;
   }
-}
+};
 
 // update album
 const updateAlbum = (album) => {
@@ -73,13 +73,22 @@ const updateAlbum = (album) => {
   };
 };
 
-export const editAlbum = (data) => async (dispatch) => {
-  const album = await csrfFetch(`/api/albums/${data.id}`, {
+export const editAlbum = (albumDetails) => async (dispatch) => {
+  let { title, description, imageUrl } = albumDetails;
+  const formData = new FormData();
+
+  formData.append("title", title);
+  formData.append("description", description);
+
+  if (imageUrl) formData.append("imageUrl", imageUrl);
+
+
+  const album = await csrfFetch(`/api/albums/${albumDetails.id}`, {
     method: "PUT",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "multipart/form-data",
     },
-    body: JSON.stringify(data),
+    body: formData,
   });
 
   if (album.ok) {

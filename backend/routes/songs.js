@@ -7,6 +7,7 @@ const { validateSong, validateComment, validatePage } = require("../utils/valida
 const { Song, Album, User, Comment, sequelize } = require("../db/models");
 
 const { environment } = require("../config");
+const { singleMulterUpload } = require("../awsS3.js");
 const isProduction = environment === 'production';
 
 // GET

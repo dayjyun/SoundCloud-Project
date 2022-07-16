@@ -9,9 +9,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const album = useSelector((state) => state.albums[`${albumId}`]);
-  const defaultImg =
-    "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
-
+  const defaultImg = "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
   const [validationErrors, setValidationErrors] = useState([]);
   const [title, setTitle] = useState(album.title);
   const [description, setDescription] = useState(album.description);
@@ -20,6 +18,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
   const handleAlbumFormSubmit = async (e) => {
     e.preventDefault();
     setValidationErrors([]);
+
     await dispatch(
       actions.editAlbum({
         id: albumId,
@@ -40,6 +39,12 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
         }
       });
   };
+
+  const uploadImageFile = e => {
+    e.preventDefault()
+    const imageFile = e.target.files[0]
+    setPreviewImage(imageFile)
+  }
 
   const handleCancelBtn = (e) => {
     e.preventDefault();
@@ -69,6 +74,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
               id="title"
               name="title"
               value={title}
+              required
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
@@ -86,12 +92,11 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
           <div className="enter-album">
             <label htmlFor="previewImage">Image</label>
             <input
-              type="text"
+              type="file"
               id="previewImage"
               name="previewImage"
-              placeholder="optional"
-              value={previewImage}
-              onChange={(e) => setPreviewImage(e.target.value)}
+              required
+              onChange={(e) => uploadImageFile(e)}
             />
           </div>
           <div className="save-button-edit-album">
