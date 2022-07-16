@@ -30,8 +30,8 @@ export default function CreateAlbumComponent() {
       })
       .catch(async (res) => {
         const data = await res.json();
-        if (data && data.validationErrors) {
-          setValidationErrors(data.validationErrors);
+        if (data && data.errors) {
+          setValidationErrors(data.errors);
         }
       });
 
