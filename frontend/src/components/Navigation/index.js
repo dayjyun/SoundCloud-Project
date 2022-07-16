@@ -17,7 +17,6 @@ function Navigation({ isLoaded }) {
 
   let sessionLinks;
   if (sessionUser) {
-    // logged in
     sessionLinks = (
       <>
         <div className="logged-in-nav">
@@ -36,46 +35,9 @@ function Navigation({ isLoaded }) {
       </>
     );
   } else {
-    // splash page
     sessionLinks = (
       <>
-      <SplashPage />
-        {/* <div>
-          <div className="splash-top">
-            <div className="background-image-one">
-              <div className="splash-nav">
-                <div className="splash-nav-left">
-                  <SoundCloudText />
-                </div>
-                <div className="splash-nav-right">
-                  <LoginFormModal />
-                  <SignUpFormModal />
-                </div>
-              </div>
-              <div className="text-div">
-                <h1 className="background-image-one-text">
-                  Welcome To SoundCloud
-                </h1>
-              </div>
-            </div>
-          </div>
-          <div>
-            <SplashPage />
-          </div>
-          <div className="closer">
-            <div className="splash-signup-button-bottom">
-              <SignUpFormModal />
-            </div>
-            <div className="splash-login">
-              <div>
-                <p className="splash-login-text">Already have an account?</p>
-              </div>
-              <div>
-                <LoginFormModal />
-              </div>
-            </div>
-          </div>
-        </div> */}
+        <SplashPage />
       </>
     );
   }

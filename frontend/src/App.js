@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/sessionReducer";
 import Navigation from "./components/Navigation";
@@ -21,6 +21,8 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  const sessionUser = useSelector(state => state.session.user)
 
   return (
     <>
@@ -63,7 +65,7 @@ function App() {
           </Route>
 
           <Route>
-            <ErrorPage />
+            {sessionUser && <ErrorPage />}
           </Route>
         </Switch>
       )}
