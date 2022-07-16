@@ -30,30 +30,38 @@ function App() {
           <Route exact path="/songs/:songId">
             <SongDetails />
           </Route>
+
           <Route exact path="/songs">
             <MediaLinks />
             <AllSongsLoader />
           </Route>
+
           <Route exact path="/albums/:albumId">
             <AlbumDetails />
           </Route>
+
           <Route exact path="/albums">
             <MediaLinks />
             <AllAlbumsLoader />
           </Route>
+
           <Route exact path="/me/albums">
             <CreateAlbumComponent />
           </Route>
+
           <Route exact path="/me/songs">
             <h1>Create Song Component</h1>
           </Route>
+
           <Route exact path="/me">
             <CurrentSong />
             <CurrentAlbum />
           </Route>
+
           <Route exact path="/">
             <SplashPage />
           </Route>
+
           <Route>
             <ErrorPage />
           </Route>
