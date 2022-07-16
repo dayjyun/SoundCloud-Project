@@ -92,22 +92,6 @@ const createSong = song => {
   }
 }
 
-// export const uploadSong = (SongDetails, albumId) => async (dispatch) => {
-//   const res = await csrfFetch(`/albums/${albumId}`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(SongDetails),
-//   });
-
-//   if (res.ok) {
-//     const newSong = await res.json();
-//     dispatch(createSong(newSong));
-//     return newSong;
-//   }
-// };
-
 export const uploadSong = (songDetails, albumId) => async (dispatch) => {
   const { title, description, url, imageUrl } = songDetails;
   const formData = new FormData();
@@ -129,6 +113,22 @@ export const uploadSong = (songDetails, albumId) => async (dispatch) => {
   const data = await res.json();
   dispatch(createSong(data))
 };
+
+// export const uploadSong = (SongDetails, albumId) => async (dispatch) => {
+//   const res = await csrfFetch(`/albums/${albumId}`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(SongDetails),
+//   });
+
+//   if (res.ok) {
+//     const newSong = await res.json();
+//     dispatch(createSong(newSong));
+//     return newSong;
+//   }
+// };
 
 let initialState = {};
 
