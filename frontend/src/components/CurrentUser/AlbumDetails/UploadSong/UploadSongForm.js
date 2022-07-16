@@ -20,12 +20,14 @@ export default function UploadSongForm({ setShowUploadBtn }) {
   const [songUrl, setSongUrl] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
+  const [disableButton, setDisableButton] = useState(false)
 
   useEffect(() => {
     dispatch(getAllAlbums());
   }, [dispatch]);
 
   const handleAlbumSubmit = async (e) => {
+    setDisableButton(true)
     e.preventDefault();
     setValidationErrors([]);
 
@@ -58,6 +60,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
     setDescription("");
     setSongUrl("");
     setPreviewImage("");
+    setDisableButton(false)
   };
 
   const handleCancelBtn = (e) => {
@@ -99,6 +102,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               type="text"
               id="title"
               name="title"
+              required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -119,6 +123,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               type="file"
               id="url"
               name="url"
+              required
               onChange={(e) => uploadSongFile(e)}
             />
           </div>
@@ -132,10 +137,15 @@ export default function UploadSongForm({ setShowUploadBtn }) {
             />
           </div>
           <div className="save-button-upload-song">
-            <button className="save-button-upload" type="submit">
+            <button
+              disabled={disableButton}
+              className="save-button-upload"
+              type="submit"
+            >
               Submit
             </button>
             <button
+              disabled={disableButton}
               className="upload-song-cancel-button"
               onClick={handleCancelBtn}
             >
