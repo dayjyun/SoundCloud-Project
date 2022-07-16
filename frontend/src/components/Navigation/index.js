@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
 // logged in
@@ -11,10 +10,6 @@ import AllSongsLibraryBtn from "./LoggedIn/LibraryButton/LibraryBtn";
 import Upload from "./LoggedIn/UploadSongs/UploadSongs";
 import ProfileButton from "./LoggedIn/ProfileButton/ProfileButton";
 import Player from "./Player/Player";
-
-// splash page
-import LoginFormModal from "../LoginFormModal";
-import SignUpFormModal from "../SignupFormModal";
 import SplashPage from "./SplashPage/SplashPage";
 
 function Navigation({ isLoaded }) {
@@ -44,7 +39,8 @@ function Navigation({ isLoaded }) {
     // splash page
     sessionLinks = (
       <>
-        <div>
+      <SplashPage />
+        {/* <div>
           <div className="splash-top">
             <div className="background-image-one">
               <div className="splash-nav">
@@ -79,7 +75,7 @@ function Navigation({ isLoaded }) {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </>
     );
   }

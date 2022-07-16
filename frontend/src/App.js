@@ -12,6 +12,7 @@ import SongDetails from "./components/CurrentUser/SongDetails/SongDetails";
 import AlbumDetails from "./components/CurrentUser/AlbumDetails/AlbumDetails";
 import CreateAlbumComponent from "./components/CurrentUser/CreateAlbum/CreateAlbumComponent";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import SplashPage from "./components/Navigation/SplashPage/SplashPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,7 +51,9 @@ function App() {
             <CurrentSong />
             <CurrentAlbum />
           </Route>
-          <Route exact path="/"></Route>
+          <Route exact path="/">
+            <SplashPage />
+          </Route>
           <Route>
             <ErrorPage />
           </Route>

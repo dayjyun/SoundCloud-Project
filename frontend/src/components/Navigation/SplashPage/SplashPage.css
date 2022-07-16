@@ -61,3 +61,75 @@
   display: flex;
   justify-content: center;
 }
+
+.splash-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.background-image-one {
+  background-size: cover;
+  background-image: url('https://soundcloudmisc.s3.us-east-2.amazonaws.com/home_stage.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 80%;
+}
+
+.text-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+}
+
+.background-image-one-text {
+  font-family: sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.685);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.splash-nav {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  width: 100%;
+}
+
+.splash-nav-left {
+  display: flex;
+  justify-content: center;
+  padding: 0 50px;
+}
+
+.splash-nav-right {
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 50px;
+}
+
+.splash-signup-button-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.splash-login-text {
+  padding: 0 10px;
+}
