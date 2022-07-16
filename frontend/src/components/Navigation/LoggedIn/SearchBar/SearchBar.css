@@ -27,7 +27,7 @@
 /* --------------------------------------------- */
 
 .search-bar-container {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   padding: 0 5px;
@@ -63,7 +63,7 @@
   overflow-y: scroll;
   visibility: hidden;
   transition: all 200ms;
-  padding: 16px;
+  padding: 12px;
   max-height: 400px;
   max-width: 400px;
   min-width: 300px;

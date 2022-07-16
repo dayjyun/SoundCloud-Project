@@ -50,32 +50,6 @@ export default function SearchBar() {
   );
 }
 
-// export default function SearchBar() {
-//   const songs = Object.values(useSelector((state) => state.songs));
-//   const [searchText, setSearchText] = useState();
-//   const [results, setResults] = useState();
-
-//   const songsFilter = songs.filter((song) => {
-//     return (
-//       song.title.toLowerCase().includes(searchText.toLowerCase())
-//     );
-//   });
-
-//   const searchResults = songsFilter.map((song) => {
-//     return (
-//       <Link
-//         to={`/songs/:song.id`}
-//         key={song.id}
-//         onClick={setSearchText}
-//         className="search-result-link"
-//       >
-//         <div className="search-results-li">
-//           <div className="search-results-li-title">{song.title}</div>
-//         </div>
-//       </Link>
-//     );
-//   });
-
 //   return (
 //     <div className="search-bar-container">
 //       <form className="search-bar-form">
