@@ -11,6 +11,11 @@
   display: grid;
   justify-content: center;
   align-items: center;
+  padding: .4rem;
+}
+
+.h1-text:hover, .h3-text:hover {
+    color: #FF5501
 }
 
 .error-button-box {
