@@ -69,6 +69,11 @@ export default function CreateSongComponent() {
         <h1>Create A New Song</h1>
       </div>
       <form onSubmit={handleCreateSongButton}>
+        <ul>
+          {Object.values(validationErrors).map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
         <div className="create-song-details">
           <div>
             <label htmlFor="title">Song Title*</label>
@@ -96,12 +101,12 @@ export default function CreateSongComponent() {
           <div>
             <label htmlFor="audio">Audio File*</label>
             <input
-                className="create-song-input"
-                type='file'
-                id='audio'
-                name='audio'
-                required
-                onChange={e => uploadAudioFile(e)}
+              className="create-song-input"
+              type="file"
+              id="audio"
+              name="audio"
+              required
+              onChange={(e) => uploadAudioFile(e)}
             />
           </div>
           <div>

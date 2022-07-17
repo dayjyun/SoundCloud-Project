@@ -59,7 +59,7 @@ export default function AllSongsLoader() {
               </div>
               <Link
                 className="song-link-text"
-                exact to={{ pathname: `/songs/${song?.id}` }}
+                to={{ pathname: `/songs/${song?.id}` }}
               >
                 <p className="song-title">{song?.title}</p>
               </Link>

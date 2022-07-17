@@ -164,6 +164,42 @@ router.post(
   }
 );
 
+// Create a song
+
+router.post("/", requireAuth, multipleFileKeysUpload([{ name: "url", maxCount: 1 }, {
+  name: "imageUrl", maxCount: 1}]), validateSong, async(req, res) => {
+    const { user } = req;
+    const { title, description } = req.body;
+    const url = await singlePublicFileUpload(req.files.url[0]);
+    console.log("req ------------", req)
+    console.log("--------------------------")
+    console.log("req one -------------", req.file)
+    console.log("--------------------------")
+    console.log("req files ------------", req.files)
+    console.log("--------------------------")
+    console.log("req imageUrl ---------------", req.files.imageUrl)
+    console.log("--------------------------")
+    console.log("req imageUrl at 0 ---------------", req.files.imageUrl[0])
+    const imageUrl = await singlePublicFileUpload(
+      req.files.imageUrl[0]);
+
+
+    const newSong = await Song.create({
+      title,
+      description,
+      url,
+      imageUrl,
+      userId: user.id,
+      // albumId,
+    })
+    newSong.dataValues.previewImage = imageUrl;
+    delete newSong.dataValues.imageUrl
+
+    res.status(201);
+    res.json(newSong)
+  }
+)
+
 // PUT
 
 // Edit A Song
