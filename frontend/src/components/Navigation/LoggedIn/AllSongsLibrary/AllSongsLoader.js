@@ -11,7 +11,6 @@ import "./AllSongsLoader.css";
 export default function AllSongsLoader() {
   const dispatch = useDispatch();
   const songs = Object.values(useSelector((state) => state.songs));
-  const [currentSong, setCurrentSong] = useState(null);
   const [playIcon, setPlayIcon] = useState("fas fa-play");
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export default function AllSongsLoader() {
               </div>
               <Link
                 className="song-link-text"
-                exact to={{ pathname: `/songs/${song?.id}` }}
+                to={{ pathname: `/songs/${song?.id}` }}
               >
                 <p className="song-title">{song?.title}</p>
               </Link>

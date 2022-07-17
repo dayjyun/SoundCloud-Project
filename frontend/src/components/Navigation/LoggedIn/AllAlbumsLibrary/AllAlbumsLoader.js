@@ -30,7 +30,6 @@ export default function AllAlbumsLoader() {
               </div>
               <Link
                 className="album-link-text"
-                exact
                 to={{ pathname: `/albums/${album.id}` }}
               >
                 <p className="album-title">{album.title}</p>

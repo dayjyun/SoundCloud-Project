@@ -1,0 +1,29 @@
+.album-songs-container {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    text-align: center;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.album-songs-list {
+    border: .5px solid #CCC;
+    border-radius: 4px;
+    padding: 40px 15px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 15%), 0 10px 24px rgb(0 0 0 / 8%), 0 1px 4px rgb(0 0 0 / 6%);
+    cursor: pointer;
+    height: 2rem;
+    width: 25rem;
+}
+
+.album-songs-list:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+.album-songs-title {
+    color: #333;
+}
+
+.album-songs-title:hover {
+    color: #FF5501;
+}

@@ -108,7 +108,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
               Save
             </button>
             <button disabled={disableButton}
-              className="edit-song-cancel-button"
+              className="edit-album-cancel-button"
               onClick={handleCancelBtn}
             >
               Cancel

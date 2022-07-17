@@ -6,17 +6,19 @@ import "./CreateAlbumComponent.css";
 
 export default function CreateAlbumComponent() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const defaultAlbumImg =
     "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
-  const history = useHistory();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [albumImage, setAlbumImage] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
+  const [disableButton, setDisableButton] = useState(false);
 
   const handleNewAlbumForm = async (e) => {
     e.preventDefault();
     setValidationErrors([]);
+    setDisableButton(true)
 
     await dispatch(
       createAlbum({
@@ -38,13 +40,27 @@ export default function CreateAlbumComponent() {
     setTitle("");
     setDescription("");
     setAlbumImage("");
+    setValidationErrors([])
+    setDisableButton(false);
+  };
+
+  const uploadImageFile = (e) => {
+    e.preventDefault();
+    const imageFile = e.target.files[0];
+    setAlbumImage(imageFile);
+  };
+
+  const handleCancelBtn = (e) => {
+    e.preventDefault();
+    history.push('/albums')
   };
 
   return (
     <>
       <div className="create-album-component">
         <div>
-          <h1>Create A New Album</h1>
+          <h1>Create Something New</h1>
+          <h4>New Album</h4>
         </div>
         <form onSubmit={handleNewAlbumForm}>
           <div className="create-album-details">
@@ -55,6 +71,7 @@ export default function CreateAlbumComponent() {
                 type="text"
                 id="title"
                 name="title"
+                required
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
@@ -71,20 +88,32 @@ export default function CreateAlbumComponent() {
               />
             </div>
             <div>
-              <label htmlFor="image">Album Image</label>
+              <label htmlFor="image">Image File*</label>
               <input
                 className="create-album-input"
-                type="text"
+                type="file"
                 id="image"
                 name="image"
-                placeholder="optional"
-                value={albumImage}
-                onChange={(e) => setAlbumImage(e.target.value)}
+                required
+                onChange={(e) => uploadImageFile(e)}
               />
             </div>
           </div>
-          <div>
-            <button type="submit">Save</button>
+          <div className="create-album-buttons">
+            <button
+              disabled={disableButton}
+              className="create-album-button"
+              type="submit"
+            >
+              Save
+            </button>
+            <button
+              disabled={disableButton}
+              className="create-album-cancel-button"
+              onClick={handleCancelBtn}
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>

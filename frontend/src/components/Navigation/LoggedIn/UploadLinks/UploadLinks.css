@@ -1,0 +1,22 @@
+.upload-media-navLinks {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-size: 25px;
+  font-family: sans-serif;
+}
+
+.upload-navLink {
+    color: #333;
+    padding: 0 25px;
+}
+
+.upload-navLink:hover {
+    text-decoration: underline;
+    color: #ff5501
+}
+
+.upload-navLink.active {
+    text-decoration: underline;
+    color: #ff5501;
+}
