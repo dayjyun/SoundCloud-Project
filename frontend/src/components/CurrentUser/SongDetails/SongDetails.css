@@ -39,6 +39,14 @@
   padding: 12px;
 }
 
+.song-details-album-title > a {
+  color: #333
+}
+
+.song-details-album-title > a:hover {
+  color: #FF5501;
+}
+
 .user-song-buttons {
   display: flex;
   justify-content: space-around;
