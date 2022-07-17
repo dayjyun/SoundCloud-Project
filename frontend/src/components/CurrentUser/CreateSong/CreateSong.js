@@ -11,6 +11,7 @@ export default function CreateSongComponent() {
     "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [songUrl, setSongUrl] = useState("");
   const [songImage, setSongImage] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
   const [disableButton, setDisableButton] = useState(false);
@@ -24,6 +25,7 @@ export default function CreateSongComponent() {
       uploadSong({
         title,
         description,
+        url: songUrl,
         imageUrl: songImage || defaultSongImage,
       })
     )
@@ -43,6 +45,12 @@ export default function CreateSongComponent() {
     setValidationErrors([]);
     setDisableButton(false);
   };
+
+  const uploadAudioFile = e => {
+    e.preventDefault()
+    const songFile = e.target.files[0]
+    setSongUrl(songFile);
+  }
 
   const uploadImageFile = (e) => {
     e.preventDefault();
@@ -83,6 +91,17 @@ export default function CreateSongComponent() {
               name="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="audio">Audio File*</label>
+            <input
+                className="create-song-input"
+                type='file'
+                id='audio'
+                name='audio'
+                required
+                onChange={e => uploadAudioFile(e)}
             />
           </div>
           <div>
