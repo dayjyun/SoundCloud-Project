@@ -15,8 +15,6 @@ function SongDetails() {
   const albums = Object.values(useSelector((state) => state.albums));
   const album = albums.filter((album) => album.id === song.albumId);
 
-  console.log({ album });
-
   useEffect(() => {
     dispatch(getSong(+songId));
   }, [dispatch, songId]);
@@ -60,9 +58,11 @@ function SongDetails() {
             <div className="song-info-header">
               <h1>{song?.title}</h1>
               <h2>by {song?.Artist?.username}</h2>
-              <h2 className="song-details-album-title">
-                on <Link to={`/albums/${album[0].id}`}>{album[0].title}</Link>
-              </h2>
+              {song?.albumId && (
+                <h2 className="song-details-album-title">
+                  on <Link to={`/albums/${album[0].id}`}>{album[0].title}</Link>
+                </h2>
+              )}
             </div>
             <p>{song?.description}</p>
             <div className="bottom-song-container">

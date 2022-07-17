@@ -49,7 +49,6 @@ export default function UploadSongForm({ setShowUploadBtn }) {
       })
       .catch(async (res) => {
         const data = await res.json();
-        console.log(data)
         if (data && data.errors) {
           setValidationErrors(data.errors);
         }

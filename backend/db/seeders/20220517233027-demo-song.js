@@ -119,7 +119,7 @@ module.exports = {
         userId: 4,
         albumId: 4,
         url: "https://sspu.s3.us-east-2.amazonaws.com/sspu_music/Carnavas/07+Lazy+Eye.mp3",
-        imageUrl: "https://sspu.s3.us-east-2.amazonaws.com/SSPU_Swoon.jfif",
+        imageUrl: "https://sspu.s3.us-east-2.amazonaws.com/SSPU_Carnavas.jfif",
       },
       {
         // 13
