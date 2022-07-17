@@ -59,7 +59,8 @@ export default function CreateAlbumComponent() {
     <>
       <div className="create-album-component">
         <div>
-          <h1>Create A New Album</h1>
+          <h1>Create Something New</h1>
+          <h4>New Album</h4>
         </div>
         <form onSubmit={handleNewAlbumForm}>
           <div className="create-album-details">

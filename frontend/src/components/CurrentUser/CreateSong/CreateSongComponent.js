@@ -66,7 +66,8 @@ export default function CreateSongComponent() {
   return (
     <div className="create-song-component">
       <div>
-        <h1>Create A New Song</h1>
+        <h1>Create Something New</h1>
+        <h4>New Song</h4>
       </div>
       <form onSubmit={handleCreateSongButton}>
         <ul>
