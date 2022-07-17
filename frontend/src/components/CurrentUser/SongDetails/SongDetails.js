@@ -54,12 +54,24 @@ function SongDetails() {
     <>
       <div className="song-detail-container">
         <div className="song-info song-info-div">
-          <div className="song-info-left song-info-div">
+          <div className="song-details-left song-details-div">
+            <div></div>
             <img
               className="song-image-detail song-info-div"
               src={song?.previewImage}
               alt={song?.title}
             />
+            <div
+              className="sd-play-action-overlay"
+              onClick={() => songBtn(song)}
+            >
+              <button
+                className="play-button-currentSong"
+                onClick={() => songBtn(song)}
+              >
+                <i className={"fas fa-play"}></i>
+              </button>
+            </div>
           </div>
           <div className="song-info-right song-info-div">
             <div className="song-info-header">
@@ -67,7 +79,8 @@ function SongDetails() {
               <h2>by {song?.Artist?.username}</h2>
               {song?.albumId && (
                 <h2 className="song-details-album-title">
-                  on <Link to={`/albums/${album[0]?.id}`}>{album[0]?.title}</Link>
+                  on{" "}
+                  <Link to={`/albums/${album[0]?.id}`}>{album[0]?.title}</Link>
                 </h2>
               )}
             </div>
