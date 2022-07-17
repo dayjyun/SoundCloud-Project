@@ -48,17 +48,17 @@ export default function EditSongForm({ setShowSongEdit }) {
       setDisableButton(false);
   };
 
-  const uploadSongFile = e => {
-    e.preventDefault();
-    const songFile = e.target.files[0];
-    setUrl(songFile);
-  }
+  // const uploadSongFile = e => {
+  //   e.preventDefault();
+  //   const songFile = e.target.files[0];
+  //   setUrl(songFile);
+  // }
 
-  const uploadImageFile = e => {
-    e.preventDefault()
-    const imageFile = e.target.files[0]
-    setPreviewImage(imageFile)
-  }
+  // const uploadImageFile = e => {
+  //   e.preventDefault()
+  //   const imageFile = e.target.files[0]
+  //   setPreviewImage(imageFile)
+  // }
 
   const handleCancelBtn = (e) => {
     e.preventDefault();
@@ -103,7 +103,7 @@ export default function EditSongForm({ setShowSongEdit }) {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div className="enter-song">
+          {/* <div className="enter-song">
             <label htmlFor="url">Audio*</label>
             <input
               type="file"
@@ -122,7 +122,7 @@ export default function EditSongForm({ setShowSongEdit }) {
               required
               onChange={(e) => uploadImageFile(e)}
             />
-          </div>
+          </div> */}
           <div className="save-button-edit-song">
             <button
               disabled={disableButton}

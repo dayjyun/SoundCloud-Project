@@ -2,13 +2,21 @@ const express = require("express");
 const router = express.Router();
 
 const { requireAuth } = require("../utils/auth.js");
-const { validateSong, validateComment, validatePage } = require("../utils/validation");
+const {
+  validateSong,
+  validateComment,
+  validatePage,
+} = require("../utils/validation");
 
 const { Song, Album, User, Comment, sequelize } = require("../db/models");
 
 const { environment } = require("../config");
-const { singleMulterUpload, multipleFileKeysUpload, singlePublicFileUpload } = require("../awsS3.js");
-const isProduction = environment === 'production';
+const {
+  singleMulterUpload,
+  multipleFileKeysUpload,
+  singlePublicFileUpload,
+} = require("../awsS3.js");
+const isProduction = environment === "production";
 
 // GET
 
@@ -85,7 +93,7 @@ router.get("/", validatePage, async (req, res) => {
   if (size) size = parseInt(size);
 
   let where = {}; // search filters (title, createdAt)
-  let pag = {}
+  let pag = {};
 
   if (!page) page = 0;
   if (!size) size = 20;
@@ -130,7 +138,7 @@ router.get("/", validatePage, async (req, res) => {
       [sequelize.col("Song.imageUrl"), "previewImage"],
     ],
     where: { ...where },
-    ...pag
+    ...pag,
   });
   res.json({ Songs, page, size });
 });
@@ -166,13 +174,22 @@ router.post(
 
 // Create a song
 
-router.post("/", requireAuth, multipleFileKeysUpload([{ name: "url", maxCount: 1 }, {
-  name: "imageUrl", maxCount: 1}]), validateSong, async(req, res) => {
+router.post(
+  "/",
+  requireAuth,
+  multipleFileKeysUpload([
+    { name: "url", maxCount: 1 },
+    {
+      name: "imageUrl",
+      maxCount: 1,
+    },
+  ]),
+  validateSong,
+  async (req, res) => {
     const { user } = req;
     const { title, description } = req.body;
     const url = await singlePublicFileUpload(req.files.url[0]);
-    const imageUrl = await singlePublicFileUpload(
-      req.files.imageUrl[0]);
+    const imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
 
     const newSong = await Song.create({
       title,
@@ -180,59 +197,48 @@ router.post("/", requireAuth, multipleFileKeysUpload([{ name: "url", maxCount: 1
       url,
       imageUrl,
       userId: user.id,
-    })
+    });
     newSong.dataValues.previewImage = imageUrl;
-    delete newSong.dataValues.imageUrl
+    delete newSong.dataValues.imageUrl;
 
     res.status(201);
-    res.json(newSong)
+    res.json(newSong);
   }
-)
+);
 
 // PUT
 
 // Edit A Song
-router.put(
-  "/:songId",
-  requireAuth,
-  multipleFileKeysUpload([
-    { name: "url", maxCount: 1 },
-    { name: "imageUrl", maxCount: 1 },
-  ]),
-  validateSong,
-  async (req, res) => {
-    const { user } = req;
-    const { songId } = req.params;
-    const { title, description } = req.body;
-    const url = await singlePublicFileUpload(req.files.url[0]);
-    const imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
-    const song = await Song.findByPk(songId);
+router.put("/:songId", requireAuth, validateSong, async (req, res) => {
+  const { user } = req;
+  const { songId } = req.params;
+  const { title, description, url, imageUrl } = req.body;
+  const song = await Song.findByPk(songId);
 
-    if (!song) {
-      const error = new Error("Song not found");
-      error.status = 404;
-      throw error;
+  if (!song) {
+    const error = new Error("Song not found");
+    error.status = 404;
+    throw error;
+  } else {
+    if (song.userId === user.id) {
+      await song.update({
+        title,
+        description,
+        url,
+        imageUrl,
+      });
+
+      song.dataValues.previewImage = imageUrl;
+      delete song.dataValues.imageUrl;
+
+      res.json(song);
     } else {
-      if (song.userId === user.id) {
-        await song.update({
-          title,
-          description,
-          url,
-          imageUrl,
-        });
-
-        song.dataValues.previewImage = imageUrl;
-        delete song.dataValues.imageUrl;
-
-        res.json(song);
-      } else {
-        const error = Error("Unauthorized");
-        error.status = 403;
-        throw error;
-      }
+      const error = Error("Unauthorized");
+      error.status = 403;
+      throw error;
     }
   }
-);
+});
 
 // DELETE
 

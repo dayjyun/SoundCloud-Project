@@ -82,3 +82,9 @@
 .song-info-div {
   line-height: 1.2;
 }
+
+.sd-play-action-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

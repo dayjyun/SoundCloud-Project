@@ -82,9 +82,8 @@ router.post("/:albumId",requireAuth, multipleFileKeysUpload([ { name: "url", max
     { name: "imageUrl", maxCount: 1 }]), validateSong, async (req, res) => {
     const { user } = req;
     const { albumId } = req.params;
-    const { title, description } = req.body;
+    const { title, description, imageUrl } = req.body;
     const url = await singlePublicFileUpload(req.files.url[0]);
-    const imageUrl = await singlePublicFileUpload(req.files.imageUrl[0]);
     const album = await Album.findByPk(albumId);
 
     if (album) {
@@ -143,11 +142,11 @@ router.post(
 // PUT
 
 // Edit An Album
-router.put("/:albumId", requireAuth, singleMulterUpload("imageUrl"), validateAlbum, async (req, res) => {
+router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
   const { user } = req;
   const { albumId } = req.params;
-  const { title, description} = req.body;
-  const imageUrl = await singlePublicFileUpload(req.file);
+  const { title, description, imageUrl} = req.body;
+  // const imageUrl = await singlePublicFileUpload(req.file);
   const album = await Album.findByPk(albumId);
 
   if (album) {

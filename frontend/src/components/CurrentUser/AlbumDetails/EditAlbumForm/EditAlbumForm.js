@@ -35,6 +35,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
       })
       .catch(async (res) => {
         const err = await res.json();
+        console.log(err.errors)
         if (err) {
           setValidationErrors(err.errors);
         }
@@ -92,21 +93,16 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div className="enter-album">
-            <label htmlFor="previewImage">Image*</label>
-            <input
-              type="file"
-              id="previewImage"
-              name="previewImage"
-              required
-              onChange={(e) => uploadImageFile(e)}
-            />
-          </div>
           <div className="save-button-edit-album">
-            <button disabled={disableButton} className="save-button-album" type="submit">
+            <button
+              disabled={disableButton}
+              className="save-button-album"
+              type="submit"
+            >
               Save
             </button>
-            <button disabled={disableButton}
+            <button
+              disabled={disableButton}
               className="edit-album-cancel-button"
               onClick={handleCancelBtn}
             >
