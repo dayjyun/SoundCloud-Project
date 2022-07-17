@@ -11,7 +11,6 @@ import "./AllSongsLoader.css";
 export default function AllSongsLoader() {
   const dispatch = useDispatch();
   const songs = Object.values(useSelector((state) => state.songs));
-  const [currentSong, setCurrentSong] = useState(null);
   const [playIcon, setPlayIcon] = useState("fas fa-play");
 
   useEffect(() => {

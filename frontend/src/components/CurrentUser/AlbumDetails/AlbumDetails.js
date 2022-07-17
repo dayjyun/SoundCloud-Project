@@ -5,6 +5,7 @@ import { deleteAlbum, getAlbum } from "../../../store/albumReducer";
 import EditAlbumBtn from "./EditAlbumBtn/EditAlbumBtn";
 import UploadSongBtn from "./UploadSong/UploadSongBtn";
 import "./AlbumDetails.css";
+import AlbumSongsLoader from "./AlbumSongsLoader/AlbumSongsLoader";
 
 export default function AlbumDetails() {
   const { albumId } = useParams();
@@ -65,6 +66,7 @@ export default function AlbumDetails() {
             </div>
           </div>
         </div>
+        <AlbumSongsLoader />
       </div>
     </>
   );
