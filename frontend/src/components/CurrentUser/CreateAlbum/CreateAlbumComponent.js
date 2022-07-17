@@ -6,9 +6,9 @@ import "./CreateAlbumComponent.css";
 
 export default function CreateAlbumComponent() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const defaultAlbumImg =
     "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
-  const history = useHistory();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [albumImage, setAlbumImage] = useState("");
@@ -40,6 +40,7 @@ export default function CreateAlbumComponent() {
     setTitle("");
     setDescription("");
     setAlbumImage("");
+    setValidationErrors([])
     setDisableButton(false);
   };
 
@@ -69,6 +70,7 @@ export default function CreateAlbumComponent() {
                 type="text"
                 id="title"
                 name="title"
+                required
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />

@@ -13,6 +13,7 @@ import AlbumDetails from "./components/CurrentUser/AlbumDetails/AlbumDetails";
 import CreateAlbumComponent from "./components/CurrentUser/CreateAlbum/CreateAlbumComponent";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import SplashPage from "./components/Navigation/SplashPage/SplashPage";
+import CreateSongComponent from "./components/CurrentUser/CreateSong/CreateSong";
 
 function App() {
   const dispatch = useDispatch();
@@ -48,11 +49,13 @@ function App() {
           </Route>
 
           <Route exact path="/me/albums">
+            <h3>Upload Song Upload Album NavLinks</h3>
             <CreateAlbumComponent />
           </Route>
 
           <Route exact path="/me/songs">
-            <h1>Create Song Component</h1>
+            <h3>Upload Song Upload Album NavLinks</h3>
+            <CreateSongComponent />
           </Route>
 
           <Route exact path="/me">
@@ -60,13 +63,11 @@ function App() {
             <CurrentAlbum />
           </Route>
 
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <SplashPage />
-          </Route>
+          </Route> */}
 
-          <Route>
-            {sessionUser && <ErrorPage />}
-          </Route>
+          <Route>{sessionUser && <ErrorPage />}</Route>
         </Switch>
       )}
     </>

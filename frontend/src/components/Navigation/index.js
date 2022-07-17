@@ -7,7 +7,7 @@ import SoundCloudText from "./SoundCloudText/SoundCloudText";
 import HomeButton from "./LoggedIn/HomeButton/HomeButton";
 import SearchBar from "./LoggedIn/SearchBar/SearchBar";
 import AllSongsLibraryBtn from "./LoggedIn/LibraryButton/LibraryBtn";
-import Upload from "./LoggedIn/UploadSongs/UploadSongs";
+import UploadButton from "./LoggedIn/UploadButton/UploadButton";
 import ProfileButton from "./LoggedIn/ProfileButton/ProfileButton";
 import Player from "./Player/Player";
 import SplashPage from "./SplashPage/SplashPage";
@@ -25,7 +25,7 @@ function Navigation({ isLoaded }) {
           <AllSongsLibraryBtn />
           <SearchBar />
           <div className="logged-in-right">
-            <Upload />
+            <UploadButton />
             <ProfileButton user={sessionUser} />
           </div>
         </div>
