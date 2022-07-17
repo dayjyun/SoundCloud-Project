@@ -1,9 +1,6 @@
 .album-songs-container {
-    /* outline: 3px solid red; */
     display: grid;
     grid-template-columns: repeat(3, 2fr);
-    /* height: 7rem; */
-    /* width: 40rem; */
     text-align: center;
     align-items: center;
     padding: 1rem 2rem;
