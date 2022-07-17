@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import "./Navigation.css";
 
-// logged in
 import SoundCloudText from "./SoundCloudText/SoundCloudText";
 import HomeButton from "./LoggedIn/HomeButton/HomeButton";
 import SearchBar from "./LoggedIn/SearchBar/SearchBar";

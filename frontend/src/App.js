@@ -6,15 +6,14 @@ import Navigation from "./components/Navigation";
 import MediaLinks from "./components/Navigation/LoggedIn/MediaLinks/MediaLinks";
 import AllSongsLoader from "./components/Navigation/LoggedIn/AllSongsLibrary/AllSongsLoader";
 import AllAlbumsLoader from "./components/Navigation/LoggedIn/AllAlbumsLibrary/AllAlbumsLoader";
-import CurrentSong from "./components/CurrentUser/CurrentSong/CurrentSong";
-import CurrentAlbum from "./components/CurrentUser/CurrentAlbum/CurrentAlbum";
+import SongCard from "./components/CurrentUser/SongCard/SongCard";
+import AlbumCard from "./components/CurrentUser/AlbumCard/AlbumCard";
 import SongDetails from "./components/CurrentUser/SongDetails/SongDetails";
 import AlbumDetails from "./components/CurrentUser/AlbumDetails/AlbumDetails";
 import CreateAlbumComponent from "./components/CurrentUser/CreateAlbum/CreateAlbumComponent";
 import CreateSongComponent from "./components/CurrentUser/CreateSong/CreateSongComponent";
 import UploadLinks from "./components/Navigation/LoggedIn/UploadLinks/UploadLinks";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
-import SplashPage from "./components/Navigation/SplashPage/SplashPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -60,14 +59,9 @@ function App() {
           </Route>
 
           <Route exact path="/me">
-            <CurrentSong />
-            <CurrentAlbum />
+            <SongCard />
+            <AlbumCard />
           </Route>
-
-          {/* <Route exact path="/">
-            <SplashPage />
-          </Route> */}
-
           <Route>{sessionUser && <ErrorPage />}</Route>
         </Switch>
       )}
