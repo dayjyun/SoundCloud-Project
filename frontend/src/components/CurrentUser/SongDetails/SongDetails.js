@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { deleteSong, getSong } from "../../../store/songReducer";
 import EditSongBtn from "../Edit/EditSongBtn";
 import "./SongDetails.css";
+
+import "react-h5-audio-player/lib/styles.css";
+import { playSong } from "../../../store/playerReducer";
 
 function SongDetails() {
   const { songId } = useParams();
@@ -18,6 +21,10 @@ function SongDetails() {
   useEffect(() => {
     dispatch(getSong(+songId));
   }, [dispatch, songId]);
+
+  const songBtn = useCallback(song => {
+    dispatch(playSong(song))
+  }, [dispatch])
 
   const handleSongDelete = (e) => {
     e.preventDefault();
@@ -60,7 +67,7 @@ function SongDetails() {
               <h2>by {song?.Artist?.username}</h2>
               {song?.albumId && (
                 <h2 className="song-details-album-title">
-                  on <Link to={`/albums/${album[0].id}`}>{album[0].title}</Link>
+                  on <Link to={`/albums/${album[0]?.id}`}>{album[0]?.title}</Link>
                 </h2>
               )}
             </div>

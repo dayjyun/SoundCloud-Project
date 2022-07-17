@@ -52,7 +52,7 @@ export default function AllSongsLoader() {
                     className="play-button-allSongs"
                     onClick={() => songBtn(song)}
                   >
-                    <i className={playIcon} onClick={handlePlayIcon}></i>
+                    <i className="fas fa-play" onClick={handlePlayIcon}></i>
                   </button>
                 </div>
               </div>
