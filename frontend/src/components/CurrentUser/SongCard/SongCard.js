@@ -6,24 +6,20 @@ import { playSong } from "../../../store/playerReducer";
 import { getAllSongs } from "../../../store/songReducer";
 
 import "react-h5-audio-player/lib/styles.css";
-import "./CurrentSong.css";
+import "./SongCard.css";
 
-export default function CurrentSong() {
+export default function SongCard() {
   const dispatch = useDispatch();
   const songs = Object.values(useSelector((state) => state.songs));
   const user = useSelector((state) => state.session.user);
-  const [playIcon, setPlayIcon] = useState("fas fa-play");
 
   useEffect(() => {
     dispatch(getAllSongs());
   }, [dispatch]);
 
-  const songBtn = useCallback(
-    (song) => {
+  const songBtn = useCallback(song => {
       dispatch(playSong(song));
-    },
-    [dispatch]
-  );
+    }, [dispatch]);
 
   return (
     <>
@@ -49,7 +45,7 @@ export default function CurrentSong() {
                         className="play-button-currentSong"
                         onClick={() => songBtn(song)}
                       >
-                        <i className={playIcon}></i>
+                        <i className={"fas fa-play"}></i>
                       </button>
                     </div>
                   </div>
