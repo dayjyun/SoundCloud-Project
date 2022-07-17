@@ -93,15 +93,6 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          {/* <div className="enter-album">
-            <label htmlFor="previewImage">Image</label>
-            <input
-              type="file"
-              id="previewImage"
-              name="previewImage"
-              onChange={(e) => uploadImageFile(e)}
-            />
-          </div> */}
           <div className="save-button-edit-album">
             <button
               disabled={disableButton}
