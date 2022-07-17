@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/sessionReducer";
 import Navigation from "./components/Navigation";
-import MediaLinks from "./components/Navigation/LoggedIn/Media/MediaLinks";
+import MediaLinks from "./components/Navigation/LoggedIn/MediaLinks/MediaLinks";
 import AllSongsLoader from "./components/Navigation/LoggedIn/AllSongsLibrary/AllSongsLoader";
 import AllAlbumsLoader from "./components/Navigation/LoggedIn/AllAlbumsLibrary/AllAlbumsLoader";
 import CurrentSong from "./components/CurrentUser/CurrentSong/CurrentSong";
@@ -11,9 +11,10 @@ import CurrentAlbum from "./components/CurrentUser/CurrentAlbum/CurrentAlbum";
 import SongDetails from "./components/CurrentUser/SongDetails/SongDetails";
 import AlbumDetails from "./components/CurrentUser/AlbumDetails/AlbumDetails";
 import CreateAlbumComponent from "./components/CurrentUser/CreateAlbum/CreateAlbumComponent";
+import CreateSongComponent from "./components/CurrentUser/CreateSong/CreateSongComponent";
+import UploadLinks from "./components/Navigation/LoggedIn/UploadLinks/UploadLinks";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import SplashPage from "./components/Navigation/SplashPage/SplashPage";
-import CreateSongComponent from "./components/CurrentUser/CreateSong/CreateSong";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,12 +50,12 @@ function App() {
           </Route>
 
           <Route exact path="/me/albums">
-            <h3>Upload Song Upload Album NavLinks</h3>
+            <UploadLinks />
             <CreateAlbumComponent />
           </Route>
 
           <Route exact path="/me/songs">
-            <h3>Upload Song Upload Album NavLinks</h3>
+            <UploadLinks />
             <CreateSongComponent />
           </Route>
 

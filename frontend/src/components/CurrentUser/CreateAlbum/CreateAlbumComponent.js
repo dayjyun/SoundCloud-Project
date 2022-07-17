@@ -87,7 +87,7 @@ export default function CreateAlbumComponent() {
               />
             </div>
             <div>
-              <label htmlFor="image">Album Image*</label>
+              <label htmlFor="image">Image File*</label>
               <input
                 className="create-album-input"
                 type="file"
@@ -98,7 +98,7 @@ export default function CreateAlbumComponent() {
               />
             </div>
           </div>
-          <div>
+          <div className="create-album-buttons">
             <button
               disabled={disableButton}
               className="create-album-button"

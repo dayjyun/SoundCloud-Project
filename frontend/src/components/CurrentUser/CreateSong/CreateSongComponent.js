@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { newSong } from "../../../store/songReducer";
-import "./CreateSong.css";
+import "./CreateSongComponent.css";
 
 export default function CreateSongComponent() {
   const dispatch = useDispatch();
@@ -110,7 +110,7 @@ export default function CreateSongComponent() {
             />
           </div>
           <div>
-            <label htmlFor="Audio Image">Audio Image*</label>
+            <label htmlFor="Audio Image">Image File*</label>
             <input
               className="create-song-input"
               type="file"
@@ -121,7 +121,7 @@ export default function CreateSongComponent() {
             />
           </div>
         </div>
-        <div>
+        <div className="create-song-buttons">
           <button
             disabled={disableButton}
             className="create-song-button"

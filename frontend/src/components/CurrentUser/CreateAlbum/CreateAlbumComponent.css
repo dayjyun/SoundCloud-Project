@@ -19,3 +19,17 @@
     justify-content: center;
     align-items: center;
 }
+
+.create-album-buttons {
+    border: 2px solid yellow;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.create-album-button,
+.create-album-cancel-button {
+  margin-top: 2px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
