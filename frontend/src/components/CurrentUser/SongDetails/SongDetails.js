@@ -79,7 +79,7 @@ function SongDetails() {
               <h2>by {song?.Artist?.username}</h2>
               {song?.albumId && (
                 <h2 className="song-details-album-title">
-                  on{" "}
+                  Album{" "}
                   <Link to={`/albums/${album[0]?.id}`}>{album[0]?.title}</Link>
                 </h2>
               )}
