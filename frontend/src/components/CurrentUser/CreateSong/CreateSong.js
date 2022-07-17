@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { uploadSong } from "../../../store/songReducer";
+import { newSong } from "../../../store/songReducer";
 import "./CreateSong.css";
 
 export default function CreateSongComponent() {
@@ -22,7 +22,7 @@ export default function CreateSongComponent() {
     setDisableButton(true);
 
     await dispatch(
-      uploadSong({
+      newSong({
         title,
         description,
         url: songUrl,
@@ -68,7 +68,7 @@ export default function CreateSongComponent() {
       <div>
         <h1>Create A New Song</h1>
       </div>
-      <fom onSubmit={handleCreateSongButton}>
+      <form onSubmit={handleCreateSongButton}>
         <div className="create-song-details">
           <div>
             <label htmlFor="title">Song Title*</label>
@@ -105,7 +105,7 @@ export default function CreateSongComponent() {
             />
           </div>
           <div>
-            <label htmlFor="Song Image">Song Image*</label>
+            <label htmlFor="Audio Image">Audio Image*</label>
             <input
               className="create-song-input"
               type="file"
@@ -132,7 +132,7 @@ export default function CreateSongComponent() {
             Cancel
           </button>
         </div>
-      </fom>
+      </form>
     </div>
   );
 }
