@@ -15,8 +15,6 @@ function SongDetails() {
   const albums = Object.values(useSelector((state) => state.albums));
   const album = albums.filter((album) => album.id === song.albumId);
 
-  console.log(song.albumId);
-
   useEffect(() => {
     dispatch(getSong(+songId));
   }, [dispatch, songId]);
