@@ -125,7 +125,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               onChange={(e) => uploadSongFile(e)}
             />
           </div>
-          <div className="upload-song">
+          {/* <div className="upload-song">
             <label htmlFor="previewImage">Image*</label>
             <input
               type="file"
@@ -134,7 +134,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               required
               onChange={(e) => uploadImageFile(e)}
             />
-          </div>
+          </div> */}
           <div className="save-button-upload-song">
             <button
               disabled={disableButton}

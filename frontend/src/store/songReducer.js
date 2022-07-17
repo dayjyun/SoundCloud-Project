@@ -52,7 +52,7 @@ const updateSong = (song) => {
 }
 
 export const editSong = (songData) => async(dispatch) => {
-  let { title, description, url, imageUrl } = songData;
+  const { title, description, url, imageUrl } = songData;
   const formData = new FormData();
 
   formData.append("title", title)

@@ -80,28 +80,40 @@ const updateAlbum = (album) => {
   };
 };
 
-export const editAlbum = (albumDetails) => async (dispatch) => {
-  let { title, description, imageUrl } = albumDetails;
-  const formData = new FormData();
-
-  formData.append("title", title);
-  formData.append("description", description);
-
-  if (imageUrl) formData.append("imageUrl", imageUrl);
-
-  const album = await csrfFetch(`/api/albums/${albumDetails.id}`, {
+export const editAlbum = (album) => async (dispatch) => {
+  const newAlbum = await csrfFetch(`/api/albums/${album.id}`, {
     method: "PUT",
     headers: {
-      "Content-Type": "multipart/form-data",
+      "Content-Type": "application/json",
     },
-    body: formData,
+    body: JSON.stringify(album),
   });
-
-  if (album.ok) {
-    const res = await album.json();
+  if (newAlbum.ok) {
+    const res = await newAlbum.json();
     dispatch(updateAlbum(res));
   }
 };
+
+// export const editAlbum = (albumDetails) => async (dispatch) => {
+//   const { title, description } = albumDetails;
+//   const formData = new FormData();
+
+//   formData.append("title", title);
+//   formData.append("description", description);
+
+//   const album = await csrfFetch(`/api/albums/${albumDetails.id}`, {
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//     body: formData,
+//   });
+
+//   if (album.ok) {
+//     const res = await album.json();
+//     dispatch(updateAlbum(res));
+//   }
+// };
 
 // delete album
 const removeAlbum = (id) => {
