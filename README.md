@@ -4,11 +4,24 @@
 The SoundCloud Project is a web application designed to replicate some functionalities found in [SoundCloud](SoundCloud.com).
 
 Sign-up, login, or try out a Demo user. The repo is your playground.
-Once in you'll be able to upload songs and hear works submitted by other users. Design your unique cover images to stand out and represent your creativity.
+Once inside, you'll be able to upload songs and hear works submitted by other users. Design your unique cover images to stand out and represent your creativity.
+
+To run the file
+
+1. Create an *AWS S3* bucket through [AWS](aws.amazon.com)
+2. Create a .env file and make sure to have these components filled out
+    - PORT
+    - DB_FILE
+    - JWT_SECRET
+    - JWT_EXPIRES_IN
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+
+Or you can checkout the website itself. Check it out!
+
+## [SoundCloud Project](https://soundcloud-project-app.herokuapp.com/)
 
 ***Explore, listen, and create.***
-
-Check it out! [SoundCloud Project](https://soundcloud-project-app.herokuapp.com/)
 
 # Tech
 
@@ -61,8 +74,11 @@ Here are the things that you can do:
 
 
 # Teach
-It's hard to image the much work put into something that seems rather fundamental. One of the codes that was fun to work on was creating a stand-alone song that doesn't rely on being part of an album, as songs can be released as singles without being part of piece of a whole.
+It's hard to image the much work put into something that seems rather fundamental. One of the codes that was fun to work on was creating a stand-alone song that doesn't rely on being part of an album, as songs can be released as singles without being part of a whole idea.
 
+Backend:
+
+```
 router.post("/", requireAuth, multipleFileKeysUpload([{ name: "url", maxCount: 1 }, { name: "imageUrl", maxCount: 1, }, ]), validateSong,
   async (req, res) => {
     const { user } = req;
@@ -84,13 +100,16 @@ router.post("/", requireAuth, multipleFileKeysUpload([{ name: "url", maxCount: 1
     res.json(newSong);
   }
 );
+```
 
 # Future Features
+
+Lastly, there's always room for more...
+
 - Song and Album sorting methods (A-Z, length, likes)
 - CRUD actions for Playlists
-- CRUD actions for Comments on songs
+- CRUD actions for song Comments
 - Likes
 - Search artists
-- Follow artists
 - Establish genre parameters
-- Confirm song deletion
+- Second step to confirm song deletion
