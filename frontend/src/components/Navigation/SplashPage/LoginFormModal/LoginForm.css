@@ -1,3 +1,4 @@
+/* index */
 .login-box {
   display: flex;
   justify-content: center;
@@ -16,37 +17,60 @@
   cursor: pointer;
 }
 
+/* Modal */
 .login-modal-container {
-  padding: 1.2rem;
+  outline: 2px solid white;
   border-style: none;
+  border-radius: 4px;
+  height: 25rem;
+  width: 30rem;
 }
 
-.logInModal {
-  background-color: #ff5501;
-  border-color: #ff5501;
+.login-modal-box {
+  padding: 1.2rem;
 }
 
-.signInText {
+.signIn-text {
   display: flex;
   justify-content: center;
   align-content: center;
   margin: 10px 0;
   white-space: nowrap;
   font-size: 1.5rem;
+  color: #333;
 }
 
-.userLogin {
-  margin: 6px 0px 0px;
+.login-errors {
+  margin: 6px 0px 0px 0px;
   padding: 10px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-login {
+  margin: 6px 0px 0px 0px;
+  padding: 10px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .init {
-  padding: 5px 10px;
-}
-
-.init-credential, .init-password {
   width: 12rem;
   padding: 3px;
+  font-weight: bold;
+}
+
+.init-credential,
+.init-password {
+  width: 12rem;
+  padding: 3px;
+}
+
+.logInModal {
+  background-color: #ff5501;
+  border-color: #ff5501;
 }
 
 .logInSubmit {
@@ -79,7 +103,8 @@
   margin: 10px 0 0 0;
 }
 
-.lp1, .lp2 {
+.lp1,
+.lp2 {
   display: flex;
   justify-content: center;
   align-items: center;

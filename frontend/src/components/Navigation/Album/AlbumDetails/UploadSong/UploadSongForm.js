@@ -73,12 +73,6 @@ export default function UploadSongForm({ setShowUploadBtn }) {
     setSongUrl(songFile);
   };
 
-  const uploadImageFile = (e) => {
-    e.preventDefault()
-    const imageFile = e.target.files[0];
-    setPreviewImage(imageFile);
-  };
-
   return (
     <div className="upload-song-form-container">
       <div className="upload-song-text">
@@ -125,16 +119,6 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               onChange={(e) => uploadSongFile(e)}
             />
           </div>
-          {/* <div className="upload-song">
-            <label htmlFor="previewImage">Image*</label>
-            <input
-              type="file"
-              id="previewImage"
-              name="previewImage"
-              required
-              onChange={(e) => uploadImageFile(e)}
-            />
-          </div> */}
           <div className="save-button-upload-song">
             <button
               disabled={disableButton}
