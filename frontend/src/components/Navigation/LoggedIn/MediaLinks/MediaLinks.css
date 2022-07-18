@@ -1,0 +1,22 @@
+.media-navLinks {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-size: 25px;
+  font-family: sans-serif;
+}
+
+.media {
+  color: #333;
+  padding: 0 25px;
+}
+
+.media:hover {
+  text-decoration: underline;
+  color: #ff5501;
+}
+
+.media.active {
+  text-decoration: underline;
+  color: #ff5501
+}

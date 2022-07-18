@@ -1,0 +1,100 @@
+.signUpBtn {
+  background-color: #ff5501;
+  border: 1px solid #ff5501;
+  color: white;
+  border-radius: 3px;
+  padding: 4px 26px;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* modal */
+.signup-modal-container {
+  outline: 2px solid white;
+  border-style: none;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2.8rem;
+}
+
+.signup-text {
+  /* outline: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  white-space: nowrap;
+  color: #333;
+  /* margin: 10px; */
+  /* font-size: 1.5rem; */
+}
+
+.sp1,
+.sp2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  line-height: 20px;
+  padding: 0.2rem;
+
+}
+
+.signup-errors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.signup-init {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup-input {
+  width: 15rem;
+  padding: 3px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.init-signup {
+  outline: none;
+  height: 2rem;
+  width: 30rem;
+  padding: 3px;
+}
+
+.signUpModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUpBtnModal {
+  background-color: #ff5501;
+  border: 1px solid #ff5501;
+  color: white;
+  border-radius: 3px;
+  padding: 8px 30px;
+  font-size: 14px;
+  font-family: sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+}

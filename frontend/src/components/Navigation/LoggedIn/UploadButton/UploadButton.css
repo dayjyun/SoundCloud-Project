@@ -1,0 +1,23 @@
+.uploadBtn {
+  background: transparent;
+  border: 0.5px solid #111;
+  border-style: none;
+  color: #CCC;
+  padding: 4px 15px;
+  font-size: 14px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadBtn:hover {
+  color: white;
+}
+
+.uploadBtn.active {
+  background-color: #111;
+  color: white
+}

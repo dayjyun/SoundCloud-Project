@@ -1,0 +1,71 @@
+.upload-song-form-container {
+  border: 2px solid white;
+  border-radius: 5px;
+  border-style: none;
+  outline: 2px solid white;
+  border-style: none;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.upload-song-form-box {
+  padding: 2.5rem;
+}
+
+.upload-song-text {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 10px;
+  padding-bottom: 10px;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.upload-song-form-errors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-song-init {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.upload-song-input {
+  width: 14rem;
+  padding: 3px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upload-song-init-input {
+  outline: none;
+  height: 2rem;
+  width: 15rem;
+  padding: 3px;
+}
+
+.save-button-upload-song {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin: 10px 0 0 0;
+  padding: 0.8rem 1.2rem;
+}
+
+.save-button-upload,
+.upload-song-cancel-button {
+  padding: 8px 15px;
+  cursor: pointer;
+}

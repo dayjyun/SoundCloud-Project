@@ -1,0 +1,56 @@
+.icon-box {
+  background: transparent;
+  align-items: center;
+}
+
+.iconBtn {
+  background: linear-gradient(135deg,#e6846e,#8e8485);
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #CCC;
+  cursor: pointer;
+}
+
+.profile-section:hover {
+  color: white;
+}
+
+.username-text {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.profile-dropdown {
+  background-color: white;
+  padding: 0 10px;
+  font-weight: bold;
+  position: absolute;
+  top: 50px;
+  border-top: none;
+  border-radius: 4px;
+  width: auto;
+  overflow-wrap: break-word;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 15%), 0 10px 24px rgb(0 0 0 / 8%),
+    0 1px 4px rgb(0 0 0 / 6%);
+}
+
+.profile-section.active {
+  background-color: #111;
+}
+
+.logoutBtn {
+  border-style: none;
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+}

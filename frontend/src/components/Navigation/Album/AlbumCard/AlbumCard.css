@@ -1,0 +1,130 @@
+.your-albums-text {
+  display: flex;
+  justify-content: center;
+  color: #333;
+  font-size: 25px;
+  font-family: sans-serif;
+}
+
+.current-albums-wrapper {
+  background: white;
+  padding: 0px 0px 10rem;
+  display: flex;
+  justify-content: center;
+}
+
+.current-albums-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.current-albums-wrapper > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px 5px auto;
+  max-width: 1280px;
+}
+
+.current-album-card {
+  width: 300px;
+  margin: 7px 12px 17px 12px;
+  border-radius: 8%;
+  box-shadow: 10px 5px 5px rgba(51, 51, 51, 0.507);
+  background-color: rgb(238, 238, 238);
+}
+
+.current-album-card p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  padding: 3px;
+  font-weight: 700;
+}
+
+.current-album-card:hover {
+  transform: scale(1.1);
+}
+
+.ca-card-img-wrapper {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 294px;
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+  border-radius: 19px;
+}
+
+.ca-card-img-wrapper img {
+  width: 100%;
+}
+
+.ca-play-action-overlay {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  opacity: 0;
+  position: absolute;
+  transition: all 250ms;
+  width: 100%;
+}
+
+.ca-play-action-overlay:hover {
+  opacity: 1;
+}
+
+.ca-play-action-overlay .list-style-play-btn {
+  margin-bottom: 0;
+}
+
+.current-album-link-text {
+  color: #0f1010;
+  transition: all 250ms;
+}
+
+.current-album-link-text:hover {
+  color: #ff5501;
+  font-weight: 700;
+}
+
+.fa-play {
+  padding: 1rem;
+}
+
+.fa-pause {
+  padding: 1rem;
+}
+
+.play-button-currentSong {
+  color: white;
+  align-items: center;
+  background: black;
+  border: 1px solid white;
+  border-radius: 50%;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  position: relative;
+  width: 40px;
+}
+
+.play-button-currentSong:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
+
+.current-album-title {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
