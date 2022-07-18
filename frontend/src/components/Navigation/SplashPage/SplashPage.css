@@ -4,12 +4,11 @@
 
 .splash-text {
   font-family: sans-serif;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   mix-blend-mode: multiply;
   padding: 2em 4em;
 }
