@@ -63,6 +63,11 @@ export default function CreateAlbumComponent() {
           <h4>New Album</h4>
         </div>
         <form onSubmit={handleNewAlbumForm}>
+          <ul className="create-album-form-errors">
+            {Object.values(validationErrors).map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
           <div className="create-album-details">
             <div className="create-album-box">
               <label htmlFor="title">Album Title*</label>
@@ -88,7 +93,7 @@ export default function CreateAlbumComponent() {
               />
             </div>
             <div className="create-album-box">
-              <label htmlFor="image">Image File*</label>
+              <label htmlFor="image">Album Cover*</label>
               <input
                 className="create-album-input"
                 type="file"

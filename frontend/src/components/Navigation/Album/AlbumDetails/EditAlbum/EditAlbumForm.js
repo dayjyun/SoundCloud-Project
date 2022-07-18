@@ -36,7 +36,6 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
       })
       .catch(async (res) => {
         const err = await res.json();
-        console.log(err.errors);
         if (err) {
           setValidationErrors(err.errors);
         }
