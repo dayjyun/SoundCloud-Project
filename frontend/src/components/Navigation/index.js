@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import "./Navigation.css";
 
-import SoundCloudText from "./SoundCloudText/SoundCloudText";
+import SoundCloudLogo from "./SoundCloudLogo/SoundCloudLogo";
 import HomeButton from "./LoggedIn/HomeButton/HomeButton";
 import SearchBar from "./LoggedIn/SearchBar/SearchBar";
 import AllSongsLibraryBtn from "./LoggedIn/LibraryButton/LibraryBtn";
@@ -19,7 +19,7 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <div className="logged-in-nav">
-          <SoundCloudText />
+          <SoundCloudLogo />
           <HomeButton />
           <AllSongsLibraryBtn />
           <SearchBar />

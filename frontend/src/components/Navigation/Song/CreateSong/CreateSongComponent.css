@@ -1,0 +1,55 @@
+.create-song-component-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-song-component {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 12rem 0;
+  transform: scale(1.5);
+  line-height: 1.3;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 15%), 0 10px 24px rgb(0 0 0 / 8%),
+    0 1px 4px rgb(0 0 0 / 6%);
+  padding: 1.5rem 0;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.create-song-details {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  border: none;
+}
+
+.create-song-box {
+  padding: 2px 0;
+}
+
+.create-song-input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 20rem;
+  outline: none;
+}
+
+.create-song-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.create-song-button,
+.create-song-cancel-button {
+  margin-top: 2px;
+  padding: 8px 15px;
+  cursor: pointer;
+}

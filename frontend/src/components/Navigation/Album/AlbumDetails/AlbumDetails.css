@@ -1,0 +1,78 @@
+.album-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 0 4rem;
+}
+
+.album-info {
+    margin: 0 8rem;
+}
+
+.album-info-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.album-image-detail {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 6px;
+    max-height: 70%;
+    max-width: 70%;
+    min-height: 300px;
+    min-width: 300px;
+}
+
+.album-info-right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.album-info-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 12px;
+}
+
+.user-album-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.delete-album-button {
+    cursor: pointer;
+    border-style: none;
+    padding: 8px 30px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    background-color: rgb(220, 0, 0);
+    color: white;
+}
+
+.delete-album-button:hover {
+    background-color: rgb(153, 1, 1);
+}
+
+.bottom-album-container {
+    width: 400px;
+}
+
+.album-info-right,
+.album-info-div {
+    line-height: 1.2;
+}

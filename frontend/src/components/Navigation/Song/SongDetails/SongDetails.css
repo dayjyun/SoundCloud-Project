@@ -1,0 +1,114 @@
+.song-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 0 4rem;
+}
+
+.song-info {
+  margin: 0 8rem;
+}
+
+.song-info-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.song-image-detail {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 6px;
+  max-height: 70%;
+  max-width: 70%;
+  min-height: 300px;
+  min-width: 300px;
+}
+
+.song-info-right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.song-info-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 12px;
+}
+
+.user-song-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.delete-song-button {
+  cursor: pointer;
+    border-style: none;
+    padding: 8px 30px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    background-color: rgb(220, 0, 0);
+    color: white;
+}
+
+.delete-song-button:hover {
+  background-color: rgb(153, 1, 1);
+}
+
+.bottom-song-container {
+  width: 400px;
+}
+
+.song-info-right,
+.song-info-div {
+  line-height: 1.2;
+}
+
+.song-details-album-title > a {
+  color: #333;
+}
+
+.song-details-album-title > a:hover {
+  color: #ff5501;
+}
+
+.play-button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* outline: 3px solid red; */
+}
+
+.play-button-currentSong-song-details {
+  cursor: pointer;
+    border-style: none;
+    padding: 8px 25px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    background-color: rgba(100, 100, 100, 0.562);
+    color: white;
+}
+
+.play-button-currentSong-song-details:hover {
+  background-color: rgba(36, 36, 36, 0.562);
+}
+
+.song-details-play-action-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
