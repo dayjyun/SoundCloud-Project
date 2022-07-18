@@ -3,3 +3,4 @@ node_modules
 build
 .DS_STORE
 backend/db/dev.db
+backendnotes.txt
