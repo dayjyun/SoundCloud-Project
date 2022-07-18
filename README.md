@@ -104,7 +104,7 @@ router.post("/", requireAuth, multipleFileKeysUpload([{ name: "url", maxCount: 1
 
 # Future Features
 
-Lastly, there's always room for more
+Lastly, there's always room for more...
 
 - Song and Album sorting methods (A-Z, length, likes)
 - CRUD actions for Playlists
