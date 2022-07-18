@@ -64,81 +64,83 @@ export default function CreateSongComponent() {
   };
 
   return (
-    <div className="create-song-component">
-      <div>
-        <h1>Create Something New</h1>
-        <h4>New Song</h4>
+    <div className="create-song-component-box">
+      <div className="create-song-component">
+        <div>
+          <h1>Create Something New</h1>
+          <h4>New Song</h4>
+        </div>
+        <form onSubmit={handleCreateSongButton}>
+          <ul>
+            {Object.values(validationErrors).map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+          <div className="create-song-details">
+            <div className="create-song-box">
+              <label htmlFor="title">Song Title*</label>
+              <input
+                className="create-song-input"
+                type="text"
+                id="title"
+                name="title"
+                required
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <div className="create-song-box">
+              <label htmlFor="description">Description</label>
+              <input
+                className="create-song-input"
+                type="text"
+                id="description"
+                name="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            <div className="create-song-box">
+              <label htmlFor="audio">Audio File*</label>
+              <input
+                className="create-song-input"
+                type="file"
+                id="audio"
+                name="audio"
+                required
+                onChange={(e) => uploadAudioFile(e)}
+              />
+            </div>
+            <div className="create-song-box">
+              <label htmlFor="Audio Image">Image File*</label>
+              <input
+                className="create-song-input"
+                type="file"
+                id="image"
+                name="image"
+                required
+                onChange={(e) => uploadImageFile(e)}
+              />
+            </div>
+          </div>
+          <div className="create-song-buttons">
+            <button
+              disabled={disableButton}
+              className="create-song-button"
+              type="submit"
+            >
+              Save
+            </button>
+            <button
+              disabled={disableButton}
+              className="create-song-cancel-button"
+              onClick={handleCancelBtn}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
-      <form onSubmit={handleCreateSongButton}>
-        <ul>
-          {Object.values(validationErrors).map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
-        <div className="create-song-details">
-          <div>
-            <label htmlFor="title">Song Title*</label>
-            <input
-              className="create-song-input"
-              type="text"
-              id="title"
-              name="title"
-              required
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="description">Description</label>
-            <input
-              className="create-song-input"
-              type="text"
-              id="description"
-              name="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="audio">Audio File*</label>
-            <input
-              className="create-song-input"
-              type="file"
-              id="audio"
-              name="audio"
-              required
-              onChange={(e) => uploadAudioFile(e)}
-            />
-          </div>
-          <div>
-            <label htmlFor="Audio Image">Image File*</label>
-            <input
-              className="create-song-input"
-              type="file"
-              id="image"
-              name="image"
-              required
-              onChange={(e) => uploadImageFile(e)}
-            />
-          </div>
-        </div>
-        <div className="create-song-buttons">
-          <button
-            disabled={disableButton}
-            className="create-song-button"
-            type="submit"
-          >
-            Save
-          </button>
-          <button
-            disabled={disableButton}
-            className="create-song-cancel-button"
-            onClick={handleCancelBtn}
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
     </div>
   );
 }
