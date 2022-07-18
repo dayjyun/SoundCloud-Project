@@ -1,28 +1,59 @@
-.edit-song-form-container {
-  padding: 1.2rem;
+.edit-song-container {
+  border: 2px solid white;
+  border-radius: 5px;
+  border-style: none;
+  outline: 2px solid white;
+  border-style: none;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.edit-song-form-box {
+  padding: 2.5rem;
 }
 
 .edit-song-text {
   display: flex;
   justify-content: center;
   align-content: center;
-  margin: 10px 0;
+  margin: 10px;
+  padding-bottom: 10px;
   white-space: nowrap;
   font-size: 1.5rem;
+  color: #333;
 }
 
-.song-input {
-  margin: 6px 0px 0px 0px;
-  padding: 10px;
-  display: grid;
+.edit-song-errors {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.enter-song {
-  width: 12rem;
+.song-init {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.edit-song-input {
+  width: 14rem;
   padding: 3px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.edit-song-init {
+  outline: none;
+  height: 2rem;
+  width: 15rem;
+  padding: 3px;
 }
 
 .save-button-edit-song {
@@ -30,11 +61,11 @@
   justify-content: space-between;
   align-content: center;
   margin: 10px 0 0 0;
+  padding: 0.8rem 1.2rem;
 }
 
 .save-button-song,
 .edit-song-cancel-button {
-  margin-top: 2px;
   padding: 8px 15px;
   cursor: pointer;
 }

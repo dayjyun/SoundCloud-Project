@@ -8,7 +8,7 @@
 
 .current-albums-wrapper {
   background: white;
-  padding: 0px 0px 120px;
+  padding: 0px 0px 10rem;
   display: flex;
   justify-content: center;
 }

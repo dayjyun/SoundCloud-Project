@@ -73,86 +73,75 @@ export default function UploadSongForm({ setShowUploadBtn }) {
     setSongUrl(songFile);
   };
 
-  const uploadImageFile = (e) => {
-    e.preventDefault()
-    const imageFile = e.target.files[0];
-    setPreviewImage(imageFile);
-  };
-
   return (
     <div className="upload-song-form-container">
-      <div className="upload-song-text">
-        <p>Add A New Track</p>
-      </div>
-      <div>
-        <h5>* fields are required</h5>
-      </div>
-      <form onSubmit={handleAlbumSubmit}>
-        <ul>
-          {Object.values(validationErrors).map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
-        <div className="upload-input">
-          <div className="upload-song">
-            <label htmlFor="title">Title*</label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              required
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="upload-song">
-            <label htmlFor="description">Description</label>
-            <input
-              type="text"
-              id="description"
-              name="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-          <div className="upload-song">
-            <label htmlFor="url">Audio*</label>
-            <input
-              type="file"
-              id="url"
-              name="url"
-              required
-              onChange={(e) => uploadSongFile(e)}
-            />
-          </div>
-          {/* <div className="upload-song">
-            <label htmlFor="previewImage">Image*</label>
-            <input
-              type="file"
-              id="previewImage"
-              name="previewImage"
-              required
-              onChange={(e) => uploadImageFile(e)}
-            />
-          </div> */}
-          <div className="save-button-upload-song">
-            <button
-              disabled={disableButton}
-              className="save-button-upload"
-              type="submit"
-            >
-              Submit
-            </button>
-            <button
-              disabled={disableButton}
-              className="upload-song-cancel-button"
-              onClick={handleCancelBtn}
-            >
-              Cancel
-            </button>
-          </div>
+      <div className="upload-song-form-box">
+        <div className="upload-song-text">
+          <p>Add A New Track</p>
         </div>
-      </form>
+        <div>
+          <h5>* fields are required</h5>
+        </div>
+        <form onSubmit={handleAlbumSubmit}>
+          <ul className="upload-song-form-errors">
+            {Object.values(validationErrors).map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+          <div className="upload-song-init">
+            <div className="upload-song-input">
+              <label htmlFor="title">Title*</label>
+              <input
+                className="upload-song-init-input"
+                type="text"
+                id="title"
+                name="title"
+                required
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <div className="upload-song-input">
+              <label htmlFor="description">Description</label>
+              <input
+                className="upload-song-init-input"
+                type="text"
+                id="description"
+                name="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            <div className="upload-song-input">
+              <label htmlFor="url">Audio*</label>
+              <input
+                className="upload-song-init-input"
+                type="file"
+                id="url"
+                name="url"
+                required
+                onChange={(e) => uploadSongFile(e)}
+              />
+            </div>
+            <div className="save-button-upload-song">
+              <button
+                disabled={disableButton}
+                className="save-button-upload"
+                type="submit"
+              >
+                Submit
+              </button>
+              <button
+                disabled={disableButton}
+                className="upload-song-cancel-button"
+                onClick={handleCancelBtn}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

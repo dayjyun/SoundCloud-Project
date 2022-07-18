@@ -9,7 +9,8 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const album = useSelector((state) => state.albums[`${albumId}`]);
-  const defaultImg = "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
+  const defaultImg =
+    "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
   const [validationErrors, setValidationErrors] = useState([]);
   const [title, setTitle] = useState(album.title);
   const [description, setDescription] = useState(album.description);
@@ -19,7 +20,7 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
   const handleAlbumFormSubmit = async (e) => {
     e.preventDefault();
     setValidationErrors([]);
-    setDisableButton(true)
+    setDisableButton(true);
 
     await dispatch(
       actions.editAlbum({
@@ -35,20 +36,14 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
       })
       .catch(async (res) => {
         const err = await res.json();
-        console.log(err.errors)
+        console.log(err.errors);
         if (err) {
           setValidationErrors(err.errors);
         }
       });
 
-      setDisableButton(false)
+    setDisableButton(false);
   };
-
-  const uploadImageFile = e => {
-    e.preventDefault()
-    const imageFile = e.target.files[0]
-    setPreviewImage(imageFile)
-  }
 
   const handleCancelBtn = (e) => {
     e.preventDefault();
@@ -58,59 +53,63 @@ export default function EditAlbumForm({ setShowAlbumEdit }) {
 
   return (
     <div className="edit-album-form-container">
-      <div className="edit-album-text">
-        <p>Edit Your Album</p>
-      </div>
-      <div>
-        <h5>* fields are required</h5>
-      </div>
-      <form onSubmit={handleAlbumFormSubmit}>
-        <ul>
-          {Object.values(validationErrors)?.map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
-        <div className="album-input">
-          <div className="enter-album">
-            <label htmlFor="title">Title*</label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              value={title}
-              required
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="enter-album">
-            <label htmlFor="description">Description</label>
-            <input
-              type="text"
-              id="description"
-              name="description"
-              placeholder="optional"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-          <div className="save-button-edit-album">
-            <button
-              disabled={disableButton}
-              className="save-button-album"
-              type="submit"
-            >
-              Save
-            </button>
-            <button
-              disabled={disableButton}
-              className="edit-album-cancel-button"
-              onClick={handleCancelBtn}
-            >
-              Cancel
-            </button>
-          </div>
+      <div className="edit-album-form-box">
+        <div className="edit-album-text">
+          <p>Edit Your Album</p>
         </div>
-      </form>
+        <div>
+          <h5>* fields are required</h5>
+        </div>
+        <form onSubmit={handleAlbumFormSubmit}>
+          <ul className="edit-album-errors">
+            {Object.values(validationErrors)?.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+          <div className="album-init">
+            <div className="edit-album-input">
+              <label htmlFor="title">Title*</label>
+              <input
+                className="edit-album-init"
+                type="text"
+                id="title"
+                name="title"
+                value={title}
+                required
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <div className="edit-album-input">
+              <label htmlFor="description">Description</label>
+              <input
+                className="edit-album-init"
+                type="text"
+                id="description"
+                name="description"
+                placeholder="optional"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            <div className="save-button-edit-album">
+              <button
+                disabled={disableButton}
+                className="save-button-album"
+                type="submit"
+              >
+                Save
+              </button>
+              <button
+                disabled={disableButton}
+                className="edit-album-cancel-button"
+                onClick={handleCancelBtn}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
