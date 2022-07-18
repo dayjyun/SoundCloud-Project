@@ -1,6 +1,8 @@
 .album-songs-container {
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     padding: 1rem 2rem;
     margin-bottom: 6rem;
 }
