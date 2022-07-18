@@ -102,14 +102,6 @@
   margin-top: 2px;
 }
 
-.demo,
-.demoBtn {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  margin: 10px 0 0 0;
-}
-
 .lp1,
 .lp2 {
   display: flex;
@@ -118,6 +110,14 @@
   font-size: 20px;
   line-height: 20px;
   padding: 0.2rem;
+}
+
+.demo,
+.demoBtn {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 0 0 0;
 }
 
 .demoUser {

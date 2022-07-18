@@ -101,11 +101,8 @@ function LoginForm() {
                 <p className="lp2">Try our Demo User!</p>
               </div>
               <div className="demoBtn">
-                <button
-                  className="demoUser"
-                  type="submit"
-                  onClick={handleDemoUser}
-                >
+                <button className="demoUser" type="submit"
+                  onClick={handleDemoUser}>
                   Demo User
                 </button>
               </div>
