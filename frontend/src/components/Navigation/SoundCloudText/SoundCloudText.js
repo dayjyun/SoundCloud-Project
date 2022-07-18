@@ -11,6 +11,4 @@ export default function SoundCloudText() {
       </div>
     </>
   );
-
-  // return <div className="soundCloudText">SoundCloud</div>;
 }
