@@ -17,7 +17,7 @@ To run the file
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
 
-Or you can checkout the website itself. Check it out!
+Or you can look through the website instead. Check it out!
 
 ## [SoundCloud Project](https://soundcloud-project-app.herokuapp.com/)
 
@@ -104,7 +104,7 @@ router.post("/", requireAuth, multipleFileKeysUpload([{ name: "url", maxCount: 1
 
 # Future Features
 
-Lastly, there's always room for more...
+Lastly, there's always room for more
 
 - Song and Album sorting methods (A-Z, length, likes)
 - CRUD actions for Playlists
