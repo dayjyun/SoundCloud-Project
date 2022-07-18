@@ -174,17 +174,7 @@ router.post(
 
 // Create a song
 
-router.post(
-  "/",
-  requireAuth,
-  multipleFileKeysUpload([
-    { name: "url", maxCount: 1 },
-    {
-      name: "imageUrl",
-      maxCount: 1,
-    },
-  ]),
-  validateSong,
+router.post("/", requireAuth, multipleFileKeysUpload([{ name: "url", maxCount: 1 }, { name: "imageUrl", maxCount: 1, }, ]), validateSong,
   async (req, res) => {
     const { user } = req;
     const { title, description } = req.body;
