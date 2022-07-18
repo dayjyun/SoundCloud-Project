@@ -22,7 +22,7 @@ export default function EditSongForm({ setShowSongEdit }) {
 
   const handleSongFormSubmit = async (e) => {
     e.preventDefault();
-    setDisableButton(true)
+    setDisableButton(true);
     setValidationErrors([]);
 
     await dispatch(
@@ -45,7 +45,7 @@ export default function EditSongForm({ setShowSongEdit }) {
           setValidationErrors(err.errors);
         }
       });
-      setDisableButton(false);
+    setDisableButton(false);
   };
 
   const handleCancelBtn = (e) => {
@@ -60,8 +60,8 @@ export default function EditSongForm({ setShowSongEdit }) {
         <div className="edit-song-text">
           <p>Edit Your Song</p>
         </div>
-        <div>
           <h5>* fields are required</h5>
+        <div>
         </div>
         <form onSubmit={handleSongFormSubmit}>
           <ul className="edit-song-errors">
