@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import * as actions from "../../../../store/albumReducer";
+import * as actions from "../../../../../store/albumReducer";
 import "./EditAlbumForm.css";
 
 export default function EditAlbumForm({ setShowAlbumEdit }) {

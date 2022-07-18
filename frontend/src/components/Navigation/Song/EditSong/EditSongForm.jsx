@@ -1,100 +1,87 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { getAllAlbums } from "../../../../store/albumReducer";
 import * as actions from "../../../../store/songReducer";
-import "./UploadSongForm.css";
+import "./EditSongForm.css";
 
-export default function UploadSongForm({ setShowUploadBtn }) {
-  const { albumId } = useParams();
+export default function EditSongForm({ setShowSongEdit }) {
+  const { songId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
+
   const user = useSelector((state) => state.session.user);
-  const albums = Object.values(useSelector((state) => state.albums));
-  const defaultImg = albums?.find(
-    (album) => album.id === +albumId
-  ).previewImage;
   const userId = user.id;
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [songUrl, setSongUrl] = useState("");
-  const [previewImage, setPreviewImage] = useState("");
+  const song = useSelector((state) => state.songs[`${songId}`]);
+
   const [validationErrors, setValidationErrors] = useState([]);
+  const [title, setTitle] = useState(song.title);
+  const [description, setDescription] = useState(song.description);
+  const [previewImage, setPreviewImage] = useState(song.previewImage);
+  const [url, setUrl] = useState(song.url);
   const [disableButton, setDisableButton] = useState(false);
 
-  useEffect(() => {
-    dispatch(getAllAlbums());
-  }, [dispatch]);
-
-  const handleAlbumSubmit = async (e) => {
+  const handleSongFormSubmit = async (e) => {
     e.preventDefault();
     setDisableButton(true)
     setValidationErrors([]);
 
     await dispatch(
-      actions.uploadSong(
-        {
-          userId,
-          title,
-          description,
-          imageUrl: previewImage || defaultImg,
-          url: songUrl,
-        },
-        albumId
-      )
+      actions.editSong({
+        id: songId,
+        title,
+        description,
+        imageUrl: previewImage,
+        url,
+        userId,
+      })
     )
       .then(() => {
-        setShowUploadBtn(false);
-        history.push(`/me`);
+        setShowSongEdit(false);
+        history.push(`/songs/${songId}`);
       })
       .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) {
-          setValidationErrors(data.errors);
+        const err = await res.json();
+        if (err) {
+          setValidationErrors(err.errors);
         }
       });
-
-    setTitle("");
-    setDescription("");
-    setSongUrl("");
-    setPreviewImage("");
-    setDisableButton(false)
+      setDisableButton(false);
   };
+
+  // const uploadSongFile = e => {
+  //   e.preventDefault();
+  //   const songFile = e.target.files[0];
+  //   setUrl(songFile);
+  // }
+
+  // const uploadImageFile = e => {
+  //   e.preventDefault()
+  //   const imageFile = e.target.files[0]
+  //   setPreviewImage(imageFile)
+  // }
 
   const handleCancelBtn = (e) => {
     e.preventDefault();
-    setShowUploadBtn(false);
-    history.push(`/albums/${albumId}`);
-  };
-
-  const uploadSongFile = (e) => {
-    e.preventDefault();
-    const songFile = e.target.files[0];
-    setSongUrl(songFile);
-  };
-
-  const uploadImageFile = (e) => {
-    e.preventDefault()
-    const imageFile = e.target.files[0];
-    setPreviewImage(imageFile);
+    setShowSongEdit(false);
+    history.push(`/songs/${songId}`);
   };
 
   return (
-    <div className="upload-song-form-container">
-      <div className="upload-song-text">
-        <p>Add A New Track</p>
+    <div className="edit-song-form-container">
+      <div className="edit-song-text">
+        <p>Edit Your Song</p>
       </div>
       <div>
         <h5>* fields are required</h5>
       </div>
-      <form onSubmit={handleAlbumSubmit}>
+      <form onSubmit={handleSongFormSubmit}>
         <ul>
           {Object.values(validationErrors).map((error) => (
             <li key={error}>{error}</li>
           ))}
         </ul>
-        <div className="upload-input">
-          <div className="upload-song">
+        <div className="song-input">
+          <div className="enter-song">
             <label htmlFor="title">Title*</label>
             <input
               type="text"
@@ -105,17 +92,18 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="upload-song">
+          <div className="enter-song">
             <label htmlFor="description">Description</label>
             <input
               type="text"
               id="description"
               name="description"
+              placeholder="optional"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div className="upload-song">
+          {/* <div className="enter-song">
             <label htmlFor="url">Audio*</label>
             <input
               type="file"
@@ -125,7 +113,7 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               onChange={(e) => uploadSongFile(e)}
             />
           </div>
-          {/* <div className="upload-song">
+          <div className="enter-song">
             <label htmlFor="previewImage">Image*</label>
             <input
               type="file"
@@ -135,17 +123,17 @@ export default function UploadSongForm({ setShowUploadBtn }) {
               onChange={(e) => uploadImageFile(e)}
             />
           </div> */}
-          <div className="save-button-upload-song">
+          <div className="save-button-edit-song">
             <button
               disabled={disableButton}
-              className="save-button-upload"
+              className="save-button-song"
               type="submit"
             >
-              Submit
+              Save
             </button>
             <button
               disabled={disableButton}
-              className="upload-song-cancel-button"
+              className="edit-song-cancel-button"
               onClick={handleCancelBtn}
             >
               Cancel

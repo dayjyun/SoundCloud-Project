@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Modal } from "../../../../context/Modal";
+import { Modal } from "../../../../../context/Modal";
 import EditAlbumForm from "./EditAlbumForm";
 import './EditAlbumBtn.css'
 

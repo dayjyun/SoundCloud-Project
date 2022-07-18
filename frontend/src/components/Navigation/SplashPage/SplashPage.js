@@ -1,6 +1,6 @@
-import LoginFormModal from "../../LoginFormModal";
-import SignUpFormModal from "../../SignupFormModal";
-import SoundCloudText from "../SoundCloudLogo/SoundCloudLogo";
+import SoundCloudLogo from "../SoundCloudLogo/SoundCloudLogo";
+import LoginFormModal from "./LoginFormModal";
+import SignUpFormModal from "./SignupFormModal";
 import "./SplashPage.css";
 
 export default function SplashPage() {
@@ -11,7 +11,7 @@ export default function SplashPage() {
           <div className="background-image-one">
             <div className="splash-nav">
               <div className="splash-nav-left">
-                <SoundCloudText />
+                <SoundCloudLogo />
               </div>
               <div className="splash-nav-right">
                 <LoginFormModal />

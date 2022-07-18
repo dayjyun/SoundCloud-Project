@@ -1,36 +1,34 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { newSong } from "../../../store/songReducer";
-import "./CreateSongComponent.css";
+import { createAlbum } from "../../../../store/albumReducer";
+import "./CreateAlbumComponent.css";
 
-export default function CreateSongComponent() {
+export default function CreateAlbumComponent() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const defaultSongImage =
+  const defaultAlbumImg =
     "https://soundcloudmisc.s3.us-east-2.amazonaws.com/Uknown+Album.png";
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [songUrl, setSongUrl] = useState("");
-  const [songImage, setSongImage] = useState("");
+  const [albumImage, setAlbumImage] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
   const [disableButton, setDisableButton] = useState(false);
 
-  const handleCreateSongButton = async (e) => {
+  const handleNewAlbumForm = async (e) => {
     e.preventDefault();
     setValidationErrors([]);
-    setDisableButton(true);
+    setDisableButton(true)
 
     await dispatch(
-      newSong({
+      createAlbum({
         title,
         description,
-        url: songUrl,
-        imageUrl: songImage || defaultSongImage,
+        imageUrl: albumImage || defaultAlbumImg,
       })
     )
       .then(() => {
-        history.push("/me");
+        history.push(`/me`);
       })
       .catch(async (res) => {
         const data = await res.json();
@@ -41,46 +39,35 @@ export default function CreateSongComponent() {
 
     setTitle("");
     setDescription("");
-    setSongImage("");
-    setValidationErrors([]);
+    setAlbumImage("");
+    setValidationErrors([])
     setDisableButton(false);
   };
-
-  const uploadAudioFile = e => {
-    e.preventDefault()
-    const songFile = e.target.files[0]
-    setSongUrl(songFile);
-  }
 
   const uploadImageFile = (e) => {
     e.preventDefault();
     const imageFile = e.target.files[0];
-    setSongImage(imageFile);
+    setAlbumImage(imageFile);
   };
 
   const handleCancelBtn = (e) => {
     e.preventDefault();
-    history.push("/songs");
+    history.push('/albums')
   };
 
   return (
-    <div className="create-song-component-box">
-      <div className="create-song-component">
+    <div className="create-album-component-box">
+      <div className="create-album-component">
         <div>
           <h1>Create Something New</h1>
-          <h4>New Song</h4>
+          <h4>New Album</h4>
         </div>
-        <form onSubmit={handleCreateSongButton}>
-          <ul>
-            {Object.values(validationErrors).map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
-          <div className="create-song-details">
-            <div className="create-song-box">
-              <label htmlFor="title">Song Title*</label>
+        <form onSubmit={handleNewAlbumForm}>
+          <div className="create-album-details">
+            <div className="create-album-box">
+              <label htmlFor="title">Album Title*</label>
               <input
-                className="create-song-input"
+                className="create-album-input"
                 type="text"
                 id="title"
                 name="title"
@@ -89,10 +76,10 @@ export default function CreateSongComponent() {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
-            <div className="create-song-box">
+            <div className="create-album-box">
               <label htmlFor="description">Description</label>
               <input
-                className="create-song-input"
+                className="create-album-input"
                 type="text"
                 id="description"
                 name="description"
@@ -100,21 +87,10 @@ export default function CreateSongComponent() {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
-            <div className="create-song-box">
-              <label htmlFor="audio">Audio File*</label>
+            <div className="create-album-box">
+              <label htmlFor="image">Image File*</label>
               <input
-                className="create-song-input"
-                type="file"
-                id="audio"
-                name="audio"
-                required
-                onChange={(e) => uploadAudioFile(e)}
-              />
-            </div>
-            <div className="create-song-box">
-              <label htmlFor="Audio Image">Image File*</label>
-              <input
-                className="create-song-input"
+                className="create-album-input"
                 type="file"
                 id="image"
                 name="image"
@@ -123,17 +99,17 @@ export default function CreateSongComponent() {
               />
             </div>
           </div>
-          <div className="create-song-buttons">
+          <div className="create-album-buttons">
             <button
               disabled={disableButton}
-              className="create-song-button"
+              className="create-album-button"
               type="submit"
             >
               Save
             </button>
             <button
               disabled={disableButton}
-              className="create-song-cancel-button"
+              className="create-album-cancel-button"
               onClick={handleCancelBtn}
             >
               Cancel

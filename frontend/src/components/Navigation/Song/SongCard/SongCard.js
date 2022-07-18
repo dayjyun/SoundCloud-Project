@@ -2,8 +2,8 @@ import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { playSong } from "../../../store/playerReducer";
-import { getAllSongs } from "../../../store/songReducer";
+import { playSong } from "../../../../store/playerReducer";
+import { getAllSongs } from "../../../../store/songReducer";
 
 import "react-h5-audio-player/lib/styles.css";
 import "./SongCard.css";

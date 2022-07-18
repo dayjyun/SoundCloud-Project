@@ -1,12 +1,12 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { deleteSong, getSong } from "../../../store/songReducer";
+import { deleteSong, getSong } from "../../../../store/songReducer";
 import EditSongBtn from "../EditSong/EditSongBtn";
 import "./SongDetails.css";
 
 import "react-h5-audio-player/lib/styles.css";
-import { playSong } from "../../../store/playerReducer";
+import { playSong } from "../../../../store/playerReducer";
 
 function SongDetails() {
   const { songId } = useParams();

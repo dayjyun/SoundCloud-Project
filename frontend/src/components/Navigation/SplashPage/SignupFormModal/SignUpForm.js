@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
-import * as sessionActions from "../../store/sessionReducer";
+import * as sessionActions from "../../../../store/sessionReducer";
 import "./SignUpForm.css";
 
 function SignupFormPage() {

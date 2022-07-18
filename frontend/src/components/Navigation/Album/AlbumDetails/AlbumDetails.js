@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { deleteAlbum, getAlbum } from "../../../store/albumReducer";
+import { deleteAlbum, getAlbum } from "../../../../store/albumReducer";
 import EditAlbumBtn from "./EditAlbum/EditAlbumBtn";
 import UploadSongBtn from "./UploadSong/UploadSongBtn";
 import AlbumSongsLoader from "./AlbumSongsLoader/AlbumSongsLoader";
