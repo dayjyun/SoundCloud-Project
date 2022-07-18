@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deleteAlbum, getAlbum } from "../../../store/albumReducer";
-import EditAlbumBtn from "./EditAlbumBtn/EditAlbumBtn";
+import EditAlbumBtn from "./EditAlbum/EditAlbumBtn";
 import UploadSongBtn from "./UploadSong/UploadSongBtn";
-import "./AlbumDetails.css";
 import AlbumSongsLoader from "./AlbumSongsLoader/AlbumSongsLoader";
+import "./AlbumDetails.css";
 
 export default function AlbumDetails() {
   const { albumId } = useParams();

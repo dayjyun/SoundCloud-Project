@@ -1,6 +1,6 @@
 import LoginFormModal from "../../LoginFormModal";
 import SignUpFormModal from "../../SignupFormModal";
-import SoundCloudText from "../SoundCloudText/SoundCloudText";
+import SoundCloudText from "../SoundCloudLogo/SoundCloudLogo";
 import "./SplashPage.css";
 
 export default function SplashPage() {

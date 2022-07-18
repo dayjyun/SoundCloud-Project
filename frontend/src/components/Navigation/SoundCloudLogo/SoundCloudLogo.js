@@ -1,6 +1,6 @@
-import "./SoundCloudText.css";
+import "./SoundCloudLogo.css";
 
-export default function SoundCloudText() {
+export default function SoundCloudLogo() {
   return (
     <>
       <div className="soundcloud-image-box" >
