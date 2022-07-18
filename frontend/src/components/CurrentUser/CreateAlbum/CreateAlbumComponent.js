@@ -56,7 +56,7 @@ export default function CreateAlbumComponent() {
   };
 
   return (
-    <>
+    <div className="create-album-component-box">
       <div className="create-album-component">
         <div>
           <h1>Create Something New</h1>
@@ -64,7 +64,7 @@ export default function CreateAlbumComponent() {
         </div>
         <form onSubmit={handleNewAlbumForm}>
           <div className="create-album-details">
-            <div>
+            <div className="create-album-box">
               <label htmlFor="title">Album Title*</label>
               <input
                 className="create-album-input"
@@ -76,7 +76,7 @@ export default function CreateAlbumComponent() {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
-            <div>
+            <div className="create-album-box">
               <label htmlFor="description">Description</label>
               <input
                 className="create-album-input"
@@ -87,7 +87,7 @@ export default function CreateAlbumComponent() {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
-            <div>
+            <div className="create-album-box">
               <label htmlFor="image">Image File*</label>
               <input
                 className="create-album-input"
@@ -117,6 +117,6 @@ export default function CreateAlbumComponent() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }
