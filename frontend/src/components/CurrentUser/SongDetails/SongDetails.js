@@ -22,9 +22,12 @@ function SongDetails() {
     dispatch(getSong(+songId));
   }, [dispatch, songId]);
 
-  const songBtn = useCallback(song => {
-    dispatch(playSong(song))
-  }, [dispatch])
+  const songBtn = useCallback(
+    (song) => {
+      dispatch(playSong(song));
+    },
+    [dispatch]
+  );
 
   const handleSongDelete = (e) => {
     e.preventDefault();
@@ -60,17 +63,6 @@ function SongDetails() {
               src={song?.previewImage}
               alt={song?.title}
             />
-            <div
-              className="sd-play-action-overlay"
-              onClick={() => songBtn(song)}
-            >
-              <button
-                className="play-button-currentSong"
-                onClick={() => songBtn(song)}
-              >
-                <i className={"fas fa-play"}></i>
-              </button>
-            </div>
           </div>
           <div className="song-info-right song-info-div">
             <div className="song-info-header">
@@ -89,6 +81,15 @@ function SongDetails() {
             </div>
           </div>
         </div>
+        <div className="play-button-box">
+        <div className="song-details-play-action-overlay" onClick={() => songBtn(song)}>
+          <button
+            className="play-button-currentSong-song-details"
+            onClick={() => songBtn(song)}
+            >Play Song
+          </button>
+        </div>
+            </div>
       </div>
     </>
   );

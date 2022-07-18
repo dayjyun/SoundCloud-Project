@@ -85,7 +85,29 @@
   color: #ff5501;
 }
 
-.sd-play-action-overlay {
+.play-button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* outline: 3px solid red; */
+}
+
+.play-button-currentSong-song-details {
+  cursor: pointer;
+    border-style: none;
+    padding: 8px 25px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    background-color: rgba(100, 100, 100, 0.562);
+    color: white;
+}
+
+.play-button-currentSong-song-details:hover {
+  background-color: rgba(36, 36, 36, 0.562);
+}
+
+.song-details-play-action-overlay {
   display: flex;
   justify-content: center;
   align-items: center;
