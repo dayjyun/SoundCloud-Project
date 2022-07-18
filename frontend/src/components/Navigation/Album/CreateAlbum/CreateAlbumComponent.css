@@ -32,6 +32,12 @@
     padding: 2px 0;
 }
 
+.create-album-form-errors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .create-album-input {
   display: flex;
   justify-content: flex-start;
