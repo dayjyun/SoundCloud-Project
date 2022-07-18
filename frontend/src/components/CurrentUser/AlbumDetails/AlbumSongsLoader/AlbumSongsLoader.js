@@ -10,20 +10,20 @@ export default function AlbumSongsLoader() {
 
   return (
     <>
-      <h1>Album Songs</h1>
-      <div className="album-songs-container">
-        {albumSong.map((song) => (
-          <button
-            onClick={(e) => history.push(`/songs/${song.id}`)}
-            key={song.id}
-            className="album-songs-list"
-          >
-            <Link to={`/songs/${song.id}`}>
-              <div className="album-songs-title">{song.title}</div>
-            </Link>
-          </button>
-        ))}
-      </div>
+        <h1>Album Songs</h1>
+        <div className="album-songs-container">
+          {albumSong.map((song) => (
+            <button
+              onClick={(e) => history.push(`/songs/${song.id}`)}
+              key={song.id}
+              className="album-songs-list"
+            >
+              <Link to={`/songs/${song.id}`}>
+                <div className="album-songs-title">{song.title}</div>
+              </Link>
+            </button>
+          ))}
+        </div>
     </>
   );
 }

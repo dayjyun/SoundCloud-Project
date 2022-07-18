@@ -1,8 +1,8 @@
 .album-songs-container {
     display: grid;
     grid-template-columns: repeat(3, 2fr);
-    text-align: center;
     padding: 1rem 2rem;
+    margin-bottom: 6rem;
 }
 
 .album-songs-list {
@@ -13,6 +13,9 @@
     cursor: pointer;
     height: 2rem;
     width: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .album-songs-list:hover {
@@ -21,6 +24,9 @@
 
 .album-songs-title {
     color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .album-songs-title:hover {
