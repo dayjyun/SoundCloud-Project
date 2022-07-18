@@ -54,8 +54,7 @@ function SongDetails() {
     <>
       <div className="song-detail-container">
         <div className="song-info song-info-div">
-          <div className="song-details-left song-details-div">
-            <div></div>
+          <div className="song-info-left song-info-div">
             <img
               className="song-image-detail song-info-div"
               src={song?.previewImage}

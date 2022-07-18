@@ -55,7 +55,7 @@ export default function AlbumDetails() {
               alt={album?.title}
             />
           </div>
-          <div className="album-info-right song-info-div">
+          <div className="album-info-right album-info-div">
             <div className="album-info-header">
               <h1>{album?.title}</h1>
               <h2>by {album?.Artist?.username}</h2>
