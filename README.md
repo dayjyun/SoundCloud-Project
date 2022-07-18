@@ -1,14 +1,16 @@
 <!-- To be filled out -->
 # SoundCloud Project
 
-The SoundCloud Project is a web application designed to replicate some functionalities found in [SoundCloud](SoundCloud.com).
+The SoundCloud Project is a web application designed to replicate some functionalities found in [SoundCloud](https://soundcloud.com/).
 
 Sign-up, login, or try out a Demo user. The repo is your playground.
 Once inside, you'll be able to upload songs and hear works submitted by other users. Design your unique cover images to stand out and represent your creativity.
 
+***Explore, listen, and create.***
+
 To run the file
 
-1. Create an *AWS S3* bucket through [AWS](aws.amazon.com)
+1. Create an *AWS S3* bucket through [AWS](https://aws.amazon.com/)
 2. Create a .env file and make sure to have these components filled out
     - PORT
     - DB_FILE
@@ -21,7 +23,6 @@ Or you can look through the website instead. Check it out!
 
 ## [SoundCloud Project](https://soundcloud-project-app.herokuapp.com/)
 
-***Explore, listen, and create.***
 
 # Tech
 
@@ -79,7 +80,10 @@ It's hard to image the much work put into something that seems rather fundamenta
 Backend:
 
 ```
-router.post("/", requireAuth, multipleFileKeysUpload([{ name: "url", maxCount: 1 }, { name: "imageUrl", maxCount: 1, }, ]), validateSong,
+router.post("/", requireAuth, multipleFileKeysUpload([
+{ name: "url", maxCount: 1 },
+{ name: "imageUrl", maxCount: 1, }, ]),
+validateSong,
   async (req, res) => {
     const { user } = req;
     const { title, description } = req.body;
