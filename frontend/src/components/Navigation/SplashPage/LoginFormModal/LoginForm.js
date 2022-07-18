@@ -63,8 +63,8 @@ function LoginForm() {
                 ))}
               </ul>
             </div>
-            <div className="user-login">
-              <div className="init">
+            <div className="login-init">
+              <div className="login-input">
                 <input
                   type="text"
                   className="init-credential"
@@ -74,7 +74,7 @@ function LoginForm() {
                   required
                 />
               </div>
-              <div className="init">
+              <div className="login-input">
                 <input
                   type="password"
                   className="init-password"

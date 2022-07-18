@@ -1,21 +1,3 @@
-.signup-modal-container {
-  padding: 1.2rem;
-}
-
-.sp1,
-.sp2 {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  font-family: sans-serif;
-}
-
-.init-signup {
-  width: 12rem;
-  padding: 3px;
-}
-
 .signUpBtn {
   background-color: #ff5501;
   border: 1px solid #ff5501;
@@ -30,27 +12,71 @@
   cursor: pointer;
 }
 
-.signUpText {
-  display: grid;
+/* modal */
+.signup-modal-container {
+  outline: 2px solid white;
+  border-style: none;
+  border-radius: 4px;
+  height: 25rem;
+  width: 20rem;
+  display: flex;
   justify-content: center;
-  align-content: center;
-  margin: 10px 0;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.signUpInput {
-  margin: 6px 0px 0px;
-  padding: 10px;
-  display: grid;
+.signup-modal-box {
+  padding: 1.2rem;
+}
+
+.signup-text {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin: 10px;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.signup-errors {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.signUpModal {
+.signup-init {
+  padding: 1rem;
   display: flex;
   justify-content: center;
-  align-content: center;
-  margin: 8px 0;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup-input {
+  width: 15rem;
   padding: 3px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.init-signup {
+  outline: none;
+  height: 2rem;
+  width: 30rem;
+  padding: 3px;
+}
+
+.sp1,
+.sp2 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-family: sans-serif;
 }
 
 .signUpBtnModal {
@@ -63,8 +89,4 @@
   font-family: sans-serif;
   white-space: nowrap;
   cursor: pointer;
-}
-
-.input {
-  padding: 7px 8px;
 }
