@@ -1,12 +1,14 @@
-.soundCloudText {
-  background: black;
-  border-style: none;
-  color: white;
-  padding: 4px 15px;
-  font-size: 14px;
-  white-space: nowrap;
-  font-family: sans-serif;
+.soundcloud-image-box {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  padding: 0 1em;
+}
+
+.soundcloud-logo-image {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 2em;
 }
