@@ -4,13 +4,19 @@
     align-items: center;
     flex-direction: column;
     padding: 1rem;
+    /* margin: 0 4rem; */
+}
+
+.album-info {
+    margin: 0 8rem;
 }
 
 .album-info-div {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    /* padding: 40px; */
+    padding: 1.5rem 0;
 }
 
 .album-image-detail {
@@ -18,8 +24,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 6px;
-    height: 25em;
-    width: 25em;
+    max-height: 60%;
+    max-width: 60%;
 }
 
 .album-info-right {
@@ -36,6 +42,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
     padding: 12px;
 }
 
