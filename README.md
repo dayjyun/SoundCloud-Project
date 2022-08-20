@@ -74,7 +74,7 @@ Here are the things that you can do:
     - Choose a song to listen to from your library or from songs uploaded by other artists
 
 
-# Teach
+# Tech
 It's hard to image the much work put into something that seems rather fundamental. One of the codes that was fun to work on was creating a stand-alone song that doesn't rely on being part of an album, as songs can be released as singles without being part of a whole idea.
 
 Backend:
@@ -110,7 +110,7 @@ validateSong,
 
 Lastly, there's always room for more...
 
-- Song and Album sorting methods (A-Z, length, likes)
+[-] Song and Album sorting methods (A-Z, length, likes)
 - CRUD actions for Playlists
 - CRUD actions for song Comments
 - Likes
