@@ -110,7 +110,7 @@ validateSong,
 
 Lastly, there's always room for more...
 
-[x] Song and Album sorting methods (A-Z, length, likes)
+[ x ] Song and Album sorting methods (A-Z, length, likes)
 - CRUD actions for Playlists
 - CRUD actions for song Comments
 - Likes
