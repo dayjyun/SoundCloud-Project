@@ -110,10 +110,10 @@ validateSong,
 
 Lastly, there's always room for more...
 
-[ x ] Song and Album sorting methods (A-Z, length, likes)
-- CRUD actions for Playlists
-- CRUD actions for song Comments
-- Likes
-- Search artists
-- Establish genre parameters
-- Second step to confirm song deletion
+- [x] Song and Album sorting methods (A-Z, length, likes)
+- [x] CRUD actions for Playlists
+- [x] CRUD actions for song Comments
+- [x] Likes
+- [x] Search artists
+- [x] Establish genre parameters
+- [x] Second step to confirm song deletion
