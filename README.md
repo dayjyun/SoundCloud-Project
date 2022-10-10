@@ -11,7 +11,7 @@ Once inside, you'll be able to upload songs and hear works submitted by other us
 To run the file
 
 1. Create an *AWS S3* bucket through [AWS](https://aws.amazon.com/)
-2. Create a .env file and make sure to have these components filled out
+2. Create an .env file and make sure to have these components filled out
     - PORT
     - DB_FILE
     - JWT_SECRET
