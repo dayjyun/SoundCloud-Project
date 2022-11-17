@@ -21,7 +21,7 @@ To run the file
 
 Or you can look through the website instead. Check it out!
 
-## [SoundCloud Project](https://soundcloud-project-app.herokuapp.com/)
+## [SoundCloud Project](https://soundcloud-project.onrender.com)
 
 
 # Tech
@@ -117,4 +117,3 @@ Lastly, there's always room for more...
 - [ ] Search artists
 - [ ] Establish genre parameters
 - [ ] Second step to confirm song deletion
-
