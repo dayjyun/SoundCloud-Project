@@ -1,14 +1,9 @@
-.soundcloud-image-box {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  padding: 0 1em;
+.default {
+  height: auto;
+  max-width: 100%;
 }
 
-.soundcloud-logo-image {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  height: 2em;
+.navbar {
+  height: auto;
+  max-width: 3%;
 }
