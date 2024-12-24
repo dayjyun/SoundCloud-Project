@@ -28,5 +28,10 @@
   "homepage": "https://github.com/dayjyun/SoundCloud-Project#readme",
   "dependencies": {
     "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "sass": "^1.83.0",
+    "sass-loader": "^16.0.4",
+    "scss": "^0.2.4"
   }
 }
