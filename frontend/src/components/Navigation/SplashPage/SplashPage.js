@@ -1,8 +1,9 @@
 import SoundCloudLogo from "../SoundCloudLogo/SoundCloudLogo";
-import LoginFormModal from "./LoginFormModal";
-import {Navbar} from "./Navbar/Navbar.js";
+import { LoginButton } from "./Login/index.js";
+import { Navbar } from "./Navbar/Navbar.js";
+import { SignupButton } from "./Signup/index.js";
+// import { SignupModal } from "./Signup/index.js";
 
-import SignUpFormModal from "./SignupFormModal";
 import "./SplashPage.css";
 
 export default function SplashPage() {
@@ -60,14 +61,14 @@ export default function SplashPage() {
         </div>
         <div className="closer">
           <div className="splash-signup-button-bottom">
-            <SignUpFormModal />
+            <SignupButton context="footer" />
           </div>
           <div className="splash-login">
             <div>
               <p className="splash-login-text">Already have an account?</p>
             </div>
             <div>
-              <LoginFormModal />
+              <LoginButton />
             </div>
           </div>
         </div>

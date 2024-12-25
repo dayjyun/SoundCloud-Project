@@ -2,9 +2,10 @@
     border: 2px solid red;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     .navbar-buttons {
-        border: 2px solid green;
         display: flex;
+        gap: 10px;
     }
 }

@@ -1,15 +1,21 @@
-.signUpBtn {
+.signup-button {
   background-color: #ff5501;
   border: 1px solid #ff5501;
   color: white;
   border-radius: 3px;
-  padding: 4px 26px;
   font-size: 14px;
-  line-height: 20px;
-  white-space: nowrap;
   font-family: sans-serif;
-  text-align: center;
   cursor: pointer;
+}
+
+.signup-navbar {
+  padding: 0 23px;
+}
+
+.signup-footer {
+  font-size: 18px;
+  min-width: 200px;
+  padding: 13px 23px;
 }
 
 /* modal */
@@ -25,15 +31,12 @@
 }
 
 .signup-text {
-  /* outline: 2px solid red; */
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   white-space: nowrap;
   color: #333;
-  /* margin: 10px; */
-  /* font-size: 1.5rem; */
 }
 
 .sp1,
@@ -94,7 +97,5 @@
   font-size: 14px;
   font-family: sans-serif;
   white-space: nowrap;
-  cursor: pointer;
-  padding: 0.8rem 1.2rem;
   cursor: pointer;
 }

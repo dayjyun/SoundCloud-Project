@@ -1,16 +1,16 @@
-import SoundCloudLogo from "../../SoundCloudLogo/SoundCloudLogo"
-import LoginFormModal from "../LoginFormModal"
-import SignUpFormModal from "../SignupFormModal"
-import "./Navbar.scss"
+import SoundCloudLogo from "../../SoundCloudLogo/SoundCloudLogo";
+import { LoginButton } from "../Login";
+import { SignupButton } from "../Signup";
+import "./Navbar.scss";
 
 export const Navbar = () => {
-    return (
-        <div className="navbar-main">
-            <SoundCloudLogo className={"navbar"}/>
-            <div className="navbar-buttons">
-                <LoginFormModal />
-                <SignUpFormModal />
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="navbar-main">
+      <SoundCloudLogo className={"navbar"} />
+      <div className="navbar-buttons">
+        <LoginButton />
+        <SignupButton context="navbar" />
+      </div>
+    </div>
+  );
+};
