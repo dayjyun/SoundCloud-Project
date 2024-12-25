@@ -7,7 +7,7 @@ export const Navbar = () => {
     return (
         <div className="navbar-main">
             <SoundCloudLogo className={"navbar"}/>
-            <div>
+            <div className="navbar-buttons">
                 <LoginFormModal />
                 <SignUpFormModal />
             </div>

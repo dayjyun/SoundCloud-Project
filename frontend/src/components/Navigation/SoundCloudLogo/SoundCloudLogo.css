@@ -1,9 +1,16 @@
+.navbar-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .default {
   height: auto;
   max-width: 100%;
 }
 
 .navbar {
+  max-width: 100%;
+  max-height: 50px;
   height: auto;
-  max-width: 3%;
 }

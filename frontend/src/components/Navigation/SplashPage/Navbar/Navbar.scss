@@ -1,3 +1,10 @@
 .navbar-main {
     border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+
+    .navbar-buttons {
+        border: 2px solid green;
+        display: flex;
+    }
 }
