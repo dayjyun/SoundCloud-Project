@@ -1,7 +1,7 @@
 import SoundCloudLogo from "../SoundCloudLogo/SoundCloudLogo";
-import { LoginButton } from "./Login/index.js";
+import { LoginButton } from "./Login/LoginButton.js";
 import { Navbar } from "./Navbar/Navbar.js";
-import { SignupButton } from "./Signup/index.js";
+import { SignupButton } from "./Signup/SignupButton.js";
 // import { SignupModal } from "./Signup/index.js";
 
 import "./SplashPage.css";

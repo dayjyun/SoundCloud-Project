@@ -1,6 +1,6 @@
 import SoundCloudLogo from "../../SoundCloudLogo/SoundCloudLogo";
-import { LoginButton } from "../Login";
-import { SignupButton } from "../Signup";
+import { LoginButton } from "../Login/LoginButton.js";
+import { SignupButton } from "../Signup/SignupButton.js";
 import "./Navbar.scss";
 
 export const Navbar = () => {
