@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../../../store/sessionReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
-import "./LoginForm.css";
+import "./Login.css";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
