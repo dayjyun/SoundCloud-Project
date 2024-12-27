@@ -3,22 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/sessionReducer";
 
-import Navigation from "./components/Navigation";
+import Navigation from "./components";
 
-import MediaLinks from "./components/Navigation/LoggedIn/MediaLinks/MediaLinks";
-import UploadLinks from "./components/Navigation/LoggedIn/UploadLinks/UploadLinks";
-import AllSongsLoader from "./components/Navigation/LoggedIn/AllSongsLibrary/AllSongsLoader";
-import AllAlbumsLoader from "./components/Navigation/LoggedIn/AllAlbumsLibrary/AllAlbumsLoader";
+import MediaLinks from "./components/LoggedIn/MediaLinks/MediaLinks";
+import UploadLinks from "./components/LoggedIn/UploadLinks/UploadLinks";
+import AllSongsLoader from "./components/LoggedIn/AllSongsLibrary/AllSongsLoader";
+import AllAlbumsLoader from "./components/LoggedIn/AllAlbumsLibrary/AllAlbumsLoader";
 
-import CreateAlbumComponent from "./components/Navigation/Album/CreateAlbum/CreateAlbumComponent";
-import AlbumCard from "./components/Navigation/Album/AlbumCard/AlbumCard";
-import AlbumDetails from "./components/Navigation/Album/AlbumDetails/AlbumDetails";
+import CreateAlbumComponent from "./components/Album/CreateAlbum/CreateAlbumComponent";
+import AlbumCard from "./components/Album/AlbumCard/AlbumCard";
+import AlbumDetails from "./components/Album/AlbumDetails/AlbumDetails";
 
-import CreateSongComponent from "./components/Navigation/Song/CreateSong/CreateSongComponent";
-import SongCard from "./components/Navigation/Song/SongCard/SongCard";
-import SongDetails from "./components/Navigation/Song/SongDetails/SongDetails";
+import CreateSongComponent from "./components/Song/CreateSong/CreateSongComponent";
+import SongCard from "./components/Song/SongCard/SongCard";
+import SongDetails from "./components/Song/SongDetails/SongDetails";
 
-import ErrorPage from "./components/Navigation/ErrorPage/ErrorPage";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
   const dispatch = useDispatch();
