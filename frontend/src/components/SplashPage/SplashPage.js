@@ -1,8 +1,9 @@
+import { Carousel } from "../../context/Carousel/Carousel.tsx";
 import SoundCloudLogo from "../SoundCloudLogo/SoundCloudLogo";
 import { LoginButton } from "./Login/LoginButton.js";
 import { Navbar } from "./Navbar/Navbar.js";
 import { SignupButton } from "./Signup/SignupButton.js";
-// import { SignupModal } from "./Signup/index.js";
+import images from "../../store/json/images.json"
 
 import "./SplashPage.css";
 
@@ -29,6 +30,7 @@ export default function SplashPage() {
           </div>
         </div> */}
         <Navbar />
+        <Carousel images={images.carousel} />
         <div className="splash-component">
           <div className="splash-text">
             <div className="splash-text-card">
